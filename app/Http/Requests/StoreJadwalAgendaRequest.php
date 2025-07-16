@@ -1,0 +1,39 @@
+<?php
+
+namespace App\Http\Requests;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class StoreJadwalAgendaRequest extends FormRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     */
+    public function authorize(): bool
+    {
+        return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     */
+    public function rules(): array
+    {
+        return [
+            'nama_agenda' => 'required',
+            'jadwal_pelaksanaan' => 'required',
+            'foto_absen' => 'required',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'nama_agenda.required' => 'Kolom nama agenda harus di isi.',
+            'jadwal_pelaksanaan.required' => 'Kolom jadwal pelaksanaan harus di isi.',
+            'foto_absen.required' => 'Kolom foto absen harus di isi.',
+        ];
+    }
+}
