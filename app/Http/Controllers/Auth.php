@@ -45,6 +45,12 @@ class Auth extends BaseController
         return redirect()->route('login.login-akun')->with('success', 'Berhasil Logout');
     }
 
+    public function register()
+    {
+        $module = 'Register Penghuni';
+        return view('auth.register', compact('module'));
+    }
+
     public function store(RegisterPenghuni $store)
     {
         $newFoto = '';
