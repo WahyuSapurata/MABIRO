@@ -14,7 +14,7 @@
         content="product mockup template, digital product mockup, marketplace mockup design, sell mockup templates, professional product mockups, digital goods mockup, mockup for creators, product presentation template, high-quality mockup designs, downloadable mockup templates, creative product mockups, mockup marketplace template, sell digital mockups, product display templates, mockup design for entrepreneurs, digital asset mockups, customizable mockup templates, premium mockup designs, mockup for digital products, product visualization templates">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="shortcut icon" href="{{ asset('Favicon.png') }}" />
+    <link rel="shortcut icon" href="{{ asset('assets-landing/img/favicon.png') }}" type="image/x-icon">
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Kilq - Professional Product Mockup Template for Digital Goods" />
@@ -99,7 +99,8 @@
                             <div class="app-sidebar-logo-minimize">
                                 <div class="d-flex align-items-center">
                                     @if (auth()->user()->foto == null || auth()->user()->foto == '')
-                                        <img alt="Logo" src="{{ asset('Favicon.png') }}" class="h-30px" />
+                                        <img alt="Logo" src="{{ asset('assets-landing/img/favicon.png') }}"
+                                            class="h-30px" />
                                     @else
                                         <img class="h-30px w-30px rounded-circle"
                                             src="{{ asset('/public/pengguna/' . auth()->user()->foto) }}"

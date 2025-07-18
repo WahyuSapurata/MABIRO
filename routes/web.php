@@ -18,11 +18,37 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
     Route::get('/', 'Beranda@index')->name('beranda');
 
+    Route::get('/register-penghuni', 'Auth@register')->name('register-penghuni');
+    Route::post('/register-penghuni-add', 'Auth@store')->name('register-penghuni-add');
+
+    Route::get('/selayang-pandang', 'Tentang@selayang_pandang')->name('selayang-pandang');
+    Route::get('/pengelola', 'Tentang@pengelola')->name('pengelola');
+    Route::get('/program', 'Tentang@program')->name('program');
+    Route::get('/fasilitas', 'Tentang@fasilitas')->name('fasilitas');
+
+    Route::get('/agenda', 'JadwalAgendaController@agenda')->name('agenda');
+
+    Route::get('/buku-tamu', 'DataTamuController@buku_tamu')->name('buku-tamu');
+    Route::post('/data-tamu-add', 'DataTamuController@store')->name('data-tamu-add');
+
+    Route::get('/peminjaman', 'DataPeminjamanController@peminjaman')->name('peminjaman');
+    Route::post('/peminjaman-add', 'DataPeminjamanController@store')->name('peminjaman-add');
+
+    Route::get('/keluhan', 'KeluhanController@keluhan')->name('keluhan');
+    Route::post('/keluhan-add', 'KeluhanController@store')->name('keluhan-add');
+
+    Route::get('/rekap', 'Laporan@rekap')->name('rekap');
+    Route::get('/rekap-get/{params}', 'Laporan@get')->name('rekap-get');
+
+    Route::get('/inventaris', 'DataInventarisController@inventaris')->name('inventaris');
+
+    Route::get('/arsip', 'ArsipDokumenController@arsip')->name('arsip');
+
+    Route::get('/kontak', 'Kontak@index')->name('kontak');
+
     Route::group(['prefix' => 'login', 'middleware' => ['guest'], 'as' => 'login.'], function () {
         Route::get('/login-akun', 'Auth@show')->name('login-akun');
         Route::post('/login-proses', 'Auth@login_proses')->name('login-proses');
-
-        Route::post('/register-penghuni', 'Auth@store')->name('register-penghuni');
     });
 
     Route::group(['prefix' => 'biro', 'middleware' => ['auth'], 'as' => 'biro.'], function () {
@@ -79,10 +105,6 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
             Route::get('/rekap-pembayaran-show/{params}', 'RekapPembayaranController@show')->name('rekap-pembayaran-show');
             Route::post('/rekap-pembayaran-update/{params}', 'RekapPembayaranController@update')->name('rekap-pembayaran-update');
             Route::delete('/rekap-pembayaran-delete/{params}', 'RekapPembayaranController@delete')->name('rekap-pembayaran-delete');
-
-            Route::get('/laporan', 'Laporan@index')->name('laporan');
-            Route::get('/laporan-get/{params}', 'Laporan@get')->name('laporan-get');
-            Route::get('/laporan-export/{params}', 'Laporan@export_to_excel')->name('laporan-export');
         });
 
         Route::prefix('inventaris')->group(function () {
@@ -108,12 +130,37 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
             Route::delete('/arsip-dokumen-delete/{params}', 'ArsipDokumenController@delete')->name('arsip-dokumen-delete');
         });
 
-        Route::get('/jadwal-agenda', 'JadwalAgendaController@index')->name('jadwal-agenda');
-        Route::get('/jadwal-agenda-get', 'JadwalAgendaController@get')->name('jadwal-agenda-get');
-        Route::post('/jadwal-agenda-store', 'JadwalAgendaController@store')->name('jadwal-agenda-store');
-        Route::get('/jadwal-agenda-show/{params}', 'JadwalAgendaController@show')->name('jadwal-agenda-show');
-        Route::post('/jadwal-agenda-update/{params}', 'JadwalAgendaController@update')->name('jadwal-agenda-update');
-        Route::delete('/jadwal-agenda-delete/{params}', 'JadwalAgendaController@delete')->name('jadwal-agenda-delete');
+        Route::prefix('kegiatan')->group(function () {
+            Route::get('/program', 'ProgramController@index')->name('program');
+            Route::get('/program-get', 'ProgramController@get')->name('program-get');
+            Route::post('/program-store', 'ProgramController@store')->name('program-store');
+            Route::get('/program-show/{params}', 'ProgramController@show')->name('program-show');
+            Route::post('/program-update/{params}', 'ProgramController@update')->name('program-update');
+            Route::delete('/program-delete/{params}', 'ProgramController@delete')->name('program-delete');
+
+            Route::get('/jadwal-agenda', 'JadwalAgendaController@index')->name('jadwal-agenda');
+            Route::get('/jadwal-agenda-get', 'JadwalAgendaController@get')->name('jadwal-agenda-get');
+            Route::post('/jadwal-agenda-store', 'JadwalAgendaController@store')->name('jadwal-agenda-store');
+            Route::get('/jadwal-agenda-show/{params}', 'JadwalAgendaController@show')->name('jadwal-agenda-show');
+            Route::post('/jadwal-agenda-update/{params}', 'JadwalAgendaController@update')->name('jadwal-agenda-update');
+            Route::delete('/jadwal-agenda-delete/{params}', 'JadwalAgendaController@delete')->name('jadwal-agenda-delete');
+        });
+
+        Route::prefix('tentang')->group(function () {
+            Route::get('/selayang-pandang', 'SelayangPandangController@index')->name('selayang-pandang');
+            Route::get('/selayang-pandang-get', 'SelayangPandangController@get')->name('selayang-pandang-get');
+            Route::post('/selayang-pandang-store', 'SelayangPandangController@store')->name('selayang-pandang-store');
+            Route::get('/selayang-pandang-show/{params}', 'SelayangPandangController@show')->name('selayang-pandang-show');
+            Route::post('/selayang-pandang-update/{params}', 'SelayangPandangController@update')->name('selayang-pandang-update');
+            Route::delete('/selayang-pandang-delete/{params}', 'SelayangPandangController@delete')->name('selayang-pandang-delete');
+
+            Route::get('/fasilitas', 'FasilitasController@index')->name('fasilitas');
+            Route::get('/fasilitas-get', 'FasilitasController@get')->name('fasilitas-get');
+            Route::post('/fasilitas-store', 'FasilitasController@store')->name('fasilitas-store');
+            Route::get('/fasilitas-show/{params}', 'FasilitasController@show')->name('fasilitas-show');
+            Route::post('/fasilitas-update/{params}', 'FasilitasController@update')->name('fasilitas-update');
+            Route::delete('/fasilitas-delete/{params}', 'FasilitasController@delete')->name('fasilitas-delete');
+        });
 
         Route::get('/keluhan', 'KeluhanController@index')->name('keluhan');
         Route::get('/keluhan-get', 'KeluhanController@get')->name('keluhan-get');
@@ -121,6 +168,17 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::get('/keluhan-show/{params}', 'KeluhanController@show')->name('keluhan-show');
         Route::post('/keluhan-update/{params}', 'KeluhanController@update')->name('keluhan-update');
         Route::delete('/keluhan-delete/{params}', 'KeluhanController@delete')->name('keluhan-delete');
+
+        Route::get('/data-tamu', 'DataTamuController@index')->name('data-tamu');
+        Route::get('/data-tamu-get', 'DataTamuController@get')->name('data-tamu-get');
+        // Route::post('/data-tamu-store', 'DataTamuController@store')->name('data-tamu-store');
+        Route::get('/data-tamu-show/{params}', 'DataTamuController@show')->name('data-tamu-show');
+        Route::post('/data-tamu-update/{params}', 'DataTamuController@update')->name('data-tamu-update');
+        Route::delete('/data-tamu-delete/{params}', 'DataTamuController@delete')->name('data-tamu-delete');
+
+        Route::get('/laporan', 'Laporan@index')->name('laporan');
+        Route::get('/laporan-get/{params}', 'Laporan@get')->name('laporan-get');
+        Route::get('/laporan-export/{params}', 'Laporan@export_to_excel')->name('laporan-export');
     });
 
     Route::group(['prefix' => 'keuangan', 'middleware' => ['auth'], 'as' => 'keuangan.'], function () {

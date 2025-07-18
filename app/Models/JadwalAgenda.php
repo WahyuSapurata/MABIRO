@@ -14,7 +14,7 @@ class JadwalAgenda extends Model
     protected $primaryKey = 'id';
     protected $fillable = [
         'uuid',
-        'nama_agenda',
+        'uuid_program',
         'jadwal_pelaksanaan',
         'foto_absen',
     ];

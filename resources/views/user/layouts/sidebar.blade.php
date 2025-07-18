@@ -5,42 +5,42 @@
 
         <div class="row justify-content-center gx-3 gy-4">
             <div class="col-6 col-sm-4 col-md-4">
-                <a href="registrasi-warga.php" class="service-box">
+                <a href="{{ route('register-penghuni') }}" class="service-box">
                     <iconify-icon icon="mdi:account-box" width="28" height="28"></iconify-icon>
                     <span>Registrasi Warga Baru</span>
                 </a>
             </div>
 
             <div class="col-6 col-sm-4 color-md-4">
-                <a href="/registrasi-tamu.php" class="service-box">
+                <a href="{{ route('buku-tamu') }}" class="service-box">
                     <iconify-icon icon="mdi:book-account" width="28" height="28"></iconify-icon>
                     <span>Isi Buku Tamu</span>
                 </a>
             </div>
 
             <div class="col-6 col-sm-4 color-md-4">
-                <a href="/form-peminjaman.php" class="service-box">
+                <a href="{{ route('peminjaman') }}" class="service-box">
                     <iconify-icon icon="mdi:clipboard-list" width="28" height="28"></iconify-icon>
                     <span>Peminjaman Iventaris</span>
                 </a>
             </div>
 
-            <div class="col-6 col-sm-4 col-md-4">
+            {{-- <div class="col-6 col-sm-4 col-md-4">
                 <a href="/sewa-aula/php" class="service-box">
                     <iconify-icon icon="mdi:home-city" width="28" height="28"></iconify-icon>
                     <span>Penyewaan Aula</span>
                 </a>
-            </div>
+            </div> --}}
 
             <div class="col-6 col-sm-4 col-md-4">
-                <a href="/kirim-laporan.php" class="service-box">
+                <a href="{{ route('keluhan') }}" class="service-box">
                     <iconify-icon icon="mdi:message-alert" width="28" height="28"></iconify-icon>
                     <span>Kirim Laporan</span>
                 </a>
             </div>
 
             <div class="col-6 col-sm-4 col-md-4">
-                <a href="/tagihan-warga.php" class="service-box">
+                <a href="" class="service-box">
                     <iconify-icon icon="mdi:receipt-text" width="28" height="28"></iconify-icon>
                     <span>Lihat Informasi Tagihan</span>
                 </a>
@@ -50,8 +50,8 @@
 </div>
 
 <nav class="nav-bottom">
-    <a href="/index.php" class="nav-item"><i class="fas fa-home"></i><span>Home</span></a>
-    <a href="/agenda.php" class="nav-item"><i class="fas fa-calendar-alt"></i><span>Agenda</span></a>
+    <a href="{{ route('beranda') }}" class="nav-item"><i class="fas fa-home"></i><span>Home</span></a>
+    <a href="{{ route('agenda') }}" class="nav-item"><i class="fas fa-calendar-alt"></i><span>Agenda</span></a>
     <div class="menu-button" id="menuBtn">
         <i>
             <svg width="30" height="30" viewBox="0 0 28 28" fill="currentColor"
@@ -63,6 +63,6 @@
             </svg>
         </i>
     </div>
-    <a href="/blog-single.html" class="nav-item"><i class="fas fa-phone"></i><span>Kontak</span></a>
-    <a href="/team.html" class="nav-item"><i class="fas fa-user"></i><span>Profile</span></a>
+    <a href="{{ route('kontak') }}" class="nav-item"><i class="fas fa-phone"></i><span>Kontak</span></a>
+    <a href="" class="nav-item"><i class="fas fa-user"></i><span>Profile</span></a>
 </nav>

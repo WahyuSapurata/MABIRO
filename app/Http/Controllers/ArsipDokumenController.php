@@ -97,4 +97,15 @@ class ArsipDokumenController extends BaseController
         }
         return $this->sendResponse($data, 'Delete data success');
     }
+
+    // user
+    public function arsip()
+    {
+        $module = 'Arsip & Dokumen';
+        if (auth()->check()) {
+            return redirect()->back()->with('error', 'Maaf anda harus login sebagai warga asrama untuk mengakses halaman ini.');
+        }
+        $data = ArsipDokumen::latest()->get();
+        return view('user.arsip', compact('module', 'data'));
+    }
 }

@@ -4,7 +4,7 @@
 
 <head>
     <base href="../../../">
-    <link rel="shortcut icon" href="{{ asset('Favicon.png') }}" />
+    <link rel="shortcut icon" href="{{ asset('assets-landing/img/favicon.png') }}" type="image/x-icon">
     <title>{{ config('app.name') }} | Login</title>
     <meta charset="utf-8" />
     <meta property="og:description"
@@ -419,7 +419,7 @@
 
             let type = $(this).attr('data-type');
             if (type == 'add') {
-                control.submitFormMultipartData('/login/register-penghuni', 'Register', 'Penghuni', 'POST');
+                control.submitFormMultipartData('/register-penghuni-add', 'Register', 'Penghuni', 'POST');
             }
         });
     </script>

@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Solion - IT Solutions Template">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- ========== Page Title ========== -->
     <title>{{ config('app.name') . ' | ' . $module }}</title>
@@ -28,7 +29,9 @@
     <link href="{{ asset('assets-landing/css/helper.css') }}" rel="stylesheet">
     <link href="{{ asset('assets-landing/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('assets-landing/css/responsive.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets-landing/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets-landing/css/style.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <!-- ========== End Stylesheet ========== -->
 
     <!--[if lte IE 9]>
@@ -67,7 +70,7 @@
 
     <!-- Start Footer
     ============================================= -->
-    @include('user.layouts.footer')
+    {{-- @include('user.layouts.footer') --}}
     <!-- End Footer -->
 
     @include('user.layouts.sidebar')
@@ -94,8 +97,37 @@
     <script src="{{ asset('assets-landing/js/SplitText.min.js') }}"></script>
     <script src="{{ asset('assets-landing/js/main.js') }}"></script>
     <script src="{{ asset('assets-landing/js/navbar-bottom.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{ asset('assets/js/panel.js') }}"></script>
 
     @yield('scripts')
+
+    @if (session('error'))
+        <script>
+            Swal
+                .fire({
+                    icon: 'warning',
+                    title: 'Peringatan',
+                    text: '{{ session('error') }}',
+                    showConfirmButton: true,
+                    // timer: 1500
+                });
+        </script>
+    @endif
+
+    @if (session('success'))
+        <script>
+            Swal
+                .fire({
+                    icon: 'success',
+                    title: 'Berhasil',
+                    text: '{{ session('success') }}',
+                    showConfirmButton: true,
+                    // timer: 1500
+                });
+        </script>
+    @endif
 
 </body>
 

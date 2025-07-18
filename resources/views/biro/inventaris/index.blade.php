@@ -29,7 +29,7 @@
                                     <thead class="text-center bg-white">
                                         <tr class="fw-bolder fs-6 text-black">
                                             <th>No</th>
-                                            <th>No.Inventaris</th>
+                                            <th>No. Inventaris</th>
                                             <th>Nama Barang</th>
                                             <th>Jumlah</th>
                                             <th>Satuan</th>

@@ -37,7 +37,8 @@
                         id="#kt_header_menu" data-kt-menu="true">
                         <div class="menu-item me-lg-1">
                             <div class="title-header-topbar">
-                                <span><img src="{{ asset('Mabiro.png') }}" class="h-40px" alt=""></span>
+                                <span><img src="{{ asset('assets-landing/img/logo-mabiro-light.svg') }}" class="h-40px"
+                                        alt=""></span>
                             </div>
                         </div>
 

@@ -45,36 +45,35 @@
                 </div>
 
                 <ul class="nav navbar-nav navbar-center" data-in="fadeInDown" data-out="fadeOutUp">
-                    <li><a href="/index.php">Beranda</a></li>
+                    <li><a href="{{ route('beranda') }}">Beranda</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tentang</a>
                         <ul class="dropdown-menu">
-                            <li><a href="/selayang-pandang.php">Selayang Pandang</a></li>
-                            <li><a href="/pengelola.php">Pengelola Asrama</a></li>
-                            <li><a href="/pengelola.php">Program</a></li>
-                            <li><a href="/pengelola.php">Fasilitas Asrama</a></li>
+                            <li><a href="{{ route('selayang-pandang') }}">Selayang Pandang</a></li>
+                            <li><a href="{{ route('pengelola') }}">Pengelola Asrama</a></li>
+                            <li><a href="{{ route('program') }}">Program</a></li>
+                            <li><a href="{{ route('fasilitas') }}">Gedung & Fasilitas</a></li>
                         </ul>
                     </li>
-                    <li><a href="/agenda.php">Agenda</a></li>
+                    <li><a href="{{ route('agenda') }}">Agenda</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Layanan</a>
                         <ul class="dropdown-menu">
-                            <li><a href="/registrasi-warga.php">Registrasi Warga Baru</a></li>
-                            <li><a href="/registrasi-tamu.php">Registrasi Tamu</a></li>
-                            <li><a href="/form-peminjaman.php">Ajukan Peminjaman</a></li>
-                            <li><a href="/form-sewa-aula.php">Penyewaan Aula</a></li>
-                            <li><a href="/kirim-laporan.php">Kirim Laporan</a></li>
+                            <li><a href="{{ route('register-penghuni') }}">Registrasi Warga Baru</a></li>
+                            <li><a href="{{ route('buku-tamu') }}">Registrasi Tamu</a></li>
+                            <li><a href="{{ route('peminjaman') }}">Ajukan Peminjaman</a></li>
+                            <li><a href="{{ route('keluhan') }}">Kirim Laporan</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Arsip & Laporan</a>
                         <ul class="dropdown-menu">
-                            <li><a href="/rekapitulasi-keuangan.php">Rekapitulasi Keuangan</a></li>
-                            <li><a href="/daftar-inventaris.php">Daftar Inventaris</a></li>
-                            <li><a href="/arsip-dokumen.php">Download Arsip & Dokumen</a></li>
+                            <li><a href="{{ route('rekap') }}">Rekapitulasi Keuangan</a></li>
+                            <li><a href="{{ route('inventaris') }}">Daftar Inventaris</a></li>
+                            <li><a href="{{ route('arsip') }}">Download Arsip & Dokumen</a></li>
                         </ul>
                     </li>
-                    <li><a href="/kontak.php">Kontak</a></li>
+                    <li><a href="{{ route('kontak') }}">Kontak</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
 

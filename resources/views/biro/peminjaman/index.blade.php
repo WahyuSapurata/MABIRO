@@ -29,9 +29,12 @@
                                     <thead class="text-center bg-white">
                                         <tr class="fw-bolder fs-6 text-black">
                                             <th>No</th>
+                                            <th>Organisasi</th>
                                             <th>Penanggung Jawab</th>
                                             <th>Nama Barang</th>
                                             <th>Nomor Whatsapp</th>
+                                            <th>Tanggal Peminjaman</th>
+                                            <th>Durasi</th>
                                             <th>Surat</th>
                                             <th>Status</th>
                                             <th>Aksi</th>
@@ -183,6 +186,9 @@
                         return meta.row + meta.settings._iDisplayStart + 1;
                     }
                 }, {
+                    data: 'organisasi',
+                    className: 'text-center',
+                }, {
                     data: 'penanggung_jawab',
                     className: 'text-center',
                 }, {
@@ -190,6 +196,12 @@
                     className: 'text-center',
                 }, {
                     data: 'nomor_telepon',
+                    className: 'text-center',
+                }, {
+                    data: 'tanggal_pinjam',
+                    className: 'text-center',
+                }, {
+                    data: 'durasi_peminjaman',
                     className: 'text-center',
                 }, {
                     data: 'surat',

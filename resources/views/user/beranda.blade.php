@@ -11,15 +11,15 @@
                         <div>
                             <div class="content">
                                 <!-- <div class="videos-button" class="wow fadeInUp" data-wow-delay="300ms">
-                                                            <a href="https://www.youtube.com/watch?v=35mvh-2oII8" class="popup-youtube video-button"><i class="fas fa-play"></i></a>
-                                                        </div> -->
+                                                                                                        <a href="https://www.youtube.com/watch?v=35mvh-2oII8" class="popup-youtube video-button"><i class="fas fa-play"></i></a>
+                                                                                                    </div> -->
                                 <h2 class="wow fadeInLeft text-hero" data-wow-delay="500ms">Sistem Informasi
                                     Manajemen<strong>Asrama Mahasiswa Balikpapan</strong></h2>
                                 <h3 class="wow fadeInLeft text-hero" data-wow-delay="500ms">Keluarga Pelajar Mahasiswa
                                     Balipapan (KPMB) Makassar</h3>
                                 <div class="button wow fadeInUp" data-wow-delay="700ms">
-                                    <a class="btn btn-theme effect btn-md" href="#" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal">Registrasi Warga Baru</a>
+                                    <a class="btn btn-theme effect btn-md"
+                                        href="{{ route('register-penghuni') }}">Registrasi Warga Baru</a>
                                 </div>
                             </div>
                         </div>
@@ -34,214 +34,8 @@
     </div>
     <!-- End Banner -->
 
-    <div class="modal fade" tabindex="-1" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content shadow-none">
-                <div class="modal-header">
-                    <h3 class="modal-title">Registrasi Penghuni</h3>
-
-                    <!--begin::Close-->
-                    <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
-                        aria-label="Close">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="1em"
-                            viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                            <path
-                                d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z" />
-                        </svg>
-                    </div>
-                    <!--end::Close-->
-                </div>
-
-                <div class="modal-body">
-                    <form class="form-data" enctype="multipart/form-data">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="mb-10">
-                                    <label class="form-label">Nama Warga</label>
-                                    <input type="text" name="nama" class="form-control">
-                                    <small class="text-danger nama_error"></small>
-                                </div>
-
-                                <div class="mb-10">
-                                    <label class="form-label">Username</label>
-                                    <input type="text" name="username" class="form-control">
-                                    <small class="text-danger username_error"></small>
-                                </div>
-
-                                <div class="mb-10">
-                                    <label class="form-label">Password</label>
-                                    <input type="text" name="password_hash" class="form-control">
-                                    <small class="text-danger password_hash_error"></small>
-                                </div>
-
-                                <div class="mb-10">
-                                    <label class="form-label">Tempat Lahir</label>
-                                    <input type="text" name="tempat_lahir" class="form-control">
-                                    <small class="text-danger tempat_lahir_error"></small>
-                                </div>
-
-                                <div class="mb-10">
-                                    <label class="form-label">Tanggal Lahir</label>
-                                    <input type="text" id="tanggal_lahir" class="form-control kt_datepicker_7"
-                                        name="tanggal_lahir">
-                                    <small class="text-danger tanggal_lahir_error"></small>
-                                </div>
-
-                                <div class="mb-10">
-                                    <label class="form-label">Agama</label>
-                                    <select name="agama" class="form-control">
-                                        <option value="">-- Pilih Agama --</option>
-                                        <option value="islam">Islam</option>
-                                        <option value="keristen">Keristen</option>
-                                        <option value="hindu">Hindu</option>
-                                        <option value="budha">Budha</option>
-                                        <option value="katolik">Katolik</option>
-                                    </select>
-                                    <small class="text-danger agama_error"></small>
-                                </div>
-
-                                <div class="mb-10">
-                                    <div>
-                                        <label class="form-label">Jenis Kelamin</label>
-                                    </div>
-                                    <div class="d-flex align-items-center gap-3">
-                                        <div class="form-check form-check-inline">
-                                            <input type="radio" name="jenis_kelamin" value="laki-laki"
-                                                class="form-check-input" id="jenis_kelamin_laki">
-                                            <label class="form-check-label" for="jenis_kelamin_laki">Laki-laki</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input type="radio" name="jenis_kelamin" value="perempuan"
-                                                class="form-check-input" id="jenis_kelamin_perempuan">
-                                            <label class="form-check-label"
-                                                for="jenis_kelamin_perempuan">Perempuan</label>
-                                        </div>
-                                    </div>
-                                    <small class="text-danger jenis_kelamin_error"></small>
-                                </div>
-
-                                <div class="mb-10">
-                                    <label class="form-label">Alamat</label>
-                                    <textarea name="alamat" id="" cols="" rows="2" class="form-control"></textarea>
-                                    <small class="text-danger alamat_error"></small>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-10">
-                                    <label class="form-label">Universitas</label>
-                                    <input type="text" name="universitas" class="form-control">
-                                    <small class="text-danger universitas_error"></small>
-                                </div>
-
-                                <div class="mb-10">
-                                    <label class="form-label">Program Studi</label>
-                                    <input type="text" name="program_studi" class="form-control">
-                                    <small class="text-danger program_studi_error"></small>
-                                </div>
-
-                                <div class="mb-10">
-                                    <label class="form-label">Riwayat Pendidikan</label>
-                                    <select name="riwayat_pendidikan" class="form-control">
-                                        <option value="">-- Pilih Riwayat Pendidikan --
-                                        </option>
-                                        <option value="sd">SD</option>
-                                        <option value="mts">MTS</option>
-                                        <option value="sma">SMA</option>
-                                    </select>
-                                    <small class="text-danger riwayat_pendidikan_error"></small>
-                                </div>
-
-                                <div class="mb-10">
-                                    <label class="form-label">No Hp</label>
-                                    <input type="text" name="no_hp" class="form-control">
-                                    <small class="text-danger no_hp_error"></small>
-                                </div>
-
-                                <div class="mb-10">
-                                    <label class="form-label">Alasan</label>
-                                    <textarea name="alasan" id="" cols="" rows="2" class="form-control"></textarea>
-                                    <small class="text-danger alasan_error"></small>
-                                </div>
-
-                                <div class="mb-10">
-                                    <div>
-                                        <label class="form-label">Foto</label>
-                                    </div>
-                                    <!--begin::Image input-->
-                                    <div class="image-input image-input-empty" data-kt-image-input="true"
-                                        style="background-image: url(/assets/media/svg/avatars/blank.svg)">
-                                        <!--begin::Image preview wrapper-->
-                                        <div class="image-input-wrapper w-125px h-125px">
-                                        </div>
-                                        <!--end::Image preview wrapper-->
-
-                                        <!--begin::Edit button-->
-                                        <label
-                                            class="btn btn-icon btn-circle btn-color-muted btn-active-color-primary w-25px h-25px bg-body shadow"
-                                            data-kt-image-input-action="change" data-bs-toggle="tooltip"
-                                            data-bs-dismiss="click" title="Change avatar">
-                                            <i class="bi bi-pencil-fill fs-7"></i>
-
-                                            <!--begin::Inputs-->
-                                            <input type="file" name="foto" accept=".png, .jpg, .jpeg" />
-                                            <input type="hidden" name="avatar_remove" />
-                                            <!--end::Inputs-->
-                                        </label>
-                                        <!--end::Edit button-->
-
-                                        <!--begin::Cancel button-->
-                                        <span
-                                            class="btn btn-icon btn-circle btn-color-muted btn-active-color-primary w-25px h-25px bg-body shadow"
-                                            data-kt-image-input-action="cancel" data-bs-toggle="tooltip"
-                                            data-bs-dismiss="click" title="Cancel avatar">
-                                            <i class="bi bi-x fs-2"></i>
-                                        </span>
-                                        <!--end::Cancel button-->
-
-                                        <!--begin::Remove button-->
-                                        <span
-                                            class="btn btn-icon btn-circle btn-color-muted btn-active-color-primary w-25px h-25px bg-body shadow"
-                                            data-kt-image-input-action="remove" data-bs-toggle="tooltip"
-                                            data-bs-dismiss="click" title="Remove avatar">
-                                            <i class="bi bi-x fs-2"></i>
-                                        </span>
-                                        <!--end::Remove button-->
-                                    </div>
-                                    <!--end::Image input-->
-                                </div>
-
-                                <div class="mb-3">
-                                    <label class="form-label d-block">Persetujuan</label>
-                                    <div class="form-check">
-                                        <input type="checkbox" name="persetujuan" value="1"
-                                            class="form-check-input" id="persetujuan">
-                                        <label class="form-check-label" for="persetujuan">
-                                            Saya menyetujui data yang saya isi
-                                        </label>
-                                    </div>
-                                    <small class="text-danger persetujuan_error"></small>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="separator separator-dashed mt-8 mb-5"></div>
-                        <div class="d-flex gap-5">
-                            <button type="submit" class="btn btn-primary btn-sm btn-submit d-flex align-items-center"><i
-                                    class="bi bi-file-earmark-diff"></i> Simpan</button>
-                            <button type="reset" id="side_form_close" data-bs-dismiss="modal"
-                                class="btn mr-2 btn-light btn-cancel btn-sm d-flex align-items-center"
-                                style="background-color: #ea443e65; color: #EA443E"><i class="bi bi-trash-fill"
-                                    style="color: #EA443E"></i>Batal</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Star Services Area
-                            ============================================= -->
+                                                                        ============================================= -->
     <div class="services-style-nine text-center default-padding-bottom bottom-less">
         <div class="container">
             <div class="services-style-nine-items">
@@ -297,13 +91,13 @@
     <!-- End Services Area -->
 
     <!-- Start About Area
-                            ============================================= -->
+                                                                        ============================================= -->
     <div class="about-style-nine-area default-padding-bottom">
         <div class="container">
             <div class="row align-center">
                 <div class="about-style-nine col-lg-6">
                     <div class="thumb">
-                        <img src="assets/img/home-8/1.jpg" alt="Thumb">
+                        <img src="{{ asset('assets-landing/img/home-8/1.jpg') }}" alt="Thumb">
                         <h4><strong>25</strong> Partners in world wide</h4>
                     </div>
                 </div>
@@ -333,9 +127,9 @@
     <!-- End About Area -->
 
     <!-- Star Work Process Area
-                            ============================================= -->
+                                                                        ============================================= -->
     <div class="process-style-twoa-rea text-center text-light default-padding bg-cover bottom-less"
-        style="background-image: url(assets/img/shape/4.jpg);">
+        style="background-image: url({{ asset('assets-landing/img/shape/4.jpg') }});">
         <div class="container">
             <div class="row">
                 <div class="col-xl-6 offset-xl-3 col-lg-8 offset-lg-2">
@@ -405,7 +199,7 @@
     <!-- End Work Process Area -->
 
     <!-- Start Testimonials Area
-                            ============================================= -->
+                                                                        ============================================= -->
     <div class="testimonials-area carousel-shadow default-padding">
         <div class="container">
             <div class="heading-left">
@@ -426,7 +220,7 @@
                         <!-- Single Item -->
                         <div class="item">
                             <div class="thumb">
-                                <img src="assets/img/teams/1.jpg" alt="Thumb">
+                                <img src="{{ asset('assets-landing/img/teams/1.jpg') }}" alt="Thumb">
                                 <i class="fas fa-quote-right"></i>
                             </div>
                             <div class="info">
@@ -453,7 +247,7 @@
                         <!-- Single Item -->
                         <div class="item">
                             <div class="thumb">
-                                <img src="assets/img/teams/2.jpg" alt="Thumb">
+                                <img src="{{ asset('assets-landing/img/teams/2.jpg') }}" alt="Thumb">
                                 <i class="fas fa-quote-right"></i>
                             </div>
                             <div class="info">
@@ -480,7 +274,7 @@
                         <!-- Single Item -->
                         <div class="item">
                             <div class="thumb">
-                                <img src="assets/img/teams/3.jpg" alt="Thumb">
+                                <img src="{{ asset('assets-landing/img/teams/3.jpg') }}" alt="Thumb">
                                 <i class="fas fa-quote-right"></i>
                             </div>
                             <div class="info">
@@ -512,11 +306,11 @@
     <!-- End Testimonials Area -->
 
     <!-- Start Case Studies Area
-                            ============================================= -->
+                                                                        ============================================= -->
     <div class="case-studies-area bg-gray default-padding-bottom">
         <!-- Fixed BG -->
         <div class="fixed-shape-top">
-            <img src="assets/img/shape/bg-7.png" alt="Shape">
+            <img src="{{ asset('assets-landing/img/shape/bg-7.png') }}" alt="Shape">
         </div>
         <!-- End Fixed BG -->
         <div class="container">
@@ -538,7 +332,7 @@
             <div class="case-carousel text-center text-light owl-carousel owl-theme">
                 <div class="item">
                     <div class="thumb">
-                        <img src="assets/img/portfolio/1.jpg" alt="Thumb">
+                        <img src="{{ asset('assets-landing/img/portfolio/1.jpg') }}" alt="Thumb">
                     </div>
                     <div class="info">
                         <div class="tags">
@@ -552,7 +346,7 @@
                 </div>
                 <div class="item">
                     <div class="thumb">
-                        <img src="assets/img/portfolio/2.jpg" alt="Thumb">
+                        <img src="{{ asset('assets-landing/img/portfolio/2.jpg') }}" alt="Thumb">
                     </div>
                     <div class="info">
                         <div class="tags">
@@ -566,7 +360,7 @@
                 </div>
                 <div class="item">
                     <div class="thumb">
-                        <img src="assets/img/portfolio/3.jpg" alt="Thumb">
+                        <img src="{{ asset('assets-landing/img/portfolio/3.jpg') }}" alt="Thumb">
                     </div>
                     <div class="info">
                         <div class="tags">
@@ -580,7 +374,7 @@
                 </div>
                 <div class="item">
                     <div class="thumb">
-                        <img src="assets/img/portfolio/4.jpg" alt="Thumb">
+                        <img src="{{ asset('assets-landing/img/portfolio/4.jpg') }}" alt="Thumb">
                     </div>
                     <div class="info">
                         <div class="tags">
@@ -598,7 +392,7 @@
     <!-- End Case Studies Area -->
 
     <!-- Star Faq
-                            ============================================= -->
+                                                                        ============================================= -->
     <div class="faq-area overflow-hidden bg-gray rectangular-shape default-padding-bottom">
         <div class="container">
             <div class="faq-items">
@@ -606,7 +400,7 @@
 
                     <div class="col-lg-6">
                         <div class="thumb wow fadeInLeft" data-wow-delay="0.5s">
-                            <img src="assets/img/illustration/4.png" alt="Thumb">
+                            <img src="{{ asset('assets-landing/img/illustration/4.png') }}" alt="Thumb">
                         </div>
                     </div>
 
@@ -687,7 +481,7 @@
 
 
     <!-- Start Pricing Area
-                            ============================================= -->
+                                                                        ============================================= -->
     <div id="pricing" class="pricing-area half-bg default-padding bg-gray">
         <div class="container">
             <div class="row">
@@ -764,7 +558,7 @@
     <!-- End Pricing Area -->
 
     <!-- Start Contact Area
-                            ============================================= -->
+                                                                        ============================================= -->
     <div class="contact-area bg-gray half-bg default-padding-bottom">
         <div class="container">
             <div class="contact-box">
@@ -864,7 +658,7 @@
     <!-- End Contact Area -->
 
     <!-- Start Blog Area
-                            ============================================= -->
+                                                                        ============================================= -->
     <div class="blog-area default-padding-bottom bottom-less">
         <div class="container">
             <div class="row">
@@ -888,7 +682,7 @@
                     <div class="single-item col-lg-4">
                         <div class="item">
                             <div class="thumb">
-                                <img src="assets/img/blog/1.jpg" alt="Thumb">
+                                <img src="{{ asset('assets-landing/img/blog/1.jpg') }}" alt="Thumb">
                                 <div class="date">12 <span>Jan, 2025</span></div>
                             </div>
                             <div class="info">
@@ -915,7 +709,7 @@
                     <div class="single-item col-lg-4">
                         <div class="item">
                             <div class="thumb">
-                                <img src="assets/img/blog/2.jpg" alt="Thumb">
+                                <img src="{{ asset('assets-landing/img/blog/2.jpg') }}" alt="Thumb">
                                 <div class="date">05 <span>Feb, 2025</span></div>
                             </div>
                             <div class="info">
@@ -942,7 +736,7 @@
                     <div class="single-item col-lg-4">
                         <div class="item">
                             <div class="thumb">
-                                <img src="assets/img/blog/3.jpg" alt="Thumb">
+                                <img src="{{ asset('assets-landing/img/blog/3.jpg') }}" alt="Thumb">
                                 <div class="date">18 <span>Mar, 2025</span></div>
                             </div>
                             <div class="info">

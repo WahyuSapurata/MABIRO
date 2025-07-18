@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('jadwal_agendas', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid');
-            $table->string('nama_agenda');
+            $table->uuid('uuid_program');
             $table->string('jadwal_pelaksanaan');
-            $table->string('foto_absen');
+            $table->string('foto_absen')->nullable();
             $table->timestamps();
         });
     }

@@ -22,7 +22,6 @@ class StoreKeluhanRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'uuid_penghuni' => 'required',
             'keterangan' => 'required',
         ];
     }
@@ -30,7 +29,6 @@ class StoreKeluhanRequest extends FormRequest
     public function messages()
     {
         return [
-            'uuid_penghuni.required' => 'Kolom nama harus di isi.',
             'keterangan.required' => 'Kolom ketrangan harus di isi.',
         ];
     }

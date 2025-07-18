@@ -189,4 +189,14 @@ class Laporan extends BaseController
 
         return response()->download($filepath)->deleteFileAfterSend(true);
     }
+
+    // user
+    public function rekap()
+    {
+        $module = 'Rekapitulasi Keuangan';
+        if (auth()->check()) {
+            return redirect()->back()->with('error', 'Maaf anda harus login sebagai warga asrama untuk mengakses halaman ini.');
+        }
+        return view('user.rekap', compact('module'));
+    }
 }

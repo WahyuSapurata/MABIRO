@@ -29,7 +29,7 @@
                                     <thead class="text-center bg-white">
                                         <tr class="fw-bolder fs-6 text-black">
                                             <th>No</th>
-                                            <th>Nama Agenda</th>
+                                            <th>Nama Program</th>
                                             <th>Jadwal Pelaksanaan</th>
                                             <th>Foto Absen</th>
                                             <th>Aksi</th>
@@ -99,23 +99,13 @@
 
                     <div class="mb-10">
                         <label class="form-label">Nama Agenda</label>
-                        <select class="form-select" id="nama_agenda" data-control="select2">
+                        <select class="form-select" name="uuid_program" data-control="select2">
                             <option value="">-- Pilih --</option>
-                            <option value="Kerja Bakti">Kerja Bakti</option>
-                            <option value="Rapat Koordinasi Pemkot">Rapat Koordinasi Pemkot</option>
-                            <option value="Rapat Warga Asrama">Rapat Warga Asrama</option>
-                            <option value="HUT Asrama">HUT Asrama</option>
-                            <option value="Lainnya">Lainnya</option>
+                            @foreach ($program as $pr)
+                                <option value="{{ $pr->uuid }}">{{ $pr->nama_program }}</option>
+                            @endforeach
                         </select>
-
-                        <!-- Ini input yang akan dikirim ke server -->
-                        <input type="hidden" name="nama_agenda" id="nama_agenda_final">
-
-                        <!-- Input text untuk 'lainnya' -->
-                        <input type="text" id="nama_agenda_lainnya" class="form-control mt-2"
-                            placeholder="Masukkan lokasi pendaftar lainnya" style="display: none;">
-
-                        <small class="text-danger nama_agenda_error"></small>
+                        <small class="text-danger uuid_program_error"></small>
                     </div>
 
                     <div class="mb-10">
@@ -188,46 +178,17 @@
             }
         }
 
-        $('#nama_agenda').select2();
-
-        const inputAgenda = document.getElementById("nama_agenda_lainnya");
-        const inputAgendaFinal = document.getElementById("nama_agenda_final");
-        const selectAgenda = document.getElementById("nama_agenda");
-
-        $('#nama_agenda').on('change', function() {
-            const value = $(this).val();
-
-            if (value === "Lainnya") {
-                inputAgenda.style.display = "block";
-                inputAgenda.required = true;
-                inputAgendaFinal.value = "";
-            } else {
-                inputAgenda.style.display = "none";
-                inputAgenda.required = false;
-                inputAgenda.value = "";
-                inputAgendaFinal.value = value;
-            }
-        });
-
-        $('#nama_agenda_lainnya').on('input', function() {
-            inputAgendaFinal.value = this.value;
-        });
-
         $(document).on('submit', ".form-data", function(e) {
             e.preventDefault();
             let type = $(this).attr('data-type');
 
-            if (selectAgenda.value === "Lainnya") {
-                inputAgendaFinal.value = inputAgenda.value;
-            }
-
             if (type == 'add') {
-                control.submitFormMultipartData('/biro/jadwal-agenda-store', 'Tambah',
+                control.submitFormMultipartData('/biro/kegiatan/jadwal-agenda-store', 'Tambah',
                     'Jadwal & Agenda',
                     'POST');
             } else {
                 let uuid = $("input[name='uuid']").val();
-                control.submitFormMultipartData('/biro/jadwal-agenda-update/' + uuid,
+                control.submitFormMultipartData('/biro/kegiatan/jadwal-agenda-update/' + uuid,
                     'Update',
                     'Jadwal & Agenda', 'POST');
             }
@@ -238,7 +199,7 @@
             $(".form-data").attr("data-type", "update");
             $(".title_side_form").html(`Update Jadwal & Agenda`);
             $(".text-danger").html("");
-            let url = '/biro/jadwal-agenda-show/' + $(this).attr('data-uuid');
+            let url = '/biro/kegiatan/jadwal-agenda-show/' + $(this).attr('data-uuid');
             $.ajax({
                 url: url,
                 method: "GET",
@@ -263,30 +224,6 @@
                                 $("textarea[name='" + x + "']").val(y);
                             }
 
-                            // Tangani khusus untuk nama_agenda (karena pakai Select2 dan mungkin punya opsi "Lainnya")
-                            if (x === "nama_agenda") {
-                                const $agendaSelect = $('#nama_agenda');
-
-                                // Cek apakah nilai dari database (y) sudah ada dalam opsi
-                                const optionExists = $agendaSelect.find("option[value='" + y +
-                                    "']").length > 0;
-
-                                if (optionExists) {
-                                    // Kalau ada, langsung set valuenya
-                                    $agendaSelect.val(y).trigger('change');
-                                    $('#nama_agenda_lainnya').hide();
-                                } else {
-                                    // Kalau tidak ada (misal 'tess'), set ke 'Lainnya'
-                                    $agendaSelect.val('Lainnya').trigger('change');
-
-                                    // Tampilkan input lainnya dan isi dengan nilai asli
-                                    $('#nama_agenda_lainnya').val(y).show();
-                                }
-
-                                // Simpan nilai akhir ke hidden input
-                                $('#nama_agenda_final').val(y);
-                            }
-
                         });
                     }
                 },
@@ -298,7 +235,7 @@
 
         $(document).on('click', '.button-delete', function(e) {
             e.preventDefault();
-            let url = '/biro/jadwal-agenda-delete/' + $(this).attr('data-uuid');
+            let url = '/biro/kegiatan/jadwal-agenda-delete/' + $(this).attr('data-uuid');
             let label = $(this).attr('data-label');
             control.ajaxDelete(url, label)
         })
@@ -322,14 +259,14 @@
                     [0, 'asc']
                 ],
                 processing: true,
-                ajax: '/biro/jadwal-agenda-get',
+                ajax: '/biro/kegiatan/jadwal-agenda-get',
                 columns: [{
                     data: null,
                     render: function(data, type, row, meta) {
                         return meta.row + meta.settings._iDisplayStart + 1;
                     }
                 }, {
-                    data: 'nama_agenda',
+                    data: 'nama_program',
                     className: 'text-center',
                 }, {
                     data: 'jadwal_pelaksanaan',
@@ -339,8 +276,9 @@
                     className: 'text-center',
                     render: function(data, type, row, meta) {
                         let result;
-                        result =
-                            `
+                        if (data) {
+                            result =
+                                `
                                 <!--begin::Overlay-->
                                 <a class="d-block overlay fancybox" data-fancybox="lightbox-group" href="{{ asset('/public/absen/${data}') }}">
                                     <!--begin::Image-->
@@ -357,6 +295,9 @@
                                 </a>
                                 <!--end::Overlay-->
                             `;
+                        } else {
+                            result = `<span class="text-muted">Tidak ada foto</span>`;
+                        }
                         return result;
                     }
                 }, {
@@ -411,7 +352,7 @@
 
         // $('#export-excel').click(function(e) {
         //     e.preventDefault();
-        //     window.open(`/biro/jadwal-agenda-export`, "_blank");
+        //     window.open(`/biro/kegiatan/jadwal-agenda-export`, "_blank");
         // });
     </script>
 @endsection

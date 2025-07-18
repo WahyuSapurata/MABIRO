@@ -22,7 +22,7 @@ class UpdateJadwalAgendaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nama_agenda' => 'required',
+            'uuid_program' => 'required',
             'jadwal_pelaksanaan' => 'required',
         ];
     }
@@ -30,7 +30,7 @@ class UpdateJadwalAgendaRequest extends FormRequest
     public function messages()
     {
         return [
-            'nama_agenda.required' => 'Kolom nama agenda harus di isi.',
+            'uuid_program.required' => 'Kolom nama program harus di isi.',
             'jadwal_pelaksanaan.required' => 'Kolom jadwal pelaksanaan harus di isi.',
         ];
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreJadwalAgendaRequest;
 use App\Http\Requests\UpdateJadwalAgendaRequest;
 use App\Models\JadwalAgenda;
+use App\Models\Program;
 use Illuminate\Support\Facades\File;
 
 class JadwalAgendaController extends BaseController
@@ -12,12 +13,17 @@ class JadwalAgendaController extends BaseController
     public function index()
     {
         $module = 'Jadwal & Agenda';
-        return view('biro.jadwalagenda.index', compact('module'));
+        $program = Program::all();
+        return view('biro.jadwalagenda.index', compact('module', 'program'));
     }
 
     public function get()
     {
         $data = JadwalAgenda::all();
+        $data->map(function ($item) {
+            $item->nama_program = Program::where('uuid', $item->uuid_program)->value('nama_program');
+            return $item;
+        });
         return $this->sendResponse($data, 'Get data success');
     }
 
@@ -32,7 +38,7 @@ class JadwalAgendaController extends BaseController
 
         try {
             $data = new JadwalAgenda();
-            $data->nama_agenda = $store->nama_agenda;
+            $data->uuid_program = $store->uuid_program;
             $data->jadwal_pelaksanaan = $store->jadwal_pelaksanaan;
             $data->foto_absen = $newAbsen;
             $data->save();
@@ -72,7 +78,7 @@ class JadwalAgendaController extends BaseController
         }
 
         try {
-            $data->nama_agenda = $update->nama_agenda;
+            $data->uuid_program = $update->uuid_program;
             $data->jadwal_pelaksanaan = $update->jadwal_pelaksanaan;
             $data->foto_absen = $update->file('foto_absen') ? $newAbsen : $data->foto_absen;
             $data->save();
@@ -98,5 +104,20 @@ class JadwalAgendaController extends BaseController
             return $this->sendError($e->getMessage(), $e->getMessage(), 400);
         }
         return $this->sendResponse($data, 'Delete data success');
+    }
+
+    // user
+    public function agenda()
+    {
+        $module = 'Agenda';
+        $data = JadwalAgenda::latest()->paginate(6);
+        $data->map(function ($item) {
+            $program = Program::where('uuid', $item->uuid_program)->first();
+
+            $item->nama_program = $program->nama_program;
+            $item->icon = $program->icon;
+            return $item;
+        });
+        return view('user.agenda', compact('module', 'data'));
     }
 }

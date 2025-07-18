@@ -14,9 +14,12 @@ class DataPeminjaman extends Model
     protected $primaryKey = 'id';
     protected $fillable = [
         'uuid',
+        'organisasi',
         'penanggung_jawab',
         'barang',
         'nomor_telepon',
+        'tanggal_pinjam',
+        'durasi_peminjaman',
         'surat',
         'status',
     ];

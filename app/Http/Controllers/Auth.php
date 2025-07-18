@@ -47,12 +47,13 @@ class Auth extends BaseController
 
     public function register()
     {
-        $module = 'Register Penghuni';
+        $module = 'Register Warga Baru';
         return view('auth.register', compact('module'));
     }
 
     public function store(RegisterPenghuni $store)
     {
+        dd($store->all());
         $newFoto = '';
         if ($store->file('foto')) {
             $extension = $store->file('foto')->extension();

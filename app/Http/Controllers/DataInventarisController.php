@@ -81,4 +81,15 @@ class DataInventarisController extends BaseController
         }
         return $this->sendResponse($data, 'Delete data success');
     }
+
+    // user
+    public function inventaris()
+    {
+        $module = 'Daftar Inventaris';
+        if (auth()->check()) {
+            return redirect()->back()->with('error', 'Maaf anda harus login sebagai warga asrama untuk mengakses halaman ini.');
+        }
+        $data = DataInventaris::latest()->get();
+        return view('user.inventaris', compact('module', 'data'));
+    }
 }

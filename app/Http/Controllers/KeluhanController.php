@@ -75,4 +75,15 @@ class KeluhanController extends BaseController
         }
         return $this->sendResponse($data, 'Delete data success');
     }
+
+    // user
+    public function keluhan()
+    {
+        $module = 'Laporan & Keluhan';
+        $data = auth()->user();
+        if (!$data) {
+            return redirect()->back()->with('error', 'Maaf anda harus login sebagai warga asrama untuk mengakses halaman ini.');
+        }
+        return view('user.keluhan', compact('module', 'data'));
+    }
 }

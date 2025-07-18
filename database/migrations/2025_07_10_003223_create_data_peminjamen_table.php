@@ -14,9 +14,12 @@ return new class extends Migration
         Schema::create('data_peminjamen', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid');
+            $table->string('organisasi');
             $table->string('penanggung_jawab');
             $table->string('barang');
             $table->string('nomor_telepon');
+            $table->string('tanggal_pinjam');
+            $table->string('durasi_peminjaman');
             $table->string('surat');
             $table->string('status');
             $table->timestamps();
