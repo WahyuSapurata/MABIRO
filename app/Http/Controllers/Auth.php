@@ -36,6 +36,14 @@ class Auth extends BaseController
             return redirect()->route('keuangan.dashboard-keuangan');
         } else  if (auth()->user()->role === 'inventaris') {
             return redirect()->route('inventaris.dashboard-inventaris');
+        } else  if (auth()->user()->role === 'penghuni') {
+            $penghuni = DataPenghuni::where('uuid_user', auth()->user()->uuid)->first();
+            if ($penghuni->status == 'Terkonfirmasi') {
+                return redirect()->route('beranda');
+            } else {
+                FacadesAuth::logout();
+                return redirect()->route('login.login-akun')->with('failed', 'Mohon maaf akun anda belum di verifikasi oleh biro.');
+            }
         }
     }
 
@@ -53,7 +61,6 @@ class Auth extends BaseController
 
     public function store(RegisterPenghuni $store)
     {
-        dd($store->all());
         $newFoto = '';
         if ($store->file('foto')) {
             $extension = $store->file('foto')->extension();

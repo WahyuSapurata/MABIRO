@@ -46,6 +46,11 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
     Route::get('/kontak', 'Kontak@index')->name('kontak');
 
+    Route::get('/profile', 'Profile@index')->name('profile');
+
+    Route::get('/tagihan', 'RekapPembayaranController@tagihan_user')->name('tagihan');
+    Route::post('/tagihan-add/{params}', 'RekapPembayaranController@store')->name('tagihan-add');
+
     Route::group(['prefix' => 'login', 'middleware' => ['guest'], 'as' => 'login.'], function () {
         Route::get('/login-akun', 'Auth@show')->name('login-akun');
         Route::post('/login-proses', 'Auth@login_proses')->name('login-proses');

@@ -28,7 +28,7 @@ class RedirectIfAuthenticated
                 } else if (Auth::user()->role == 'inventaris') {
                     return redirect()->route('inventaris.dashboard-inventaris');
                 } else if (Auth::user()->role == 'penghuni') {
-                    return redirect()->route('warga.dashboard-warga');
+                    return redirect()->route('beranda');
                 }
             }
         }

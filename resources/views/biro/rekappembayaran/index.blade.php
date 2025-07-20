@@ -107,6 +107,7 @@
                             <option value="sudah lunas">Sudah Lunas</option>
                             <option value="tolak">Tolak</option>
                             <option value="belum lunas">Belum Lunas</option>
+                            <option value="proses">Proses</option>
                         </select>
                         <small class="text-danger status_error"></small>
                     </div>
@@ -253,9 +254,15 @@
                 }, {
                     data: 'created_at',
                     className: 'text-center',
+                    render: function(data, type, row, meta) {
+                        return moment(data).format('MMMM');
+                    }
                 }, {
                     data: 'created_at',
                     className: 'text-center',
+                    render: function(data, type, row, meta) {
+                        return moment(data).format('YYYY');
+                    }
                 }, {
                     data: 'metode_pembayaran',
                     className: 'text-center',

@@ -40,7 +40,7 @@
             </div>
 
             <div class="col-6 col-sm-4 col-md-4">
-                <a href="" class="service-box">
+                <a href="{{ route('tagihan') }}" class="service-box">
                     <iconify-icon icon="mdi:receipt-text" width="28" height="28"></iconify-icon>
                     <span>Lihat Informasi Tagihan</span>
                 </a>
@@ -64,5 +64,5 @@
         </i>
     </div>
     <a href="{{ route('kontak') }}" class="nav-item"><i class="fas fa-phone"></i><span>Kontak</span></a>
-    <a href="" class="nav-item"><i class="fas fa-user"></i><span>Profile</span></a>
+    <a href="{{ route('profile') }}" class="nav-item"><i class="fas fa-user"></i><span>Profile</span></a>
 </nav>

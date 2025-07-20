@@ -96,8 +96,13 @@
                     </li>
                     <!-- Tombol Masuk -->
                     <li>
-                        <button type="button" class="btn btn-login"><a
-                                href="{{ route('login.login-akun') }}">Masuk</a></button>
+                        @if (auth()->check())
+                            <button type="button" class="btn btn-danger"><a href="{{ route('logout') }}"
+                                    class="text-white">Keluar</a></button>
+                        @else
+                            <button type="button" class="btn btn-login"><a
+                                    href="{{ route('login.login-akun') }}">Masuk</a></button>
+                        @endif
                     </li>
                 </ul>
             </div>

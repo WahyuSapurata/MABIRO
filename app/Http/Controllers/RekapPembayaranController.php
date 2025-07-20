@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreRekapPembayaranRequest;
 use App\Http\Requests\UpdateRekapPembayaranRequest;
 use App\Models\DataPenghuni;
+use App\Models\MasterTagihan;
 use App\Models\RekapPembayaran;
+use App\Models\Tagihan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -53,8 +55,10 @@ class RekapPembayaranController extends BaseController
         return $this->sendResponse([], 'Invoice berhasil dibuat');
     }
 
-    public function store(Request $store)
+    public function store(Request $store, $params)
     {
+        $data = RekapPembayaran::where('uuid', $params)->first();
+
         $newBukti = '';
         if ($store->file('bukti')) {
             $extension = $store->file('bukti')->extension();
@@ -63,8 +67,7 @@ class RekapPembayaranController extends BaseController
         }
 
         try {
-            $data = new RekapPembayaran();
-            $data->uuid_penghuni = $store->uuid_penghuni;
+            $data->uuid_penghuni = auth()->user()->uuid;
             $data->metode_pembayaran = $store->metode_pembayaran;
             $data->status = 'proses';
             $data->bukti = $newBukti;
@@ -72,7 +75,7 @@ class RekapPembayaranController extends BaseController
         } catch (\Exception $e) {
             return $this->sendError($e->getMessage(), $e->getMessage(), 400);
         }
-        return $this->sendResponse($data, 'Add data success');
+        return $this->sendResponse($data, 'Pembayaran Berhasil Di Proses, Tunggu Konfirmasi Admin.');
     }
 
     public function show($params)
@@ -115,5 +118,57 @@ class RekapPembayaranController extends BaseController
             return $this->sendError($e->getMessage(), $e->getMessage(), 400);
         }
         return $this->sendResponse($data, 'Delete data success');
+    }
+
+    // user
+    public function tagihan_user()
+    {
+        $module = 'Informasi Tagihan';
+        if (!auth()->check()) {
+            return redirect()->back()->with('error', 'Maaf anda harus login sebagai warga asrama untuk mengakses halaman ini.');
+        }
+        $data = RekapPembayaran::where('uuid_penghuni', auth()->user()->uuid)->whereIn('status', ['belum lunas', 'proses', 'tolak'])->get();
+        $data->map(function ($item) {
+            $penghuni = DataPenghuni::where('uuid_user', auth()->user()->uuid)->first();
+            $tagihan = Tagihan::where('uuid_penghuni', $penghuni->uuid)->first();
+            // Ambil array UUID master tagihan
+            $uuids = $tagihan->uuid_master_tagihan;
+
+            // Ambil semua master tagihan
+            $masterTagihan = MasterTagihan::whereIn('uuid', $uuids)->get();
+
+            // Buat array nama_tagihan => jumlah dan hitung total listrik (selain Iuran)
+            $total = 0;
+
+            foreach ($masterTagihan as $tagihan) {
+                // Total semua tagihan
+                $total += $tagihan->jumlah;
+            }
+
+            $item->total_tagihan = $total;
+            return $item;
+        });
+        $riwayat = RekapPembayaran::where('uuid_penghuni', auth()->user()->uuid)->where('status', 'sudah lunas')->get();
+        $riwayat->map(function ($item) {
+            $penghuni = DataPenghuni::where('uuid_user', auth()->user()->uuid)->first();
+            $tagihan = Tagihan::where('uuid_penghuni', $penghuni->uuid)->first();
+            // Ambil array UUID master tagihan
+            $uuids = $tagihan->uuid_master_tagihan;
+
+            // Ambil semua master tagihan
+            $masterTagihan = MasterTagihan::whereIn('uuid', $uuids)->get();
+
+            // Buat array nama_tagihan => jumlah dan hitung total listrik (selain Iuran)
+            $total = 0;
+
+            foreach ($masterTagihan as $tagihan) {
+                // Total semua tagihan
+                $total += $tagihan->jumlah;
+            }
+
+            $item->total_tagihan = $total;
+            return $item;
+        });
+        return view('user.tagihan', compact('module', 'data', 'riwayat'));
     }
 }
