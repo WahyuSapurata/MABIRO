@@ -16,6 +16,12 @@ class DataPeminjamanController extends BaseController
         return view('biro.peminjaman.index', compact('module'));
     }
 
+    public function index_inventaris()
+    {
+        $module = 'Data Peminjaman';
+        return view('inventaris.peminjaman.index', compact('module'));
+    }
+
     public function get()
     {
         $data = DataPeminjaman::all();

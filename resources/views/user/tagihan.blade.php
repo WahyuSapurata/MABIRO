@@ -86,7 +86,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ \Carbon\Carbon::parse($rwt->updated_at)->translatedFormat('d F Y') }}
                                             </td>
-                                            <td>{{ $rwt->total_tagihan }}</td>
+                                            <td>Rp {{ number_format($rwt->total_tagihan, 0, ',', '.') }}</td>
                                             <td>{{ $rwt->metode_pembayaran }}</td>
                                             <td>
                                                 <div

@@ -14,6 +14,12 @@ class MasterTagihanController extends BaseController
         return view('biro.mastertagihan.index', compact('module'));
     }
 
+    public function index_keuangan()
+    {
+        $module = 'Master Tagihan';
+        return view('keuangan.mastertagihan.index', compact('module'));
+    }
+
     public function get()
     {
         $data = MasterTagihan::all();

@@ -14,6 +14,12 @@ class PengeluaranController extends BaseController
         return view('biro.pengeluaran.index', compact('module'));
     }
 
+    public function index_keuangan()
+    {
+        $module = 'Pengeluaran';
+        return view('keuangan.pengeluaran.index', compact('module'));
+    }
+
     public function get()
     {
         $data = Pengeluaran::all();

@@ -188,10 +188,28 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
     Route::group(['prefix' => 'keuangan', 'middleware' => ['auth'], 'as' => 'keuangan.'], function () {
         Route::get('/dashboard-keuangan', 'Dashboard@dashboard_keuangan')->name('dashboard-keuangan');
+
+        Route::get('/pemasukan', 'PemasukanController@index')->name('pemasukan');
+
+        Route::get('/pengeluaran', 'PengeluaranController@index')->name('pengeluaran');
+
+        Route::get('/master-tagihan', 'MasterTagihanController@index')->name('master-tagihan');
+
+        Route::get('/tagihan', 'TagihanController@index')->name('tagihan');
+
+        Route::get('/rekap-pembayaran', 'RekapPembayaranController@index')->name('rekap-pembayaran');
+
+        Route::get('/arsip-dokumen', 'ArsipDokumenController@index')->name('arsip-dokumen');
     });
 
     Route::group(['prefix' => 'inventaris', 'middleware' => ['auth'], 'as' => 'inventaris.'], function () {
         Route::get('/dashboard-inventaris', 'Dashboard@dashboard_inventaris')->name('dashboard-inventaris');
+
+        Route::get('/data-inventaris', 'DataInventarisController@index')->name('data-inventaris');
+
+        Route::get('/data-peminjaman', 'DataPeminjamanController@index')->name('data-peminjaman');
+
+        Route::get('/arsip-dokumen', 'ArsipDokumenController@index')->name('arsip-dokumen');
     });
 
     Route::get('/logout', 'Auth@logout')->name('logout');

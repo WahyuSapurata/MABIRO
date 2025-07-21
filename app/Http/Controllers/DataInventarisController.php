@@ -14,6 +14,12 @@ class DataInventarisController extends BaseController
         return view('biro.inventaris.index', compact('module'));
     }
 
+    public function index_inventaris()
+    {
+        $module = 'Data Inventaris';
+        return view('inventaris.inventaris.index', compact('module'));
+    }
+
     public function get()
     {
         $data = DataInventaris::all();

@@ -20,6 +20,12 @@ class RekapPembayaranController extends BaseController
         return view('biro.rekappembayaran.index', compact('module'));
     }
 
+    public function index_keuangan()
+    {
+        $module = 'Rekap Pembayaran';
+        return view('keuangan.rekappembayaran.index', compact('module'));
+    }
+
     public function get()
     {
         $data = RekapPembayaran::all();
