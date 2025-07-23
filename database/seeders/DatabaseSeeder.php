@@ -48,9 +48,9 @@ class DatabaseSeeder extends Seeder
 
         $uuid_penghuni = $data_penghuni->uuid;
         DataPenghuni::updateOrCreate(
+            ['uuid_user' => $uuid_penghuni],
             [
                 'uuid' => Uuid::uuid4()->toString(),
-                'uuid_user' => $uuid_penghuni,
                 'tempat_lahir' => 'Sinjai',
                 'tanggal_lahir' => '26-02-2000',
                 'agama' => 'Islam',

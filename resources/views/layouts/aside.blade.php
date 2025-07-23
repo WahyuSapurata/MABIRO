@@ -622,24 +622,6 @@
                     </a>
                 </div>
                 <!--end::Menu item-->
-
-                <!--begin::Menu item-->
-                <div class="menu-item">
-                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'arsip-dokumen' ? 'mb-bg-active' : 'mb-bg-default' }}"
-                        href="{{ route('keuangan.arsip-dokumen') }}">
-                        <span class="menu-icon">
-                            <span class="svg-icon svg-icon-2">
-                                {!! isset($path[1]) && $path[1] === 'arsip-dokumen'
-                                    ? '<i class="fas fa-folder-open mb-aside-menu-text" font-size: 16px"></i>'
-                                    : '<i class="fas fa-folder-open text-white" font-size: 16px"></i>' !!}
-                            </span>
-                        </span>
-                        <span
-                            class="menu-title {{ isset($path[1]) && $path[1] == 'arsip-dokumen' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Arsip
-                            Dokumen</span>
-                    </a>
-                </div>
-                <!--end::Menu item-->
             @endif
 
             @if ($role === 'inventaris')
@@ -696,37 +678,19 @@
                     </a>
                 </div>
                 <!--end::Menu item-->
-
-                <!--begin::Menu item-->
-                <div class="menu-item">
-                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'arsip-dokumen' ? 'mb-bg-active' : 'mb-bg-default' }}"
-                        href="{{ route('inventaris.arsip-dokumen') }}">
-                        <span class="menu-icon">
-                            <span class="svg-icon svg-icon-2">
-                                {!! isset($path[1]) && $path[1] === 'arsip-dokumen'
-                                    ? '<i class="fas fa-folder-open mb-aside-menu-text" font-size: 16px"></i>'
-                                    : '<i class="fas fa-folder-open text-white" font-size: 16px"></i>' !!}
-                            </span>
-                        </span>
-                        <span
-                            class="menu-title {{ isset($path[1]) && $path[1] == 'arsip-dokumen' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Arsip
-                            Dokumen</span>
-                    </a>
-                </div>
-                <!--end::Menu item-->
             @endif
 
 
-<div class="d-md-none d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
-                        <form id="logout-form" action="{{ route('logout') }}" method="GET" class="d-grid">
-                            @csrf
-                            @method('GET')
-                            <button type="submit" style="border: none;"
-                                class="mabiro-btn btn btn-white py-2 px-3 d-flex align-items-center gap-3"
-                                id="sign-out"><span>Keluar</span> <i class="mabiro-btn fas fa-sign-out-alt"></i></button>
-                        </form>
+            <div class="d-md-none d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
+                <form id="logout-form" action="{{ route('logout') }}" method="GET" class="d-grid">
+                    @csrf
+                    @method('GET')
+                    <button type="submit" style="border: none;"
+                        class="mabiro-btn btn btn-white py-2 px-3 d-flex align-items-center gap-3"
+                        id="sign-out"><span>Keluar</span> <i class="mabiro-btn fas fa-sign-out-alt"></i></button>
+                </form>
 
-                    </div>
+            </div>
 
 
             {{-- <div class="menu-item">

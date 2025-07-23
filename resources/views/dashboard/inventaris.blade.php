@@ -1,116 +1,248 @@
 @extends('layouts.layout')
 @section('content')
+    <style>
+        .card-custom {
+            border-radius: 30px;
+            background: white;
+            padding: 1.5rem;
+            color: #333;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .icon-rounded {
+            background-color: #730022;
+            padding: 0.7rem;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+        }
+
+        .card-title-big {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0;
+        }
+
+        .card-subtitle {
+            color: #6c757d;
+            font-size: 1rem;
+        }
+
+        .card-footer-link {
+            background: linear-gradient(to right, #fff, #d5b5bc);
+            color: #555;
+            border-radius: 20px;
+            padding: 8px 14px;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 1.2rem;
+        }
+
+        .card-footer-link i {
+            color: white;
+            background: #730022;
+            padding: 6px;
+            border-radius: 50%;
+            font-size: 0.8rem;
+        }
+
+        .agenda-card {
+            border-radius: 30px;
+            background: white;
+            padding: 1.5rem;
+            color: #333;
+        }
+
+        .agenda-card h5 {
+            font-weight: bold;
+        }
+
+        .agenda-card table th {
+            background-color: #730022;
+            color: white;
+            vertical-align: middle;
+        }
+
+        .agenda-link {
+            background: linear-gradient(to right, #fff, #d5b5bc);
+            color: #555;
+            border-radius: 20px;
+            padding: 8px 14px;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 1.2rem;
+            width: 100%;
+        }
+    </style>
     <div class="post d-flex flex-column-fluid" id="kt_post">
         <!--begin::Container-->
         <div id="kt_content_container" class="container">
-            <div class="row bg-primary py-3 rounded">
-                <!--Begin Admin-->
-                <div class="col-md-3">
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <div class="p-2 rounded-circle"
-                                style="display: flex; align-items: center; position: absolute; top: 0; right: 0;">
-                                <svg id="calon_penghuni" xmlns="http://www.w3.org/2000/svg" height="3em" width="59px"
-                                    viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                    <style>
-                                        #calon_penghuni {
-                                            fill: #f4be2a
-                                        }
-                                    </style>
-                                    <path
-                                        d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z" />
-                                </svg>
+            <div class="container py-5 bg-mabiro rounded-3">
+                <h4 class="text-white mb-4">Selamat Datang, di <strong>Dashboard Admin Mabiro</strong></h4>
+                <h2 class="text-white mb-4">Sistem Informasi Manajemen Asrama</h2>
+
+                <!-- ROW 1 -->
+                <div class="row g-3 mb-3">
+                    <div class="col-md-4">
+                        <div class="card-custom">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <p class="card-title-big">{{ $penghuni }}</p>
+                                    <p class="card-subtitle">Penghuni</p>
+                                </div>
+                                <div class="icon-rounded">
+                                    ðŸ“˜
+                                </div>
                             </div>
-                            <div class="text-center fw-bold fs-1">{{ $calon_penghuni }} Orang</div>
-                            <div style="font-size: 12px" class="fw-bolder text-center text-capitalize">Calong Penghuni
+                            <a href="{{ route('biro.data-penghuni') }}" class="card-footer-link">Lihat Data Warga
+                                <i>&#8250;</i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card-custom">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <p class="card-title-big">{{ $peminjaman_belum_kembali }}</p>
+                                    <p class="card-subtitle">Barang Belum Kembali</p>
+                                </div>
+                                <div class="icon-rounded">
+                                    ðŸ“˜
+                                </div>
                             </div>
-                            <div class="d-grid mt-2">
-                                <a href="{{ route('biro.data-penghuni') }}" class="btn btn-primary">Kelola detail</a>
+                            <a href="{{ route('keuangan.pemasukan') }}" class="card-footer-link">Lihat Data Warga
+                                <i>&#8250;</i></a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card-custom">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <p class="card-title-big">{{ $barang_rusak }}</p>
+                                    <p class="card-subtitle">Barang Rusak</p>
+                                </div>
+                                <div class="icon-rounded">
+                                    ðŸ“˜
+                                </div>
                             </div>
+                            <a href="{{ route('keuangan.pengeluaran') }}" class="card-footer-link">Lihat Data Warga
+                                <i>&#8250;</i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card-custom">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <p class="card-title-big">{{ $barang_kurang_baik }}</p>
+                                    <p class="card-subtitle">Barang Kurang Baik</p>
+                                </div>
+                                <div class="icon-rounded">
+                                    ðŸ“˜
+                                </div>
+                            </div>
+                            <a href="{{ route('keuangan.pengeluaran') }}" class="card-footer-link">Lihat Data Warga
+                                <i>&#8250;</i></a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card-custom">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <p class="card-title-big">{{ $total_inventaris }}</p>
+                                    <p class="card-subtitle">Total Inventaris</p>
+                                </div>
+                                <div class="icon-rounded">
+                                    ðŸ“˜
+                                </div>
+                            </div>
+                            <a href="{{ route('keuangan.pengeluaran') }}" class="card-footer-link">Lihat Data Warga
+                                <i>&#8250;</i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card-custom">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <p class="card-title-big">Rp. {{ number_format($saldo, 0, ',', '.') }}</p>
+                                    <p class="card-subtitle">Sisa Saldo Kas Asrama</p>
+                                </div>
+                                <div class="icon-rounded">
+                                    ðŸ’°
+                                </div>
+                            </div>
+                            <a href="{{ route('biro.laporan') }}" class="card-footer-link">Lihat Rekapitulasi
+                                <i>&#8250;</i></a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-3">
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <div class="p-2 rounded-circle"
-                                style="display: flex; align-items: center; position: absolute; top: 0; right: 0;">
-                                <svg id="penghuni" xmlns="http://www.w3.org/2000/svg" height="3em" width="59px"
-                                    viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                    <style>
-                                        #penghuni {
-                                            fill: #2a60f4
-                                        }
-                                    </style>
-                                    <path
-                                        d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z" />
-                                </svg>
-                            </div>
-                            <div class="text-center fw-bold fs-1">{{ $penghuni }} Orang</div>
-                            <div style="font-size: 12px" class="fw-bolder text-center text-capitalize">Penghuni
-                            </div>
-                            <div class="d-grid mt-2">
-                                <a href="{{ route('biro.data-penghuni') }}" class="btn btn-primary">Kelola detail</a>
+                <!-- ROW 2 -->
+                <div class="row g-3">
+                    <!-- Kolom Kiri -->
+                    <div class="col-md-6">
+
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <div class="card-custom">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div>
+                                            <p class="card-title-big">{{ $keluhan }}</p>
+                                            <p class="card-subtitle">Laporan Warga</p>
+                                        </div>
+                                        <div class="icon-rounded">ðŸ“‘</div>
+                                    </div>
+                                    <a href="{{ route('biro.keluhan') }}" class="card-footer-link">Lihat Daftar Warga
+                                        <i>&#8250;</i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col-md-3">
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <div class="p-2 rounded-circle"
-                                style="display: flex; align-items: center; position: absolute; top: 0; right: 0;">
-                                <svg id="peminjaman" xmlns="http://www.w3.org/2000/svg" height="3em" width="59px"
-                                    viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                    <style>
-                                        #peminjaman {
-                                            fill: #2adcf4
-                                        }
-                                    </style>
-                                    <path
-                                        d="M128 96c26.5 0 48-21.5 48-48S154.5 0 128 0 80 21.5 80 48s21.5 48 48 48zm384 0c26.5 0 48-21.5 48-48S538.5 0 512 0s-48 21.5-48 48 21.5 48 48 48zm125.7 372.1l-44-110-41.1 46.4-2 18.2 27.7 69.2c5 12.5 17 20.1 29.7 20.1 4 0 8-.7 11.9-2.3 16.4-6.6 24.4-25.2 17.8-41.6zm-34.2-209.8L585 178.1c-4.6-20-18.6-36.8-37.5-44.9-18.5-8-39-6.7-56.1 3.3-22.7 13.4-39.7 34.5-48.1 59.4L432 229.8 416 240v-96c0-8.8-7.2-16-16-16H240c-8.8 0-16 7.2-16 16v96l-16.1-10.2-11.3-33.9c-8.3-25-25.4-46-48.1-59.4-17.2-10-37.6-11.3-56.1-3.3-18.9 8.1-32.9 24.9-37.5 44.9l-18.4 80.2c-4.6 20 .7 41.2 14.4 56.7l67.2 75.9 10.1 92.6C130 499.8 143.8 512 160 512c1.2 0 2.3-.1 3.5-.2 17.6-1.9 30.2-17.7 28.3-35.3l-10.1-92.8c-1.5-13-6.9-25.1-15.6-35l-43.3-49 17.6-70.3 6.8 20.4c4.1 12.5 11.9 23.4 24.5 32.6l51.1 32.5c4.6 2.9 12.1 4.6 17.2 5h160c5.1-.4 12.6-2.1 17.2-5l51.1-32.5c12.6-9.2 20.4-20 24.5-32.6l6.8-20.4 17.6 70.3-43.3 49c-8.7 9.9-14.1 22-15.6 35l-10.1 92.8c-1.9 17.6 10.8 33.4 28.3 35.3 1.2 .1 2.3 .2 3.5 .2 16.1 0 30-12.1 31.8-28.5l10.1-92.6 67.2-75.9c13.6-15.5 19-36.7 14.4-56.7zM46.3 358.1l-44 110c-6.6 16.4 1.4 35 17.8 41.6 16.8 6.6 35.1-1.7 41.6-17.8l27.7-69.2-2-18.2-41.1-46.4z" />
-                                </svg>
+                    <!-- Kolom Kanan - Jadwal -->
+                    <div class="col-md-6">
+                        <div class="agenda-card h-100 d-flex flex-column justify-content-between">
+                            <div>
+                                <h5 class="mb-3 text-center">Jadwal & Agenda</h5>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Agenda</th>
+                                            <th>Jadwal Pelaksanaan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @forelse ($agenda as $item)
+                                            <tr>
+                                                <td>{{ $item->nama_program }}</td>
+                                                <td>{{ $item->jadwal_pelaksanaan }}</td>
+                                            </tr>
+                                        @empty
+                                            <tr>
+                                                <td colspan="2" class="text-center">Belum ada agenda</td>
+                                            </tr>
+                                        @endforelse
+                                    </tbody>
+                                </table>
                             </div>
-                            <div class="text-center fw-bold fs-1">{{ $peminjaman }} Data</div>
-                            <div style="font-size: 12px" class="fw-bolder text-center text-capitalize">Peminjaman
-                            </div>
-                            <div class="d-grid mt-2">
-                                <a href="{{ route('biro.data-peminjaman') }}" class="btn btn-primary">Kelola detail</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="card shadow-sm">
-                        <div class="card-body"
-                            style="    height: 153.6px; display: grid; align-items: center; align-content: center;">
-                            <div class="p-2 rounded-circle"
-                                style="display: flex; align-items: center; position: absolute; top: 0; right: 0;">
-                                <svg id="saldo" xmlns="http://www.w3.org/2000/svg" height="3em" width="59px"
-                                    viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                    <style>
-                                        #saldo {
-                                            fill: #f4312a
-                                        }
-                                    </style>
-                                    <path
-                                        d="M256 336h0c0-16.2 1.3-8.7-85.1-181.5-17.7-35.3-68.2-35.4-85.9 0C-2.1 328.8 0 320.3 0 336H0c0 44.2 57.3 80 128 80s128-35.8 128-80zM128 176l72 144H56l72-144zm512 160c0-16.2 1.3-8.7-85.1-181.5-17.7-35.3-68.2-35.4-85.9 0-87.1 174.3-85 165.8-85 181.5H384c0 44.2 57.3 80 128 80s128-35.8 128-80h0zM440 320l72-144 72 144H440zm88 128H352V153.3c23.5-10.3 41.2-31.5 46.4-57.3H528c8.8 0 16-7.2 16-16V48c0-8.8-7.2-16-16-16H383.6C369 12.7 346.1 0 320 0s-49 12.7-63.6 32H112c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h129.6c5.2 25.8 22.9 47 46.4 57.3V448H112c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h416c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16z" />
-                                </svg>
-                            </div>
-                            <div class="text-center fw-bold fs-1">Rp {{ number_format($saldo, 0, ',', '.') }}</div>
-                            <div style="font-size: 12px" class="fw-bolder text-center text-capitalize">Saldo Kas
-                            </div>
-                            {{-- <div class="d-grid mt-2">
-                                <a href="{{ route('biro.laporan') }}" class="btn btn-primary">Kelola detail</a>
-                            </div> --}}
+                            <a href="{{ route('biro.jadwal-agenda') }}" class="agenda-link">Kelola Jadwal & Agenda
+                                <i>&#8250;</i></a>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
         <!--end::Container-->
     </div>

@@ -109,8 +109,8 @@
                                 </div> --}}
 
                                 <div class="d-flex align-items-center">
-                                        <img alt="Logo" src="{{ asset('assets-landing/img/favicon.png') }}"
-                                            class="h-40px" />
+                                    <img alt="Logo" src="{{ asset('assets-landing/img/favicon.png') }}"
+                                        class="h-40px" />
                                 </div>
 
                             </div>
@@ -169,29 +169,29 @@
                 <!--begin::Content-->
                 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
                     <!--begin::Toolbar-->
-                    <div class="toolbar" id="kt_toolbar">
-                        <!--begin::Container-->
+                    @if (!in_array($path[1], ['dashboard-biro', 'dashboard-keuangan', 'dashboard-inventaris']))
+                        <div class="toolbar" id="kt_toolbar">
+                            <!--begin::Container-->
+                            <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
+                                <div data-kt-swapper="true" data-kt-swapper-mode="prepend"
+                                    data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
+                                    class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
 
-
-                        <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
-                            <div data-kt-swapper="true" data-kt-swapper-mode="prepend"
-                                data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
-                                class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
-
-                                <!-- <span class="h-20px border-gray-200 border-start ms-3 mx-2"></span>
+                                    <!-- <span class="h-20px border-gray-200 border-start ms-3 mx-2"></span>
 
                                     <small class="text-muted fs-7 fw-bold my-1 ms-1">#XRS-45670</small> -->
 
-                                <!-- </h1> -->
-                                <!--end::Title-->
+                                    <!-- </h1> -->
+                                    <!--end::Title-->
+                                </div>
+                                <div class="d-flex align-items-center gap-2 gap-lg-3">
+                                    @yield('button')
+                                </div>
+                                <!--end::Actions-->
                             </div>
-                            <div class="d-flex align-items-center gap-2 gap-lg-3">
-                                @yield('button')
-                            </div>
-                            <!--end::Actions-->
+                            <!--end::Container-->
                         </div>
-                        <!--end::Container-->
-                    </div>
+                    @endif
                     <!--end::Toolbar-->
                     <!--begin::Post-->
 
