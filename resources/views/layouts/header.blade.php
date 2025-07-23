@@ -60,7 +60,7 @@
                 <div class="d-flex align-items-stretch flex-shrink-0">
 
                     <!--begin::User-->
-                    <div class="d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
+                    <div class="d-none d-md-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
                         <form id="logout-form" action="{{ route('logout') }}" method="GET" class="d-grid">
                             @csrf
                             @method('GET')
