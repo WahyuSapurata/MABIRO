@@ -24,14 +24,15 @@
                     <div class="card-body p-0">
                         <div class="container">
                             <div class="py-5 table-responsive text-white">
-                                <table id="kt_table_data"
-                                    class="table table-rounded table-row-bordered table-row-gray-300">
+                                <table id="kt_table_data" class="table table-rounded table-row-bordered table-row-gray-300">
                                     <thead class="text-center bg-white">
                                         <tr class="fw-bolder fs-6">
                                             <th>No</th>
                                             <th>Nama</th>
                                             <th>Keterangan</th>
+                                            <th>Kategori</th>
                                             <th>Status</th>
+                                            <th>Tanggal</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -191,6 +192,9 @@
                     data: 'keterangan',
                     className: 'text-center',
                 }, {
+                    data: 'kategori',
+                    className: 'text-center',
+                }, {
                     data: 'status',
                     render: function(data, type, row, meta) {
                         let result;
@@ -201,6 +205,12 @@
                                     </div>
                                 </div>`;
                         return result;
+                    }
+                }, {
+                    data: 'created_at',
+                    className: 'text-center',
+                    render: function(data, type, row, meta) {
+                        return moment(data).format('DD-MM-YYYY');
                     }
                 }, {
                     data: 'uuid',

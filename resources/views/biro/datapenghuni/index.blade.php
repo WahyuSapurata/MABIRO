@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 @section('button')
     <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
-                <!--begin::Page title-->
+        <!--begin::Page title-->
         <div data-kt-swapper="true" data-kt-swapper-mode="prepend"
             data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
             class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
@@ -24,8 +24,7 @@
                     <div class="card-body p-0">
                         <div class="container">
                             <div class="py-5 table-responsive text-white">
-                                <table id="kt_table_data"
-                                    class="table table-rounded table-row-bordered table-row-gray-300">
+                                <table id="kt_table_data" class="table table-rounded table-row-bordered table-row-gray-300">
                                     <thead class="text-center">
                                         <tr class="fw-bolder fs-6">
                                             <th>No</th>
@@ -73,7 +72,7 @@
                 <!--begin::Card toolbar-->
                 <div class="card-toolbar">
                     <!--begin::Close-->
-                     <div class="btn btn-sm btn-icon btn-active-light-primary" id="side_form_close">
+                    <div class="btn btn-sm btn-icon btn-active-light-primary" id="side_form_close">
                         <i class="mb-close-button fas fa-times-circle"></i>
                     </div>
                     <!--end::Close-->
@@ -122,11 +121,11 @@
                         <label class="form-label">Agama</label>
                         <select name="agama" class="form-control" data-control="select2">
                             <option value="">-- Pilih Agama --</option>
-                            <option value="islam">Islam</option>
-                            <option value="keristen">Keristen</option>
-                            <option value="hindu">Hindu</option>
-                            <option value="budha">Budha</option>
-                            <option value="katolik">Katolik</option>
+                            <option value="Islam">Islam</option>
+                            <option value="Kristen">Kristen</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Budha">Budha</option>
+                            <option value="Katolik">Katolik</option>
                         </select>
                         <small class="text-danger agama_error"></small>
                     </div>
@@ -166,15 +165,25 @@
                         <small class="text-danger program_studi_error"></small>
                     </div>
 
-                    <div class="mb-10">
-                        <label class="form-label">Riwayat Pendidikan</label>
-                        <select name="riwayat_pendidikan" class="form-control" data-control="select2">
-                            <option value="">-- Pilih Agama --</option>
-                            <option value="sd">SD</option>
-                            <option value="mts">MTS</option>
-                            <option value="sma">SMA</option>
-                        </select>
-                        <small class="text-danger riwayat_pendidikan_error"></small>
+                    <div>
+                        <div class="mb-5">
+                            <label class="form-label">Riwayat Pendidikan</label>
+                        </div>
+                        <div class="mb-10">
+                            <label class="form-label">Riwayat Pendidikan SD</label>
+                            <input type="text" class="form-control" name="riwayat_pendidikan_sd">
+                            <small class="text-danger riwayat_pendidikan_sd_error"></small>
+                        </div>
+                        <div class="mb-10">
+                            <label class="form-label">Riwayat Pendidikan SMP</label>
+                            <input type="text" class="form-control" name="riwayat_pendidikan_smp">
+                            <small class="text-danger riwayat_pendidikan_smperror"></small>
+                        </div>
+                        <div class="mb-10">
+                            <label class="form-label">Riwayat Pendidikan SMA</label>
+                            <input type="text" class="form-control" name="riwayat_pendidikan_sma">
+                            <small class="text-danger riwayat_pendidikan_smaerror"></small>
+                        </div>
                     </div>
 
                     <div class="mb-10">
@@ -218,9 +227,12 @@
 
                     <div class="separator separator-dashed mt-8 mb-5"></div>
                     <div class="d-flex gap-5">
-                        <button type="submit" class="btn btn-mabiro-primary btn-sm btn-submit d-flex align-items-center"><i class="fa-solid fa-floppy-disk"></i> Simpan</button>
+                        <button type="submit"
+                            class="btn btn-mabiro-primary btn-sm btn-submit d-flex align-items-center"><i
+                                class="fa-solid fa-floppy-disk"></i> Simpan</button>
                         <button type="reset" id="side_form_close"
-                            class="btn mr-2 btn-mabiro-grey btn-cancel btn-sm d-flex align-items-center"><i class="fa-solid fa-ban"></i>Batal</button>
+                            class="btn mr-2 btn-mabiro-grey btn-cancel btn-sm d-flex align-items-center"><i
+                                class="fa-solid fa-ban"></i>Batal</button>
                     </div>
                 </form>
             </div>
@@ -242,7 +254,7 @@
         })
 
         $(document).on('click', '.button-detail', function() {
-            window.location.href = '/biro/data-penghuni-detail/' + $(this).attr('data-uuid');
+            window.location.href = '/biro/warga_tamu/data-penghuni-detail/' + $(this).attr('data-uuid');
         })
 
         $('#foto').change(function() {
@@ -277,12 +289,12 @@
             e.preventDefault();
             let type = $(this).attr('data-type');
             if (type == 'add') {
-                control.submitFormMultipartData('/biro/data-penghuni-store', 'Tambah',
+                control.submitFormMultipartData('/biro/warga_tamu/data-penghuni-store', 'Tambah',
                     'Data Penghuni',
                     'POST');
             } else {
                 let uuid = $("input[name='uuid']").val();
-                control.submitFormMultipartData('/biro/data-penghuni-update/' + uuid,
+                control.submitFormMultipartData('/biro/warga_tamu/data-penghuni-update/' + uuid,
                     'Update',
                     'Data Penghuni', 'POST');
             }
@@ -293,7 +305,7 @@
             $(".form-data").attr("data-type", "update");
             $(".title_side_form").html(`Update Data Penghuni`);
             $(".text-danger").html("");
-            let url = '/biro/data-penghuni-show/' + $(this).attr('data-uuid');
+            let url = '/biro/warga_tamu/data-penghuni-show/' + $(this).attr('data-uuid');
             $.ajax({
                 url: url,
                 method: "GET",
@@ -339,14 +351,15 @@
 
         $(document).on('click', '.button-delete', function(e) {
             e.preventDefault();
-            let url = '/biro/data-penghuni-delete/' + $(this).attr('data-uuid');
+            let url = '/biro/warga_tamu/data-penghuni-delete/' + $(this).attr('data-uuid');
             let label = $(this).attr('data-label');
             control.ajaxDelete(url, label)
         })
 
         $(document).on('click', '.button-convir', function(e) {
             e.preventDefault();
-            control.submitFormMultipartData('/biro/data-penghuni-konfirmasi/' + $(this).attr('data-uuid'),
+            control.submitFormMultipartData('/biro/warga_tamu/data-penghuni-konfirmasi/' + $(this).attr(
+                    'data-uuid'),
                 'Update',
                 'Data Penghuni', 'POST');
         })
@@ -370,7 +383,7 @@
                     [0, 'asc']
                 ],
                 processing: true,
-                ajax: '/biro/data-penghuni-get',
+                ajax: '/biro/warga_tamu/data-penghuni-get',
                 columns: [{
                     data: null,
                     className: 'mb-kolom-nomor align-content-center',
@@ -554,7 +567,7 @@
 
         // $('#export-excel').click(function(e) {
         //     e.preventDefault();
-        //     window.open(`/biro/data-penghuni-export`, "_blank");
+        //     window.open(`/biro/warga_tamu/data-penghuni-export`, "_blank");
         // });
     </script>
 @endsection

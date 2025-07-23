@@ -59,7 +59,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Layanan</a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ route('register-penghuni') }}">Registrasi Warga Baru</a></li>
+                            <li><a href="{{ route('registrasi-penghuni') }}">Registrasi Warga Baru</a></li>
                             <li><a href="{{ route('buku-tamu') }}">Registrasi Tamu</a></li>
                             <li><a href="{{ route('peminjaman') }}">Ajukan Peminjaman</a></li>
                             <li><a href="{{ route('keluhan') }}">Kirim Laporan</a></li>
@@ -97,8 +97,8 @@
                     <!-- Tombol Masuk -->
                     <li>
                         @if (auth()->check())
-                            <button type="button" class="btn btn-mabiro-white"><a href="{{ route('logout') }}"
-                                    >Keluar</a></button>
+                            <button type="button" class="btn btn-mabiro-white"><a
+                                    href="{{ route('logout') }}">Keluar</a></button>
                         @else
                             <button type="button" class="btn btn-login"><a
                                     href="{{ route('login.login-akun') }}">Masuk</a></button>

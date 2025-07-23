@@ -24,11 +24,9 @@
                     <div class="card-body p-0">
                         <div class="container">
                             <div class="py-5 table-responsive text-white">
-                                <table id="kt_table_data"
-                                    class="table table-rounded table-row-bordered table-row-gray-300">
+                                <table id="kt_table_data" class="table table-rounded table-row-bordered table-row-gray-300">
                                     <thead>
                                         <tr class="fw-bolder fs-6">
-                                            <th>No</th>
                                             <th>Foto</th>
                                             <th>Nama</th>
                                             <th>Username</th>
@@ -283,12 +281,6 @@
                 processing: true,
                 ajax: '/biro/data-pengguna-get',
                 columns: [{
-                    data: null,
-                    className: 'mb-kolom-nomor align-content-center',
-                    render: function(data, type, row, meta) {
-                        return meta.row + meta.settings._iDisplayStart + 1;
-                    }
-                }, {
                     data: 'foto',
                     className: 'mb-kolom-photo align-content-center',
                     render: function(data, type, row, meta) {
@@ -370,13 +362,6 @@
                         `;
                     },
                 }],
-
-                rowCallback: function(row, data, index) {
-                    var api = this.api();
-                    var startIndex = api.context[0]._iDisplayStart;
-                    var rowIndex = startIndex + index + 1;
-                    $('td', row).eq(0).html(rowIndex);
-                },
             });
         };
 

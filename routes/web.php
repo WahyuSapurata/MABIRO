@@ -18,7 +18,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
     Route::get('/', 'Beranda@index')->name('beranda');
 
-    Route::get('/register-penghuni', 'Auth@register')->name('register-penghuni');
+    Route::get('/registrasi-penghuni', 'Auth@register')->name('registrasi-penghuni');
     Route::post('/register-penghuni-add', 'Auth@store')->name('register-penghuni-add');
 
     Route::get('/selayang-pandang', 'Tentang@selayang_pandang')->name('selayang-pandang');
@@ -66,14 +66,23 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::post('/data-pengguna-update/{params}', 'DataPenggunaController@update')->name('data-pengguna-update');
         Route::delete('/data-pengguna-delete/{params}', 'DataPenggunaController@delete')->name('data-pengguna-delete');
 
-        Route::get('/data-penghuni', 'DataPenghuniController@index')->name('data-penghuni');
-        Route::get('/data-penghuni-get', 'DataPenghuniController@get')->name('data-penghuni-get');
-        Route::post('/data-penghuni-store', 'DataPenghuniController@store')->name('data-penghuni-store');
-        Route::get('/data-penghuni-show/{params}', 'DataPenghuniController@show')->name('data-penghuni-show');
-        Route::post('/data-penghuni-update/{params}', 'DataPenghuniController@update')->name('data-penghuni-update');
-        Route::delete('/data-penghuni-delete/{params}', 'DataPenghuniController@delete')->name('data-penghuni-delete');
-        Route::post('/data-penghuni-konfirmasi/{params}', 'DataPenghuniController@konfirmasi')->name('data-penghuni-konfirmasi');
-        Route::get('/data-penghuni-detail/{params}', 'DataPenghuniController@detail')->name('data-penghuni-detail');
+        Route::prefix('warga_tamu')->group(function () {
+            Route::get('/data-penghuni', 'DataPenghuniController@index')->name('data-penghuni');
+            Route::get('/data-penghuni-get', 'DataPenghuniController@get')->name('data-penghuni-get');
+            Route::post('/data-penghuni-store', 'DataPenghuniController@store')->name('data-penghuni-store');
+            Route::get('/data-penghuni-show/{params}', 'DataPenghuniController@show')->name('data-penghuni-show');
+            Route::post('/data-penghuni-update/{params}', 'DataPenghuniController@update')->name('data-penghuni-update');
+            Route::delete('/data-penghuni-delete/{params}', 'DataPenghuniController@delete')->name('data-penghuni-delete');
+            Route::post('/data-penghuni-konfirmasi/{params}', 'DataPenghuniController@konfirmasi')->name('data-penghuni-konfirmasi');
+            Route::get('/data-penghuni-detail/{params}', 'DataPenghuniController@detail')->name('data-penghuni-detail');
+
+            Route::get('/data-tamu', 'DataTamuController@index')->name('data-tamu');
+            Route::get('/data-tamu-get', 'DataTamuController@get')->name('data-tamu-get');
+            // Route::post('/data-tamu-store', 'DataTamuController@store')->name('data-tamu-store');
+            Route::get('/data-tamu-show/{params}', 'DataTamuController@show')->name('data-tamu-show');
+            Route::post('/data-tamu-update/{params}', 'DataTamuController@update')->name('data-tamu-update');
+            Route::delete('/data-tamu-delete/{params}', 'DataTamuController@delete')->name('data-tamu-delete');
+        });
 
         Route::prefix('keuangan')->group(function () {
             Route::get('/pemasukan', 'PemasukanController@index')->name('pemasukan');
@@ -110,6 +119,10 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
             Route::get('/rekap-pembayaran-show/{params}', 'RekapPembayaranController@show')->name('rekap-pembayaran-show');
             Route::post('/rekap-pembayaran-update/{params}', 'RekapPembayaranController@update')->name('rekap-pembayaran-update');
             Route::delete('/rekap-pembayaran-delete/{params}', 'RekapPembayaranController@delete')->name('rekap-pembayaran-delete');
+
+            Route::get('/laporan', 'Laporan@index')->name('laporan');
+            Route::get('/laporan-get/{params}', 'Laporan@get')->name('laporan-get');
+            Route::get('/laporan-export/{params}', 'Laporan@export_to_excel')->name('laporan-export');
         });
 
         Route::prefix('inventaris')->group(function () {
@@ -126,13 +139,6 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
             Route::get('/data-peminjaman-show/{params}', 'DataPeminjamanController@show')->name('data-peminjaman-show');
             Route::post('/data-peminjaman-update/{params}', 'DataPeminjamanController@update')->name('data-peminjaman-update');
             Route::delete('/data-peminjaman-delete/{params}', 'DataPeminjamanController@delete')->name('data-peminjaman-delete');
-
-            Route::get('/arsip-dokumen', 'ArsipDokumenController@index')->name('arsip-dokumen');
-            Route::get('/arsip-dokumen-get', 'ArsipDokumenController@get')->name('arsip-dokumen-get');
-            Route::post('/arsip-dokumen-store', 'ArsipDokumenController@store')->name('arsip-dokumen-store');
-            Route::get('/arsip-dokumen-show/{params}', 'ArsipDokumenController@show')->name('arsip-dokumen-show');
-            Route::post('/arsip-dokumen-update/{params}', 'ArsipDokumenController@update')->name('arsip-dokumen-update');
-            Route::delete('/arsip-dokumen-delete/{params}', 'ArsipDokumenController@delete')->name('arsip-dokumen-delete');
         });
 
         Route::prefix('kegiatan')->group(function () {
@@ -174,16 +180,12 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::post('/keluhan-update/{params}', 'KeluhanController@update')->name('keluhan-update');
         Route::delete('/keluhan-delete/{params}', 'KeluhanController@delete')->name('keluhan-delete');
 
-        Route::get('/data-tamu', 'DataTamuController@index')->name('data-tamu');
-        Route::get('/data-tamu-get', 'DataTamuController@get')->name('data-tamu-get');
-        // Route::post('/data-tamu-store', 'DataTamuController@store')->name('data-tamu-store');
-        Route::get('/data-tamu-show/{params}', 'DataTamuController@show')->name('data-tamu-show');
-        Route::post('/data-tamu-update/{params}', 'DataTamuController@update')->name('data-tamu-update');
-        Route::delete('/data-tamu-delete/{params}', 'DataTamuController@delete')->name('data-tamu-delete');
-
-        Route::get('/laporan', 'Laporan@index')->name('laporan');
-        Route::get('/laporan-get/{params}', 'Laporan@get')->name('laporan-get');
-        Route::get('/laporan-export/{params}', 'Laporan@export_to_excel')->name('laporan-export');
+        Route::get('/arsip-dokumen', 'ArsipDokumenController@index')->name('arsip-dokumen');
+        Route::get('/arsip-dokumen-get', 'ArsipDokumenController@get')->name('arsip-dokumen-get');
+        Route::post('/arsip-dokumen-store', 'ArsipDokumenController@store')->name('arsip-dokumen-store');
+        Route::get('/arsip-dokumen-show/{params}', 'ArsipDokumenController@show')->name('arsip-dokumen-show');
+        Route::post('/arsip-dokumen-update/{params}', 'ArsipDokumenController@update')->name('arsip-dokumen-update');
+        Route::delete('/arsip-dokumen-delete/{params}', 'ArsipDokumenController@delete')->name('arsip-dokumen-delete');
     });
 
     Route::group(['prefix' => 'keuangan', 'middleware' => ['auth'], 'as' => 'keuangan.'], function () {
@@ -199,6 +201,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
         Route::get('/rekap-pembayaran', 'RekapPembayaranController@index')->name('rekap-pembayaran');
 
+        Route::get('/keluhan', 'KeluhanController@index')->name('keluhan');
+
         Route::get('/arsip-dokumen', 'ArsipDokumenController@index')->name('arsip-dokumen');
     });
 
@@ -208,6 +212,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::get('/data-inventaris', 'DataInventarisController@index')->name('data-inventaris');
 
         Route::get('/data-peminjaman', 'DataPeminjamanController@index')->name('data-peminjaman');
+
+        Route::get('/keluhan', 'KeluhanController@index')->name('keluhan');
 
         Route::get('/arsip-dokumen', 'ArsipDokumenController@index')->name('arsip-dokumen');
     });

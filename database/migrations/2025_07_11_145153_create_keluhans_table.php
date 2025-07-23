@@ -17,6 +17,7 @@ return new class extends Migration
             $table->uuid('uuid_penghuni');
             $table->string('keterangan');
             $table->string('status');
+            $table->string('ketegori');
             $table->timestamps();
         });
     }

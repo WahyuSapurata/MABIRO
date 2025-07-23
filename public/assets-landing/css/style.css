@@ -322,6 +322,12 @@ i::before {
     display: none;
 }
 
+.list-persetujuan li {
+    list-style: auto;
+    margin-left: 20px;
+    font-size: 13px;
+}
+
 /* ==============================================================
     # Template Default Styles
 =================================================================== */

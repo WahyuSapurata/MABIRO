@@ -5,7 +5,7 @@
 
         <div class="row justify-content-center gx-3 gy-4">
             <div class="col-6 col-sm-4 col-md-4">
-                <a href="{{ route('register-penghuni') }}" class="service-box">
+                <a href="{{ route('registrasi-penghuni') }}" class="service-box">
                     <iconify-icon icon="mdi:account-box" width="28" height="28"></iconify-icon>
                     <span>Registrasi Warga Baru</span>
                 </a>

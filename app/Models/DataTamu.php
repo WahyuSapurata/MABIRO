@@ -19,6 +19,7 @@ class DataTamu extends Model
         'tujuan',
         'tanggal_masuk',
         'tanggal_keluar',
+        'status',
     ];
 
     protected static function boot()

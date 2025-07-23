@@ -24,8 +24,7 @@
                     <div class="card-body p-0">
                         <div class="container">
                             <div class="py-5 table-responsive text-white">
-                                <table id="kt_table_data"
-                                    class="table table-rounded table-row-bordered table-row-gray-300">
+                                <table id="kt_table_data" class="table table-rounded table-row-bordered table-row-gray-300">
                                     <thead class="text-center bg-white">
                                         <tr class="fw-bolder fs-6">
                                             <th>No</th>
@@ -35,7 +34,6 @@
                                             <th>Nomor Whatsapp</th>
                                             <th>Tanggal Peminjaman</th>
                                             <th>Durasi</th>
-                                            <th>Surat</th>
                                             <th>Status</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -106,10 +104,16 @@
                         <label class="form-label">Status</label>
                         <select name="status" class="form-control" data-control="select2">
                             <option value="">-- Pilih Status --</option>
-                            <option value="terpinjam">Terpinjam</option>
-                            <option value="selesai">Selesai</option>
+                            <option value="Menunggu Persetujuan">Menunggu Persetujuan</option>
+                            <option value="Dipinjamkan">Dipinjamkan</option>
+                            <option value="Sudah Dikembalikan">Sudah Dikembalikan</option>
                         </select>
                         <small class="text-danger status_error"></small>
+                    </div>
+
+                    <div class="mb-10">
+                        <label class="form-label">File Surat</label>
+                        <div class="mt-3" id="logoInfoContainer"></div>
                     </div>
 
                     <div class="separator separator-dashed mt-8 mb-5"></div>
@@ -147,17 +151,53 @@
             }
         });
 
-        $(document).on('click', '.button-update', function(e) {
-            e.preventDefault();
-            let url = '/biro/inventaris/data-peminjaman-show/' + $(this).attr('data-uuid');
-            control.overlay_form('Update', 'Campaign Donasi', url);
-        })
-
         $(document).on('click', '.button-delete', function(e) {
             e.preventDefault();
             let url = '/biro/inventaris/data-peminjaman-delete/' + $(this).attr('data-uuid');
             let label = $(this).attr('data-label');
             control.ajaxDelete(url, label)
+        })
+
+        $(document).on('click', '.button-update', function(e) {
+            e.preventDefault();
+            $(".form-data").attr("data-type", "update");
+            $(".title_side_form").html(`Update Fasilitas`);
+            $(".text-danger").html("");
+            let url = '/biro/inventaris/data-peminjaman-show/' + $(this).attr('data-uuid');
+            $.ajax({
+                url: url,
+                method: "GET",
+                success: function(res) {
+                    if (res.success == true) {
+                        // Inisialisasi Select2 hanya sekali
+                        $('#nama_agenda').select2();
+
+                        $.each(res.data, function(x, y) {
+                            const $selectField = $("select[name='" + x + "[]']");
+
+                            if ($("input[name='" + x + "']").is(":radio")) {
+                                $("input[name='" + x + "'][value='" + y + "']").prop("checked",
+                                    true);
+                            } else if ($("input[name='" + x + "']").attr("type") === "file") {
+                                $('#logoInfoContainer').html(
+                                    `<a href="{{ asset('/public/pengajuan/${y}') }}" target="_blank" class="btn btn-outline btn-outline-dashed btn-outline-danger btn-active-light-danger p-2 py-1">
+                                        <div class="d-flex justify-content-center align-items-center" style="gap: 5px; color: red;">
+                                            Lihat File
+                                        </div>
+                                    </a>`
+                                );
+                            } else {
+                                $("input[name='" + x + "']").val(y);
+                                $("select[name='" + x + "']").val(y).trigger("change");
+                                $("textarea[name='" + x + "']").val(y);
+                            }
+                        });
+                    }
+                },
+                error: function(xhr) {
+                    alert("gagal");
+                },
+            });
         })
 
         $(document).on('keyup', '#search_', function(e) {
@@ -204,25 +244,13 @@
                     data: 'durasi_peminjaman',
                     className: 'text-center',
                 }, {
-                    data: 'surat',
-                    render: function(data, type, row, meta) {
-                        let result;
-                        result =
-                            `<a href="{{ asset('/public/pengajuan/${data}') }}" target="_blank" class="btn btn-outline btn-outline-dashed btn-outline-danger btn-active-light-danger p-2 py-1">
-                                    <div class="d-flex justify-content-center align-items-center" style="gap: 5px; color: red;">
-                                        Lihat File
-                                    </div>
-                                </a>`;
-                        return result;
-                    }
-                }, {
                     data: 'status',
                     render: function(data, type, row, meta) {
                         let result;
                         result =
-                            `<div class="btn btn-outline btn-outline-dashed ${data ? 'btn-outline-success btn-active-light-success' : 'btn-outline-danger btn-active-light-danger'} p-2 py-1">
+                            `<div class="btn btn-outline btn-outline-dashed btn-outline-success btn-active-light-success p-2 py-1">
                                     <div class="d-flex justify-content-center align-items-center" style="gap: 5px;">
-                                        ${data ? data : 'Perlu Persetujuan'}
+                                        ${data}
                                     </div>
                                 </div>`;
                         return result;

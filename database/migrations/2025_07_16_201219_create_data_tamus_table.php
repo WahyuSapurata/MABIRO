@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('tujuan');
             $table->string('tanggal_masuk');
             $table->string('tanggal_keluar');
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

@@ -1,7 +1,7 @@
 @extends('user.layouts.layout')
 @section('content')
     <!-- Start Breadcrumb
-                                                                                                                                                            ============================================= -->
+                                                                                                                                                                                                                        ============================================= -->
     <div class="breadcrumb-area text-center shadow theme-hard bg-fixed text-light"
         style="background-image: url({{ asset('assets-landing/img/banner/asrama.png') }});">
         <div class="container">
@@ -88,6 +88,33 @@
                                 <textarea name="alamat" id="" cols="" rows="2" class="form-control"></textarea>
                                 <small class="text-danger d-block alamat_error"></small>
                             </div>
+
+                            <div class="mb-3">
+                                <label class="form-label d-block">Pernyataan Warga Asrama</label>
+                                <div class="">
+                                    <h6 class="mb-2 fw-normal">
+                                        Menyatakan telah melengkapi semua persyaratan untuk menjadi penghuni asrama
+                                        mahasiswa Balikpapan dan bersedia untuk:
+                                    </h6>
+                                    <ol class="list-persetujuan">
+                                        <li>Menaati segala aturan yang berlaku di KPMB-Makassar</li>
+                                        <li>Menaati segala aturan yang berlaku di asrama mahasiswa Balikpapan</li>
+                                        <li>Wajib mengikuti serta mendukung seluruh program kerja yang dijalankan oleh
+                                            KPMB-Makassar</li>
+                                        <li>Bertanggung jawab serta memiliki loyalitas yang tinggi terhadap organisasi
+                                            KPMB-Makassar</li>
+                                        <li>Menjaga nama baik KPMB-Makassar pada khususnya dan kota Balikpapan pada umumnya
+                                        </li>
+                                    </ol>
+                                </div>
+
+                                <div class="form-check mt-3">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1" name="persetujuan"
+                                        value="1">
+                                    <label class="form-check-label" for="exampleCheck1">Menyetujui Pernyataan</label>
+                                </div>
+                                <small class="text-danger d-block persetujuan_error"></small>
+                            </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-10">
@@ -102,16 +129,27 @@
                                 <small class="text-danger d-block program_studi_error"></small>
                             </div>
 
-                            <div class="mb-10">
-                                <label class="form-label">Riwayat Pendidikan</label>
-                                <select name="riwayat_pendidikan" class="form-control">
-                                    <option value="">-- Pilih Riwayat Pendidikan --
-                                    </option>
-                                    <option value="sd">SD</option>
-                                    <option value="mts">MTS</option>
-                                    <option value="sma">SMA</option>
-                                </select>
-                                <small class="text-danger d-block riwayat_pendidikan_error"></small>
+                            <div>
+                                <div class="">
+                                    <label class="form-label">Riwayat Pendidikan</label>
+                                </div>
+                                <div class="ms-2">
+                                    <div class="mb-10">
+                                        <label class="form-label">Riwayat Pendidikan SD</label>
+                                        <input type="text" class="form-control" name="riwayat_pendidikan_sd">
+                                        <small class="text-danger riwayat_pendidikan_sd_error"></small>
+                                    </div>
+                                    <div class="mb-10">
+                                        <label class="form-label">Riwayat Pendidikan SMP</label>
+                                        <input type="text" class="form-control" name="riwayat_pendidikan_smp">
+                                        <small class="text-danger riwayat_pendidikan_smp_error"></small>
+                                    </div>
+                                    <div class="mb-10">
+                                        <label class="form-label">Riwayat Pendidikan SMA</label>
+                                        <input type="text" class="form-control" name="riwayat_pendidikan_sma">
+                                        <small class="text-danger riwayat_pendidikan_sma_error"></small>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="mb-10">
@@ -130,16 +168,6 @@
                                 <label class="form-label">Foto</label>
                                 <input type="file" accept=".png, .jpg, .jpeg" name="foto" class="form-control">
                                 <small class="text-danger d-block foto_error"></small>
-                            </div>
-
-                            <div class="mb-3">
-                                <label class="form-label d-block">Persetujuan</label>
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1"
-                                        name="persetujuan" value="1">
-                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                                </div>
-                                <small class="text-danger d-block persetujuan_error"></small>
                             </div>
 
                         </div>

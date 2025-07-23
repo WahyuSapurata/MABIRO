@@ -60,7 +60,9 @@ class DataPenghuniController extends BaseController
             $data->alamat = $store->alamat;
             $data->universitas = $store->universitas;
             $data->program_studi = $store->program_studi;
-            $data->riwayat_pendidikan = $store->riwayat_pendidikan;
+            $data->riwayat_pendidikan_sd = $store->riwayat_pendidikan_sd;
+            $data->riwayat_pendidikan_smp = $store->riwayat_pendidikan_smp;
+            $data->riwayat_pendidikan_sma = $store->riwayat_pendidikan_sma;
             $data->no_hp = $store->no_hp;
             $data->alasan = $store->alasan;
             $data->persetujuan = $store->persetujuan;
@@ -133,7 +135,9 @@ class DataPenghuniController extends BaseController
             $data->alamat = $update->alamat;
             $data->universitas = $update->universitas;
             $data->program_studi = $update->program_studi;
-            $data->riwayat_pendidikan = $update->riwayat_pendidikan;
+            $data->riwayat_pendidikan_sd = $update->riwayat_pendidikan_sd;
+            $data->riwayat_pendidikan_smp = $update->riwayat_pendidikan_smp;
+            $data->riwayat_pendidikan_sma = $update->riwayat_pendidikan_sma;
             $data->no_hp = $update->no_hp;
             $data->alasan = $update->alasan;
             $data->persetujuan = $update->persetujuan;

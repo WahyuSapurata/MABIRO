@@ -24,8 +24,7 @@
                     <div class="card-body p-0">
                         <div class="container">
                             <div class="py-5 table-responsive text-white">
-                                <table id="kt_table_data"
-                                    class="table table-rounded table-row-bordered table-row-gray-300">
+                                <table id="kt_table_data" class="table table-rounded table-row-bordered table-row-gray-300">
                                     <thead class="text-center bg-white">
                                         <tr class="fw-bolder fs-6">
                                             <th>No</th>
@@ -34,6 +33,7 @@
                                             <th>Tujuan</th>
                                             <th>Tanggal Masuk</th>
                                             <th>Tanggal Keluar</th>
+                                            <th>Status</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -51,7 +51,7 @@
         <!--end::Container-->
     </div>
 @endsection
-{{-- @section('side-form')
+@section('side-form')
     <div id="side_form" class="bg-white" data-kt-drawer="true" data-kt-drawer-activate="true"
         data-kt-drawer-toggle="#side_form_button" data-kt-drawer-close="#side_form_close" data-kt-drawer-width="500px">
         <!--begin::Card-->
@@ -100,11 +100,41 @@
                     <input type="hidden" name="uuid">
 
                     <div class="mb-10">
+                        <label class="form-label">Nama Tamu</label>
+                        <input type="text" name="nama_tamu" class="form-control">
+                        <small class="text-danger nama_tamu_error"></small>
+                    </div>
+
+                    <div class="mb-10">
+                        <label class="form-label">Alamat</label>
+                        <input type="text" name="alamat" class="form-control">
+                        <small class="text-danger alamat_error"></small>
+                    </div>
+
+                    <div class="mb-10">
+                        <label class="form-label">Tujuan</label>
+                        <input type="text" name="tujuan" class="form-control">
+                        <small class="text-danger tujuan_error"></small>
+                    </div>
+
+                    <div class="mb-10">
+                        <label class="form-label">Tanggal Masuk</label>
+                        <input type="text" name="tanggal_masuk" class="form-control kt_datepicker_7">
+                        <small class="text-danger tanggal_masuk_error"></small>
+                    </div>
+
+                    <div class="mb-10">
+                        <label class="form-label">Tanggal Keluar</label>
+                        <input type="text" name="tanggal_keluar" class="form-control kt_datepicker_7">
+                        <small class="text-danger tanggal_keluar_error"></small>
+                    </div>
+
+                    <div class="mb-10">
                         <label class="form-label">Status</label>
                         <select name="status" class="form-control" data-control="select2">
                             <option value="">-- Pilih Status --</option>
-                            <option value="tolak">Tolak</option>
-                            <option value="sudah ditindaklanjuti">Sudah Ditindaklanjuti</option>
+                            <option value="Selesai">Selesai</option>
+                            <option value="Sedang Bertamu">Sedang Bertamu</option>
                         </select>
                         <small class="text-danger status_error"></small>
                     </div>
@@ -124,10 +154,14 @@
         </div>
         <!--end::Card-->
     </div>
-@endsection --}}
+@endsection
 @section('script')
     <script>
         let control = new Control();
+
+        $(".kt_datepicker_7").flatpickr({
+            dateFormat: "d-m-Y",
+        });
 
         $(document).on('click', '#button-side-form', function() {
             control.overlay_form('Tambah', 'Data Tamu');
@@ -137,12 +171,12 @@
             e.preventDefault();
             let type = $(this).attr('data-type');
             if (type == 'add') {
-                control.submitFormMultipartData('/biro/data-tamu-store', 'Tambah',
+                control.submitFormMultipartData('/biro/warga_tamu/data-tamu-store', 'Tambah',
                     'Data Tamu',
                     'POST');
             } else {
                 let uuid = $("input[name='uuid']").val();
-                control.submitFormMultipartData('/biro/data-tamu-update/' + uuid,
+                control.submitFormMultipartData('/biro/warga_tamu/data-tamu-update/' + uuid,
                     'Update',
                     'Data Tamu', 'POST');
             }
@@ -150,13 +184,13 @@
 
         $(document).on('click', '.button-update', function(e) {
             e.preventDefault();
-            let url = '/biro/data-tamu-show/' + $(this).attr('data-uuid');
+            let url = '/biro/warga_tamu/data-tamu-show/' + $(this).attr('data-uuid');
             control.overlay_form('Update', 'Data Tamu', url);
         })
 
         $(document).on('click', '.button-delete', function(e) {
             e.preventDefault();
-            let url = '/biro/data-tamu-delete/' + $(this).attr('data-uuid');
+            let url = '/biro/warga_tamu/data-tamu-delete/' + $(this).attr('data-uuid');
             let label = $(this).attr('data-label');
             control.ajaxDelete(url, label)
         })
@@ -180,7 +214,7 @@
                     [0, 'asc']
                 ],
                 processing: true,
-                ajax: '/biro/data-tamu-get',
+                ajax: '/biro/warga_tamu/data-tamu-get',
                 columns: [{
                     data: null,
                     render: function(data, type, row, meta) {
@@ -200,6 +234,9 @@
                     className: 'text-center',
                 }, {
                     data: 'tanggal_keluar',
+                    className: 'text-center',
+                }, {
+                    data: 'status',
                     className: 'text-center',
                 }, {
                     data: 'uuid',
@@ -241,7 +278,7 @@
 
         // $('#export-excel').click(function(e) {
         //     e.preventDefault();
-        //     window.open(`/biro/data-tamu-export`, "_blank");
+        //     window.open(`/biro/warga_tamu/data-tamu-export`, "_blank");
         // });
     </script>
 @endsection

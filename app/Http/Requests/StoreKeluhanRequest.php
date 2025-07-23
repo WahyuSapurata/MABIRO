@@ -22,6 +22,7 @@ class StoreKeluhanRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'kategori' => 'required',
             'keterangan' => 'required',
         ];
     }
@@ -29,6 +30,7 @@ class StoreKeluhanRequest extends FormRequest
     public function messages()
     {
         return [
+            'kategori.required' => 'Kolom kategori harus di isi.',
             'keterangan.required' => 'Kolom ketrangan harus di isi.',
         ];
     }

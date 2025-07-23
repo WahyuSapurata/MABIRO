@@ -29,6 +29,7 @@ class DataTamuController extends BaseController
             $data->tujuan = $store->tujuan;
             $data->tanggal_masuk = $store->tanggal_masuk;
             $data->tanggal_keluar = $store->tanggal_keluar;
+            $data->status = 'Sedang Bertamu';
             $data->save();
         } catch (\Exception $e) {
             return $this->sendError($e->getMessage(), $e->getMessage(), 400);
@@ -57,6 +58,7 @@ class DataTamuController extends BaseController
             $data->tujuan = $update->tujuan;
             $data->tanggal_masuk = $update->tanggal_masuk;
             $data->tanggal_keluar = $update->tanggal_keluar;
+            $data->status = $update->status;
             $data->save();
         } catch (\Exception $e) {
             return $this->sendError($e->getMessage(), $e->getMessage(), 400);

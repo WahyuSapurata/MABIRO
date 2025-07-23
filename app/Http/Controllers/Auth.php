@@ -55,7 +55,7 @@ class Auth extends BaseController
 
     public function register()
     {
-        $module = 'Register Warga Baru';
+        $module = 'Registrasi Warga Baru';
         return view('auth.register', compact('module'));
     }
 
@@ -87,7 +87,9 @@ class Auth extends BaseController
             $data->alamat = $store->alamat;
             $data->universitas = $store->universitas;
             $data->program_studi = $store->program_studi;
-            $data->riwayat_pendidikan = $store->riwayat_pendidikan;
+            $data->riwayat_pendidikan_sd = $store->riwayat_pendidikan_sd;
+            $data->riwayat_pendidikan_smp = $store->riwayat_pendidikan_smp;
+            $data->riwayat_pendidikan_sma = $store->riwayat_pendidikan_sma;
             $data->no_hp = $store->no_hp;
             $data->alasan = $store->alasan;
             $data->persetujuan = $store->persetujuan;

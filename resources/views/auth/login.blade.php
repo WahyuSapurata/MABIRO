@@ -50,7 +50,8 @@
             <div class="d-none d-lg-grid justify-content-center align-items-center w-50 px-20 gap-3"
                 style="background-color: #4417CE; justify-items: center; align-content: center">
                 <img src="{{ asset('assets-landing/img/logo-mabiro-light.svg') }}" style="width: 230px" alt="">
-                <div style="font-size: 50px" class="text-white fw-bolder text-center py-5">Sistem Informasi <br>Manajemen
+                <div style="font-size: 50px" class="text-white fw-bolder text-center py-5">Sistem Informasi
+                    <br>Manajemen
                     Asrama
                 </div>
                 <div style="font-size: 18px" class="text-white text-center">Keluarga Pelajar Mahasiswa Balikpapan (KPMB)
@@ -234,6 +235,41 @@
                                                         <textarea name="alamat" id="" cols="" rows="2" class="form-control"></textarea>
                                                         <small class="text-danger alamat_error"></small>
                                                     </div>
+
+                                                    <div class="mb-3">
+                                                        <label class="form-label d-block">Pernyataan Warga
+                                                            Asrama</label>
+                                                        <div class="">
+                                                            <h6 class="mb-2 fw-normal">
+                                                                Menyatakan telah melengkapi semua persyaratan untuk
+                                                                menjadi penghuni asrama
+                                                                mahasiswa Balikpapan dan bersedia untuk:
+                                                            </h6>
+                                                            <ol class="list-persetujuan">
+                                                                <li>Menaati segala aturan yang berlaku di KPMB-Makassar
+                                                                </li>
+                                                                <li>Menaati segala aturan yang berlaku di asrama
+                                                                    mahasiswa Balikpapan</li>
+                                                                <li>Wajib mengikuti serta mendukung seluruh program
+                                                                    kerja yang dijalankan oleh
+                                                                    KPMB-Makassar</li>
+                                                                <li>Bertanggung jawab serta memiliki loyalitas yang
+                                                                    tinggi terhadap organisasi
+                                                                    KPMB-Makassar</li>
+                                                                <li>Menjaga nama baik KPMB-Makassar pada khususnya dan
+                                                                    kota Balikpapan pada umumnya
+                                                                </li>
+                                                            </ol>
+                                                        </div>
+
+                                                        <div class="form-check mt-3">
+                                                            <input type="checkbox" class="form-check-input"
+                                                                id="exampleCheck1" name="persetujuan" value="1">
+                                                            <label class="form-check-label"
+                                                                for="exampleCheck1">Menyetujui Pernyataan</label>
+                                                        </div>
+                                                        <small class="text-danger d-block persetujuan_error"></small>
+                                                    </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="mb-10">
@@ -250,16 +286,31 @@
                                                         <small class="text-danger program_studi_error"></small>
                                                     </div>
 
-                                                    <div class="mb-10">
-                                                        <label class="form-label">Riwayat Pendidikan</label>
-                                                        <select name="riwayat_pendidikan" class="form-control">
-                                                            <option value="">-- Pilih Riwayat Pendidikan --
-                                                            </option>
-                                                            <option value="sd">SD</option>
-                                                            <option value="mts">MTS</option>
-                                                            <option value="sma">SMA</option>
-                                                        </select>
-                                                        <small class="text-danger riwayat_pendidikan_error"></small>
+                                                    <div>
+                                                        <div class="mb-5">
+                                                            <label class="form-label">Riwayat Pendidikan</label>
+                                                        </div>
+                                                        <div class="mb-10">
+                                                            <label class="form-label">Riwayat Pendidikan SD</label>
+                                                            <input type="text" class="form-control"
+                                                                name="riwayat_pendidikan_sd">
+                                                            <small
+                                                                class="text-danger riwayat_pendidikan_sd_error"></small>
+                                                        </div>
+                                                        <div class="mb-10">
+                                                            <label class="form-label">Riwayat Pendidikan SMP</label>
+                                                            <input type="text" class="form-control"
+                                                                name="riwayat_pendidikan_smp">
+                                                            <small
+                                                                class="text-danger riwayat_pendidikan_smperror"></small>
+                                                        </div>
+                                                        <div class="mb-10">
+                                                            <label class="form-label">Riwayat Pendidikan SMA</label>
+                                                            <input type="text" class="form-control"
+                                                                name="riwayat_pendidikan_sma">
+                                                            <small
+                                                                class="text-danger riwayat_pendidikan_smaerror"></small>
+                                                        </div>
                                                     </div>
 
                                                     <div class="mb-10">

@@ -45,7 +45,7 @@ class DataPeminjamanController extends BaseController
             $data->nomor_telepon = $store->nomor_telepon;
             $data->tanggal_pinjam = $store->tanggal_pinjam;
             $data->durasi_peminjaman = $store->durasi_peminjaman;
-            $data->status = 'proses';
+            $data->status = 'Menunggu Persetujuan';
             $data->surat = $newSurat;
             $data->save();
         } catch (\Exception $e) {

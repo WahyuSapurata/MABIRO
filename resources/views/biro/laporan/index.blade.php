@@ -129,7 +129,7 @@
                     [0, 'asc']
                 ],
                 processing: true,
-                ajax: '/biro/laporan-get/' + selectedDateStr,
+                ajax: '/biro/keuangan/laporan-get/' + selectedDateStr,
                 columns: [{
                     data: null,
                     render: function(data, type, row, meta) {
@@ -224,7 +224,7 @@
                 return;
             }
 
-            window.open(`/biro/laporan-export/${val}`, "_blank");
+            window.open(`/biro/keuangan/laporan-export/${val}`, "_blank");
         });
     </script>
 @endsection

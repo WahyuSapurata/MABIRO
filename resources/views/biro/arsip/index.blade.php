@@ -25,8 +25,7 @@
                     <div class="card-body p-0">
                         <div class="container">
                             <div class="py-5 table-responsive text-white">
-                                <table id="kt_table_data"
-                                    class="table table-rounded table-row-bordered table-row-gray-300">
+                                <table id="kt_table_data" class="table table-rounded table-row-bordered table-row-gray-300">
                                     <thead class="text-center bg-white">
                                         <tr class="fw-bolder fs-6">
                                             <th>No</th>
@@ -101,7 +100,8 @@
                         <button type="submit" class="btn btn-mabiro-blue btn-sm btn-submit d-flex align-items-center"><i
                                 class="bi bi-file-earmark-diff"></i> Simpan</button>
                         <button type="reset" id="side_form_close"
-                            class="btn mr-2 btn-danger btn-sm d-flex align-items-center"><i class="bi bi-trash-fill"></i>Batal</button>
+                            class="btn mr-2 btn-danger btn-sm d-flex align-items-center"><i
+                                class="bi bi-trash-fill"></i>Batal</button>
                     </div>
                 </form>
             </div>
@@ -122,12 +122,12 @@
             e.preventDefault();
             let type = $(this).attr('data-type');
             if (type == 'add') {
-                control.submitFormMultipartData('/biro/inventaris/arsip-dokumen-store', 'Tambah',
+                control.submitFormMultipartData('/biro/arsip-dokumen-store', 'Tambah',
                     'Arsip Dokumen',
                     'POST');
             } else {
                 let uuid = $("input[name='uuid']").val();
-                control.submitFormMultipartData('/biro/inventaris/arsip-dokumen-update/' + uuid,
+                control.submitFormMultipartData('/biro/arsip-dokumen-update/' + uuid,
                     'Update',
                     'Arsip Dokumen', 'POST');
             }
@@ -135,13 +135,13 @@
 
         $(document).on('click', '.button-update', function(e) {
             e.preventDefault();
-            let url = '/biro/inventaris/arsip-dokumen-show/' + $(this).attr('data-uuid');
+            let url = '/biro/arsip-dokumen-show/' + $(this).attr('data-uuid');
             control.overlay_form('Update', 'Arsip Dokumen', url);
         })
 
         $(document).on('click', '.button-delete', function(e) {
             e.preventDefault();
-            let url = '/biro/inventaris/arsip-dokumen-delete/' + $(this).attr('data-uuid');
+            let url = '/biro/arsip-dokumen-delete/' + $(this).attr('data-uuid');
             let label = $(this).attr('data-label');
             control.ajaxDelete(url, label)
         })
@@ -165,7 +165,7 @@
                     [0, 'asc']
                 ],
                 processing: true,
-                ajax: '/biro/inventaris/arsip-dokumen-get',
+                ajax: '/biro/arsip-dokumen-get',
                 columns: [{
                     data: null,
                     render: function(data, type, row, meta) {
@@ -239,7 +239,7 @@
 
         // $('#export-excel').click(function(e) {
         //     e.preventDefault();
-        //     window.open(`/biro/inventaris/arsip-dokumen-export`, "_blank");
+        //     window.open(`/biro/arsip-dokumen-export`, "_blank");
         // });
     </script>
 @endsection

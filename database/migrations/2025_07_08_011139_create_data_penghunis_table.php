@@ -22,7 +22,9 @@ return new class extends Migration
             $table->string('alamat');
             $table->string('universitas');
             $table->string('program_studi');
-            $table->string('riwayat_pendidikan');
+            $table->string('riwayat_pendidikan_sd');
+            $table->string('riwayat_pendidikan_smp');
+            $table->string('riwayat_pendidikan_sma');
             $table->string('no_hp');
             $table->string('alasan');
             $table->boolean('persetujuan');

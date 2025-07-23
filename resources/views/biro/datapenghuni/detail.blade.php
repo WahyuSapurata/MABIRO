@@ -80,8 +80,16 @@
                                         <td>{{ $data->program_studi }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Riwayat Pendidikan</td>
-                                        <td>{{ $data->riwayat_pendidikan }}</td>
+                                        <td>Riwayat Pendidikan SD</td>
+                                        <td>{{ $data->riwayat_pendidikan_sd }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Riwayat Pendidikan SMP</td>
+                                        <td>{{ $data->riwayat_pendidikan_smp }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Riwayat Pendidikan SMA</td>
+                                        <td>{{ $data->riwayat_pendidikan_sma }}</td>
                                     </tr>
                                     <tr>
                                         <td>No HP</td>

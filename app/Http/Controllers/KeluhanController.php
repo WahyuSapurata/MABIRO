@@ -32,6 +32,7 @@ class KeluhanController extends BaseController
             $data = new Keluhan();
             $data->uuid_penghuni = $store->uuid_penghuni;
             $data->keterangan = $store->keterangan;
+            $data->ketegori = $store->ketegori;
             $data->status = 'Belum Ditindaklanjuti';
             $data->save();
         } catch (\Exception $e) {
