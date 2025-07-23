@@ -5,14 +5,16 @@
         <div data-kt-swapper="true" data-kt-swapper-mode="prepend"
             data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
             class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
-            <!--begin::Title-->
-            <button class="btn btn-success btn-sm " data-kt-drawer-show="true" data-kt-drawer-target="#side_form"
-                id="button-side-form"><i class="fa fa-plus-circle" style="color:#ffffff" aria-hidden="true"></i> Tambah
-                Data</button>
-            <!--end::Title-->
+
+            <div>Dashboard</div>
         </div>
-        <!--end::Page title-->
+        <!--begin::Title-->
+        <button class="btn btn-success btn-sm " data-kt-drawer-show="true" data-kt-drawer-target="#side_form"
+            id="button-side-form"><i class="fa fa-plus-circle" style="color:#ffffff" aria-hidden="true"></i> Tambah
+            Data</button>
+        <!--end::Title-->
     </div>
+    <!--end::Page title-->
 @endsection
 @section('content')
     <div class="post d-flex flex-column-fluid" id="kt_post">
@@ -24,13 +26,11 @@
                     <div class="card-body p-0">
                         <div class="container">
                             <div class="py-5 table-responsive text-white">
-                                <table id="kt_table_data"
-                                    class="table table-rounded table-row-bordered table-row-gray-300">
+                                <table id="kt_table_data" class="table table-rounded table-row-bordered table-row-gray-300">
                                     <thead class="text-center bg-white">
                                         <tr class="fw-bolder fs-6">
-                                            <th>No</th>
-                                            <th>Deskripsi</th>
                                             <th>Gambar</th>
+                                            <th>Deskripsi</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -218,7 +218,7 @@
                         // Isi field lainnya
                         $.each(res.data, function(x, y) {
                             if (x === 'deskripsi')
-                        return; // skip karena sudah ditangani di atas
+                                return; // skip karena sudah ditangani di atas
 
                             const $input = $("input[name='" + x + "']");
                             const $select = $("select[name='" + x + "']");
@@ -277,20 +277,12 @@
                 processing: true,
                 ajax: '/biro/tentang/selayang-pandang-get',
                 columns: [{
-                    data: null,
-                    render: function(data, type, row, meta) {
-                        return meta.row + meta.settings._iDisplayStart + 1;
-                    }
-                }, {
-                    data: 'deskripsi',
-                    className: 'text-left',
-                }, {
-                    data: 'gambar',
-                    className: 'text-center',
-                    render: function(data, type, row, meta) {
-                        let result;
-                        result =
-                            `
+                        data: 'gambar',
+                        className: 'text-center',
+                        render: function(data, type, row, meta) {
+                            let result;
+                            result =
+                                `
                                 <!--begin::Overlay-->
                                 <a class="d-block overlay fancybox" data-fancybox="lightbox-group" href="{{ asset('/public/selayang-pandang/${data}') }}">
                                     <!--begin::Image-->
@@ -307,11 +299,18 @@
                                 </a>
                                 <!--end::Overlay-->
                             `;
-                        return result;
+                            return result;
+                        }
+                    },
+                    {
+                        data: 'deskripsi',
+                        className: 'text-left',
+                    },
+
+                    {
+                        data: 'uuid',
                     }
-                }, {
-                    data: 'uuid',
-                }],
+                ],
                 columnDefs: [{
                     targets: -1,
                     title: 'Aksi',
@@ -346,12 +345,7 @@
                     },
                 }],
 
-                rowCallback: function(row, data, index) {
-                    var api = this.api();
-                    var startIndex = api.context[0]._iDisplayStart;
-                    var rowIndex = startIndex + index + 1;
-                    $('td', row).eq(0).html(rowIndex);
-                },
+
             });
         };
 

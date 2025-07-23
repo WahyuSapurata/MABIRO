@@ -716,6 +716,19 @@
                 <!--end::Menu item-->
             @endif
 
+
+<div class="d-md-none d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
+                        <form id="logout-form" action="{{ route('logout') }}" method="GET" class="d-grid">
+                            @csrf
+                            @method('GET')
+                            <button type="submit" style="border: none;"
+                                class="mabiro-btn btn btn-white py-2 px-3 d-flex align-items-center gap-3"
+                                id="sign-out"><span>Keluar</span> <i class="mabiro-btn fas fa-sign-out-alt"></i></button>
+                        </form>
+
+                    </div>
+
+
             {{-- <div class="menu-item">
                 <a class="menu-link  {{ $path[0] === 'ubahpassword' ? 'active' : '' }}"
                     href="{{ route('ubahpassword') }}">
