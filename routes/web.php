@@ -13,6 +13,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+use Illuminate\Support\Facades\File;
+
+Route::get('/asset-list', function () {
+    $list = [];
+
+    $folders = ['assets', 'assets-landing']; // Tambahkan folder lain jika perlu
+
+    foreach ($folders as $folder) {
+        $path = public_path($folder);
+        if (File::exists($path)) {
+            $files = File::allFiles($path);
+            foreach ($files as $file) {
+                $relativePath = str_replace(public_path(), '', $file->getRealPath());
+                $list[] = str_replace('\\', '/', $relativePath); // Windows path fix
+            }
+        }
+    }
+
+    return response()->json($list);
+});
+
+
 Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('/', 'Dashboard@index')->name('home.index');
 

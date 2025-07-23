@@ -114,8 +114,8 @@ class ArsipDokumenController extends BaseController
     public function arsip()
     {
         $module = 'Arsip & Dokumen';
-        if (!auth()->check()) {
-            return redirect()->back()->with('error', 'Maaf anda harus login sebagai warga asrama untuk mengakses halaman ini.');
+        if (!auth()->check() || auth()->user()->role !== 'penghuni') {
+            return redirect()->route('login.login-akun');
         }
         $data = ArsipDokumen::latest()->get();
         return view('user.arsip', compact('module', 'data'));

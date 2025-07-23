@@ -82,8 +82,8 @@ class KeluhanController extends BaseController
     {
         $module = 'Laporan & Keluhan';
         $data = auth()->user();
-        if (!$data) {
-            return redirect()->back()->with('error', 'Maaf anda harus login sebagai warga asrama untuk mengakses halaman ini.');
+        if (!auth()->check() || auth()->user()->role !== 'penghuni') {
+            return redirect()->route('login.login-akun');
         }
         return view('user.keluhan', compact('module', 'data'));
     }

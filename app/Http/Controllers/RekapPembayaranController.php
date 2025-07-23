@@ -130,8 +130,8 @@ class RekapPembayaranController extends BaseController
     public function tagihan_user()
     {
         $module = 'Informasi Tagihan';
-        if (!auth()->check()) {
-            return redirect()->back()->with('error', 'Maaf anda harus login sebagai warga asrama untuk mengakses halaman ini.');
+        if (!auth()->check() || auth()->user()->role !== 'penghuni') {
+            return redirect()->route('login.login-akun');
         }
         $data = RekapPembayaran::where('uuid_penghuni', auth()->user()->uuid)->whereIn('status', ['belum lunas', 'proses', 'tolak'])->get();
         $data->map(function ($item) {

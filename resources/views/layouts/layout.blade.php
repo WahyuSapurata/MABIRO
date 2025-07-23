@@ -8,6 +8,11 @@
     <base href="">
     <meta charset="utf-8" />
     <title> {{ config('app.name') . ' | ' . $module }} </title>
+
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#710B28">
+    <link rel="apple-touch-icon" href="/icon-192x192.png">
+
     <meta property="og:description"
         content="Arvala Mockup is a professional product mockup template designed for digital goods. Perfect for creators and entrepreneurs." />
     <meta name="keywords"
@@ -300,6 +305,15 @@
         //     }
         // });
     </script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(() => console.log('✅ Service Worker Registered'))
+                .catch(err => console.error('❌ SW Gagal:', err));
+        }
+    </script>
+
     @yield('script')
     <!--end::Page Custom Javascript-->
     <!--end::Javascript-->

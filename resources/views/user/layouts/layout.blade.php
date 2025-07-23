@@ -136,13 +136,11 @@
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/service-worker.js')
-                .then(function(reg) {
-                    console.log('Service Worker Registered', reg);
-                }).catch(function(err) {
-                    console.error('Service Worker registration failed:', err);
-                });
+                .then(() => console.log('✅ Service Worker Registered'))
+                .catch(err => console.error('❌ SW Gagal:', err));
         }
     </script>
+
 
 </body>
 

@@ -194,8 +194,8 @@ class Laporan extends BaseController
     public function rekap()
     {
         $module = 'Rekapitulasi Keuangan';
-        if (!auth()->check()) {
-            return redirect()->back()->with('error', 'Maaf anda harus login sebagai warga asrama untuk mengakses halaman ini.');
+        if (!auth()->check() || auth()->user()->role !== 'penghuni') {
+            return redirect()->route('login.login-akun');
         }
         return view('user.rekap', compact('module'));
     }
