@@ -14,6 +14,12 @@ class PemasukanController extends BaseController
         return view('biro.pemasukan.index', compact('module'));
     }
 
+    public function index_keuangan()
+    {
+        $module = 'Pemasukan';
+        return view('keuangan.pemasukan.index', compact('module'));
+    }
+
     public function get()
     {
         $data = Pemasukan::all();

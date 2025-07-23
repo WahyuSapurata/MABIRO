@@ -42,12 +42,28 @@ class Dashboard extends BaseController
     public function dashboard_keuangan()
     {
         $module = 'Dashboard';
-        return view('dashboard.keuangan', compact('module'));
+        $calon_penghuni = DataPenghuni::where('status', 'Belum Dikonfirmasi')->count();
+        $penghuni = DataPenghuni::where('status', 'Terkonfirmasi')->count();
+        $peminjaman = DataPeminjaman::where('status', 'proses')->count();
+
+        $pemasukan = Pemasukan::sum('jumlah');
+        $pengeluaran = Pengeluaran::sum('jumlah');
+        $saldo = $pemasukan - $pengeluaran;
+
+        $tagihan = RekapPembayaran::where('status', 'proses')->count();
+        return view('dashboard.keuangan', compact('module', 'calon_penghuni', 'penghuni', 'peminjaman', 'saldo', 'tagihan'));
     }
 
     public function dashboard_inventaris()
     {
         $module = 'Dashboard';
-        return view('dashboard.inventaris', compact('module'));
+        $calon_penghuni = DataPenghuni::where('status', 'Belum Dikonfirmasi')->count();
+        $penghuni = DataPenghuni::where('status', 'Terkonfirmasi')->count();
+        $peminjaman = DataPeminjaman::where('status', 'proses')->count();
+
+        $pemasukan = Pemasukan::sum('jumlah');
+        $pengeluaran = Pengeluaran::sum('jumlah');
+        $saldo = $pemasukan - $pengeluaran;
+        return view('dashboard.inventaris', compact('module', 'calon_penghuni', 'penghuni', 'peminjaman', 'saldo',));
     }
 }

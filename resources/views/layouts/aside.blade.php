@@ -482,6 +482,172 @@
                 </div>
             @endif
 
+            @if ($role === 'keuangan')
+                <!--begin::Menu item-->
+                <div class="menu-item">
+                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'pemasukan' ? 'bg-white' : 'bg-secondary' }}"
+                        href="{{ route('keuangan.pemasukan') }}">
+                        <span class="menu-icon">
+                            <span class="svg-icon svg-icon-2">
+                                {!! isset($path[1]) && $path[1] === 'pemasukan'
+                                    ? '<i class="fas fa-clipboard text-primary" font-size: 16px"></i>'
+                                    : '<i class="fas fa-clipboard text-white" font-size: 16px"></i>' !!}
+                            </span>
+                        </span>
+                        <span
+                            class="menu-title {{ isset($path[1]) && $path[1] == 'pemasukan' ? 'text-primary fw-bolder' : 'text-white' }}">Catatan
+                            Pemasukan</span>
+                    </a>
+                </div>
+                <!--end::Menu item-->
+
+                <!--begin::Menu item-->
+                <div class="menu-item">
+                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'pengeluaran' ? 'bg-white' : 'bg-secondary' }}"
+                        href="{{ route('keuangan.pengeluaran') }}">
+                        <span class="menu-icon">
+                            <span class="svg-icon svg-icon-2">
+                                {!! isset($path[1]) && $path[1] === 'pengeluaran'
+                                    ? '<i class="fas fa-clipboard-list text-primary" font-size: 16px"></i>'
+                                    : '<i class="fas fa-clipboard-list text-white" font-size: 16px"></i>' !!}
+                            </span>
+                        </span>
+                        <span
+                            class="menu-title {{ isset($path[1]) && $path[1] == 'pengeluaran' ? 'text-primary fw-bolder' : 'text-white' }}">Catatan
+                            Pengeluaran</span>
+                    </a>
+                </div>
+                <!--end::Menu item-->
+
+                <!--begin::Menu item-->
+                <div class="menu-item">
+                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'master-tagihan' ? 'bg-white' : 'bg-secondary' }}"
+                        href="{{ route('keuangan.master-tagihan') }}">
+                        <span class="menu-icon">
+                            <span class="svg-icon svg-icon-2">
+                                {!! isset($path[1]) && $path[1] === 'master-tagihan'
+                                    ? '<i class="fas fa-database text-primary" font-size: 16px"></i>'
+                                    : '<i class="fas fa-database text-white" font-size: 16px"></i>' !!}
+                            </span>
+                        </span>
+                        <span
+                            class="menu-title {{ isset($path[1]) && $path[1] == 'master-tagihan' ? 'text-primary fw-bolder' : 'text-white' }}">Master
+                            Tagihan</span>
+                    </a>
+                </div>
+                <!--end::Menu item-->
+
+                <!--begin::Menu item-->
+                <div class="menu-item">
+                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'tagihan' ? 'bg-white' : 'bg-secondary' }}"
+                        href="{{ route('keuangan.tagihan') }}">
+                        <span class="menu-icon">
+                            <span class="svg-icon svg-icon-2">
+                                {!! isset($path[1]) && $path[1] === 'tagihan'
+                                    ? '<i class="fas fa-file-invoice-dollar text-primary" font-size: 16px"></i>'
+                                    : '<i class="fas fa-file-invoice-dollar text-white" font-size: 16px"></i>' !!}
+                            </span>
+                        </span>
+                        <span
+                            class="menu-title {{ isset($path[1]) && $path[1] == 'tagihan' ? 'text-primary fw-bolder' : 'text-white' }}">
+                            Tagihan</span>
+                    </a>
+                </div>
+                <!--end::Menu item-->
+
+                <!--begin::Menu item-->
+                <div class="menu-item">
+                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'rekap-pembayaran' ? 'bg-white' : 'bg-secondary' }}"
+                        href="{{ route('keuangan.rekap-pembayaran') }}">
+                        <span class="menu-icon">
+                            <span class="svg-icon svg-icon-2">
+                                {!! isset($path[1]) && $path[1] === 'rekap-pembayaran'
+                                    ? '<i class="fas fa-file-invoice text-primary" font-size: 16px"></i>'
+                                    : '<i class="fas fa-file-invoice text-white" font-size: 16px"></i>' !!}
+                            </span>
+                        </span>
+                        <span
+                            class="menu-title {{ isset($path[1]) && $path[1] == 'rekap-pembayaran' ? 'text-primary fw-bolder' : 'text-white' }}">
+                            Rekap Tagihan</span>
+                    </a>
+                </div>
+                <!--end::Menu item-->
+
+                <!--begin::Menu item-->
+                <div class="menu-item">
+                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'arsip-dokumen' ? 'bg-white' : 'bg-secondary' }}"
+                        href="{{ route('keuangan.arsip-dokumen') }}">
+                        <span class="menu-icon">
+                            <span class="svg-icon svg-icon-2">
+                                {!! isset($path[1]) && $path[1] === 'arsip-dokumen'
+                                    ? '<i class="fas fa-folder-open text-primary" font-size: 16px"></i>'
+                                    : '<i class="fas fa-folder-open text-white" font-size: 16px"></i>' !!}
+                            </span>
+                        </span>
+                        <span
+                            class="menu-title {{ isset($path[1]) && $path[1] == 'arsip-dokumen' ? 'text-primary fw-bolder' : 'text-white' }}">Arsip
+                            Dokumen</span>
+                    </a>
+                </div>
+                <!--end::Menu item-->
+            @endif
+
+            @if ($role === 'inventaris')
+                <!--begin::Menu item-->
+                <div class="menu-item">
+                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'data-inventaris' ? 'bg-white' : 'bg-secondary' }}"
+                        href="{{ route('inventaris.data-inventaris') }}">
+                        <span class="menu-icon">
+                            <span class="svg-icon svg-icon-2">
+                                {!! isset($path[1]) && $path[1] === 'data-inventaris'
+                                    ? '<i class="fas fa-boxes text-primary" font-size: 16px"></i>'
+                                    : '<i class="fas fa-boxes text-white" font-size: 16px"></i>' !!}
+                            </span>
+                        </span>
+                        <span
+                            class="menu-title {{ isset($path[1]) && $path[1] == 'data-inventaris' ? 'text-primary fw-bolder' : 'text-white' }}">Data
+                            Inventaris</span>
+                    </a>
+                </div>
+                <!--end::Menu item-->
+
+                <!--begin::Menu item-->
+                <div class="menu-item">
+                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'data-peminjaman' ? 'bg-white' : 'bg-secondary' }}"
+                        href="{{ route('inventaris.data-peminjaman') }}">
+                        <span class="menu-icon">
+                            <span class="svg-icon svg-icon-2">
+                                {!! isset($path[1]) && $path[1] === 'data-peminjaman'
+                                    ? '<i class="fas fa-people-carry text-primary" font-size: 16px"></i>'
+                                    : '<i class="fas fa-people-carry text-white" font-size: 16px"></i>' !!}
+                            </span>
+                        </span>
+                        <span
+                            class="menu-title {{ isset($path[1]) && $path[1] == 'data-peminjaman' ? 'text-primary fw-bolder' : 'text-white' }}">Data
+                            Peminjaman</span>
+                    </a>
+                </div>
+                <!--end::Menu item-->
+
+                <!--begin::Menu item-->
+                <div class="menu-item">
+                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'arsip-dokumen' ? 'bg-white' : 'bg-secondary' }}"
+                        href="{{ route('inventaris.arsip-dokumen') }}">
+                        <span class="menu-icon">
+                            <span class="svg-icon svg-icon-2">
+                                {!! isset($path[1]) && $path[1] === 'arsip-dokumen'
+                                    ? '<i class="fas fa-folder-open text-primary" font-size: 16px"></i>'
+                                    : '<i class="fas fa-folder-open text-white" font-size: 16px"></i>' !!}
+                            </span>
+                        </span>
+                        <span
+                            class="menu-title {{ isset($path[1]) && $path[1] == 'arsip-dokumen' ? 'text-primary fw-bolder' : 'text-white' }}">Arsip
+                            Dokumen</span>
+                    </a>
+                </div>
+                <!--end::Menu item-->
+            @endif
+
             {{-- <div class="menu-item">
                 <a class="menu-link  {{ $path[0] === 'ubahpassword' ? 'active' : '' }}"
                     href="{{ route('ubahpassword') }}">

@@ -15,6 +15,18 @@ class ArsipDokumenController extends BaseController
         return view('biro.arsip.index', compact('module'));
     }
 
+    public function index_keuangan()
+    {
+        $module = 'Arsip Dokumen';
+        return view('keuangan.arsip.index', compact('module'));
+    }
+
+    public function index_inventaris()
+    {
+        $module = 'Arsip Dokumen';
+        return view('inventaris.arsip.index', compact('module'));
+    }
+
     public function get()
     {
         $data = ArsipDokumen::all();
