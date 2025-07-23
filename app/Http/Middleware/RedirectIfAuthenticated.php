@@ -21,13 +21,15 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                if (Auth::user()->role == 'biro') {
+                $user = Auth::guard($guard)->user();
+
+                if ($user->role == 'biro') {
                     return redirect()->route('biro.dashboard-biro');
-                } else if (Auth::user()->role == 'keuangan') {
+                } elseif ($user->role == 'keuangan') {
                     return redirect()->route('keuangan.dashboard-keuangan');
-                } else if (Auth::user()->role == 'inventaris') {
+                } elseif ($user->role == 'inventaris') {
                     return redirect()->route('inventaris.dashboard-inventaris');
-                } else if (Auth::user()->role == 'penghuni') {
+                } elseif ($user->role == 'penghuni') {
                     return redirect()->route('beranda');
                 }
             }
