@@ -20,14 +20,14 @@
         <div id="kt_content_container" class="container">
             <div class="row">
 
-                <div class="card bg-primary">
+                <div class="card bg-brand">
                     <div class="card-body p-0">
                         <div class="container">
                             <div class="py-5 table-responsive text-white">
                                 <table id="kt_table_data"
-                                    class="table table-rounded border border-gray-300 table-row-bordered table-row-gray-300">
-                                    <thead class="text-center bg-white">
-                                        <tr class="fw-bolder fs-6 text-black">
+                                    class="table table-rounded table-row-bordered table-row-gray-300">
+                                    <thead>
+                                        <tr class="fw-bolder fs-6">
                                             <th>No</th>
                                             <th>Foto</th>
                                             <th>Nama</th>
@@ -37,7 +37,7 @@
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="bg-white">
+                                    <tbody>
                                     </tbody>
                                 </table>
                             </div>
@@ -284,12 +284,13 @@
                 ajax: '/biro/data-pengguna-get',
                 columns: [{
                     data: null,
+                    className: 'mb-kolom-nomor align-content-center',
                     render: function(data, type, row, meta) {
                         return meta.row + meta.settings._iDisplayStart + 1;
                     }
                 }, {
                     data: 'foto',
-                    className: 'text-center',
+                    className: 'mb-kolom-photo align-content-center',
                     render: function(data, type, row, meta) {
                         let result;
                         if (data) {
@@ -298,7 +299,7 @@
                                 <!--begin::Overlay-->
                                 <a class="d-block overlay fancybox" data-fancybox="lightbox-group" href="{{ asset('/public/pengguna/${data}') }}">
                                     <!--begin::Image-->
-                                    <div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-100px"
+                                    <div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded mb-profil-pengguna"
                                         style="background-image:url('/public/pengguna/${data}')">
                                     </div>
                                     <!--end::Image-->
@@ -314,7 +315,7 @@
                         } else {
                             result =
                                 `
-                                    <div class="h-40px w-40px bg-primary rounded-circle d-flex align-items-center justify-content-center">
+                                    <div class="h-40px w-40px bg-primary rounded-circle d-flex align-items-center justify-content-center mx-auto">
                                         <i class="fas fa-user text-white" font-size: 18px"></i>
                                     </div>
                                 `;
@@ -323,23 +324,23 @@
                     }
                 }, {
                     data: 'nama',
-                    className: 'text-center',
+                    className: 'text-center align-content-center',
                 }, {
                     data: 'username',
-                    className: 'text-center',
+                    className: 'text-center align-content-center',
                 }, {
                     data: 'password_hash',
-                    className: 'text-center',
+                    className: 'text-center align-content-center',
                 }, {
                     data: 'role',
-                    className: 'text-center',
+                    className: 'text-center align-content-center',
                 }, {
                     data: 'uuid',
                 }],
                 columnDefs: [{
                     targets: -1,
                     title: 'Aksi',
-                    width: '8rem',
+                    className: 'mb-kolom-aksi align-content-center',
                     orderable: false,
                     render: function(data, type, full, meta) {
                         return `

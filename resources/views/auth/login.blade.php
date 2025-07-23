@@ -49,8 +49,8 @@
             <!--begin::Body-->
             <div class="d-none d-lg-grid justify-content-center align-items-center w-50 px-20 gap-3"
                 style="background-color: #4417CE; justify-items: center; align-content: center">
-                <img src="{{ asset('Mabiro.png') }}" style="width: 230px" alt="">
-                <div style="font-size: 40px" class="text-white fw-bolder text-center py-5">Sistem Informasi Manajemen
+                <img src="{{ asset('assets-landing/img/logo-mabiro-light.svg') }}" style="width: 230px" alt="">
+                <div style="font-size: 50px" class="text-white fw-bolder text-center py-5">Sistem Informasi <br>Manajemen
                     Asrama
                 </div>
                 <div style="font-size: 18px" class="text-white text-center">Keluarga Pelajar Mahasiswa Balikpapan (KPMB)
@@ -66,6 +66,7 @@
                 <!--begin::Wrapper-->
                 <div class="d-flex justify-content-between flex-column-fluid flex-column w-100 mw-450px">
                     <!--begin::Body-->
+
                     <h1 class="fw-bolder fs-2x mb-5 text-center text-primary">LOGIN</h1>
 
                     <div class="py-10" style="padding: 40px; border-radius: 20px; border: 2px solid #a6b7c7">

@@ -1,4 +1,4 @@
-<div id="kt_header" style="" class="bg-primary header align-items-stretch">
+<div id="kt_header" class="mb-header-dashboard header align-items-stretch">
     <!--begin::Container-->
     <div class="container-fluid d-flex align-items-stretch justify-content-between">
         <!--begin::Aside mobile toggle-->
@@ -37,8 +37,12 @@
                         id="#kt_header_menu" data-kt-menu="true">
                         <div class="menu-item me-lg-1">
                             <div class="title-header-topbar">
-                                <span><img src="{{ asset('assets-landing/img/logo-mabiro-light.svg') }}" class="h-40px"
-                                        alt=""></span>
+                                <span>
+                                    <a href="{{ route('beranda') }}">
+                                        <img src="{{ asset('assets-landing/img/logo-mabiro-light.svg') }}" class="h-40px"
+                                        alt="">
+                                    </a>
+                                </span>
                             </div>
                         </div>
 
@@ -61,8 +65,8 @@
                             @csrf
                             @method('GET')
                             <button type="submit" style="border: none;"
-                                class="btn btn-white text-dark py-2 px-3 d-flex align-items-center gap-3"
-                                id="sign-out"><span>Keluar</span> <i class="fas fa-sign-out-alt"></i></button>
+                                class="mabiro-btn btn btn-white py-2 px-3 d-flex align-items-center gap-3"
+                                id="sign-out"><span>Keluar</span> <i class="mabiro-btn fas fa-sign-out-alt"></i></button>
                         </form>
                         <!--begin::Menu wrapper-->
                         {{-- <span class="bg-white text-primary"

@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 @section('button')
     <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
+
         <!--begin::Page title-->
         <div data-kt-swapper="true" data-kt-swapper-mode="prepend"
             data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
@@ -20,21 +21,21 @@
         <div id="kt_content_container" class="container">
             <div class="row">
 
-                <div class="card bg-primary">
+                <div class="card bg-brand">
                     <div class="card-body p-0">
                         <div class="container">
                             <div class="py-5 table-responsive text-white">
                                 <table id="kt_table_data"
-                                    class="table table-rounded border border-gray-300 table-row-bordered table-row-gray-300">
+                                    class="table table-rounded table-row-bordered table-row-gray-300">
                                     <thead class="text-center bg-white">
-                                        <tr class="fw-bolder fs-6 text-black">
+                                        <tr class="fw-bolder fs-6">
                                             <th>No</th>
                                             <th>Keterangan</th>
                                             <th>File</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="bg-white">
+                                    <tbody>
                                     </tbody>
                                 </table>
                             </div>
@@ -69,20 +70,7 @@
                 <div class="card-toolbar">
                     <!--begin::Close-->
                     <div class="btn btn-sm btn-icon btn-active-light-primary" id="side_form_close">
-                        <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
-                        <span class="svg-icon svg-icon-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)"
-                                    fill="#000000">
-                                    <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1" />
-                                    <rect fill="#000000" opacity="0.5"
-                                        transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
-                                        x="0" y="7" width="16" height="2" rx="1" />
-                                </g>
-                            </svg>
-                        </span>
-                        <!--end::Svg Icon-->
+                        <i class="mb-close-button fas fa-times-circle"></i>
                     </div>
                     <!--end::Close-->
                 </div>
@@ -110,12 +98,10 @@
 
                     <div class="separator separator-dashed mt-8 mb-5"></div>
                     <div class="d-flex gap-5">
-                        <button type="submit" class="btn btn-primary btn-sm btn-submit d-flex align-items-center"><i
+                        <button type="submit" class="btn btn-mabiro-blue btn-sm btn-submit d-flex align-items-center"><i
                                 class="bi bi-file-earmark-diff"></i> Simpan</button>
                         <button type="reset" id="side_form_close"
-                            class="btn mr-2 btn-light btn-cancel btn-sm d-flex align-items-center"
-                            style="background-color: #ea443e65; color: #EA443E"><i class="bi bi-trash-fill"
-                                style="color: #EA443E"></i>Batal</button>
+                            class="btn mr-2 btn-danger btn-sm d-flex align-items-center"><i class="bi bi-trash-fill"></i>Batal</button>
                     </div>
                 </form>
             </div>

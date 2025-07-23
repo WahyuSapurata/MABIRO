@@ -9,10 +9,10 @@
     ];
 
     $isActive = in_array($role, array_keys($dashboardRoutes)) && isset($path[1]) && $path[1] === 'dashboard-' . $role;
-    $activeColor = $isActive ? 'text-primary fw-bolder' : 'text-white';
+    $activeColor = $isActive ? 'mb-aside-menu-text fw-bolder' : 'text-white';
 @endphp
 
-<div class="aside-menu bg-primary flex-column-fluid">
+<div class="aside-menu flex-column-fluid">
     <!--begin::Aside Menu-->
     <div class="hover-scroll-overlay-y mb-5 mb-lg-5" id="kt_aside_menu_wrapper" data-kt-scroll="true"
         data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-height="auto"
@@ -28,16 +28,16 @@
             }
         </script>
         <!--begin::Menu-->
-        <div class="menu menu-column mt-2 menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500"
+        <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500"
             id="kt_aside_menu" data-kt-menu="true" style="gap: 6px;">
 
             <div class="menu-item">
-                <a class="menu-link {{ $isActive ? 'bg-white' : 'bg-secondary' }}"
+                <a class="menu-link {{ $isActive ? 'mb-bg-active' : 'mb-bg-default' }}"
                     href="{{ route($dashboardRoutes[$role]) }}">
                     <span class="menu-icon">
                         <span class="svg-icon svg-icon-2">
                             {!! $isActive
-                                ? '<i class="fas fa-tachometer-alt text-primary" font-size: 16px"></i>'
+                                ? '<i class="fas fa-tachometer-alt mb-aside-menu-text" font-size: 16px"></i>'
                                 : '<i class="fas fa-tachometer-alt text-white" font-size: 16px"></i>' !!}
                         </span>
                     </span>
@@ -49,18 +49,18 @@
                 <div class="menu-item">
                     <!--begin::Menu link-->
                     <a href="{{ route('biro.data-pengguna') }}"
-                        class="menu-link {{ $path[1] == 'data-pengguna' ? 'bg-white' : 'bg-secondary' }}">
+                        class="menu-link {{ $path[1] == 'data-pengguna' ? 'mb-bg-active' : 'mb-bg-default' }}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                             <span class="svg-icon svg-icon-2">
                                 {!! isset($path[1]) && $path[1] === 'data-pengguna'
-                                    ? '<i class="fas fa-user text-primary" font-size: 16px"></i>'
+                                    ? '<i class="fas fa-user mb-aside-menu-text" font-size: 16px"></i>'
                                     : '<i class="fas fa-user text-white" font-size: 16px"></i>' !!}
                             </span>
                             <!--end::Svg Icon-->
                         </span>
                         <span
-                            class="menu-title {{ $path[1] == 'data-pengguna' ? 'text-primary fw-bolder' : 'text-white' }}">Data
+                            class="menu-title {{ $path[1] == 'data-pengguna' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Data
                             Pengguna</span>
                     </a>
                     <!--end::Menu link-->
@@ -69,18 +69,18 @@
                 <div class="menu-item">
                     <!--begin::Menu link-->
                     <a href="{{ route('biro.data-penghuni') }}"
-                        class="menu-link {{ $path[1] == 'data-penghuni' ? 'bg-white' : 'bg-secondary' }}">
+                        class="menu-link {{ $path[1] == 'data-penghuni' ? 'mb-bg-active' : 'mb-bg-default' }}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                             <span class="svg-icon svg-icon-2">
                                 {!! isset($path[1]) && $path[1] === 'data-penghuni'
-                                    ? '<i class="fas fa-laptop-house text-primary" font-size: 16px"></i>'
+                                    ? '<i class="fas fa-laptop-house mb-aside-menu-text" font-size: 16px"></i>'
                                     : '<i class="fas fa-laptop-house text-white" font-size: 16px"></i>' !!}
                             </span>
                             <!--end::Svg Icon-->
                         </span>
                         <span
-                            class="menu-title {{ $path[1] == 'data-penghuni' ? 'text-primary fw-bolder' : 'text-white' }}">Data
+                            class="menu-title {{ $path[1] == 'data-penghuni' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Data
                             Penghuni</span>
                     </a>
                     <!--end::Menu link-->
@@ -90,18 +90,18 @@
                     data-kt-menu-trigger="click">
                     <!--begin::Menu link-->
                     <a href="#"
-                        class="menu-link py-3 {{ $path[1] == 'keuangan' ? 'bg-white' : 'bg-secondary' }}">
+                        class="menu-link py-3 {{ $path[1] == 'keuangan' ? 'mb-bg-active' : 'mb-bg-default' }}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                             <span class="svg-icon svg-icon-2">
                                 {!! isset($path[1]) && $path[1] === 'keuangan'
-                                    ? '<i class="fas fa-money-bill-wave text-primary" font-size: 16px"></i>'
+                                    ? '<i class="fas fa-money-bill-wave mb-aside-menu-text" font-size: 16px"></i>'
                                     : '<i class="fas fa-money-bill-wave text-white" font-size: 16px"></i>' !!}
                             </span>
                             <!--end::Svg Icon-->
                         </span>
                         <span
-                            class="menu-title {{ $path[1] == 'keuangan' ? 'text-primary fw-bolder' : 'text-white' }}">Keuangan</span>
+                            class="menu-title {{ $path[1] == 'keuangan' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Keuangan</span>
                         <span class="menu-arrow"></span>
                     </a>
                     <!--end::Menu link-->
@@ -110,17 +110,17 @@
                     <div class="menu-sub gap-2 menu-sub-accordion my-2">
                         <!--begin::Menu item-->
                         <div class="menu-item pe-0">
-                            <a class="menu-link ps-7 {{ isset($path[2]) && $path[2] == 'pemasukan' ? 'bg-white' : 'bg-secondary' }}"
+                            <a class="menu-link ps-7 {{ isset($path[2]) && $path[2] == 'pemasukan' ? 'mb-bg-active' : 'mb-bg-default' }}"
                                 href="{{ route('biro.pemasukan') }}">
                                 <span class="menu-icon">
                                     <span class="svg-icon svg-icon-2">
                                         {!! isset($path[2]) && $path[2] === 'pemasukan'
-                                            ? '<i class="fas fa-clipboard text-primary" font-size: 16px"></i>'
+                                            ? '<i class="fas fa-clipboard mb-aside-menu-text" font-size: 16px"></i>'
                                             : '<i class="fas fa-clipboard text-white" font-size: 16px"></i>' !!}
                                     </span>
                                 </span>
                                 <span
-                                    class="menu-title {{ isset($path[2]) && $path[2] == 'pemasukan' ? 'text-primary fw-bolder' : 'text-white' }}">Catatan
+                                    class="menu-title {{ isset($path[2]) && $path[2] == 'pemasukan' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Catatan
                                     Pemasukan</span>
                             </a>
                         </div>
@@ -131,17 +131,17 @@
                     <div class="menu-sub gap-2 menu-sub-accordion my-2">
                         <!--begin::Menu item-->
                         <div class="menu-item pe-0">
-                            <a class="menu-link ps-7 {{ isset($path[2]) && $path[2] == 'pengeluaran' ? 'bg-white' : 'bg-secondary' }}"
+                            <a class="menu-link ps-7 {{ isset($path[2]) && $path[2] == 'pengeluaran' ? 'mb-bg-active' : 'mb-bg-default' }}"
                                 href="{{ route('biro.pengeluaran') }}">
                                 <span class="menu-icon">
                                     <span class="svg-icon svg-icon-2">
                                         {!! isset($path[2]) && $path[2] === 'pengeluaran'
-                                            ? '<i class="fas fa-clipboard-list text-primary" font-size: 16px"></i>'
+                                            ? '<i class="fas fa-clipboard-list mb-aside-menu-text" font-size: 16px"></i>'
                                             : '<i class="fas fa-clipboard-list text-white" font-size: 16px"></i>' !!}
                                     </span>
                                 </span>
                                 <span
-                                    class="menu-title {{ isset($path[2]) && $path[2] == 'pengeluaran' ? 'text-primary fw-bolder' : 'text-white' }}">Catatan
+                                    class="menu-title {{ isset($path[2]) && $path[2] == 'pengeluaran' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Catatan
                                     Pengeluaran</span>
                             </a>
                         </div>
@@ -152,17 +152,17 @@
                     <div class="menu-sub gap-2 menu-sub-accordion my-2">
                         <!--begin::Menu item-->
                         <div class="menu-item pe-0">
-                            <a class="menu-link ps-7 {{ isset($path[2]) && $path[2] == 'master-tagihan' ? 'bg-white' : 'bg-secondary' }}"
+                            <a class="menu-link ps-7 {{ isset($path[2]) && $path[2] == 'master-tagihan' ? 'mb-bg-active' : 'mb-bg-default' }}"
                                 href="{{ route('biro.master-tagihan') }}">
                                 <span class="menu-icon">
                                     <span class="svg-icon svg-icon-2">
                                         {!! isset($path[2]) && $path[2] === 'master-tagihan'
-                                            ? '<i class="fas fa-database text-primary" font-size: 16px"></i>'
+                                            ? '<i class="fas fa-database mb-aside-menu-text" font-size: 16px"></i>'
                                             : '<i class="fas fa-database text-white" font-size: 16px"></i>' !!}
                                     </span>
                                 </span>
                                 <span
-                                    class="menu-title {{ isset($path[2]) && $path[2] == 'master-tagihan' ? 'text-primary fw-bolder' : 'text-white' }}">Master
+                                    class="menu-title {{ isset($path[2]) && $path[2] == 'master-tagihan' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Master
                                     Tagihan</span>
                             </a>
                         </div>
@@ -173,17 +173,17 @@
                     <div class="menu-sub gap-2 menu-sub-accordion my-2">
                         <!--begin::Menu item-->
                         <div class="menu-item pe-0">
-                            <a class="menu-link ps-7 {{ isset($path[2]) && $path[2] == 'tagihan' ? 'bg-white' : 'bg-secondary' }}"
+                            <a class="menu-link ps-7 {{ isset($path[2]) && $path[2] == 'tagihan' ? 'mb-bg-active' : 'mb-bg-default' }}"
                                 href="{{ route('biro.tagihan') }}">
                                 <span class="menu-icon">
                                     <span class="svg-icon svg-icon-2">
                                         {!! isset($path[2]) && $path[2] === 'tagihan'
-                                            ? '<i class="fas fa-file-invoice-dollar text-primary" font-size: 16px"></i>'
+                                            ? '<i class="fas fa-file-invoice-dollar mb-aside-menu-text" font-size: 16px"></i>'
                                             : '<i class="fas fa-file-invoice-dollar text-white" font-size: 16px"></i>' !!}
                                     </span>
                                 </span>
                                 <span
-                                    class="menu-title {{ isset($path[2]) && $path[2] == 'tagihan' ? 'text-primary fw-bolder' : 'text-white' }}">
+                                    class="menu-title {{ isset($path[2]) && $path[2] == 'tagihan' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">
                                     Tagihan</span>
                             </a>
                         </div>
@@ -194,17 +194,17 @@
                     <div class="menu-sub gap-2 menu-sub-accordion my-2">
                         <!--begin::Menu item-->
                         <div class="menu-item pe-0">
-                            <a class="menu-link ps-7 {{ isset($path[2]) && $path[2] == 'rekap-pembayaran' ? 'bg-white' : 'bg-secondary' }}"
+                            <a class="menu-link ps-7 {{ isset($path[2]) && $path[2] == 'rekap-pembayaran' ? 'mb-bg-active' : 'mb-bg-default' }}"
                                 href="{{ route('biro.rekap-pembayaran') }}">
                                 <span class="menu-icon">
                                     <span class="svg-icon svg-icon-2">
                                         {!! isset($path[2]) && $path[2] === 'rekap-pembayaran'
-                                            ? '<i class="fas fa-file-invoice text-primary" font-size: 16px"></i>'
+                                            ? '<i class="fas fa-file-invoice mb-aside-menu-text" font-size: 16px"></i>'
                                             : '<i class="fas fa-file-invoice text-white" font-size: 16px"></i>' !!}
                                     </span>
                                 </span>
                                 <span
-                                    class="menu-title {{ isset($path[2]) && $path[2] == 'rekap-pembayaran' ? 'text-primary fw-bolder' : 'text-white' }}">
+                                    class="menu-title {{ isset($path[2]) && $path[2] == 'rekap-pembayaran' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">
                                     Rekap Tagihan</span>
                             </a>
                         </div>
@@ -216,18 +216,18 @@
                     data-kt-menu-trigger="click">
                     <!--begin::Menu link-->
                     <a href="#"
-                        class="menu-link py-3 {{ $path[1] == 'inventaris' ? 'bg-white' : 'bg-secondary' }}">
+                        class="menu-link py-3 {{ $path[1] == 'inventaris' ? 'mb-bg-active' : 'mb-bg-default' }}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                             <span class="svg-icon svg-icon-2">
                                 {!! isset($path[1]) && $path[1] === 'inventaris'
-                                    ? '<i class="fas fa-dolly-flatbed text-primary" font-size: 16px"></i>'
+                                    ? '<i class="fas fa-dolly-flatbed mb-aside-menu-text" font-size: 16px"></i>'
                                     : '<i class="fas fa-dolly-flatbed text-white" font-size: 16px"></i>' !!}
                             </span>
                             <!--end::Svg Icon-->
                         </span>
                         <span
-                            class="menu-title {{ $path[1] == 'inventaris' ? 'text-primary fw-bolder' : 'text-white' }}">Inventaris</span>
+                            class="menu-title {{ $path[1] == 'inventaris' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Inventaris</span>
                         <span class="menu-arrow"></span>
                     </a>
                     <!--end::Menu link-->
@@ -236,17 +236,17 @@
                     <div class="menu-sub gap-2 menu-sub-accordion my-2">
                         <!--begin::Menu item-->
                         <div class="menu-item pe-0">
-                            <a class="menu-link ps-7 {{ isset($path[2]) && $path[2] == 'data-inventaris' ? 'bg-white' : 'bg-secondary' }}"
+                            <a class="menu-link ps-7 {{ isset($path[2]) && $path[2] == 'data-inventaris' ? 'mb-bg-active' : 'mb-bg-default' }}"
                                 href="{{ route('biro.data-inventaris') }}">
                                 <span class="menu-icon">
                                     <span class="svg-icon svg-icon-2">
                                         {!! isset($path[2]) && $path[2] === 'data-inventaris'
-                                            ? '<i class="fas fa-boxes text-primary" font-size: 16px"></i>'
+                                            ? '<i class="fas fa-boxes mb-aside-menu-text" font-size: 16px"></i>'
                                             : '<i class="fas fa-boxes text-white" font-size: 16px"></i>' !!}
                                     </span>
                                 </span>
                                 <span
-                                    class="menu-title {{ isset($path[2]) && $path[2] == 'data-inventaris' ? 'text-primary fw-bolder' : 'text-white' }}">Data
+                                    class="menu-title {{ isset($path[2]) && $path[2] == 'data-inventaris' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Data
                                     Inventaris</span>
                             </a>
                         </div>
@@ -257,17 +257,17 @@
                     <div class="menu-sub gap-2 menu-sub-accordion my-2">
                         <!--begin::Menu item-->
                         <div class="menu-item pe-0">
-                            <a class="menu-link ps-7 {{ isset($path[2]) && $path[2] == 'data-peminjaman' ? 'bg-white' : 'bg-secondary' }}"
+                            <a class="menu-link ps-7 {{ isset($path[2]) && $path[2] == 'data-peminjaman' ? 'mb-bg-active' : 'mb-bg-default' }}"
                                 href="{{ route('biro.data-peminjaman') }}">
                                 <span class="menu-icon">
                                     <span class="svg-icon svg-icon-2">
                                         {!! isset($path[2]) && $path[2] === 'data-peminjaman'
-                                            ? '<i class="fas fa-people-carry text-primary" font-size: 16px"></i>'
+                                            ? '<i class="fas fa-people-carry mb-aside-menu-text" font-size: 16px"></i>'
                                             : '<i class="fas fa-people-carry text-white" font-size: 16px"></i>' !!}
                                     </span>
                                 </span>
                                 <span
-                                    class="menu-title {{ isset($path[2]) && $path[2] == 'data-peminjaman' ? 'text-primary fw-bolder' : 'text-white' }}">Data
+                                    class="menu-title {{ isset($path[2]) && $path[2] == 'data-peminjaman' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Data
                                     Peminjaman</span>
                             </a>
                         </div>
@@ -278,17 +278,17 @@
                     <div class="menu-sub gap-2 menu-sub-accordion my-2">
                         <!--begin::Menu item-->
                         <div class="menu-item pe-0">
-                            <a class="menu-link ps-7 {{ isset($path[2]) && $path[2] == 'arsip-dokumen' ? 'bg-white' : 'bg-secondary' }}"
+                            <a class="menu-link ps-7 {{ isset($path[2]) && $path[2] == 'arsip-dokumen' ? 'mb-bg-active' : 'mb-bg-default' }}"
                                 href="{{ route('biro.arsip-dokumen') }}">
                                 <span class="menu-icon">
                                     <span class="svg-icon svg-icon-2">
                                         {!! isset($path[2]) && $path[2] === 'arsip-dokumen'
-                                            ? '<i class="fas fa-folder-open text-primary" font-size: 16px"></i>'
+                                            ? '<i class="fas fa-folder-open mb-aside-menu-text" font-size: 16px"></i>'
                                             : '<i class="fas fa-folder-open text-white" font-size: 16px"></i>' !!}
                                     </span>
                                 </span>
                                 <span
-                                    class="menu-title {{ isset($path[2]) && $path[2] == 'arsip-dokumen' ? 'text-primary fw-bolder' : 'text-white' }}">Arsip
+                                    class="menu-title {{ isset($path[2]) && $path[2] == 'arsip-dokumen' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Arsip
                                     Dokumen</span>
                             </a>
                         </div>
@@ -300,18 +300,18 @@
                     data-kt-menu-trigger="click">
                     <!--begin::Menu link-->
                     <a href="#"
-                        class="menu-link py-3 {{ $path[1] == 'kegiatan' ? 'bg-white' : 'bg-secondary' }}">
+                        class="menu-link py-3 {{ $path[1] == 'kegiatan' ? 'mb-bg-active' : 'mb-bg-default' }}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                             <span class="svg-icon svg-icon-2">
                                 {!! isset($path[1]) && $path[1] === 'kegiatan'
-                                    ? '<i class="fas fa-chart-line text-primary" font-size: 16px"></i>'
+                                    ? '<i class="fas fa-chart-line mb-aside-menu-text" font-size: 16px"></i>'
                                     : '<i class="fas fa-chart-line text-white" font-size: 16px"></i>' !!}
                             </span>
                             <!--end::Svg Icon-->
                         </span>
                         <span
-                            class="menu-title {{ $path[1] == 'kegiatan' ? 'text-primary fw-bolder' : 'text-white' }}">Kegiatan</span>
+                            class="menu-title {{ $path[1] == 'kegiatan' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Kegiatan</span>
                         <span class="menu-arrow"></span>
                     </a>
                     <!--end::Menu link-->
@@ -320,17 +320,17 @@
                     <div class="menu-sub gap-2 menu-sub-accordion my-2">
                         <!--begin::Menu item-->
                         <div class="menu-item pe-0">
-                            <a class="menu-link ps-7 {{ isset($path[2]) && $path[2] == 'program' ? 'bg-white' : 'bg-secondary' }}"
+                            <a class="menu-link ps-7 {{ isset($path[2]) && $path[2] == 'program' ? 'mb-bg-active' : 'mb-bg-default' }}"
                                 href="{{ route('biro.program') }}">
                                 <span class="menu-icon">
                                     <span class="svg-icon svg-icon-2">
                                         {!! isset($path[2]) && $path[2] === 'program'
-                                            ? '<i class="fas fa-tasks text-primary" font-size: 16px"></i>'
+                                            ? '<i class="fas fa-tasks mb-aside-menu-text" font-size: 16px"></i>'
                                             : '<i class="fas fa-tasks text-white" font-size: 16px"></i>' !!}
                                     </span>
                                 </span>
                                 <span
-                                    class="menu-title {{ isset($path[2]) && $path[2] == 'program' ? 'text-primary fw-bolder' : 'text-white' }}">Program</span>
+                                    class="menu-title {{ isset($path[2]) && $path[2] == 'program' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Program</span>
                             </a>
                         </div>
                         <!--end::Menu item-->
@@ -341,18 +341,18 @@
                         <div class="menu-item pe-0">
                             <!--begin::Menu link-->
                             <a href="{{ route('biro.jadwal-agenda') }}"
-                                class="menu-link ps-7 {{ isset($path[2]) && $path[2] == 'jadwal-agenda' ? 'bg-white' : 'bg-secondary' }}">
+                                class="menu-link ps-7 {{ isset($path[2]) && $path[2] == 'jadwal-agenda' ? 'mb-bg-active' : 'mb-bg-default' }}">
                                 <span class="menu-icon">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                     <span class="svg-icon svg-icon-2">
                                         {!! isset($path[2]) && $path[2] === 'jadwal-agenda'
-                                            ? '<i class="fas fa-calendar-alt text-primary" font-size: 16px"></i>'
+                                            ? '<i class="fas fa-calendar-alt mb-aside-menu-text" font-size: 16px"></i>'
                                             : '<i class="fas fa-calendar-alt text-white" font-size: 16px"></i>' !!}
                                     </span>
                                     <!--end::Svg Icon-->
                                 </span>
                                 <span
-                                    class="menu-title {{ isset($path[2]) && $path[2] == 'jadwal-agenda' ? 'text-primary fw-bolder' : 'text-white' }}">Jadwal
+                                    class="menu-title {{ isset($path[2]) && $path[2] == 'jadwal-agenda' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Jadwal
                                     & Agenda</span>
                             </a>
                             <!--end::Menu link-->
@@ -364,18 +364,18 @@
                     data-kt-menu-trigger="click">
                     <!--begin::Menu link-->
                     <a href="#"
-                        class="menu-link py-3 {{ $path[1] == 'tentang' ? 'bg-white' : 'bg-secondary' }}">
+                        class="menu-link py-3 {{ $path[1] == 'tentang' ? 'mb-bg-active' : 'mb-bg-default' }}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                             <span class="svg-icon svg-icon-2">
                                 {!! isset($path[1]) && $path[1] === 'tentang'
-                                    ? '<i class="fas fa-address-card text-primary" font-size: 16px"></i>'
+                                    ? '<i class="fas fa-address-card mb-aside-menu-text" font-size: 16px"></i>'
                                     : '<i class="fas fa-address-card text-white" font-size: 16px"></i>' !!}
                             </span>
                             <!--end::Svg Icon-->
                         </span>
                         <span
-                            class="menu-title {{ $path[1] == 'tentang' ? 'text-primary fw-bolder' : 'text-white' }}">Tentang</span>
+                            class="menu-title {{ $path[1] == 'tentang' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Tentang</span>
                         <span class="menu-arrow"></span>
                     </a>
                     <!--end::Menu link-->
@@ -384,17 +384,17 @@
                     <div class="menu-sub gap-2 menu-sub-accordion my-2">
                         <!--begin::Menu item-->
                         <div class="menu-item pe-0">
-                            <a class="menu-link ps-7 {{ isset($path[2]) && $path[2] == 'selayang-pandang' ? 'bg-white' : 'bg-secondary' }}"
+                            <a class="menu-link ps-7 {{ isset($path[2]) && $path[2] == 'selayang-pandang' ? 'mb-bg-active' : 'mb-bg-default' }}"
                                 href="{{ route('biro.selayang-pandang') }}">
                                 <span class="menu-icon">
                                     <span class="svg-icon svg-icon-2">
                                         {!! isset($path[2]) && $path[2] === 'selayang-pandang'
-                                            ? '<i class="fas fa-person-booth text-primary" font-size: 16px"></i>'
+                                            ? '<i class="fas fa-person-booth mb-aside-menu-text" font-size: 16px"></i>'
                                             : '<i class="fas fa-person-booth text-white" font-size: 16px"></i>' !!}
                                     </span>
                                 </span>
                                 <span
-                                    class="menu-title {{ isset($path[2]) && $path[2] == 'selayang-pandang' ? 'text-primary fw-bolder' : 'text-white' }}">Selayang
+                                    class="menu-title {{ isset($path[2]) && $path[2] == 'selayang-pandang' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Selayang
                                     Pandang</span>
                             </a>
                         </div>
@@ -405,17 +405,17 @@
                     <div class="menu-sub gap-2 menu-sub-accordion my-2">
                         <!--begin::Menu item-->
                         <div class="menu-item pe-0">
-                            <a class="menu-link ps-7 {{ isset($path[2]) && $path[2] == 'fasilitas' ? 'bg-white' : 'bg-secondary' }}"
+                            <a class="menu-link ps-7 {{ isset($path[2]) && $path[2] == 'fasilitas' ? 'mb-bg-active' : 'mb-bg-default' }}"
                                 href="{{ route('biro.fasilitas') }}">
                                 <span class="menu-icon">
                                     <span class="svg-icon svg-icon-2">
                                         {!! isset($path[2]) && $path[2] === 'fasilitas'
-                                            ? '<i class="fas fa-luggage-cart text-primary" font-size: 16px"></i>'
+                                            ? '<i class="fas fa-luggage-cart mb-aside-menu-text" font-size: 16px"></i>'
                                             : '<i class="fas fa-luggage-cart text-white" font-size: 16px"></i>' !!}
                                     </span>
                                 </span>
                                 <span
-                                    class="menu-title {{ isset($path[2]) && $path[2] == 'fasilitas' ? 'text-primary fw-bolder' : 'text-white' }}">Gedung
+                                    class="menu-title {{ isset($path[2]) && $path[2] == 'fasilitas' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Gedung
                                     & Fasilitas</span>
                             </a>
                         </div>
@@ -427,18 +427,18 @@
                 <div class="menu-item">
                     <!--begin::Menu link-->
                     <a href="{{ route('biro.keluhan') }}"
-                        class="menu-link {{ $path[1] == 'keluhan' ? 'bg-white' : 'bg-secondary' }}">
+                        class="menu-link {{ $path[1] == 'keluhan' ? 'mb-bg-active' : 'mb-bg-default' }}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                             <span class="svg-icon svg-icon-2">
                                 {!! isset($path[1]) && $path[1] === 'keluhan'
-                                    ? '<i class="fas fa-flag text-primary" font-size: 16px"></i>'
+                                    ? '<i class="fas fa-flag mb-aside-menu-text" font-size: 16px"></i>'
                                     : '<i class="fas fa-flag text-white" font-size: 16px"></i>' !!}
                             </span>
                             <!--end::Svg Icon-->
                         </span>
                         <span
-                            class="menu-title {{ $path[1] == 'keluhan' ? 'text-primary fw-bolder' : 'text-white' }}">Laporan
+                            class="menu-title {{ $path[1] == 'keluhan' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Laporan
                             & Keluhan</span>
                     </a>
                     <!--end::Menu link-->
@@ -447,18 +447,18 @@
                 <div class="menu-item">
                     <!--begin::Menu link-->
                     <a href="{{ route('biro.data-tamu') }}"
-                        class="menu-link {{ $path[1] == 'data-tamu' ? 'bg-white' : 'bg-secondary' }}">
+                        class="menu-link {{ $path[1] == 'data-tamu' ? 'mb-bg-active' : 'mb-bg-default' }}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                             <span class="svg-icon svg-icon-2">
                                 {!! isset($path[1]) && $path[1] === 'data-tamu'
-                                    ? '<i class="fas fa-book-reader text-primary" font-size: 16px"></i>'
+                                    ? '<i class="fas fa-book-reader mb-aside-menu-text" font-size: 16px"></i>'
                                     : '<i class="fas fa-book-reader text-white" font-size: 16px"></i>' !!}
                             </span>
                             <!--end::Svg Icon-->
                         </span>
                         <span
-                            class="menu-title {{ $path[1] == 'data-tamu' ? 'text-primary fw-bolder' : 'text-white' }}">Data
+                            class="menu-title {{ $path[1] == 'data-tamu' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Data
                             Tamu</span>
                     </a>
                     <!--end::Menu link-->
@@ -466,17 +466,17 @@
 
                 <div class="menu-item">
                     <!--begin::Menu link-->
-                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'laporan' ? 'bg-white' : 'bg-secondary' }}"
+                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'laporan' ? 'mb-bg-active' : 'mb-bg-default' }}"
                         href="{{ route('biro.laporan') }}">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
                                 {!! isset($path[1]) && $path[1] === 'laporan'
-                                    ? '<i class="fas fa-book text-primary" font-size: 16px"></i>'
+                                    ? '<i class="fas fa-book mb-aside-menu-text" font-size: 16px"></i>'
                                     : '<i class="fas fa-book text-white" font-size: 16px"></i>' !!}
                             </span>
                         </span>
                         <span
-                            class="menu-title {{ isset($path[1]) && $path[1] == 'laporan' ? 'text-primary fw-bolder' : 'text-white' }}">Laporan</span>
+                            class="menu-title {{ isset($path[1]) && $path[1] == 'laporan' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Laporan</span>
                     </a>
                     <!--end::Menu link-->
                 </div>

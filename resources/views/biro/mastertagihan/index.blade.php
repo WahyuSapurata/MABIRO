@@ -20,21 +20,21 @@
         <div id="kt_content_container" class="container">
             <div class="row">
 
-                <div class="card bg-primary">
+                <div class="card bg-brand">
                     <div class="card-body p-0">
                         <div class="container">
                             <div class="py-5 table-responsive text-white">
                                 <table id="kt_table_data"
-                                    class="table table-rounded border border-gray-300 table-row-bordered table-row-gray-300">
+                                    class="table table-rounded table-row-bordered table-row-gray-300">
                                     <thead class="text-center bg-white">
-                                        <tr class="fw-bolder fs-6 text-black">
+                                        <tr class="fw-bolder fs-6">
                                             <th>No</th>
                                             <th>Nama</th>
                                             <th>Jumlah</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="bg-white">
+                                    <tbody>
                                     </tbody>
                                 </table>
                             </div>
@@ -193,27 +193,28 @@
                 ajax: '/biro/keuangan/master-tagihan-get',
                 columns: [{
                     data: null,
+                    className: 'mb-kolom-nomor',
                     render: function(data, type, row, meta) {
                         return meta.row + meta.settings._iDisplayStart + 1;
                     }
                 }, {
                     data: 'nama',
-                    className: 'text-center',
                 }, {
                     data: 'jumlah',
-                    className: 'text-left',
+                    className: 'mb-kolom-nominal text-center',
                     render: function(data, type, row, meta) {
                         const value = numeral(data).format(
                             '0,0'); // Format to rupiah
                         return 'Rp ' + value;
                     }
+
                 }, {
                     data: 'uuid',
                 }],
                 columnDefs: [{
                     targets: -1,
+                    className: 'mb-kolom-aksi',
                     title: 'Aksi',
-                    width: '8rem',
                     orderable: false,
                     render: function(data, type, full, meta) {
                         return `

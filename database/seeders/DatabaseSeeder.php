@@ -33,5 +33,9 @@ class DatabaseSeeder extends Seeder
                 'password' => Hash::make('<>password'),
             ]
         );
+
+        //Tambah Seeder
+        $this->call(DataPenghuniSeeder::class);
+
     }
 }

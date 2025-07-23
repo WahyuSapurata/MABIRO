@@ -27,7 +27,7 @@
     <link href="{{ asset('assets-landing/css/animate.css') }}" rel="stylesheet">
     <link href="{{ asset('assets-landing/css/validnavs.css') }}" rel="stylesheet">
     <link href="{{ asset('assets-landing/css/helper.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets-landing/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('assets-landing/css/responsive.css') }}" rel="stylesheet">
     <link href="{{ asset('assets-landing/css/style.css') }}" rel="stylesheet">
 
