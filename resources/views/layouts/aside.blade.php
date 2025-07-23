@@ -66,24 +66,73 @@
                     <!--end::Menu link-->
                 </div>
 
-                <div class="menu-item">
+                <div class="menu-item menu-link-indention menu-accordion {{ $path[1] == 'warga_tamu' ? 'show' : '' }}"
+                    data-kt-menu-trigger="click">
                     <!--begin::Menu link-->
-                    <a href="{{ route('biro.data-penghuni') }}"
-                        class="menu-link {{ $path[1] == 'data-penghuni' ? 'mb-bg-active' : 'mb-bg-default' }}">
+                    <a href="#"
+                        class="menu-link py-3 {{ $path[1] == 'warga_tamu' ? 'mb-bg-active' : 'mb-bg-default' }}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                             <span class="svg-icon svg-icon-2">
-                                {!! isset($path[1]) && $path[1] === 'data-penghuni'
-                                    ? '<i class="fas fa-laptop-house mb-aside-menu-text" font-size: 16px"></i>'
-                                    : '<i class="fas fa-laptop-house text-white" font-size: 16px"></i>' !!}
+                                {!! isset($path[1]) && $path[1] === 'warga_tamu'
+                                    ? '<i class="fas fa-users mb-aside-menu-text" font-size: 16px"></i>'
+                                    : '<i class="fas fa-users text-white" font-size: 16px"></i>' !!}
                             </span>
                             <!--end::Svg Icon-->
                         </span>
                         <span
-                            class="menu-title {{ $path[1] == 'data-penghuni' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Data
-                            Penghuni</span>
+                            class="menu-title {{ $path[1] == 'warga_tamu' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Warga
+                            & Tamu</span>
+                        <span class="menu-arrow"></span>
                     </a>
                     <!--end::Menu link-->
+
+                    <div class="menu-sub gap-2 menu-sub-accordion my-2">
+                        <!--begin::Menu item-->
+                        <div class="menu-item pe-0">
+                            <!--begin::Menu link-->
+                            <a href="{{ route('biro.data-penghuni') }}"
+                                class="menu-link ps-7 {{ isset($path[2]) && $path[2] == 'data-penghuni' ? 'mb-bg-active' : 'mb-bg-default' }}">
+                                <span class="menu-icon">
+                                    <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                                    <span class="svg-icon svg-icon-2">
+                                        {!! isset($path[2]) && $path[2] === 'data-penghuni'
+                                            ? '<i class="fas fa-laptop-house mb-aside-menu-text" font-size: 16px"></i>'
+                                            : '<i class="fas fa-laptop-house text-white" font-size: 16px"></i>' !!}
+                                    </span>
+                                    <!--end::Svg Icon-->
+                                </span>
+                                <span
+                                    class="menu-title {{ isset($path[2]) && $path[2] == 'data-penghuni' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Data
+                                    Penghuni</span>
+                            </a>
+                            <!--end::Menu link-->
+                        </div>
+                    </div>
+
+                    <div class="menu-sub gap-2 menu-sub-accordion my-2">
+                        <!--begin::Menu item-->
+                        <div class="menu-item pe-0">
+                            <!--begin::Menu link-->
+                            <a href="{{ route('biro.data-tamu') }}"
+                                class="menu-link ps-7 {{ isset($path[2]) && $path[2] == 'data-tamu' ? 'mb-bg-active' : 'mb-bg-default' }}">
+                                <span class="menu-icon">
+                                    <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                                    <span class="svg-icon svg-icon-2">
+                                        {!! isset($path[2]) && $path[2] === 'data-tamu'
+                                            ? '<i class="fas fa-book-reader mb-aside-menu-text" font-size: 16px"></i>'
+                                            : '<i class="fas fa-book-reader text-white" font-size: 16px"></i>' !!}
+                                    </span>
+                                    <!--end::Svg Icon-->
+                                </span>
+                                <span
+                                    class="menu-title {{ isset($path[2]) && $path[2] == 'data-tamu' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Data
+                                    Tamu</span>
+                            </a>
+                            <!--end::Menu link-->
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="menu-item menu-link-indention menu-accordion {{ $path[1] == 'keuangan' ? 'show' : '' }}"
@@ -106,7 +155,7 @@
                     </a>
                     <!--end::Menu link-->
 
-                    <!--begin::Menu sub-->
+                    {{-- <!--begin::Menu sub-->
                     <div class="menu-sub gap-2 menu-sub-accordion my-2">
                         <!--begin::Menu item-->
                         <div class="menu-item pe-0">
@@ -184,11 +233,11 @@
                                 </span>
                                 <span
                                     class="menu-title {{ isset($path[2]) && $path[2] == 'tagihan' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">
-                                    Tagihan</span>
+                                    Tagihan Warga</span>
                             </a>
                         </div>
                         <!--end::Menu item-->
-                    </div>
+                    </div> --}}
 
                     <!--begin::Menu sub-->
                     <div class="menu-sub gap-2 menu-sub-accordion my-2">
@@ -209,6 +258,27 @@
                             </a>
                         </div>
                         <!--end::Menu item-->
+                    </div>
+
+                    <!--begin::Menu sub-->
+                    <div class="menu-sub gap-2 menu-sub-accordion my-2">
+                        <!--begin::Menu item-->
+                        <div class="menu-item pe-0">
+                            <a class="menu-link ps-7 {{ isset($path[2]) && $path[2] == 'laporan' ? 'mb-bg-active' : 'mb-bg-default' }}"
+                                href="{{ route('biro.laporan') }}">
+                                <span class="menu-icon">
+                                    <span class="svg-icon svg-icon-2">
+                                        {!! isset($path[2]) && $path[2] === 'laporan'
+                                            ? '<i class="fas fa-book mb-aside-menu-text" font-size: 16px"></i>'
+                                            : '<i class="fas fa-book text-white" font-size: 16px"></i>' !!}
+                                    </span>
+                                </span>
+                                <span
+                                    class="menu-title {{ isset($path[2]) && $path[2] == 'laporan' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Rekap
+                                    Laporan Keuangan</span>
+                            </a>
+                            <!--end::Menu link-->
+                        </div>
                     </div>
                 </div>
 
@@ -273,27 +343,6 @@
                         </div>
                         <!--end::Menu item-->
                     </div>
-
-                    <!--begin::Menu sub-->
-                    <div class="menu-sub gap-2 menu-sub-accordion my-2">
-                        <!--begin::Menu item-->
-                        <div class="menu-item pe-0">
-                            <a class="menu-link ps-7 {{ isset($path[2]) && $path[2] == 'arsip-dokumen' ? 'mb-bg-active' : 'mb-bg-default' }}"
-                                href="{{ route('biro.arsip-dokumen') }}">
-                                <span class="menu-icon">
-                                    <span class="svg-icon svg-icon-2">
-                                        {!! isset($path[2]) && $path[2] === 'arsip-dokumen'
-                                            ? '<i class="fas fa-folder-open mb-aside-menu-text" font-size: 16px"></i>'
-                                            : '<i class="fas fa-folder-open text-white" font-size: 16px"></i>' !!}
-                                    </span>
-                                </span>
-                                <span
-                                    class="menu-title {{ isset($path[2]) && $path[2] == 'arsip-dokumen' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Arsip
-                                    Dokumen</span>
-                            </a>
-                        </div>
-                        <!--end::Menu item-->
-                    </div>
                 </div>
 
                 <div class="menu-item menu-link-indention menu-accordion {{ $path[1] == 'kegiatan' ? 'show' : '' }}"
@@ -330,7 +379,8 @@
                                     </span>
                                 </span>
                                 <span
-                                    class="menu-title {{ isset($path[2]) && $path[2] == 'program' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Program</span>
+                                    class="menu-title {{ isset($path[2]) && $path[2] == 'program' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Program
+                                    Biro</span>
                             </a>
                         </div>
                         <!--end::Menu item-->
@@ -375,7 +425,8 @@
                             <!--end::Svg Icon-->
                         </span>
                         <span
-                            class="menu-title {{ $path[1] == 'tentang' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Tentang</span>
+                            class="menu-title {{ $path[1] == 'tentang' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Konten
+                            Halaman</span>
                         <span class="menu-arrow"></span>
                     </a>
                     <!--end::Menu link-->
@@ -444,42 +495,23 @@
                     <!--end::Menu link-->
                 </div>
 
+                <!--begin::Menu item-->
                 <div class="menu-item">
-                    <!--begin::Menu link-->
-                    <a href="{{ route('biro.data-tamu') }}"
-                        class="menu-link {{ $path[1] == 'data-tamu' ? 'mb-bg-active' : 'mb-bg-default' }}">
-                        <span class="menu-icon">
-                            <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
-                            <span class="svg-icon svg-icon-2">
-                                {!! isset($path[1]) && $path[1] === 'data-tamu'
-                                    ? '<i class="fas fa-book-reader mb-aside-menu-text" font-size: 16px"></i>'
-                                    : '<i class="fas fa-book-reader text-white" font-size: 16px"></i>' !!}
-                            </span>
-                            <!--end::Svg Icon-->
-                        </span>
-                        <span
-                            class="menu-title {{ $path[1] == 'data-tamu' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Data
-                            Tamu</span>
-                    </a>
-                    <!--end::Menu link-->
-                </div>
-
-                <div class="menu-item">
-                    <!--begin::Menu link-->
-                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'laporan' ? 'mb-bg-active' : 'mb-bg-default' }}"
-                        href="{{ route('biro.laporan') }}">
+                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'arsip-dokumen' ? 'mb-bg-active' : 'mb-bg-default' }}"
+                        href="{{ route('biro.arsip-dokumen') }}">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
-                                {!! isset($path[1]) && $path[1] === 'laporan'
-                                    ? '<i class="fas fa-book mb-aside-menu-text" font-size: 16px"></i>'
-                                    : '<i class="fas fa-book text-white" font-size: 16px"></i>' !!}
+                                {!! isset($path[1]) && $path[1] === 'arsip-dokumen'
+                                    ? '<i class="fas fa-folder-open mb-aside-menu-text" font-size: 16px"></i>'
+                                    : '<i class="fas fa-folder-open text-white" font-size: 16px"></i>' !!}
                             </span>
                         </span>
                         <span
-                            class="menu-title {{ isset($path[1]) && $path[1] == 'laporan' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Laporan</span>
+                            class="menu-title {{ isset($path[1]) && $path[1] == 'arsip-dokumen' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Arsip
+                            Dokumen</span>
                     </a>
-                    <!--end::Menu link-->
                 </div>
+                <!--end::Menu item-->
             @endif
 
             @if ($role === 'keuangan')
@@ -590,6 +622,24 @@
                     </a>
                 </div>
                 <!--end::Menu item-->
+
+                <!--begin::Menu item-->
+                <div class="menu-item">
+                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'arsip-dokumen' ? 'mb-bg-active' : 'mb-bg-default' }}"
+                        href="{{ route('keuangan.arsip-dokumen') }}">
+                        <span class="menu-icon">
+                            <span class="svg-icon svg-icon-2">
+                                {!! isset($path[1]) && $path[1] === 'arsip-dokumen'
+                                    ? '<i class="fas fa-folder-open mb-aside-menu-text" font-size: 16px"></i>'
+                                    : '<i class="fas fa-folder-open text-white" font-size: 16px"></i>' !!}
+                            </span>
+                        </span>
+                        <span
+                            class="menu-title {{ isset($path[1]) && $path[1] == 'arsip-dokumen' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Arsip
+                            Dokumen</span>
+                    </a>
+                </div>
+                <!--end::Menu item-->
             @endif
 
             @if ($role === 'inventaris')
@@ -642,6 +692,24 @@
                         </span>
                         <span
                             class="menu-title {{ isset($path[1]) && $path[1] == 'arsip-dokumen' ? 'text-primary fw-bolder' : 'text-white' }}">Arsip
+                            Dokumen</span>
+                    </a>
+                </div>
+                <!--end::Menu item-->
+
+                <!--begin::Menu item-->
+                <div class="menu-item">
+                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'arsip-dokumen' ? 'mb-bg-active' : 'mb-bg-default' }}"
+                        href="{{ route('inventaris.arsip-dokumen') }}">
+                        <span class="menu-icon">
+                            <span class="svg-icon svg-icon-2">
+                                {!! isset($path[1]) && $path[1] === 'arsip-dokumen'
+                                    ? '<i class="fas fa-folder-open mb-aside-menu-text" font-size: 16px"></i>'
+                                    : '<i class="fas fa-folder-open text-white" font-size: 16px"></i>' !!}
+                            </span>
+                        </span>
+                        <span
+                            class="menu-title {{ isset($path[1]) && $path[1] == 'arsip-dokumen' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Arsip
                             Dokumen</span>
                     </a>
                 </div>
