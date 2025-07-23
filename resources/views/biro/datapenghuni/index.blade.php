@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 @section('button')
     <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
-        <!--begin::Page title-->
+                <!--begin::Page title-->
         <div data-kt-swapper="true" data-kt-swapper-mode="prepend"
             data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
             class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
@@ -20,14 +20,14 @@
         <div id="kt_content_container" class="container">
             <div class="row">
 
-                <div class="card bg-primary">
+                <div class="card bg-brand">
                     <div class="card-body p-0">
                         <div class="container">
                             <div class="py-5 table-responsive text-white">
                                 <table id="kt_table_data"
-                                    class="table table-rounded border border-gray-300 table-row-bordered table-row-gray-300">
-                                    <thead class="text-center bg-white">
-                                        <tr class="fw-bolder fs-6 text-black">
+                                    class="table table-rounded table-row-bordered table-row-gray-300">
+                                    <thead class="text-center">
+                                        <tr class="fw-bolder fs-6">
                                             <th>No</th>
                                             <th>Foto</th>
                                             <th>Nama Warga</th>
@@ -39,7 +39,7 @@
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="bg-white">
+                                    <tbody>
                                     </tbody>
                                 </table>
                             </div>
@@ -73,21 +73,8 @@
                 <!--begin::Card toolbar-->
                 <div class="card-toolbar">
                     <!--begin::Close-->
-                    <div class="btn btn-sm btn-icon btn-active-light-primary" id="side_form_close">
-                        <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
-                        <span class="svg-icon svg-icon-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)"
-                                    fill="#000000">
-                                    <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1" />
-                                    <rect fill="#000000" opacity="0.5"
-                                        transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
-                                        x="0" y="7" width="16" height="2" rx="1" />
-                                </g>
-                            </svg>
-                        </span>
-                        <!--end::Svg Icon-->
+                     <div class="btn btn-sm btn-icon btn-active-light-primary" id="side_form_close">
+                        <i class="mb-close-button fas fa-times-circle"></i>
                     </div>
                     <!--end::Close-->
                 </div>
@@ -231,12 +218,9 @@
 
                     <div class="separator separator-dashed mt-8 mb-5"></div>
                     <div class="d-flex gap-5">
-                        <button type="submit" class="btn btn-primary btn-sm btn-submit d-flex align-items-center"><i
-                                class="bi bi-file-earmark-diff"></i> Simpan</button>
+                        <button type="submit" class="btn btn-mabiro-primary btn-sm btn-submit d-flex align-items-center"><i class="fa-solid fa-floppy-disk"></i> Simpan</button>
                         <button type="reset" id="side_form_close"
-                            class="btn mr-2 btn-light btn-cancel btn-sm d-flex align-items-center"
-                            style="background-color: #ea443e65; color: #EA443E"><i class="bi bi-trash-fill"
-                                style="color: #EA443E"></i>Batal</button>
+                            class="btn mr-2 btn-mabiro-grey btn-cancel btn-sm d-flex align-items-center"><i class="fa-solid fa-ban"></i>Batal</button>
                     </div>
                 </form>
             </div>
@@ -389,6 +373,7 @@
                 ajax: '/biro/data-penghuni-get',
                 columns: [{
                     data: null,
+                    className: 'mb-kolom-nomor align-content-center',
                     render: function(data, type, row, meta) {
                         return meta.row + meta.settings._iDisplayStart + 1;
                     }
@@ -403,7 +388,7 @@
                                 <!--begin::Overlay-->
                                 <a class="d-block overlay fancybox" data-fancybox="lightbox-group" href="{{ asset('/public/penghuni/${data}') }}">
                                     <!--begin::Image-->
-                                    <div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-50px w-50px"
+                                    <div class="mb-profil-pengguna overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-50px w-50px"
                                         style="background-image:url('/public/penghuni/${data}')">
                                     </div>
                                     <!--end::Image-->
@@ -428,19 +413,19 @@
                     }
                 }, {
                     data: 'nama',
-                    className: 'text-center',
+                    className: 'text-center align-content-center',
                 }, {
                     data: 'tanggal_lahir',
-                    className: 'text-center',
+                    className: 'text-center align-content-center',
                 }, {
                     data: 'agama',
-                    className: 'text-center',
+                    className: 'text-center align-content-center',
                 }, {
                     data: 'universitas',
-                    className: 'text-center',
+                    className: 'text-center align-content-center',
                 }, {
                     data: 'kamar',
-                    className: 'text-center',
+                    className: 'text-center align-content-center',
                     render: function(data, type, row, meta) {
                         let result;
                         if (data) {
@@ -452,7 +437,7 @@
                     }
                 }, {
                     data: 'status',
-                    className: 'text-center',
+                    className: 'text-center align-content-center',
                     render: function(data, type, row, meta) {
                         let result;
                         if (data == "Belum Dikonfirmasi") {
@@ -479,8 +464,7 @@
                 columnDefs: [{
                     targets: -1,
                     title: 'Aksi',
-                    width: '10rem',
-                    className: 'text-center',
+                    className: 'mb-kolom-aksi',
                     orderable: false,
                     render: function(data, type, full, meta) {
                         if (full.status == "Terkonfirmasi") {

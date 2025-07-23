@@ -42,14 +42,14 @@
         <div id="kt_content_container" class="container">
             <div class="row">
 
-                <div class="card bg-primary">
+                <div class="card bg-brand">
                     <div class="card-body p-0">
                         <div class="container">
                             <div class="py-5 table-responsive text-white">
                                 <table id="kt_table_data"
                                     class="table table-striped table-rounded border border-gray-300 table-row-bordered table-row-gray-300">
                                     <thead class="text-center bg-white">
-                                        <tr class="fw-bolder fs-6 text-black">
+                                        <tr class="fw-bolder fs-6">
                                             <th>No</th>
                                             <th>Tanggal</th>
                                             <th>Keterangan</th>
@@ -57,7 +57,7 @@
                                             <th>Kredit</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="bg-white">
+                                    <tbody>
                                     </tbody>
                                     <tfoot id="tfoot" class="bg-info rounded d-none">
                                         <tr class="fw-bolder fs-6 text-white">

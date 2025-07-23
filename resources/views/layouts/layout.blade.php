@@ -60,7 +60,7 @@
                 data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}"
                 data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_mobile_toggle">
                 <!--begin::Brand-->
-                <div class="aside-logo flex-column-auto" style="background-color: #5524EC;">
+                <div class="aside-logo flex-column-auto">
                     <!--end::sidebar mobile toggle-->
                     <!--begin::Mobile logo-->
                     <div class="app-sidebar-logo d-flex align-items-center flex-grow-1 flex-lg-grow-0 w-100 justify-content-center"
@@ -74,7 +74,7 @@
                                         @if (auth()->user()->foto == null || auth()->user()->foto == '')
                                             <i class="fas fa-user fs-1 text-primary"></i>
                                         @else
-                                            <img class="h-70px w-70px rounded-circle"
+                                            <img class="mb-photo-profile-sidebar h-70px w-70px rounded-circle"
                                                 src="{{ asset('/public/pengguna/' . auth()->user()->foto) }}"
                                                 alt="">
                                         @endif
@@ -97,16 +97,22 @@
                                 </div>
                             </div>
                             <div class="app-sidebar-logo-minimize">
-                                <div class="d-flex align-items-center">
+                                {{-- <div class="d-flex align-items-center">
                                     @if (auth()->user()->foto == null || auth()->user()->foto == '')
                                         <img alt="Logo" src="{{ asset('assets-landing/img/favicon.png') }}"
                                             class="h-30px" />
                                     @else
-                                        <img class="h-30px w-30px rounded-circle"
+                                        <img class="mb-photo-profile-sidebar h-30px w-30px rounded-circle"
                                             src="{{ asset('/public/pengguna/' . auth()->user()->foto) }}"
                                             alt="">
                                     @endif
+                                </div> --}}
+
+                                <div class="d-flex align-items-center">
+                                        <img alt="Logo" src="{{ asset('assets-landing/img/favicon.png') }}"
+                                            class="h-40px" />
                                 </div>
+
                             </div>
                         </a>
                     </div>

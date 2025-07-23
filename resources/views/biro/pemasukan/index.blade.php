@@ -20,14 +20,14 @@
         <div id="kt_content_container" class="container">
             <div class="row">
 
-                <div class="card bg-primary">
+                <div class="card bg-brand">
                     <div class="card-body p-0">
                         <div class="container">
-                            <div class="py-5 table-responsive text-white">
+                            <div class="py-5 text-white">
                                 <table id="kt_table_data"
-                                    class="table table-rounded border border-gray-300 table-row-bordered table-row-gray-300">
-                                    <thead class="text-center bg-white">
-                                        <tr class="fw-bolder fs-6 text-black">
+                                    class="table table-rounded table-row-bordered table-row-gray-300">
+                                    <thead>
+                                        <tr class="fw-bolder fs-6">
                                             <th>No</th>
                                             <th>Tanggal</th>
                                             <th>Keterangan</th>
@@ -35,7 +35,7 @@
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="bg-white">
+                                    <tbody>
                                     </tbody>
                                 </table>
                             </div>
@@ -204,6 +204,7 @@
                 ajax: '/biro/keuangan/pemasukan-get',
                 columns: [{
                     data: null,
+                    className: 'mb-kolom-nomor',
                     render: function(data, type, row, meta) {
                         return meta.row + meta.settings._iDisplayStart + 1;
                     }
@@ -215,7 +216,7 @@
                     className: 'text-center',
                 }, {
                     data: 'jumlah',
-                    className: 'text-left',
+                    className: 'mb-kolom-nominal text-end',
                     render: function(data, type, row, meta) {
                         const value = numeral(data).format(
                             '0,0'); // Format to rupiah
@@ -227,7 +228,7 @@
                 columnDefs: [{
                     targets: -1,
                     title: 'Aksi',
-                    width: '8rem',
+                    className: 'mb-kolom-aksi',
                     orderable: false,
                     render: function(data, type, full, meta) {
                         return `
