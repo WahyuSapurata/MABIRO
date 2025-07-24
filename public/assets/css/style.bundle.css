@@ -55805,7 +55805,7 @@ html {
     padding: 0;
     font-size: 13px !important;
     font-weight: 400;
-    font-family: Poppins, Helvetica, sans-serif;
+    font-family: 'Inter', Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -56193,7 +56193,7 @@ body {
 
     .aside .aside-menu {
         /* width: 265px; */
-        width:auto;
+        width: auto;
     }
 
     .aside-fixed .aside {
@@ -56232,7 +56232,8 @@ body {
     [data-kt-aside-minimize="on"] .aside:not(.aside-hoverable) .aside-logo,
     [data-kt-aside-minimize="on"] .aside:not(:hover) .aside-logo {
         justify-content: center;
-        height: 65px; /*Baru*/
+        height: 65px;
+        /*Baru*/
     }
 
     [data-kt-aside-minimize="on"] .aside:not(.aside-hoverable) .aside-logo .logo,
@@ -56308,8 +56309,9 @@ body {
     }
 
     .app-sidebar-logo-minimize {
-        display:none;
+        display: none;
     }
+
     /* .aside .aside-logo {
         display: none;
     } */

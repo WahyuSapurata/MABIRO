@@ -1,214 +1,129 @@
 @extends('layouts.layout')
 @section('content')
-    <style>
-        .card-custom {
-            border-radius: 30px;
-            background: white;
-            padding: 1.5rem;
-            color: #333;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .icon-rounded {
-            background-color: #730022;
-            padding: 0.7rem;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 48px;
-            height: 48px;
-        }
-
-        .card-title-big {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 0;
-        }
-
-        .card-subtitle {
-            color: #6c757d;
-            font-size: 1rem;
-        }
-
-        .card-footer-link {
-            background: linear-gradient(to right, #fff, #d5b5bc);
-            color: #555;
-            border-radius: 20px;
-            padding: 8px 14px;
-            text-decoration: none;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 1.2rem;
-        }
-
-        .card-footer-link i {
-            color: white;
-            background: #730022;
-            padding: 6px;
-            border-radius: 50%;
-            font-size: 0.8rem;
-        }
-
-        .agenda-card {
-            border-radius: 30px;
-            background: white;
-            padding: 1.5rem;
-            color: #333;
-        }
-
-        .agenda-card h5 {
-            font-weight: bold;
-        }
-
-        .agenda-card table th {
-            background-color: #730022;
-            color: white;
-            vertical-align: middle;
-        }
-
-        .agenda-link {
-            background: linear-gradient(to right, #fff, #d5b5bc);
-            color: #555;
-            border-radius: 20px;
-            padding: 8px 14px;
-            text-decoration: none;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 1.2rem;
-            width: 100%;
-        }
-    </style>
-    <div class="post d-flex flex-column-fluid" id="kt_post">
+    <div class="mb-dashboard post d-flex flex-column-fluid" id="kt_post">
         <!--begin::Container-->
         <div id="kt_content_container" class="container">
             <div class="container py-5 bg-mabiro rounded-3">
-                <h4 class="text-white mb-4">Selamat Datang, di <strong>Dashboard Admin Mabiro</strong></h4>
-                <h2 class="text-white mb-4">Sistem Informasi Manajemen Asrama</h2>
+                <div class="mb-dashboard-tittle-01 text-white mt-2">Selamat Datang, Di <strong>Dashboard Admin
+                        Mabiro</strong></div>
+                <div class="mb-dashboard-tittle-02 text-white mb-6">Sistem Informasi Manajemen Asrama</div>
 
                 <!-- ROW 1 -->
-                <div class="row g-3 mb-3">
+                <div class="row g-6 mb-6">
                     <div class="col-md-4">
-                        <div class="card-custom">
+                        <div class="mb-card-dashboard">
                             <div class="d-flex justify-content-between align-items-start">
                                 <div>
                                     <p class="card-title-big">{{ $penghuni }}</p>
                                     <p class="card-subtitle">Penghuni</p>
                                 </div>
                                 <div class="icon-rounded">
-                                    ðŸ“˜
+                                    <i class="fas fa-users"></i>
                                 </div>
                             </div>
                             <a href="{{ route('biro.data-penghuni') }}" class="card-footer-link">Lihat Data Warga
-                                <i>&#8250;</i></a>
+                                <i class="mb-icon-more fas fa-chevron-right"></i></a>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="card-custom">
+                        <div class="mb-card-dashboard">
                             <div class="d-flex justify-content-between align-items-start">
                                 <div>
                                     <p class="card-title-big">{{ $calon_penghuni }}</p>
                                     <p class="card-subtitle">Calon Penghuni</p>
                                 </div>
                                 <div class="icon-rounded">
-                                    ðŸ‘¤
+                                    <i class="fas fa-user-plus"></i>
                                 </div>
                             </div>
                             <a href="{{ route('biro.data-penghuni') }}" class="card-footer-link">Lihat Calon Penghuni
-                                <i>&#8250;</i></a>
+                                <i class="mb-icon-more fas fa-chevron-right"></i></a>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="card-custom">
+                        <div class="mb-card-dashboard">
                             <div class="d-flex justify-content-between align-items-start">
                                 <div>
                                     <p class="card-title-big">Rp. {{ number_format($saldo, 0, ',', '.') }}</p>
                                     <p class="card-subtitle">Sisa Saldo Kas Asrama</p>
                                 </div>
                                 <div class="icon-rounded">
-                                    ðŸ’°
+                                    <i class="fas fa-wallet"></i>
                                 </div>
                             </div>
                             <a href="{{ route('biro.laporan') }}" class="card-footer-link">Lihat Rekapitulasi
-                                <i>&#8250;</i></a>
+                                <i class="mb-icon-more fas fa-chevron-right"></i></a>
                         </div>
                     </div>
                 </div>
 
                 <!-- ROW 2 -->
-                <div class="row g-3">
+                <div class="row g-6">
                     <!-- Kolom Kiri -->
-                    <div class="col-md-6">
-                        <div class="row g-3 mb-3">
+                    <div class="col-md-8">
+                        <div class="row g-6 mb-6">
                             <div class="col-sm-6">
-                                <div class="card-custom">
+                                <div class="mb-card-dashboard">
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div>
                                             <p class="card-title-big">{{ $peminjaman }}</p>
                                             <p class="card-subtitle">Peminjaman</p>
                                         </div>
-                                        <div class="icon-rounded">ðŸ“¦</div>
+                                        <div class="icon-rounded"><i class="fas fa-box-open"></i></div>
                                     </div>
                                     <a href="{{ route('biro.data-peminjaman') }}" class="card-footer-link">Lihat Data
-                                        Peminjaman <i>&#8250;</i></a>
+                                        Peminjaman <i class="mb-icon-more fas fa-chevron-right"></i></a>
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <div class="card-custom">
+                                <div class="mb-card-dashboard">
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div>
                                             <p class="card-title-big">{{ $tagihan }}</p>
                                             <p class="card-subtitle">Tagihan</p>
                                         </div>
-                                        <div class="icon-rounded">ðŸ‘¥</div>
+                                        <div class="icon-rounded"><i class="fas fa-file-invoice-dollar"></i></div>
                                     </div>
                                     <a href="{{ route('biro.rekap-pembayaran') }}" class="card-footer-link">Lihat
-                                        Selengkapnya <i>&#8250;</i></a>
+                                        Selengkapnya <i class="mb-icon-more fas fa-chevron-right"></i></a>
                                 </div>
                             </div>
                         </div>
-                        <div class="row g-3">
+                        <div class="row g-6">
                             <div class="col-sm-6">
-                                <div class="card-custom">
+                                <div class="mb-card-dashboard">
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div>
                                             <p class="card-title-big">{{ $tamu }}</p>
                                             <p class="card-subtitle">Tamu</p>
                                         </div>
-                                        <div class="icon-rounded">ðŸ§¾</div>
+                                        <div class="icon-rounded"><i class="fas fa-user-check"></i></div>
                                     </div>
                                     <a href="{{ route('biro.data-tamu') }}" class="card-footer-link">Lihat Daftar Warga
-                                        <i>&#8250;</i></a>
+                                        <i class="mb-icon-more fas fa-chevron-right"></i></a>
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <div class="card-custom">
+                                <div class="mb-card-dashboard">
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div>
                                             <p class="card-title-big">{{ $keluhan }}</p>
                                             <p class="card-subtitle">Laporan Warga</p>
                                         </div>
-                                        <div class="icon-rounded">ðŸ“‘</div>
+                                        <div class="icon-rounded"><i class="fas fa-exclamation-circle"></i></div>
                                     </div>
                                     <a href="{{ route('biro.keluhan') }}" class="card-footer-link">Lihat Daftar Warga
-                                        <i>&#8250;</i></a>
+                                        <i class="mb-icon-more fas fa-chevron-right"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Kolom Kanan - Jadwal -->
-                    <div class="col-md-6">
-                        <div class="agenda-card h-100 d-flex flex-column justify-content-between">
+                    <div class="col-md-4">
+                        <div class="mb-card-dashboard h-100 d-flex flex-column justify-content-between">
                             <div>
-                                <h5 class="mb-3 text-center">Jadwal & Agenda</h5>
+                                <h5 class="mb-6 text-center">Jadwal & Agenda</h5>
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
@@ -231,7 +146,7 @@
                                 </table>
                             </div>
                             <a href="{{ route('biro.jadwal-agenda') }}" class="agenda-link">Kelola Jadwal & Agenda
-                                <i>&#8250;</i></a>
+                                <i class="mb-icon-more fas fa-chevron-right"></i></a>
                         </div>
                     </div>
                 </div>

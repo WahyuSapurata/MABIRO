@@ -1,91 +1,5 @@
 @extends('layouts.layout')
 @section('content')
-    <style>
-        .card-custom {
-            border-radius: 30px;
-            background: white;
-            padding: 1.5rem;
-            color: #333;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .icon-rounded {
-            background-color: #730022;
-            padding: 0.7rem;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 48px;
-            height: 48px;
-        }
-
-        .card-title-big {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 0;
-        }
-
-        .card-subtitle {
-            color: #6c757d;
-            font-size: 1rem;
-        }
-
-        .card-footer-link {
-            background: linear-gradient(to right, #fff, #d5b5bc);
-            color: #555;
-            border-radius: 20px;
-            padding: 8px 14px;
-            text-decoration: none;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 1.2rem;
-        }
-
-        .card-footer-link i {
-            color: white;
-            background: #730022;
-            padding: 6px;
-            border-radius: 50%;
-            font-size: 0.8rem;
-        }
-
-        .agenda-card {
-            border-radius: 30px;
-            background: white;
-            padding: 1.5rem;
-            color: #333;
-        }
-
-        .agenda-card h5 {
-            font-weight: bold;
-        }
-
-        .agenda-card table th {
-            background-color: #730022;
-            color: white;
-            vertical-align: middle;
-        }
-
-        .agenda-link {
-            background: linear-gradient(to right, #fff, #d5b5bc);
-            color: #555;
-            border-radius: 20px;
-            padding: 8px 14px;
-            text-decoration: none;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 1.2rem;
-            width: 100%;
-        }
-    </style>
     <div class="post d-flex flex-column-fluid" id="kt_post">
         <!--begin::Container-->
         <div id="kt_content_container" class="container">
@@ -213,7 +127,7 @@
 
                     <!-- Kolom Kanan - Jadwal -->
                     <div class="col-md-6">
-                        <div class="agenda-card h-100 d-flex flex-column justify-content-between">
+                        <div class="card-custom h-100 d-flex flex-column justify-content-between">
                             <div>
                                 <h5 class="mb-3 text-center">Jadwal & Agenda</h5>
                                 <table class="table table-bordered">
