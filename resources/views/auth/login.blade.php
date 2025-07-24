@@ -7,6 +7,9 @@
     <link rel="shortcut icon" href="{{ asset('assets-landing/img/favicon.png') }}" type="image/x-icon">
     <title>{{ config('app.name') }} | Login</title>
     <meta charset="utf-8" />
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#710B28">
+    <link rel="apple-touch-icon" href="/icon-192x192.png">
     <meta property="og:description"
         content="Arvala Mockup is a professional product mockup template designed for digital goods. Perfect for creators and entrepreneurs." />
     <meta name="keywords"
@@ -321,7 +324,7 @@
 
                                                     <div class="mb-10">
                                                         <label class="form-label">Alasan</label>
-                                                        <textarea name="alasan" id="" cols="" rows="2" class="form-control"></textarea>
+                                                        <textarea name="alasan" cols="" rows="2" class="form-control"></textarea>
                                                         <small class="text-danger alasan_error"></small>
                                                     </div>
 
@@ -474,6 +477,14 @@
                 control.submitFormMultipartData('/register-penghuni-add', 'Register', 'Penghuni', 'POST');
             }
         });
+    </script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(() => console.log('✅ Service Worker Registered'))
+                .catch(err => console.error('❌ SW Gagal:', err));
+        }
     </script>
 </body>
 <!--end::Body-->

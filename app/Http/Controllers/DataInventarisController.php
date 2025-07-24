@@ -92,8 +92,8 @@ class DataInventarisController extends BaseController
     public function inventaris()
     {
         $module = 'Daftar Inventaris';
-        if (!auth()->check()) {
-            return redirect()->back()->with('error', 'Maaf anda harus login sebagai warga asrama untuk mengakses halaman ini.');
+        if (!auth()->check() || auth()->user()->role !== 'penghuni') {
+            return redirect()->route('login.login-akun');
         }
         $data = DataInventaris::latest()->get();
         return view('user.inventaris', compact('module', 'data'));

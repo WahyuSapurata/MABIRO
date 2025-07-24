@@ -605,6 +605,26 @@
                 </div>
                 <!--end::Menu item-->
 
+                <div class="menu-item">
+                    <!--begin::Menu link-->
+                    <a href="{{ route('keuangan.keluhan') }}"
+                        class="menu-link {{ $path[1] == 'keluhan' ? 'mb-bg-active' : 'mb-bg-default' }}">
+                        <span class="menu-icon">
+                            <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                            <span class="svg-icon svg-icon-2">
+                                {!! isset($path[1]) && $path[1] === 'keluhan'
+                                    ? '<i class="fas fa-flag mb-aside-menu-text" font-size: 16px"></i>'
+                                    : '<i class="fas fa-flag text-white" font-size: 16px"></i>' !!}
+                            </span>
+                            <!--end::Svg Icon-->
+                        </span>
+                        <span
+                            class="menu-title {{ $path[1] == 'keluhan' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Laporan
+                            & Keluhan</span>
+                    </a>
+                    <!--end::Menu link-->
+                </div>
+
                 <!--begin::Menu item-->
                 <div class="menu-item">
                     <a class="menu-link {{ isset($path[1]) && $path[1] == 'arsip-dokumen' ? 'bg-white' : 'bg-secondary' }}"
@@ -660,6 +680,26 @@
                     </a>
                 </div>
                 <!--end::Menu item-->
+
+                <div class="menu-item">
+                    <!--begin::Menu link-->
+                    <a href="{{ route('inventaris.keluhan') }}"
+                        class="menu-link {{ $path[1] == 'keluhan' ? 'mb-bg-active' : 'mb-bg-default' }}">
+                        <span class="menu-icon">
+                            <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                            <span class="svg-icon svg-icon-2">
+                                {!! isset($path[1]) && $path[1] === 'keluhan'
+                                    ? '<i class="fas fa-flag mb-aside-menu-text" font-size: 16px"></i>'
+                                    : '<i class="fas fa-flag text-white" font-size: 16px"></i>' !!}
+                            </span>
+                            <!--end::Svg Icon-->
+                        </span>
+                        <span
+                            class="menu-title {{ $path[1] == 'keluhan' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Laporan
+                            & Keluhan</span>
+                    </a>
+                    <!--end::Menu link-->
+                </div>
 
                 <!--begin::Menu item-->
                 <div class="menu-item">
