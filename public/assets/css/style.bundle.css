@@ -297,12 +297,12 @@ sup {
 }
 
 a {
-    color: #4417CE;
+    color: var(--brand-primary-color);
     text-decoration: none;
 }
 
 a:hover {
-    color: #006dab;
+    color: var(--brand-secondary-color);
     text-decoration: underline;
 }
 
@@ -4003,8 +4003,8 @@ fieldset:disabled .btn {
 .btn-outline-white.active,
 .btn-outline-white.dropdown-toggle.show,
 .btn-outline-white:active {
-    color: #000;
-    background-color: #fff;
+    color: var(--brand-white-color) !important;
+    background-color: var(--brand-secondary-color);
     border-color: #fff;
 }
 

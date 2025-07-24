@@ -39,6 +39,7 @@
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/plugins/custom/jquery-ui/jquery-ui.css') }}" rel="stylesheet" type="text/css" />
     <!--end::Global Stylesheets Bundle-->
+
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -50,57 +51,74 @@
         <!--begin::Authentication - Sign-in -->
         <div class="d-flex flex-column justify-content-center flex-lg-row flex-column-fluid">
             <!--begin::Body-->
-            <div class="d-none d-lg-grid justify-content-center align-items-center w-50 px-20 gap-3"
-                style="background-color: #4417CE; justify-items: center; align-content: center">
-                <img src="{{ asset('assets-landing/img/logo-mabiro-light.svg') }}" style="width: 230px" alt="">
-                <div style="font-size: 50px" class="text-white fw-bolder text-center py-5">Sistem Informasi
-                    <br>Manajemen
-                    Asrama
+            <div class="mb-loginpage-column-left d-none d-lg-grid justify-content-center align-items-center w-50 px-20 gap-3"
+                style="background-image: url({{ asset('assets-landing/img/banner/asrama.png') }}); justify-items: center; align-content: center">
+
+                <div
+                    class="mb-loginpage-column-left-content d-flex flex-column justify-content-center align-items-center gap-3 px-4">
+                    <img src="{{ asset('assets/media/favicon.svg') }}" style="width: 150px" alt="">
+                    <div class="fs-5 text-uppercase fw-normal text-white text-center py-5">Sistem Informasi
+                        Manajemen<div class="mb-text-h1 text-uppercase fw-bolder text-white text-center">Asrama
+                            Mahasiswa<br>Balikpapan
+                        </div>
+                    </div>
+
+                    <a href="{{ route('beranda') }}"
+                        class="btn btn-outline btn-outline btn-outline-white btn-active-light-white btn-active-color-dark btn-hover-scale mt-5"><i
+                            class="fas fa-arrow-left text-white"></i> Kembali</a>
                 </div>
-                <div style="font-size: 18px" class="text-white text-center">Keluarga Pelajar Mahasiswa Balikpapan (KPMB)
-                    Makassar
-                </div>
-                <a href="{{ route('beranda') }}"
-                    class="btn btn-outline btn-outline btn-outline-white btn-active-light-white btn-active-color-dark btn-hover-scale mt-5"><i
-                        class="fas fa-arrow-left text-white"></i> Kembali</a>
             </div>
             <!--begin::Body-->
             <!--begin::Aside-->
             <div class="d-flex flex-center w-lg-50 p-10">
                 <!--begin::Wrapper-->
                 <div class="d-flex justify-content-between flex-column-fluid flex-column w-100 mw-450px">
+
+
                     <!--begin::Body-->
 
-                    <h1 class="fw-bolder fs-2x mb-5 text-center text-primary">LOGIN</h1>
 
-                    <div class="py-10" style="padding: 40px; border-radius: 20px; border: 2px solid #a6b7c7">
-                        <div class="d-flex justify-content-center align-items-center" style="margin-bottom: 10px;">
-                            <div
-                                class="d-flex justify-content-center align-items-center rounded-circle h-65px w-65px bg-primary">
-                                <i class="far fa-user-circle text-white fs-2x"></i>
-                            </div>
+                    <div class="p-10">
+
+                        <div class="justify-md-start justify-content-center align-items-center mb-10">
+                            <a href="{{ route('beranda') }}">
+                                <img src="{{ asset('assets/media/logo-mabiro.svg') }}" class="logo logo-display"
+                                    alt="Logo" style="width: 175px;"></a>
                         </div>
+
+
+                        <div class="justify-content-center justify-md-start align-items-center mb-10">
+                            <div class="mb-text-h1 fw-bolder mb-5 mb-text-primary">Masuk Akun</div>
+                            <div class="mb-text-p18 fw-normal mb-text-primary">Silahkan masukkan username dan password!
+                            </div>
+                            <!--end::Subtitle=-->
+                        </div>
+
                         <!--begin::Form-->
                         <form class="form w-100" method="POST" action="{{ route('login.login-proses') }}">
                             @csrf
                             <!--begin::Heading-->
-                            <div class="text-center mb-11">
-                                <!--begin::Title-->
-                                <!--end::Title-->
-                                <!--begin::Subtitle-->
-                                <div class="fw-semibold fs-4 text-primary">Masukkan data anda</div>
-                                <!--end::Subtitle=-->
-                            </div>
                             <!--begin::Heading-->
                             <!--begin::Input group=-->
                             <div class="fv-row mb-8">
                                 <!--begin::Email-->
-                                <input type="text" placeholder="Username" name="username"
-                                    value="{{ old('username') }}" autocomplete="off" class="form-control" />
-                                @error('username')
-                                    <small class="error text-danger">{{ $message }}</small>
-                                @enderror
-                                <!--end::Email-->
+                                <div class="mb-1">
+                                    <div class="position-relative mb-3">
+                                        <div class="position-relative">
+                                            <input type="text" placeholder="Username" name="username"
+                                                value="{{ old('username') }}" autocomplete="off"
+                                                class="form-control" />
+                                            <span
+                                                class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2">
+                                                <i class="bi bi-person fs-2"></i>
+                                            </span>
+                                        </div>
+                                        @error('username')
+                                            <small class="error text-danger">{{ $message }}</small>
+                                        @enderror
+                                        <!--end::Email-->
+                                    </div>
+                                </div>
                             </div>
                             <!--end::Input group=-->
                             <div class="fv-row mb-8" data-kt-password-meter="true">
@@ -129,16 +147,17 @@
                             <!--end::Input group=-->
                             <!--begin::Submit button-->
                             <div class="d-grid gap-3">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary-color">
                                     <!--begin::Indicator label-->
                                     <span class="indicator-label">Login</span>
                                     <!--end::Indicator label-->
                                 </button>
-                                <a href="" data-kt-drawer-show="true" data-kt-drawer-target="#side_form"
-                                    id="button-side-form" data-bs-toggle="modal" data-bs-target="#kt_modal_1">Daftar
-                                    jika belum punya akun!</a>
-                            </div>
-                            <!--end::Submit button-->
+                                <div class="mb-text-p18 mt-5">Belum punya akun? <a class="fw-bolder" href=""
+                                        data-kt-drawer-show="true" data-kt-drawer-target="#side_form"
+                                        id="button-side-form" data-bs-toggle="modal"
+                                        data-bs-target="#kt_modal_1">Daftar Disini</a></div>
+                                < </div>
+                                    <!--end::Submit button-->
                         </form>
                         <!--end::Form-->
 
