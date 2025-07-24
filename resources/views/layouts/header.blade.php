@@ -21,6 +21,20 @@
                 <!--end::Svg Icon-->
             </div>
         </div>
+
+
+        <div class="d-block d-lg-none" id="#kt_header_menu" data-kt-menu="true">
+            <div class="menu-item me-lg-1">
+                <div class="title-header-topbar">
+                    <span>
+                        <a href="{{ route('beranda') }}">
+                            <img src="{{ asset('assets-landing/img/logo-mabiro-light.svg') }}" class="h-40px"
+                                alt="">
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
         <!--end::Aside mobile toggle-->
         <!--begin::Wrapper-->
         <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1">
@@ -39,14 +53,12 @@
                             <div class="title-header-topbar">
                                 <span>
                                     <a href="{{ route('beranda') }}">
-                                        <img src="{{ asset('assets-landing/img/logo-mabiro-light.svg') }}" class="h-40px"
-                                        alt="">
+                                        <img src="{{ asset('assets-landing/img/logo-mabiro-light.svg') }}"
+                                            class="h-40px" alt="">
                                     </a>
                                 </span>
                             </div>
                         </div>
-
-
                     </div>
                     <!--end::Menu-->
                 </div>
@@ -66,7 +78,8 @@
                             @method('GET')
                             <button type="submit" style="border: none;"
                                 class="mabiro-btn btn btn-white py-2 px-3 d-flex align-items-center gap-3"
-                                id="sign-out"><span>Keluar</span> <i class="mabiro-btn fas fa-sign-out-alt"></i></button>
+                                id="sign-out"><span>Keluar</span> <i
+                                    class="mabiro-btn fas fa-sign-out-alt"></i></button>
                         </form>
                         <!--begin::Menu wrapper-->
                         {{-- <span class="bg-white text-primary"

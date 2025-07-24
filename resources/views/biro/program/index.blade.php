@@ -23,9 +23,8 @@
                 <div class="card bg-brand">
                     <div class="card-body p-0">
                         <div class="container">
-                            <div class="py-5 table-responsive text-white">
-                                <table id="kt_table_data"
-                                    class="table table-rounded table-row-bordered table-row-gray-300">
+                            <div class="py-5 text-white">
+                                <table id="kt_table_data" class="table table-rounded table-row-bordered table-row-gray-300">
                                     <thead class="text-center bg-white">
                                         <tr class="fw-bolder fs-6">
                                             <th>No</th>
@@ -51,9 +50,9 @@
 @endsection
 @section('side-form')
     <div id="side_form" class="bg-white" data-kt-drawer="true" data-kt-drawer-activate="true"
-        data-kt-drawer-toggle="#side_form_button" data-kt-drawer-close="#side_form_close" data-kt-drawer-width="500px">
+        data-kt-drawer-toggle="#side_form_button" data-kt-drawer-close="#side_form_close" data-kt-drawer-width="">
         <!--begin::Card-->
-        <div class="card w-100">
+        <div class="card mb-modal w-100">
             <!--begin::Card header-->
             <div class="card-header pe-5">
                 <!--begin::Title-->

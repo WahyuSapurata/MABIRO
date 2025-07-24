@@ -145,7 +145,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <a href="{{ route('biro.jadwal-agenda') }}" class="agenda-link">Kelola Jadwal & Agenda
+                            <a href="{{ route('biro.jadwal-agenda') }}" class="card-footer-link">Kelola Jadwal & Agenda
                                 <i class="mb-icon-more fas fa-chevron-right"></i></a>
                         </div>
                     </div>

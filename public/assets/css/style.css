@@ -9,7 +9,7 @@
     --brand-primary-color: #710B28;
     /* Warna utama */
     --brand-primary-strong-color: #56031A;
-    --brand-secondary-color: #BD2C49;
+    --brand-secondary-color: #981935;
     /* Warna sekunder */
     --brand-accent-color: #DF3C23;
     /* Warna aksen */
@@ -521,9 +521,8 @@ th[rowspan] {
 
 .pagination .active>.page-link,
 .page-link.active {
-    background-color: #794FFC;
-    color: #fff;
-    border-color: #794FFC;
+    background-color: var(--brand-secondary-color);
+    color: var(--brand-white-color);
 }
 
 .pagination .page-link {
@@ -652,12 +651,7 @@ th[rowspan] {
 }
 
 
-
-
 /*CUSTOM BY OZAN*/
-tbody {
-    background: #f7f5ff !important;
-}
 
 .mb-kolom-nomor {
     width: 1%;
@@ -706,83 +700,22 @@ table.dataTable {
     border-spacing: 2px !important;
 }
 
-.table>thead {
-    border: none !important;
-    color: white;
-    text-align: center;
-}
-
-.table> :not(:last-child)> :last-child>* {
-    background: var(--brand-primary-color) !important;
-}
-
-.table td,
-.table tr {
-    border-radius: 4px;
-    border: 1px solid #e4eaf1;
-}
-
-.table th {
-    border-radius: 4px;
-    border: 1px solid var(--brand-primary-color);
-}
-
-.table tbody tr:last-child td,
-.table tbody tr:last-child th,
-.table tfoot tr:last-child td,
-.table tfoot tr:last-child th {
-    border-bottom: 1 !important;
-}
-
-.table.table-row-gray-300 tr {
-    border: none;
-}
-
 .bg-brand {
     background-color: var(--brand-primary-color);
 }
 
-.btn-check:active+.btn.btn-primary,
-.btn-check:checked+.btn.btn-primary,
-.btn.btn-primary.active,
-.btn.btn-primary.show,
-.btn.btn-primary:active:not(.btn-active),
-.btn.btn-primary:focus:not(.btn-active),
-.btn.btn-primary:hover:not(.btn-active),
-.show>.btn.btn-primary {
-    color: #151a30;
-    border-color: #0095e8;
-    background: var(--brand-secondary-color);
-}
-
 .mb-profil-pengguna {
     border-radius: 8px;
-    /* Membuat elemen menjadi bulat */
     background-position: top;
-    /* Memastikan gambar berada di tengah */
     background-size: cover;
-    /* Memastikan gambar tidak terdistorsi */
     height: 60px;
-    /* Atur tinggi sesuai kebutuhan */
     width: 60px;
-    /* Atur lebar sesuai kebutuhan */
     margin: auto;
 }
-
 
 .mb-photo-profile-sidebar {
     object-fit: cover;
     object-position: top;
-}
-
-.aside.aside-dark {
-    background-color: var(--brand-primary-strong-color);
-}
-
-.aside.aside-dark .aside-logo {
-    background-color: var(--brand-primary-color);
-    position: relative;
-    margin-bottom: 15px;
 }
 
 div#kt_aside_toggle {
@@ -806,12 +739,6 @@ div#kt_aside_toggle {
 
 }
 
-
-.aside-dark .hover-scroll-overlay-y,
-.aside-dark .hover-scroll-overlay-y:hover {
-    scrollbar-color: var(--brand-primary-color) transparent;
-}
-
 .mb-bg-default {
     background: var(--brand-primary-color);
 }
@@ -826,20 +753,6 @@ div#kt_aside_toggle {
 
 .mb-aside-menu-text {
     color: var(--brand-white-color);
-}
-
-.aside-dark .menu .menu-item .menu-link .menu-title {
-    color: var(--brand-primary-color);
-}
-
-.aside-dark .menu .menu-item .menu-link .menu-icon i {
-    color: var(--brand-primary-color);
-    font-size: 16px;
-}
-
-
-.aside-fixed .aside {
-    overflow: visible;
 }
 
 .mabiro-btn {
@@ -868,14 +781,6 @@ select.custom-select.custom-select-sm.form-control.form-control-sm {
     text-align: center;
 }
 
-.svg-icon svg [fill]:not(.permanent):not(g) {
-    fill: #ffffff;
-}
-
-.drawer {
-    background: var(--brand-primary-color);
-}
-
 .title-header-topbar {
     text-align: center;
 }
@@ -892,27 +797,6 @@ select.custom-select.custom-select-sm.form-control.form-control-sm {
     background: var(--brand-primary-strong-color);
 }
 
-.aside-dark .menu .menu-item.hover:not(.here)>.menu-link:not(.disabled):not(.active):not(.here),
-.aside-dark .menu .menu-item:not(.here) .menu-link:hover:not(.disabled):not(.active):not(.here) {
-    background-color: var(--brand-primary-color);
-}
-
-.aside-dark .menu .menu-item:not(.here) .menu-link:hover:not(.disabled):not(.active):not(.here) .menu-icon i {
-    color: var(--brand-white-color);
-}
-
-.btn.btn-primary {
-    background: var(--brand-botton-color-blue);
-}
-
-.btn.btn-danger {
-    background: var(--brand-botton-color-red-light);
-}
-
-.btn.btn-info {
-    background: var(--brand-botton-color-yellow);
-}
-
 .btn-mabiro-primary {
     background: var(--brand-primary-color);
     color: var(--brand-white-color);
@@ -923,7 +807,6 @@ select.custom-select.custom-select-sm.form-control.form-control-sm {
     background: var(--brand-text-secondary-color);
     color: var(--brand-white-color) !important;
 }
-
 
 .mb-close-button {
     color: var(--brand-primary-color) !important;
@@ -940,10 +823,9 @@ select.custom-select.custom-select-sm.form-control.form-control-sm {
 }
 
 
-
 /*DASHBOARD*/
 .mb-dashboard {
-    margin-top: -50px;
+    margin-top: -55px;
     border-radius: 24px;
 }
 
@@ -975,7 +857,7 @@ select.custom-select.custom-select-sm.form-control.form-control-sm {
 }
 
 .card-title-big {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 0;
 }
@@ -988,7 +870,7 @@ select.custom-select.custom-select-sm.form-control.form-control-sm {
 .card-footer-link {
     background: linear-gradient(to right, transparent, #7604243d);
     border-radius: 8px;
-    padding: 8px 14px;
+    padding: 8px 14px 14px 0;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -996,6 +878,11 @@ select.custom-select.custom-select-sm.form-control.form-control-sm {
     margin-top: 1.2rem;
     color: var(--brand-primary-color);
 }
+
+.card-footer-link:hover {
+    color: var(--brand-accent-color);
+}
+
 
 i.mb-icon-more {
     height: 20px;
@@ -1009,15 +896,8 @@ i.mb-icon-more {
     color: var(--brand-white-color);
 }
 
-
-.mb-card-dashboard table th {
-    background-color: #730022;
-    color: white;
-    vertical-align: middle;
-}
-
 .mb-dashboard-tittle-01 {
-    font-size: var(--font-size-p18);
+    font-size: var(--font-size-h5);
 }
 
 .mb-dashboard-tittle-01 strong {
@@ -1025,6 +905,195 @@ i.mb-icon-more {
 }
 
 .mb-dashboard-tittle-02 {
-    font-size: var(--font-size-h3);
+    font-size: var(--font-size-h2);
     font-weight: bold;
+}
+
+.card .mb-modal {
+    width: 500px;
+}
+
+
+/*LOADER MABIRO*/
+
+
+#app-splash.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.app-loader {
+    margin-top: 50vh;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    position: relative;
+}
+
+.global-loader-container {
+    position: absolute;
+    z-index: 1;
+    top: -45px;
+    height: 0;
+    left: 0;
+    right: 0;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    height: 50px;
+    overflow: hidden;
+}
+
+.logo-preloader {
+    position: relative;
+    z-index: 2;
+    padding-top: 10px;
+    width: 150px;
+}
+
+.global-loader {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: relative;
+    left: 50%;
+    margin-left: -50px;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.global-loader .ring {
+    border-radius: 50%;
+    position: absolute;
+    border-width: 10px;
+    border-style: solid;
+    top: 50%;
+    left: 50%;
+}
+
+.global-loader .ring:nth-child(1) {
+    border-color: transparent #fff #fff transparent;
+    width: 48px;
+    height: 48px;
+    margin-left: -22px;
+    margin-top: -22px;
+    -webkit-animation: loader-ring 1s ease-in 0s infinite;
+    animation: loader-ring 1s ease-in 0.2s infinite;
+}
+
+.global-loader .ring:nth-child(2) {
+    border-color: transparent #fff #fff transparent;
+    width: 72px;
+    height: 72px;
+    margin-left: -34px;
+    margin-top: -34px;
+    -webkit-animation: loader-ring 1s ease-in -0.1s infinite;
+    animation: loader-ring 1s ease-in 0.1s infinite;
+}
+
+.global-loader .ring:nth-child(3) {
+    border-color: transparent #fff #fff transparent;
+    width: 96px;
+    height: 96px;
+    margin-left: -46px;
+    margin-top: -46px;
+    -webkit-animation: loader-ring 1s ease-in -0.2s infinite;
+    animation: loader-ring 1s ease-in 0s infinite;
+}
+
+@-webkit-keyframes loader-ring {
+    0% {
+        -webkit-transform: rotate(0);
+        -ms-transform: rotate(0);
+        transform: rotate(0);
+    }
+
+    30% {
+        -webkit-transform: rotate(170deg);
+        -ms-transform: rotate(170deg);
+        transform: rotate(170deg);
+    }
+
+    70% {
+        -webkit-transform: rotate(190deg);
+        -ms-transform: rotate(190deg);
+        transform: rotate(190deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(359deg);
+        -ms-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
+@keyframes loader-ring {
+    0% {
+        -webkit-transform: rotate(0);
+        -ms-transform: rotate(0);
+        transform: rotate(0);
+    }
+
+    30% {
+        -webkit-transform: rotate(170deg);
+        -ms-transform: rotate(170deg);
+        transform: rotate(170deg);
+    }
+
+    70% {
+        -webkit-transform: rotate(190deg);
+        -ms-transform: rotate(190deg);
+        transform: rotate(190deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(359deg);
+        -ms-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
+#app-splash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--brand-primary-color);
+    text-align: center;
+    z-index: 9999999;
+
+}
+
+.bg-theme {
+    background-color: var(--brand-primary-color);
+}
+
+.shadow.theme::after {
+    background: var(--brand-primary-color) none repeat scroll 0 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+
+}
+
+.shadow.theme-hard::after {
+    background: var(--brand-primary-color) none repeat scroll 0 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0.9;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+    mix-blend-mode: hard-light;
+
 }
