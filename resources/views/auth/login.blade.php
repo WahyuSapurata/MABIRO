@@ -156,8 +156,8 @@
                                         class="fw-bolder" href="" data-kt-drawer-show="true"
                                         data-kt-drawer-target="#side_form" id="button-side-form"
                                         data-bs-toggle="modal" data-bs-target="#kt_modal_1">Daftar Disini</a></div>
-                                < </div>
-                                    <!--end::Submit button-->
+                            </div>
+                            <!--end::Submit button-->
                         </form>
                         <!--end::Form-->
 
