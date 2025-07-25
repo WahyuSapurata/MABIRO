@@ -517,17 +517,17 @@
             @if ($role === 'keuangan')
                 <!--begin::Menu item-->
                 <div class="menu-item">
-                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'pemasukan' ? 'bg-white' : 'bg-secondary' }}"
+                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'pemasukan' ? 'mb-bg-active' : 'mb-bg-default' }}"
                         href="{{ route('keuangan.pemasukan') }}">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
                                 {!! isset($path[1]) && $path[1] === 'pemasukan'
-                                    ? '<i class="fas fa-clipboard text-primary" font-size: 16px"></i>'
+                                    ? '<i class="fas fa-clipboard mb-aside-menu-text" font-size: 16px"></i>'
                                     : '<i class="fas fa-clipboard text-white" font-size: 16px"></i>' !!}
                             </span>
                         </span>
                         <span
-                            class="menu-title {{ isset($path[1]) && $path[1] == 'pemasukan' ? 'text-primary fw-bolder' : 'text-white' }}">Catatan
+                            class="menu-title {{ isset($path[1]) && $path[1] == 'pemasukan' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Catatan
                             Pemasukan</span>
                     </a>
                 </div>
@@ -535,17 +535,17 @@
 
                 <!--begin::Menu item-->
                 <div class="menu-item">
-                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'pengeluaran' ? 'bg-white' : 'bg-secondary' }}"
+                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'pengeluaran' ? 'mb-bg-active' : 'mb-bg-default' }}"
                         href="{{ route('keuangan.pengeluaran') }}">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
                                 {!! isset($path[1]) && $path[1] === 'pengeluaran'
-                                    ? '<i class="fas fa-clipboard-list text-primary" font-size: 16px"></i>'
+                                    ? '<i class="fas fa-clipboard-list mb-aside-menu-text" font-size: 16px"></i>'
                                     : '<i class="fas fa-clipboard-list text-white" font-size: 16px"></i>' !!}
                             </span>
                         </span>
                         <span
-                            class="menu-title {{ isset($path[1]) && $path[1] == 'pengeluaran' ? 'text-primary fw-bolder' : 'text-white' }}">Catatan
+                            class="menu-title {{ isset($path[1]) && $path[1] == 'pengeluaran' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Catatan
                             Pengeluaran</span>
                     </a>
                 </div>
@@ -553,17 +553,17 @@
 
                 <!--begin::Menu item-->
                 <div class="menu-item">
-                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'master-tagihan' ? 'bg-white' : 'bg-secondary' }}"
+                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'master-tagihan' ? 'mb-bg-active' : 'mb-bg-default' }}"
                         href="{{ route('keuangan.master-tagihan') }}">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
                                 {!! isset($path[1]) && $path[1] === 'master-tagihan'
-                                    ? '<i class="fas fa-database text-primary" font-size: 16px"></i>'
+                                    ? '<i class="fas fa-database mb-aside-menu-text" font-size: 16px"></i>'
                                     : '<i class="fas fa-database text-white" font-size: 16px"></i>' !!}
                             </span>
                         </span>
                         <span
-                            class="menu-title {{ isset($path[1]) && $path[1] == 'master-tagihan' ? 'text-primary fw-bolder' : 'text-white' }}">Master
+                            class="menu-title {{ isset($path[1]) && $path[1] == 'master-tagihan' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Master
                             Tagihan</span>
                     </a>
                 </div>
@@ -571,17 +571,17 @@
 
                 <!--begin::Menu item-->
                 <div class="menu-item">
-                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'tagihan' ? 'bg-white' : 'bg-secondary' }}"
+                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'tagihan' ? 'mb-bg-active' : 'mb-bg-default' }}"
                         href="{{ route('keuangan.tagihan') }}">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
                                 {!! isset($path[1]) && $path[1] === 'tagihan'
-                                    ? '<i class="fas fa-file-invoice-dollar text-primary" font-size: 16px"></i>'
+                                    ? '<i class="fas fa-file-invoice-dollar mb-aside-menu-text" font-size: 16px"></i>'
                                     : '<i class="fas fa-file-invoice-dollar text-white" font-size: 16px"></i>' !!}
                             </span>
                         </span>
                         <span
-                            class="menu-title {{ isset($path[1]) && $path[1] == 'tagihan' ? 'text-primary fw-bolder' : 'text-white' }}">
+                            class="menu-title {{ isset($path[1]) && $path[1] == 'tagihan' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">
                             Tagihan</span>
                     </a>
                 </div>
@@ -589,17 +589,17 @@
 
                 <!--begin::Menu item-->
                 <div class="menu-item">
-                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'rekap-pembayaran' ? 'bg-white' : 'bg-secondary' }}"
+                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'rekap-pembayaran' ? 'mb-bg-active' : 'mb-bg-default' }}"
                         href="{{ route('keuangan.rekap-pembayaran') }}">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
                                 {!! isset($path[1]) && $path[1] === 'rekap-pembayaran'
-                                    ? '<i class="fas fa-file-invoice text-primary" font-size: 16px"></i>'
+                                    ? '<i class="fas fa-file-invoice mb-aside-menu-text" font-size: 16px"></i>'
                                     : '<i class="fas fa-file-invoice text-white" font-size: 16px"></i>' !!}
                             </span>
                         </span>
                         <span
-                            class="menu-title {{ isset($path[1]) && $path[1] == 'rekap-pembayaran' ? 'text-primary fw-bolder' : 'text-white' }}">
+                            class="menu-title {{ isset($path[1]) && $path[1] == 'rekap-pembayaran' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">
                             Rekap Tagihan</span>
                     </a>
                 </div>
@@ -627,17 +627,17 @@
 
                 <!--begin::Menu item-->
                 <div class="menu-item">
-                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'arsip-dokumen' ? 'bg-white' : 'bg-secondary' }}"
+                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'arsip-dokumen' ? 'mb-bg-active' : 'mb-bg-default' }}"
                         href="{{ route('keuangan.arsip-dokumen') }}">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
                                 {!! isset($path[1]) && $path[1] === 'arsip-dokumen'
-                                    ? '<i class="fas fa-folder-open text-primary" font-size: 16px"></i>'
+                                    ? '<i class="fas fa-folder-open mb-aside-menu-text" font-size: 16px"></i>'
                                     : '<i class="fas fa-folder-open text-white" font-size: 16px"></i>' !!}
                             </span>
                         </span>
                         <span
-                            class="menu-title {{ isset($path[1]) && $path[1] == 'arsip-dokumen' ? 'text-primary fw-bolder' : 'text-white' }}">Arsip
+                            class="menu-title {{ isset($path[1]) && $path[1] == 'arsip-dokumen' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Arsip
                             Dokumen</span>
                     </a>
                 </div>
@@ -647,17 +647,17 @@
             @if ($role === 'inventaris')
                 <!--begin::Menu item-->
                 <div class="menu-item">
-                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'data-inventaris' ? 'bg-white' : 'bg-secondary' }}"
+                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'data-inventaris' ? 'mb-bg-active' : 'mb-bg-default' }}"
                         href="{{ route('inventaris.data-inventaris') }}">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
                                 {!! isset($path[1]) && $path[1] === 'data-inventaris'
-                                    ? '<i class="fas fa-boxes text-primary" font-size: 16px"></i>'
+                                    ? '<i class="fas fa-boxes mb-aside-menu-text" font-size: 16px"></i>'
                                     : '<i class="fas fa-boxes text-white" font-size: 16px"></i>' !!}
                             </span>
                         </span>
                         <span
-                            class="menu-title {{ isset($path[1]) && $path[1] == 'data-inventaris' ? 'text-primary fw-bolder' : 'text-white' }}">Data
+                            class="menu-title {{ isset($path[1]) && $path[1] == 'data-inventaris' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Data
                             Inventaris</span>
                     </a>
                 </div>
@@ -665,17 +665,17 @@
 
                 <!--begin::Menu item-->
                 <div class="menu-item">
-                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'data-peminjaman' ? 'bg-white' : 'bg-secondary' }}"
+                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'data-peminjaman' ? 'mb-bg-active' : 'mb-bg-default' }}"
                         href="{{ route('inventaris.data-peminjaman') }}">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
                                 {!! isset($path[1]) && $path[1] === 'data-peminjaman'
-                                    ? '<i class="fas fa-people-carry text-primary" font-size: 16px"></i>'
+                                    ? '<i class="fas fa-people-carry mb-aside-menu-text" font-size: 16px"></i>'
                                     : '<i class="fas fa-people-carry text-white" font-size: 16px"></i>' !!}
                             </span>
                         </span>
                         <span
-                            class="menu-title {{ isset($path[1]) && $path[1] == 'data-peminjaman' ? 'text-primary fw-bolder' : 'text-white' }}">Data
+                            class="menu-title {{ isset($path[1]) && $path[1] == 'data-peminjaman' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Data
                             Peminjaman</span>
                     </a>
                 </div>
@@ -703,17 +703,17 @@
 
                 <!--begin::Menu item-->
                 <div class="menu-item">
-                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'arsip-dokumen' ? 'bg-white' : 'bg-secondary' }}"
+                    <a class="menu-link {{ isset($path[1]) && $path[1] == 'arsip-dokumen' ? 'mb-bg-active' : 'mb-bg-default' }}"
                         href="{{ route('inventaris.arsip-dokumen') }}">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
                                 {!! isset($path[1]) && $path[1] === 'arsip-dokumen'
-                                    ? '<i class="fas fa-folder-open text-primary" font-size: 16px"></i>'
+                                    ? '<i class="fas fa-folder-open mb-aside-menu-text" font-size: 16px"></i>'
                                     : '<i class="fas fa-folder-open text-white" font-size: 16px"></i>' !!}
                             </span>
                         </span>
                         <span
-                            class="menu-title {{ isset($path[1]) && $path[1] == 'arsip-dokumen' ? 'text-primary fw-bolder' : 'text-white' }}">Arsip
+                            class="menu-title {{ isset($path[1]) && $path[1] == 'arsip-dokumen' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Arsip
                             Dokumen</span>
                     </a>
                 </div>

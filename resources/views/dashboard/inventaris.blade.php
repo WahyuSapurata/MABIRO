@@ -4,101 +4,102 @@
         <!--begin::Container-->
         <div id="kt_content_container" class="container">
             <div class="container py-5 bg-mabiro rounded-3">
-                <h4 class="text-white mb-4">Selamat Datang, di <strong>Dashboard Admin Mabiro</strong></h4>
-                <h2 class="text-white mb-4">Sistem Informasi Manajemen Asrama</h2>
+                <div class="mb-dashboard-tittle-01 text-white mt-2">Selamat Datang, Di <strong>Dashboard Inventaris
+                        Mabiro</strong></div>
+                <div class="mb-dashboard-tittle-02 text-white mb-6">Sistem Informasi Manajemen Asrama</div>
 
                 <!-- ROW 1 -->
                 <div class="row g-3 mb-3">
                     <div class="col-md-4">
-                        <div class="card-custom">
+                        <div class="mb-card-dashboard">
                             <div class="d-flex justify-content-between align-items-start">
                                 <div>
                                     <p class="card-title-big">{{ $penghuni }}</p>
                                     <p class="card-subtitle">Penghuni</p>
                                 </div>
                                 <div class="icon-rounded">
-                                    ðŸ“˜
+                                    <i class="fas fa-users"></i>
                                 </div>
                             </div>
                             <a href="{{ route('biro.data-penghuni') }}" class="card-footer-link">Lihat Data Warga
-                                <i>&#8250;</i></a>
+                                <i class="mb-icon-more fas fa-chevron-right"></i></a>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="card-custom">
+                        <div class="mb-card-dashboard">
                             <div class="d-flex justify-content-between align-items-start">
                                 <div>
                                     <p class="card-title-big">{{ $peminjaman_belum_kembali }}</p>
                                     <p class="card-subtitle">Barang Belum Kembali</p>
                                 </div>
                                 <div class="icon-rounded">
-                                    ðŸ“˜
+                                    <i class="fas fa-users"></i>
                                 </div>
                             </div>
                             <a href="{{ route('keuangan.pemasukan') }}" class="card-footer-link">Lihat Data Warga
-                                <i>&#8250;</i></a>
+                                <i class="mb-icon-more fas fa-chevron-right"></i></a>
                         </div>
                     </div>
 
                     <div class="col-md-4">
-                        <div class="card-custom">
+                        <div class="mb-card-dashboard">
                             <div class="d-flex justify-content-between align-items-start">
                                 <div>
                                     <p class="card-title-big">{{ $barang_rusak }}</p>
                                     <p class="card-subtitle">Barang Rusak</p>
                                 </div>
                                 <div class="icon-rounded">
-                                    ðŸ“˜
+                                    <i class="fas fa-users"></i>
                                 </div>
                             </div>
                             <a href="{{ route('keuangan.pengeluaran') }}" class="card-footer-link">Lihat Data Warga
-                                <i>&#8250;</i></a>
+                                <i class="mb-icon-more fas fa-chevron-right"></i></a>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="card-custom">
+                        <div class="mb-card-dashboard">
                             <div class="d-flex justify-content-between align-items-start">
                                 <div>
                                     <p class="card-title-big">{{ $barang_kurang_baik }}</p>
                                     <p class="card-subtitle">Barang Kurang Baik</p>
                                 </div>
                                 <div class="icon-rounded">
-                                    ðŸ“˜
+                                    <i class="fas fa-users"></i>
                                 </div>
                             </div>
                             <a href="{{ route('keuangan.pengeluaran') }}" class="card-footer-link">Lihat Data Warga
-                                <i>&#8250;</i></a>
+                                <i class="mb-icon-more fas fa-chevron-right"></i></a>
                         </div>
                     </div>
 
                     <div class="col-md-4">
-                        <div class="card-custom">
+                        <div class="mb-card-dashboard">
                             <div class="d-flex justify-content-between align-items-start">
                                 <div>
                                     <p class="card-title-big">{{ $total_inventaris }}</p>
                                     <p class="card-subtitle">Total Inventaris</p>
                                 </div>
                                 <div class="icon-rounded">
-                                    ðŸ“˜
+                                    <i class="fas fa-users"></i>
                                 </div>
                             </div>
                             <a href="{{ route('keuangan.pengeluaran') }}" class="card-footer-link">Lihat Data Warga
-                                <i>&#8250;</i></a>
+                                <i class="mb-icon-more fas fa-chevron-right"></i></a>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="card-custom">
+                        <div class="mb-card-dashboard">
                             <div class="d-flex justify-content-between align-items-start">
                                 <div>
                                     <p class="card-title-big">Rp. {{ number_format($saldo, 0, ',', '.') }}</p>
                                     <p class="card-subtitle">Sisa Saldo Kas Asrama</p>
                                 </div>
                                 <div class="icon-rounded">
-                                    ðŸ’°
+                                    <i class="fas fa-users"></i>
                                 </div>
                             </div>
                             <a href="{{ route('biro.laporan') }}" class="card-footer-link">Lihat Rekapitulasi
-                                <i>&#8250;</i></a>
+                                <i class="mb-icon-more fas fa-chevron-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -110,16 +111,16 @@
 
                         <div class="row g-3">
                             <div class="col-sm-6">
-                                <div class="card-custom">
+                                <div class="mb-card-dashboard">
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div>
                                             <p class="card-title-big">{{ $keluhan }}</p>
                                             <p class="card-subtitle">Laporan Warga</p>
                                         </div>
-                                        <div class="icon-rounded">ðŸ“‘</div>
+                                        <div class="icon-rounded"><i class="fas fa-users"></i></div>
                                     </div>
                                     <a href="{{ route('biro.keluhan') }}" class="card-footer-link">Lihat Daftar Warga
-                                        <i>&#8250;</i></a>
+                                        <i class="mb-icon-more fas fa-chevron-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -127,9 +128,9 @@
 
                     <!-- Kolom Kanan - Jadwal -->
                     <div class="col-md-6">
-                        <div class="card-custom h-100 d-flex flex-column justify-content-between">
+                        <div class="mb-card-dashboard h-100 d-flex flex-column justify-content-between">
                             <div>
-                                <h5 class="mb-3 text-center">Jadwal & Agenda</h5>
+                                <h5 class="mb-6 text-center">Jadwal & Agenda</h5>
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
@@ -151,8 +152,8 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <a href="{{ route('biro.jadwal-agenda') }}" class="agenda-link">Kelola Jadwal & Agenda
-                                <i>&#8250;</i></a>
+                            <a href="{{ route('biro.jadwal-agenda') }}" class="card-footer-link">Kelola Jadwal & Agenda
+                                <i class="mb-icon-more fas fa-chevron-right"></i></a>
                         </div>
                     </div>
                 </div>

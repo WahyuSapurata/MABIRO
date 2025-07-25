@@ -720,15 +720,26 @@ progress {
 }
 
 /*RESPONSIVE HP*/
+@media (max-width: 576px) {
+    div#side_form {
+        width: 90%;
+    }
+}
+
+div#side_form {
+    width: 450px;
+}
+
+.card .mb-modal {
+    width: 100%;
+}
+
+/***/
 @media (min-width: 576px) {
 
     .container,
     .container-sm {
         max-width: 540px;
-    }
-
-    div#side_form {
-        width: 90%;
     }
 }
 
@@ -46276,7 +46287,9 @@ code:not([class*="language-"]) {
 
 .table th {
     border-radius: 4px !important;
-    border: 1px solid var(--brand-primary-color) !important;
+    /* border: 1px solid var(--brand-primary-color) !important; */
+    border: none;
+
 }
 
 .table tbody tr:last-child,
