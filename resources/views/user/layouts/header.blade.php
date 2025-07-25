@@ -28,20 +28,19 @@
                 <a class="navbar-brand" href="/index.php">
                     <img src="{{ asset('assets-landing/img/logo-mabiro-light.svg') }}" class="logo logo-display"
                         alt="Logo">
-                    <img src="{{ asset('assets-landing/img/logo-mabiro.svg') }}" class="logo logo-scrolled"
-                        alt="Logo">
+                    <img src="{{ asset('assets/media/logo-mabiro.svg') }}" class="logo logo-scrolled" alt="Logo">
                 </a>
             </div>
             <!-- End Header Navigation -->
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbar-menu">
-
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                    <i class="fa fa-times"></i>
+                </button>
                 <div class="collapse-header">
-                    <img src="{{ asset('assets-landing/img/logo-mabiro.svg') }}" alt="Logo">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-                        <i class="fa fa-times"></i>
-                    </button>
+                    <img src="{{ asset('assets/media/logo-mabiro.svg') }}" alt="Logo">
+
                 </div>
 
                 <ul class="nav navbar-nav navbar-center" data-in="fadeInDown" data-out="fadeOutUp">

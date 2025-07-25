@@ -4,42 +4,42 @@
         <h3>Silahkan Pilih Layanan</h3>
 
         <div class="row justify-content-center gx-3 gy-4">
-            <div class="col-6 col-sm-4 col-md-4">
+            <div class="mb-card-layanan col-6 col-sm-4 col-md-4">
                 <a href="{{ route('registrasi-penghuni') }}" class="service-box">
                     <iconify-icon icon="mdi:account-box" width="28" height="28"></iconify-icon>
                     <span>Registrasi Warga Baru</span>
                 </a>
             </div>
 
-            <div class="col-6 col-sm-4 color-md-4">
+            <div class="mb-card-layanan col-6 col-sm-4 color-md-4">
                 <a href="{{ route('buku-tamu') }}" class="service-box">
                     <iconify-icon icon="mdi:book-account" width="28" height="28"></iconify-icon>
                     <span>Isi Buku Tamu</span>
                 </a>
             </div>
 
-            <div class="col-6 col-sm-4 color-md-4">
+            <div class="mb-card-layanan col-6 col-sm-4 color-md-4">
                 <a href="{{ route('peminjaman') }}" class="service-box">
                     <iconify-icon icon="mdi:clipboard-list" width="28" height="28"></iconify-icon>
-                    <span>Peminjaman Iventaris</span>
+                    <span>Peminjaman Inventaris</span>
                 </a>
             </div>
 
-            {{-- <div class="col-6 col-sm-4 col-md-4">
+            {{-- <div class="mb-card-layanan col-6 col-sm-4 col-md-4">
                 <a href="/sewa-aula/php" class="service-box">
                     <iconify-icon icon="mdi:home-city" width="28" height="28"></iconify-icon>
                     <span>Penyewaan Aula</span>
                 </a>
             </div> --}}
 
-            <div class="col-6 col-sm-4 col-md-4">
+            <div class="mb-card-layanan col-6 col-sm-4 col-md-4">
                 <a href="{{ route('keluhan') }}" class="service-box">
                     <iconify-icon icon="mdi:message-alert" width="28" height="28"></iconify-icon>
                     <span>Kirim Laporan</span>
                 </a>
             </div>
 
-            <div class="col-6 col-sm-4 col-md-4">
+            <div class="mb-card-layanan col-6 col-sm-4 col-md-4">
                 <a href="{{ route('tagihan') }}" class="service-box">
                     <iconify-icon icon="mdi:receipt-text" width="28" height="28"></iconify-icon>
                     <span>Lihat Informasi Tagihan</span>

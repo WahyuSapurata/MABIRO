@@ -1118,7 +1118,7 @@ nav.navbar.validnavs.navbar-fixed {
     display: block;
     width: 100%;
     z-index: 100;
-    box-shadow: 0 8px 25px 0 rgba(0, 0, 0, 0.04);
+    box-shadow: 0 8px 25px 0 rgb(0 0 0 / 9%);
     top: 0;
 }
 
@@ -2283,7 +2283,7 @@ nav.navbar.validnavs.brand-center {
 
     nav.navbar.validnavs.navbar-fixed .logo {
         display: block !important;
-        max-height: 50px;
+        max-height: 40px;
     }
 
     .navbar-brand>img {
@@ -2553,22 +2553,7 @@ nav.navbar.validnavs .navbar-collapse.collapse.collapse-mobile.show {
     }
 }
 
-nav.navbar.validnavs.mobile-sidenav .navbar-collapse.collapse.collapse-mobile {
-    position: fixed;
-    left: -485px;
-    top: 0;
-    width: 400px;
-    padding: 30px;
-    animation: fadeLeft;
-    height: 100%;
-    min-height: 100vh;
-    background: var(--bg-main-color) none repeat scroll 0 0;
-    overflow-y: scroll;
-    -webkit-transition: all 1s cubic-bezier(0.785, 0.135, 0.15, 0.86);
-    -moz-transition: all 1s cubic-bezier(0.785, 0.135, 0.15, 0.86);
-    transition: all 1s cubic-bezier(0.785, 0.135, 0.15, 0.86);
-    z-index: 9999;
-}
+
 
 nav.navbar.validnavs.mobile-sidenav .navbar-collapse.collapse.collapse-mobile ul.nav {
     padding: 0;
@@ -2610,21 +2595,6 @@ nav.navbar.validnavs .navbar-collapse.collapse img {
     margin-bottom: 30px;
 }
 
-nav.navbar.validnavs .navbar-collapse.collapse button {
-    position: absolute;
-    right: 30px;
-    margin: 0;
-    height: 35px;
-    width: 35px;
-    line-height: 32px;
-    text-align: center;
-    border: 2px solid #dddddd;
-    border-radius: 50%;
-    color: var(--text-main-color);
-    font-size: 16px;
-    top: 40px;
-    padding: 0;
-}
 
 nav.navbar.validnavs .navbar-collapse.collapse button i {
     font-weight: 400;
