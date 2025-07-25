@@ -1,7 +1,7 @@
 @extends('user.layouts.layout')
 @section('content')
     <!-- Start Breadcrumb
-                                                                                                                                                                                                                                            ============================================= -->
+                                                                                                                                                                                                                                                ============================================= -->
     <div class="breadcrumb-area text-center shadow theme-hard bg-fixed text-light"
         style="background-image: url({{ asset('assets-landing/img/banner/asrama.png') }});">
         <div class="container">
@@ -17,13 +17,20 @@
     <div class="about-area center-responsive default-padding">
         <div class="container">
             <div class="row align-center">
+                @if ($keluhan)
+                    <div class="col-12 mb-3">
+                        <div class="alert alert-info" role="alert">
+                            Keluhan Anda {{ $keluhan->status }}!
+                        </div>
+                    </div>
+                @endif
                 <form class="form-data" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-12">
-                            <input type="hidden" value="{{ $data->uuid }}">
+                            <input type="hidden" name="uuid_penghuni" value="{{ $data->uuid }}">
                             <div class="mb-10">
                                 <label class="form-label">Nama Warga</label>
-                                <input type="text" value="{{ $data->nama }}" class="form-control">
+                                <input type="text" value="{{ $data->nama }}" readonly class="form-control">
                             </div>
 
                             <div class="mb-10">
@@ -36,7 +43,7 @@
                                     <option value="Logistik">Logistik</option>
                                     <option value="Pelanggaran">Pelanggaran</option>
                                 </select>
-                                <small class="text-danger d-block kategori_error"></small>
+                                <small class="text-danger d-block ketegori_error"></small>
                             </div>
 
                             <div class="mb-10">

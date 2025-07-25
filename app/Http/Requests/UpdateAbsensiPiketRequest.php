@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreKeluhanRequest extends FormRequest
+class UpdateAbsensiPiketRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -22,16 +22,7 @@ class StoreKeluhanRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'ketegori' => 'required',
-            'keterangan' => 'required',
-        ];
-    }
-
-    public function messages()
-    {
-        return [
-            'ketegori.required' => 'Kolom kategori harus di isi.',
-            'keterangan.required' => 'Kolom ketrangan harus di isi.',
+            //
         ];
     }
 }

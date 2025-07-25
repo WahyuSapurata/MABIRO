@@ -73,6 +73,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('/tagihan', 'RekapPembayaranController@tagihan_user')->name('tagihan');
     Route::post('/tagihan-add/{params}', 'RekapPembayaranController@store')->name('tagihan-add');
 
+    Route::get('/absensi', 'AbsensiPiketController@absen')->name('absensi');
+    Route::post('/upload-absen/{params}', 'AbsensiPiketController@upload_absen')->name('upload-absen');
+
     Route::group(['prefix' => 'login', 'middleware' => ['guest'], 'as' => 'login.'], function () {
         Route::get('/login-akun', 'Auth@show')->name('login-akun');
         Route::post('/login-proses', 'Auth@login_proses')->name('login-proses');
@@ -208,36 +211,45 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::get('/arsip-dokumen-show/{params}', 'ArsipDokumenController@show')->name('arsip-dokumen-show');
         Route::post('/arsip-dokumen-update/{params}', 'ArsipDokumenController@update')->name('arsip-dokumen-update');
         Route::delete('/arsip-dokumen-delete/{params}', 'ArsipDokumenController@delete')->name('arsip-dokumen-delete');
+
+        Route::get('/absensi', 'AbsensiPiketController@index')->name('absensi');
+        Route::get('/absensi-get', 'AbsensiPiketController@get')->name('absensi-get');
+        Route::post('/absensi-store', 'AbsensiPiketController@store')->name('absensi-store');
+        Route::get('/absensi-show/{params}', 'AbsensiPiketController@show')->name('absensi-show');
+        Route::post('/absensi-update/{params}', 'AbsensiPiketController@update')->name('absensi-update');
+        Route::delete('/absensi-delete/{params}', 'AbsensiPiketController@delete')->name('absensi-delete');
     });
 
     Route::group(['prefix' => 'keuangan', 'middleware' => ['auth'], 'as' => 'keuangan.'], function () {
         Route::get('/dashboard-keuangan', 'Dashboard@dashboard_keuangan')->name('dashboard-keuangan');
 
-        Route::get('/pemasukan', 'PemasukanController@index')->name('pemasukan');
+        Route::get('/pemasukan', 'PemasukanController@index_keuangan')->name('pemasukan');
 
-        Route::get('/pengeluaran', 'PengeluaranController@index')->name('pengeluaran');
+        Route::get('/pengeluaran', 'PengeluaranController@index_keuangan')->name('pengeluaran');
 
-        Route::get('/master-tagihan', 'MasterTagihanController@index')->name('master-tagihan');
+        Route::get('/master-tagihan', 'MasterTagihanController@index_keuangan')->name('master-tagihan');
 
-        Route::get('/tagihan', 'TagihanController@index')->name('tagihan');
+        Route::get('/tagihan', 'TagihanController@index_keuangan')->name('tagihan');
 
-        Route::get('/rekap-pembayaran', 'RekapPembayaranController@index')->name('rekap-pembayaran');
+        Route::get('/rekap-pembayaran', 'RekapPembayaranController@index_keuangan')->name('rekap-pembayaran');
 
-        Route::get('/keluhan', 'KeluhanController@index')->name('keluhan');
+        Route::get('/keluhan', 'KeluhanController@index_keuangan')->name('keluhan');
 
-        Route::get('/arsip-dokumen', 'ArsipDokumenController@index')->name('arsip-dokumen');
+        Route::get('/arsip-dokumen', 'ArsipDokumenController@index_keuangan')->name('arsip-dokumen');
+
+        Route::get('/laporan', 'Laporan@index_keuangan')->name('laporan');
     });
 
     Route::group(['prefix' => 'inventaris', 'middleware' => ['auth'], 'as' => 'inventaris.'], function () {
         Route::get('/dashboard-inventaris', 'Dashboard@dashboard_inventaris')->name('dashboard-inventaris');
 
-        Route::get('/data-inventaris', 'DataInventarisController@index')->name('data-inventaris');
+        Route::get('/data-inventaris', 'DataInventarisController@index_inventaris')->name('data-inventaris');
 
-        Route::get('/data-peminjaman', 'DataPeminjamanController@index')->name('data-peminjaman');
+        Route::get('/data-peminjaman', 'DataPeminjamanController@index_inventaris')->name('data-peminjaman');
 
-        Route::get('/keluhan', 'KeluhanController@index')->name('keluhan');
+        Route::get('/keluhan', 'KeluhanController@index_inventaris')->name('keluhan');
 
-        Route::get('/arsip-dokumen', 'ArsipDokumenController@index')->name('arsip-dokumen');
+        Route::get('/arsip-dokumen', 'ArsipDokumenController@index_inventaris')->name('arsip-dokumen');
     });
 
     Route::get('/logout', 'Auth@logout')->name('logout');

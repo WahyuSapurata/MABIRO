@@ -6,18 +6,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Ramsey\Uuid\Uuid;
 
-class Keluhan extends Model
+class AbsensiPiket extends Model
 {
     use HasFactory;
 
-    protected $table = 'keluhans';
+    protected $table = 'absensi_pikets';
     protected $primaryKey = 'id';
     protected $fillable = [
         'uuid',
         'uuid_penghuni',
-        'keterangan',
-        'ketegori',
-        'status',
+        'lokasi',
+        'waktu',
+        'dokumentasi_foto',
     ];
 
     protected static function boot()
