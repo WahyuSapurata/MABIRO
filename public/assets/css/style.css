@@ -1059,6 +1059,7 @@ i.mb-icon-more {
 
 .btn-primary-color {
     background-color: var(--brand-primary-color);
+    color: var(--brand-white-color);
 }
 
 .btn-primary-color:hover {

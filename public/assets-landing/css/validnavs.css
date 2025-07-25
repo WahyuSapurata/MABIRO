@@ -2058,6 +2058,11 @@ nav.navbar.validnavs.brand-center {
         margin-bottom: -1px;
     }
 
+    .darkmode nav.navbar.validnavs .navbar-nav>li>a {
+        border-bottom: solid 1px #a3a4b733;
+        border-top: solid 1px #a3a4b733;
+    }
+
     nav.navbar.validnavs .navbar-nav>li:first-child>a {
         border-top: none;
     }
@@ -2600,6 +2605,7 @@ nav.navbar.validnavs .navbar-collapse.collapse button i {
     font-weight: 400;
     font-size: 15px;
 }
+
 
 .navbar .attr-right.flex .attr-nav {
     display: flex;

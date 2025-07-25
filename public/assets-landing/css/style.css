@@ -138,6 +138,7 @@ Table of contents
     --brand-text-secondary-color: #a4a5b8;
     --brand-primary-color: #1B2431;
     --brand-secondary-color: #273142;
+    --brand-bg-primary-color: #161e29;
     --accent-color: #82833b;
     --accent-color-2: #273142;
 }
@@ -364,7 +365,11 @@ i::before {
 .list-persetujuan li {
     list-style: auto;
     margin-left: 20px;
-    font-size: 13px;
+    font-size: 14px;
+}
+
+label.form-label.d-block {
+    font-weight: bold;
 }
 
 /* ==============================================================
@@ -379,6 +384,10 @@ body {
     overflow-x: hidden;
     background-color: var(--bg-main-color);
     color: var(--text-main-color);
+}
+
+.darkmode body {
+    background-color: var(--brand-bg-primary-color) !important;
 }
 
 h1,
@@ -655,7 +664,7 @@ p {
 }
 
 .default-padding {
-    padding-top: 120px;
+    padding-top: 80px;
     padding-bottom: 120px;
 }
 
@@ -1390,8 +1399,17 @@ header.ofcanvas-nav .logo-responsive {
     height: 48px;
 }
 
-
+/*MODE HANDPHONE*/
 @media only screen and (max-width: 767px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    .form-control {
+        font-size: 14px;
+    }
+
     nav.navbar.off-canvas-nav.show ul.main li {
         margin: 20px;
     }
@@ -1399,6 +1417,10 @@ header.ofcanvas-nav .logo-responsive {
     nav.navbar.off-canvas-nav.show ul.main li a {
         font-size: 16px;
         font-weight: 600;
+    }
+
+    label.form-label.d-block {
+        font-size: 16px;
     }
 
     nav.navbar.off-canvas-nav {
@@ -1437,6 +1459,45 @@ header.ofcanvas-nav .logo-responsive {
         top: 0;
         transform: inherit;
     }
+
+    .default-padding {
+        padding-top: 30px;
+        padding-bottom: 120px;
+    }
+
+    .form-label {
+        font-size: 14px;
+    }
+
+    #theme-switch {
+        height: 35px;
+        width: 35px;
+        background: transparent;
+
+    }
+
+    #theme-switch:hover {
+        background: none;
+    }
+
+    #theme-switch svg {
+        fill: var(--brand-primary-color);
+    }
+
+    .service-box {
+        padding: 10px 15px;
+    }
+
+
+}
+
+.darkmode nav.navbar.validnavs .navbar-collapse.collapse img,
+.darkmode nav.navbar.validnavs.navbar-fixed .logo {
+    filter: brightness(0) invert(1);
+}
+
+.darkmode .shadow.theme-hard::after {
+    background: var(--bg-main-color) none repeat scroll 0 0;
 }
 
 /* End Off Canvas nav */
@@ -1955,6 +2016,7 @@ button {
 .breadcrumb-area {
     padding: 150px 0 110px;
 }
+
 
 .breadcrumb-area .breadcrumb {
     background: transparent none repeat scroll 0 0;
@@ -8302,6 +8364,15 @@ footer.demo .copyright {
         padding-left: 15px;
         margin-top: 30px;
     }
+
+    .breadcrumb-area {
+        padding: 40px 0 40px;
+    }
+
+    .breadcrumb-area h2 {
+        font-size: 24px;
+    }
+
 }
 
 /* ==============================================================
@@ -8700,6 +8771,11 @@ body {
     padding-bottom: 70px;
 }
 
+.darkmode .service-box {
+    background-color: #222f42;
+
+}
+
 .service-box {
     background-color: var(--brand-primary-color);
     border-radius: 12px;
@@ -8872,6 +8948,14 @@ h3.wow.fadeInLeft.text-hero {
     margin-bottom: 25px;
 }
 
+.darkmode .menu-button {
+    background-color: #37475d;
+}
+
+.darkmode .overlay {
+    background: rgb(11 17 24 / 73%);
+}
+
 div#menuBtn i {
     color: var(--white);
 }
@@ -8965,6 +9049,11 @@ div#menuBtn i {
     color: var(--white);
 }
 
+.darkmode .close-btn {
+
+    background: #222f42;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -8978,11 +9067,11 @@ div#menuBtn i {
 }
 
 nav.navbar.validnavs.no-background.white ul.nav>li>a {
-    color: var(--brand-white-color);
+    color: var(--brand-white-color) !important;
 }
 
 ul.nav.navbar-nav.navbar-center li a {
-    color: var(--text-secondary-color) !important;
+    color: var(--text-secondary-color);
 }
 
 @media (max-width: 1023px) {
@@ -9009,6 +9098,20 @@ nav.navbar.validnavs.mobile-sidenav .navbar-collapse.collapse.collapse-mobile {
     z-index: 9999;
 }
 
+.btn-primary-color {
+    background: #38b946;
+}
+
+.darkmode button#side_form_close {
+    background: #dc3545 !important;
+    color: white !important;
+    border: none;
+}
+
+.darkmkode i.fas.fa-undo.me-2 {
+    color: white !important;
+}
+
 nav.navbar.validnavs .navbar-collapse.collapse button {
     position: absolute;
     right: 10px;
@@ -9024,4 +9127,12 @@ nav.navbar.validnavs .navbar-collapse.collapse button {
     font-size: 16px;
     top: 10px;
     padding: 0;
+}
+
+.darmkode nav.navbar.validnavs .navbar-collapse.collapse button {
+    background: var(--brand-text-secondary-color)
+}
+
+.darkmode nav.navbar.validnavs li.dropdown a.dropdown-toggle:before {
+    color: var(--brand-text-secondary-color)
 }

@@ -1,7 +1,7 @@
 @extends('user.layouts.layout')
 @section('content')
     <!-- Start Breadcrumb
-                                                                                                                                                                                                                        ============================================= -->
+                                                                                                                                                                                                                                                                                                    ============================================= -->
     <div class="breadcrumb-area text-center shadow theme-hard bg-fixed text-light"
         style="background-image: url({{ asset('assets-landing/img/banner/asrama.png') }});">
         <div class="container">
@@ -18,7 +18,7 @@
         <div class="container">
             <div class="row align-center">
                 <form class="form-data" enctype="multipart/form-data">
-                    <div class="row">
+                    <div class="row text-start">
                         <div class="col-md-6">
                             <div class="mb-10">
                                 <label class="form-label">Nama Warga</label>
@@ -84,19 +84,19 @@
                             </div>
 
                             <div class="mb-10">
-                                <label class="form-label">Alamat</label>
+                                <label class="form-label">Alamat Tempat Tinggal</label>
                                 <textarea name="alamat" id="" cols="" rows="2" class="form-control"></textarea>
                                 <small class="text-danger d-block alamat_error"></small>
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3 mt-4">
                                 <label class="form-label d-block">Pernyataan Warga Asrama</label>
                                 <div class="">
-                                    <h6 class="mb-2 fw-normal">
+                                    <h6 class="mb-2 fw-normal lh-base">
                                         Menyatakan telah melengkapi semua persyaratan untuk menjadi penghuni asrama
                                         mahasiswa Balikpapan dan bersedia untuk:
                                     </h6>
-                                    <ol class="list-persetujuan">
+                                    <ol class="list-persetujuan lh-base">
                                         <li>Menaati segala aturan yang berlaku di KPMB-Makassar</li>
                                         <li>Menaati segala aturan yang berlaku di asrama mahasiswa Balikpapan</li>
                                         <li>Wajib mengikuti serta mendukung seluruh program kerja yang dijalankan oleh
@@ -118,22 +118,19 @@
                         </div>
                         <div class="col-md-6">
                             <div class="mb-10">
-                                <label class="form-label">Universitas</label>
+                                <label class="form-label">Kampus / Perguruan Tinggi</label>
                                 <input type="text" name="universitas" class="form-control">
                                 <small class="text-danger d-block universitas_error"></small>
                             </div>
 
                             <div class="mb-10">
-                                <label class="form-label">Program Studi</label>
+                                <label class="form-label">Jurusan / Program Studi</label>
                                 <input type="text" name="program_studi" class="form-control">
                                 <small class="text-danger d-block program_studi_error"></small>
                             </div>
 
                             <div>
                                 <div class="">
-                                    <label class="form-label">Riwayat Pendidikan</label>
-                                </div>
-                                <div class="ms-2">
                                     <div class="mb-10">
                                         <label class="form-label">Riwayat Pendidikan SD</label>
                                         <input type="text" class="form-control" name="riwayat_pendidikan_sd">
@@ -153,13 +150,13 @@
                             </div>
 
                             <div class="mb-10">
-                                <label class="form-label">No Hp</label>
+                                <label class="form-label">No. Handphone</label>
                                 <input type="text" name="no_hp" class="form-control">
                                 <small class="text-danger d-block no_hp_error"></small>
                             </div>
 
                             <div class="mb-10">
-                                <label class="form-label">Alasan</label>
+                                <label class="form-label">Alasan Ingin Tinggal Di Asrama</label>
                                 <textarea name="alasan" id="" cols="" rows="2" class="form-control"></textarea>
                                 <small class="text-danger d-block alasan_error"></small>
                             </div>
@@ -174,12 +171,13 @@
                     </div>
 
                     <div class="separator separator-dashed mt-8 mb-5"></div>
-                    <div class="d-flex gap-2">
-                        <button type="submit" class="btn btn-primary btn-sm btn-submit d-flex align-items-center"><i
-                                class="fas fa-save me-2"></i> Simpan</button>
+                    <div class="d-flex gap-2 justify-content-center justify-md-start">
+                        <button type="submit"
+                            class="btn btn-primary-color btn-sm btn-submit d-flex align-items-center"><i
+                                class="fas fa-paper-plane me-2"></i> Kirim</button>
                         <button type="reset" id="side_form_close" data-bs-dismiss="modal"
                             class="btn btn-light btn-cancel btn-sm d-flex align-items-center"
-                            style="background-color: #ea443e65; color: #EA443E"><i class="fas fa-trash-alt me-2"
+                            style="background-color: #ea443e65; color: #EA443E"><i class="fas fa-undo me-2"
                                 style="color: #EA443E"></i>Reset</button>
                     </div>
                 </form>
