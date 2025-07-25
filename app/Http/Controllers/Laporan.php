@@ -16,8 +16,14 @@ class Laporan extends BaseController
 {
     public function index()
     {
-        $module = 'Laporan';
+        $module = 'Rekap Laporan Keuangan';
         return view('biro.laporan.index', compact('module'));
+    }
+
+    public function index_keuangan()
+    {
+        $module = 'Rekap Laporan Keuangan';
+        return view('keuangan.laporan.index', compact('module'));
     }
 
     public function get($params)

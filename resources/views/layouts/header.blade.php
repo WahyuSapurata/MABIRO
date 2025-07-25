@@ -23,7 +23,7 @@
         </div>
 
 
-        <div class="d-block d-lg-none" id="#kt_header_menu" data-kt-menu="true">
+        <div class="d-flex align-items-center d-lg-none" id="#kt_header_menu" data-kt-menu="true">
             <div class="menu-item me-lg-1">
                 <div class="title-header-topbar">
                     <span>
@@ -43,7 +43,7 @@
                 <!--begin::Menu wrapper-->
                 <div class="header-menu align-items-stretch" data-kt-drawer="true" data-kt-drawer-name="header-menu"
                     data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true"
-                    data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="end"
+                    data-kt-drawer-width="{default:'200px'}" data-kt-drawer-direction="end"
                     data-kt-drawer-toggle="#kt_header_menu_mobile_toggle" data-kt-swapper="true"
                     data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_body', lg: '#kt_header_nav'}">
                     <!--begin::Menu-->
@@ -194,7 +194,7 @@
                     </div>
                     <!--end::User -->
                     <!--begin::Heaeder menu toggle-->
-                    <div class="d-flex align-items-center d-lg-none ms-2 me-n3" title="Show header menu">
+                    {{-- <div class="d-flex align-items-center d-lg-none ms-2 me-n3" title="Show header menu">
                         <div class="btn btn-icon btn-active-light-primary w-30px h-30px w-md-40px h-md-40px"
                             id="kt_header_menu_mobile_toggle">
                             <!--begin::Svg Icon | path: icons/duotone/Text/Toggle-Right.svg-->
@@ -214,7 +214,7 @@
                             </span>
                             <!--end::Svg Icon-->
                         </div>
-                    </div>
+                    </div> --}}
                     <!--end::Heaeder menu toggle-->
                 </div>
                 <!--end::Toolbar wrapper-->

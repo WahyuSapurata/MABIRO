@@ -39,7 +39,7 @@
                                     </thead>
                                     <tbody>
                                     </tbody>
-                                    <tfoot id="tfoot" class="bg-info rounded d-none">
+                                    {{-- <tfoot id="tfoot" class="bg-info rounded d-none">
                                         <tr class="fw-bolder fs-6 text-white">
                                             <td style="text-align: left !important;" colspan="2">Total</td>
                                             <td style="text-align: left !important; font-weight: bolder" id="total-iuran">Rp
@@ -55,7 +55,7 @@
                                                 0</td>
                                             <td></td>
                                         </tr>
-                                    </tfoot>
+                                    </tfoot> --}}
                                 </table>
                             </div>
                         </div>
@@ -348,54 +348,54 @@
                     var rowIndex = startIndex + index + 1;
                     $('td', row).eq(0).html(rowIndex);
                 },
-                footerCallback: function(row, data, start, end, display) {
-                    let totalIuran = 0;
-                    let totalData = 0;
-                    let totalBeban = 0;
-                    let totalListrik = 0;
-                    let totalSemua = 0;
+                // footerCallback: function(row, data, start, end, display) {
+                //     let totalIuran = 0;
+                //     let totalData = 0;
+                //     let totalBeban = 0;
+                //     let totalListrik = 0;
+                //     let totalSemua = 0;
 
-                    data.forEach(function(item) {
-                        const tagihan = item.tagihan || {};
+                //     data.forEach(function(item) {
+                //         const tagihan = item.tagihan || {};
 
-                        Object.entries(tagihan).forEach(([key, val]) => {
+                //         Object.entries(tagihan).forEach(([key, val]) => {
 
-                            let value = parseInt(val) || 0;
-                            let keyLower = key.toLowerCase();
+                //             let value = parseInt(val) || 0;
+                //             let keyLower = key.toLowerCase();
 
-                            if (keyLower === 'iuran') {
-                                totalIuran += value;
-                            } else {
-                                // Semua selain iuran dihitung ke totalListrik
-                                totalListrik += value;
+                //             if (keyLower === 'iuran') {
+                //                 totalIuran += value;
+                //             } else {
+                //                 // Semua selain iuran dihitung ke totalListrik
+                //                 totalListrik += value;
 
-                                // Jika key adalah beban, pisahkan juga nilainya
-                                if (keyLower === 'beban') {
-                                    totalBeban += value;
-                                } else {
-                                    totalData += value;
-                                }
-                            }
+                //                 // Jika key adalah beban, pisahkan juga nilainya
+                //                 if (keyLower === 'beban') {
+                //                     totalBeban += value;
+                //                 } else {
+                //                     totalData += value;
+                //                 }
+                //             }
 
-                            totalSemua += value;
-                        });
-                    });
+                //             totalSemua += value;
+                //         });
+                //     });
 
-                    // Tampilkan hasil ke footer
-                    $('#total-iuran').text('Rp ' + totalIuran.toLocaleString('id-ID'));
-                    $('#total-data').text('Rp ' + totalData.toLocaleString('id-ID'));
-                    $('#total-beban').text('Rp ' + totalBeban.toLocaleString('id-ID'));
-                    $('#total-listrik').text('Rp ' + totalListrik.toLocaleString('id-ID'));
-                    $('#total').text('Rp ' + totalSemua.toLocaleString('id-ID'));
+                //     // Tampilkan hasil ke footer
+                //     $('#total-iuran').text('Rp ' + totalIuran.toLocaleString('id-ID'));
+                //     $('#total-data').text('Rp ' + totalData.toLocaleString('id-ID'));
+                //     $('#total-beban').text('Rp ' + totalBeban.toLocaleString('id-ID'));
+                //     $('#total-listrik').text('Rp ' + totalListrik.toLocaleString('id-ID'));
+                //     $('#total').text('Rp ' + totalSemua.toLocaleString('id-ID'));
 
-                    $('#tfoot').removeClass('d-none');
-                }
+                //     $('#tfoot').removeClass('d-none');
+                // }
             });
         };
 
         function dataPenghuni(element) {
             $.ajax({
-                url: '/biro/data-penghuni-get',
+                url: '/biro/warga_tamu/data-penghuni-get',
                 method: "GET",
                 success: function(res) {
                     $(element).html("");

@@ -25,13 +25,6 @@
                 </a>
             </div>
 
-            {{-- <div class="mb-card-layanan col-6 col-sm-4 col-md-4">
-                <a href="/sewa-aula/php" class="service-box">
-                    <iconify-icon icon="mdi:home-city" width="28" height="28"></iconify-icon>
-                    <span>Penyewaan Aula</span>
-                </a>
-            </div> --}}
-
             <div class="mb-card-layanan col-6 col-sm-4 col-md-4">
                 <a href="{{ route('keluhan') }}" class="service-box">
                     <iconify-icon icon="mdi:message-alert" width="28" height="28"></iconify-icon>
@@ -43,6 +36,14 @@
                 <a href="{{ route('tagihan') }}" class="service-box">
                     <iconify-icon icon="mdi:receipt-text" width="28" height="28"></iconify-icon>
                     <span>Lihat Informasi Tagihan</span>
+                </a>
+            </div>
+
+            <div class="mb-card-layanan col-6 col-sm-4 col-md-4">
+                <a href="{{ route('absensi') }}" class="service-box">
+                    <iconify-icon icon="fluent:clipboard-task-list-rtl-24-filled" width="28"
+                        height="28"></iconify-icon>
+                    <span>Absensi Piket</span>
                 </a>
             </div>
         </div>
