@@ -70,7 +70,7 @@
             </div>
             <!--begin::Body-->
             <!--begin::Aside-->
-            <div class="d-flex flex-center w-lg-50 p-10">
+            <div class="d-flex flex-center w-lg-50 p-8">
                 <!--begin::Wrapper-->
                 <div class="d-flex justify-content-between flex-column-fluid flex-column w-100 mw-450px">
 
@@ -78,16 +78,16 @@
                     <!--begin::Body-->
 
 
-                    <div class="p-10">
+                    <div class="p-5">
 
-                        <div class="justify-md-start justify-content-center align-items-center mb-10">
+                        <div class="text-center text-md-start mb-12">
                             <a href="{{ route('beranda') }}">
                                 <img src="{{ asset('assets/media/logo-mabiro.svg') }}" class="logo logo-display"
-                                    alt="Logo" style="width: 175px;"></a>
+                                    alt="Logo" style="width: 200px;"></a>
                         </div>
 
 
-                        <div class="justify-content-center justify-md-start align-items-center mb-10">
+                        <div class="text-center text-md-start mb-10">
                             <div class="mb-text-h1 fw-bolder mb-5 mb-text-primary">Masuk Akun</div>
                             <div class="mb-text-p18 fw-normal mb-text-primary">Silahkan masukkan username dan password!
                             </div>
@@ -152,10 +152,10 @@
                                     <span class="indicator-label">Login</span>
                                     <!--end::Indicator label-->
                                 </button>
-                                <div class="mb-text-p18 mt-5">Belum punya akun? <a class="fw-bolder" href=""
-                                        data-kt-drawer-show="true" data-kt-drawer-target="#side_form"
-                                        id="button-side-form" data-bs-toggle="modal"
-                                        data-bs-target="#kt_modal_1">Daftar Disini</a></div>
+                                <div class="text-center text-md-start mb-text-p18 mt-5">Belum punya akun? <a
+                                        class="fw-bolder" href="" data-kt-drawer-show="true"
+                                        data-kt-drawer-target="#side_form" id="button-side-form"
+                                        data-bs-toggle="modal" data-bs-target="#kt_modal_1">Daftar Disini</a></div>
                                 < </div>
                                     <!--end::Submit button-->
                         </form>
