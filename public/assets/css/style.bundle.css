@@ -722,8 +722,34 @@ progress {
 /*RESPONSIVE HP*/
 @media (max-width: 576px) {
     div#side_form {
-        width: 90%;
+        width: 90% !important;
     }
+
+    input.form-control.form-control-sm {
+        width: 130px !important;
+    }
+
+    .bg-mabiro {
+        margin-top: 50px;
+    }
+
+    .mb-dashboard-tittle-01 {
+        font-size: 18px;
+    }
+
+    .mb-dashboard-tittle-01 span {
+        display: block;
+    }
+
+    .mb-dashboard-tittle-02 {
+        font-size: 14px;
+        font-weight: 200;
+    }
+
+    .h-40px {
+        height: 35px !important;
+    }
+
 }
 
 div#side_form {
@@ -53222,7 +53248,7 @@ code:not([class*="language-"]) {
 
 .svg-icon svg [fill]:not(.permanent):not(g) {
     transition: fill 0.3s ease;
-    fill: #4E4E4E;
+    fill: white;
 }
 
 .svg-icon svg:hover [fill]:not(.permanent):not(g) {
@@ -56039,7 +56065,8 @@ body {
     }
 
     .header-tablet-and-mobile-fixed.toolbar-tablet-and-mobile-fixed .wrapper {
-        padding-top: calc(55px + var(--kt-toolbar-height-tablet-and-mobile));
+        /* padding-top: calc(55px + var(--kt-toolbar-height-tablet-and-mobile)); */
+        padding-top: 60px;
     }
 }
 
@@ -56180,6 +56207,7 @@ body {
         padding: 0;
         top: 55px;
         border-top: 1px solid #eff2f5;
+        display: none;
     }
 
     .toolbar .page-title[data-kt-swapper="true"] {

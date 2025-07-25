@@ -274,46 +274,48 @@
     <script>
         // let control = new Control('/logout','');
         $(document).on('click', '#sign-out', function(e) {
-            var form = $(this).closest("form");
-            e.preventDefault()
-            Swal.fire({
-                title: 'Apakah kamu yakin?',
-                text: "Anda akan keluar dari dashboard!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#354C9F',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    form.submit();
-                }
+                var form = $(this).closest("form");
+                e.preventDefault()
+                Swal.fire({
+                    title: 'Apakah kamu yakin?',
+                    text: "Anda akan keluar dari dashboard!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#354C9F',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
+                })
             })
-        })
 
-        // $(document).on('click', '#kt_aside_toggle', function(e) {
-        //     // Periksa apakah elemen .full-logo memiliki kelas d-none
-        //     if ($('.full-logo').hasClass('d-none')) {
-        //         // Jika iya, hapus kelas d-none dari .full-logo
-        //         $('.full-logo').removeClass('d-none');
-        //         // Dan tambahkan kelas d-none ke .small-logo
-        //         $('.small-logo').addClass('d-none');
-        //     } else {
-        //         // Jika tidak, tambahkan kelas d-none ke .full-logo
-        //         $('.full-logo').addClass('d-none');
-        //         // Dan hapus kelas d-none dari .small-logo
-        //         $('.small-logo').removeClass('d-none');
-        //     }
-        // });
+            // $(document).on('click', '#kt_aside_toggle', function(e) {
+            //     // Periksa apakah elemen .full-logo memiliki kelas d-none
+            //     if ($('.full-logo').hasClass('d-none')) {
+            //         // Jika iya, hapus kelas d-none dari .full-logo
+            //         $('.full-logo').removeClass('d-none');
+            //         // Dan tambahkan kelas d-none ke .small-logo
+            //         $('.small-logo').addClass('d-none');
+            //     } else {
+            //         // Jika tidak, tambahkan kelas d-none ke .full-logo
+            //         $('.full-logo').addClass('d-none');
+            //         // Dan hapus kelas d-none dari .small-logo
+            //         $('.small-logo').removeClass('d-none');
+            //     }
+            // });
+
+
+            <
+            script >
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(() => console.log('✅ Service Worker Registered'))
+                    .catch(err => console.error('❌ SW Gagal:', err));
+            }
     </script>
 
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/service-worker.js')
-                .then(() => console.log('✅ Service Worker Registered'))
-                .catch(err => console.error('❌ SW Gagal:', err));
-        }
-    </script>
 
     @yield('script')
     <!--end::Page Custom Javascript-->

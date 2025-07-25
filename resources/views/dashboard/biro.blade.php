@@ -4,8 +4,8 @@
         <!--begin::Container-->
         <div id="kt_content_container" class="container">
             <div class="container py-5 bg-mabiro rounded-3">
-                <div class="mb-dashboard-tittle-01 text-white mt-2">Selamat Datang, Di <strong>Dashboard Admin
-                        Mabiro</strong></div>
+                <div class="mb-dashboard-tittle-01 text-white mt-2">Selamat Datang, <span>Di <strong>Dashboard Inventaris
+                            Mabiro</span></strong></div>
                 <div class="mb-dashboard-tittle-02 text-white mb-6">Sistem Informasi Manajemen Asrama</div>
 
                 <!-- ROW 1 -->
