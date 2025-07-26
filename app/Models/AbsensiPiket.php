@@ -17,6 +17,7 @@ class AbsensiPiket extends Model
         'uuid_penghuni',
         'lokasi',
         'waktu',
+        'status',
         'dokumentasi_foto',
     ];
 

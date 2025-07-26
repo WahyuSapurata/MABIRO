@@ -17,6 +17,7 @@ return new class extends Migration
             $table->uuid('uuid_penghuni');
             $table->string('lokasi');
             $table->string('waktu');
+            $table->string('status');
             $table->string('dokumentasi_foto')->nullable();
             $table->timestamps();
         });
