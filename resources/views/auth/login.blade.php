@@ -171,6 +171,7 @@
                         </form>
                         <!--end::Form-->
 
+
                         <div class="modal fade" tabindex="-1" id="kt_modal_1">
                             <div class="modal-dialog modal-fullscreen">
                                 <div class="modal-content shadow-none">
@@ -441,8 +442,18 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="d-flex justify-content-center mt-15 d-md-none">
+                        <a href="{{ route('beranda') }}"
+                            class="d-flex align-items-center justify-content-center border border-secondary rounded-circle"
+                            style="width: 40px; height: 40px;">
+                            <i class="fas fa-arrow-left text-secondary"></i>
+                        </a>
+                    </div>
                     <!--end::Body-->
                 </div>
+
+
                 <!--end::Wrapper-->
             </div>
             <!--end::Aside-->

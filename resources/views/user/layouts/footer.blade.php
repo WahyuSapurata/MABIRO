@@ -149,7 +149,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <p>Copyright &copy; 2025. Designed by <a href="#">ValidThemes.com</a></p>
+                    <p>Copyright &copy; 2025. Designed by <a href="#">Ozan</a></p>
                 </div>
             </div>
         </div>
