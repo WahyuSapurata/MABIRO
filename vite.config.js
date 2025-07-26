@@ -12,7 +12,6 @@ export default defineConfig({
             registerType: 'autoUpdate',
             injectRegister: 'auto',
             manifestFilename: 'manifest.webmanifest',
-            publicDir: 'public',
             includeAssets: [
                 'favicon.ico',
                 'logo-kpmb.png',
