@@ -41,8 +41,11 @@
 <!--end::Head-->
 <!--begin::Body-->
 
+
 <body data-kt-name="metronic" id="kt_body"
     class="app-blank app-blank bgi-size-cover bgi-position-center bgi-no-repeat">
+
+
     <!--begin::Root-->
     <div class="d-flex flex-column flex-root" id="kt_app_root">
         <!--begin::Authentication - Sign-in -->

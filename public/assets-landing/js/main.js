@@ -1,7 +1,7 @@
-(function($) {
+(function ($) {
     "use strict";
 
-    $(document).ready(function() {
+    $(document).ready(function () {
 
 
         /* ==================================================
@@ -15,7 +15,7 @@
             live: true // act on asynchronously loaded content (default is true)
         });
         wow.init();
-        
+
 
         /* ==================================================
             # Banner Animation
@@ -23,10 +23,10 @@
         function doAnimations(elems) {
             //Cache the animationend event in a variable
             var animEndEv = 'webkitAnimationEnd animationend';
-            elems.each(function() {
+            elems.each(function () {
                 var $this = $(this),
                     $animationType = $this.data('animation');
-                $this.addClass($animationType).one(animEndEv, function() {
+                $this.addClass($animationType).one(animEndEv, function () {
                     $this.removeClass($animationType);
                 });
             });
@@ -40,7 +40,7 @@
         //Animate captions in first slide on page load
         doAnimations($firstAnimatingElems);
         //Other slides to be animated on carousel slide event
-        $immortalCarousel.on('slide.bs.carousel', function(e) {
+        $immortalCarousel.on('slide.bs.carousel', function (e) {
             var $animatingElems = $(e.relatedTarget).find("[data-animation ^= 'animated']");
             doAnimations($animatingElems);
         });
@@ -55,10 +55,10 @@
         /* ==================================================
             # imagesLoaded active
         ===============================================*/
-        $('#portfolio-grid,.blog-masonry').imagesLoaded(function() {
+        $('#portfolio-grid,.blog-masonry').imagesLoaded(function () {
 
             /* Filter menu */
-            $('.mix-item-menu').on('click', 'button', function() {
+            $('.mix-item-menu').on('click', 'button', function () {
                 var filterValue = $(this).attr('data-filter');
                 $grid.isotope({
                     filter: filterValue
@@ -66,7 +66,7 @@
             });
 
             /* filter menu active class  */
-            $('.mix-item-menu button').on('click', function(event) {
+            $('.mix-item-menu button').on('click', function (event) {
                 $(this).siblings('.active').removeClass('active');
                 $(this).addClass('active');
                 event.preventDefault();
@@ -93,11 +93,11 @@
         });
 
 
-         /* ==================================================
-            # Fun Factor Init
-        ===============================================*/
+        /* ==================================================
+           # Fun Factor Init
+       ===============================================*/
         $('.timer').countTo();
-        $('.fun-fact').appear(function() {
+        $('.fun-fact').appear(function () {
             $('.timer').countTo();
         }, {
             accY: -100
@@ -128,12 +128,12 @@
             fixedContentPos: false
         });
 
-        $('.magnific-mix-gallery').each(function() {
+        $('.magnific-mix-gallery').each(function () {
             var $container = $(this);
             var $imageLinks = $container.find('.item');
 
             var items = [];
-            $imageLinks.each(function() {
+            $imageLinks.each(function () {
                 var $item = $(this);
                 var type = 'image';
                 if ($item.hasClass('magnific-iframe')) {
@@ -157,7 +157,7 @@
                 },
                 type: 'image',
                 callbacks: {
-                    beforeOpen: function() {
+                    beforeOpen: function () {
                         var index = $imageLinks.index(this.st.el);
                         if (-1 !== index) {
                             this.goTo(index);
@@ -315,13 +315,13 @@
         /* ==================================================
             Contact Form Validations
         ================================================== */
-        $('.contact-form').each(function() {
+        $('.contact-form').each(function () {
             var formInstance = $(this);
-            formInstance.submit(function() {
+            formInstance.submit(function () {
 
                 var action = $(this).attr('action');
 
-                $("#message").slideUp(750, function() {
+                $("#message").slideUp(750, function () {
                     $('#message').hide();
 
                     $('#submit')
@@ -329,15 +329,15 @@
                         .attr('disabled', 'disabled');
 
                     $.post(action, {
-                            name: $('#name').val(),
-                            email: $('#email').val(),
-                            phone: $('#phone').val(),
-                            comments: $('#comments').val()
-                        },
-                        function(data) {
+                        name: $('#name').val(),
+                        email: $('#email').val(),
+                        phone: $('#phone').val(),
+                        comments: $('#comments').val()
+                    },
+                        function (data) {
                             document.getElementById('message').innerHTML = data;
                             $('#message').slideDown('slow');
-                            $('.contact-form img.loader').fadeOut('slow', function() {
+                            $('.contact-form img.loader').fadeOut('slow', function () {
                                 $(this).remove()
                             });
                             $('#submit').removeAttr('disabled');
@@ -353,57 +353,43 @@
     /* ==================================================
         Preloader Init
         ===============================================*/
-    $(window).on('load', function() {
-    setTimeout(function() {
-        $(".se-pre-con").fadeOut("slow");
-    }, 3000); // 3000 ms = 3 detik
+    $(window).on('load', function () {
+        setTimeout(function () {
+            $(".se-pre-con").fadeOut("slow");
+        }, 3000); // 3000 ms = 3 detik
     });
 
 })(jQuery); // End jQuery
 
 
 
-//Dark Mode ==============================================
-let darkmode = localStorage.getItem('darkmode')
-const themeSwitch = document.getElementById('theme-switch')
+// //Switch Mode ==============================================
+document.addEventListener('DOMContentLoaded', () => {
+    const themeSwitch = document.getElementById('theme-switch');
 
-const enableDarkmode = () => {
-  document.body.classList.add('darkmode')
-  localStorage.setItem('darkmode', 'active')
-}
-
-const disableDarkmode = () => {
-  document.body.classList.remove('darkmode')
-  localStorage.setItem('darkmode', null)
-}
-
-if(darkmode === "active") enableDarkmode()
-
-themeSwitch.addEventListener("click", () => {
-  darkmode = localStorage.getItem('darkmode')
-  darkmode !== "active" ? enableDarkmode() : disableDarkmode()
-})
-///==========
-
-  // On page load, restore mode
-  window.addEventListener('DOMContentLoaded', () => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      document.body.classList.add('dark-mode');
-      darkIcon.classList.remove('fa-moon');
-      darkIcon.classList.add('fa-sun');
+    // Inisialisasi dari localStorage
+    const isDarkSaved = localStorage.getItem('darkmode') === 'true';
+    if (isDarkSaved) {
+        document.body.classList.add('darkmode');
+        themeSwitch.checked = true;
     }
-  });
+
+    // Event toggle dark mode
+    themeSwitch.addEventListener('change', () => {
+        const isDark = themeSwitch.checked;
+        document.body.classList.toggle('darkmode', isDark);
+        localStorage.setItem('darkmode', isDark.toString());
+    });
+});
+///===============================
 
 
+//LOADER MABIRO
 
-
-  //LOADER MABIRO
-
-  window.addEventListener('load', () => {
+window.addEventListener('load', () => {
     // Delay 1.2 detik sebelum splash screen menghilang
     setTimeout(() => {
-      const splash = document.getElementById('app-splash');
-      splash.classList.add('hidden');
+        const splash = document.getElementById('app-splash');
+        splash.classList.add('hidden');
     }, 2000); // 1200ms = 1.2 detik
-  });
+});

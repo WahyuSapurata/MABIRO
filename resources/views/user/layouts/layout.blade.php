@@ -99,6 +99,7 @@
     <script src="{{ asset('assets-landing/js/SplitText.min.js') }}"></script>
     <script src="{{ asset('assets-landing/js/main.js') }}"></script>
     <script src="{{ asset('assets-landing/js/navbar-bottom.js') }}"></script>
+    <script src="{{ asset('assets-landing/js/iconify.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ asset('assets/js/panel.js') }}"></script>
