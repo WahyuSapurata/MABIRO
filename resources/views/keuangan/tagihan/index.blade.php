@@ -1,35 +1,39 @@
 @extends('layouts.layout')
-@section('button')
-    <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
-        <!--begin::Page title-->
-        <div data-kt-swapper="true" data-kt-swapper-mode="prepend"
-            data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
-            class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
-            <!--begin::Title-->
-            <button class="btn btn-success btn-sm " data-kt-drawer-show="true" data-kt-drawer-target="#side_form"
+@section('content')
+    <!--start::Pengganti Toolbar-->
+    <div
+        class="container-fluid mb-topbar-dashboard d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-md-between mb-4">
+
+        <!-- Kiri: Judul dan Subjudul -->
+        <div class="text-center text-md-start mb-5 mb-md-0">
+            <h2 class="mb-1 mb-text-h2 mb-text-color-primary mb-brand-primary-color">Data Tagihan Warga</h2>
+            <p class="mb-0 mb-text-p18 mb-text-color-secondary">Asrama Mahasiswa Balikpapan KPMB Makassar</p>
+        </div>
+
+        <!-- Kanan: Tombol -->
+        <div class="text-center text-md-end">
+            <button class="btn mb-btn-tambah-data btn-sm " data-kt-drawer-show="true" data-kt-drawer-target="#side_form"
                 id="button-side-form"><i class="fa fa-plus-circle" style="color:#ffffff" aria-hidden="true"></i> Tambah
                 Data</button>
-            <!--end::Title-->
         </div>
-        <!--end::Page title-->
+
     </div>
-@endsection
-@section('content')
+    <!--end::Pengganti Toolbar-->
+
     <div class="post d-flex flex-column-fluid" id="kt_post">
         <!--begin::Container-->
         <div id="kt_content_container" class="container">
             <div class="row">
 
-                <div class="card bg-primary">
+                <div class="card bg-brand">
                     <div class="card-body p-0">
                         <div class="container">
                             <div class="py-5 text-white">
-                                <table id="kt_table_data"
-                                    class="table table-rounded border border-gray-300 table-row-bordered table-row-gray-300">
+                                <table id="kt_table_data" class="table table-rounded table-row-bordered table-row-gray-300">
                                     <thead class="text-center bg-white">
-                                        <tr class="fw-bolder fs-6 text-black">
+                                        <tr class="fw-bolder fs-6">
                                             <th>No</th>
-                                            <th>Nama</th>
+                                            <th>Nama Warga</th>
                                             @foreach ($materTagihan as $item)
                                                 <th>{{ $item->nama }}</th>
                                             @endforeach
@@ -118,33 +122,34 @@
                     <input type="hidden" name="uuid">
 
                     <div class="mb-10">
-                        <label class="form-label">Nama</label>
+                        <label class="form-label">Nama Warga</label>
                         <select name="uuid_penghuni" class="form-select" data-control="select2" id="uuid_penghuni"
                             data-placeholder="Silahkan pilih nama penghuni">
                         </select>
                         <small class="text-danger uuid_penghuni_error"></small>
                     </div>
 
-                    @foreach ($materTagihan as $item)
-                        <div class="mb-3">
-                            <label class="form-label d-block">{{ $item->nama }}</label>
-                            <div class="form-check">
-                                <input type="checkbox" name="uuid_master_tagihan[]" value="{{ $item->uuid }}"
-                                    class="form-check-input" id="uuid_master_tagihan_{{ $item->uuid }}"
-                                    @if (in_array(strtolower($item->nama), ['iuran', 'beban'])) checked @endif>
+                    <div class="mb-10">
+                        <label class="form-label mb-3">Pilih Item yang Digunakan</label>
+                        @foreach ($materTagihan as $item)
+                            <div class="mb-3 d-flex">
+                                <div class="form-check">
+                                    <input type="checkbox" name="uuid_master_tagihan[]" value="{{ $item->uuid }}"
+                                        class="form-check-input" id="uuid_master_tagihan_{{ $item->uuid }}"
+                                        @if (in_array(strtolower($item->nama), ['iuran', 'beban'])) checked @endif>
+                                </div>
+                                <label class="ml-5 form-label d-block">{{ $item->nama }}</label>
                             </div>
                             <small class="text-danger uuid_master_tagihan_error"></small>
-                        </div>
-                    @endforeach
-
+                        @endforeach
+                    </div>
                     <div class="separator separator-dashed mt-8 mb-5"></div>
                     <div class="d-flex gap-5">
-                        <button type="submit" class="btn btn-primary btn-sm btn-submit d-flex align-items-center"><i
-                                class="bi bi-file-earmark-diff"></i> Simpan</button>
+                        <button type="submit" class="btn btn-mabiro-primary btn-sm btn-submit d-flex align-items-center"><i
+                                class="fas fa-save text-white"></i> Simpan</button>
                         <button type="reset" id="side_form_close"
-                            class="btn mr-2 btn-light btn-cancel btn-sm d-flex align-items-center"
-                            style="background-color: #ea443e65; color: #EA443E"><i class="bi bi-trash-fill"
-                                style="color: #EA443E"></i>Batal</button>
+                            class="btn mr-2 btn-mabiro-grey btn-cancel btn-sm d-flex align-items-center"><i
+                                class="fas fa-times text-white"></i>Batal</button>
                     </div>
                 </form>
             </div>
@@ -278,30 +283,31 @@
                 ajax: '/biro/keuangan/tagihan-get',
                 columns: [{
                         data: null,
+                        className: 'mb-kolom-nomor align-content-center',
                         render: function(data, type, row, meta) {
                             return meta.row + meta.settings._iDisplayStart + 1;
                         }
                     }, {
                         data: 'nama_penghuni',
-                        className: 'text-center',
+                        className: 'mb-kolom-text align-content-center text-center',
                     },
                     @foreach ($materTagihan as $item)
                         {
                             data: 'tagihan.{{ $item->nama }}',
-                            className: 'text-center',
+                            className: 'mb-kolom-nominal align-content-center text-center',
                             render: function(data) {
                                 return data ? 'Rp ' + data.toLocaleString('id-ID') : '-';
                             }
                         },
                     @endforeach {
                         data: 'total_listrik',
-                        className: 'text-center',
+                        className: 'mb-kolom-nominal align-content-center text-center',
                         render: function(data) {
                             return data ? 'Rp ' + data.toLocaleString('id-ID') : '-';
                         }
                     }, {
                         data: 'total',
-                        className: 'text-center',
+                        className: 'mb-kolom-nominal align-content-center text-center',
                         render: function(data) {
                             return data ? 'Rp ' + data.toLocaleString('id-ID') : '-';
                         }
@@ -312,7 +318,7 @@
                 columnDefs: [{
                     targets: -1,
                     title: 'Aksi',
-                    width: '8rem',
+                    className: 'mb-kolom-aksi align-content-center',
                     orderable: false,
                     render: function(data, type, full, meta) {
                         return `
@@ -400,7 +406,7 @@
                 method: "GET",
                 success: function(res) {
                     $(element).html("");
-                    let html = "<option selected disabled>Pilih data penghuni</option>";
+                    let html = "<option selected disabled>Pilih Nama Warga</option>";
                     $.each(res.data, function(x, y) {
                         html += `<option value="${y.uuid}">${y.nama}</option>`;
                     });

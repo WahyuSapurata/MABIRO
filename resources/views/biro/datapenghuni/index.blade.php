@@ -1,20 +1,42 @@
 @extends('layouts.layout')
-@section('button')
+{{-- @section('button')
     <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
         <!--begin::Page title-->
         <div data-kt-swapper="true" data-kt-swapper-mode="prepend"
             data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
             class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
-            <!--begin::Title-->
-            <button class="btn btn-success btn-sm " data-kt-drawer-show="true" data-kt-drawer-target="#side_form"
+            <div>Data Penghuni Asrama</div>
+        </div>
+        <!--begin::Title-->
+        <button class="btn btn-success btn-sm " data-kt-drawer-show="true" data-kt-drawer-target="#side_form"
+            id="button-side-form"><i class="fa fa-plus-circle" style="color:#ffffff" aria-hidden="true"></i> Tambah
+            Data</button>
+        <!--end::Title-->
+    </div>
+    <!--end::Page title-->
+@endsection --}}
+@section('content')
+    <!--start::Pengganti Toolbar-->
+    <div
+        class="container-fluid mb-topbar-dashboard d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-md-between mb-4">
+
+        <!-- Kiri: Judul dan Subjudul -->
+        <div class="text-center text-md-start mb-5 mb-md-0">
+            <h2 class="mb-1 mb-text-h2 mb-text-color-primary mb-brand-primary-color">Data Penghuni</h2>
+            <p class="mb-0 mb-text-p18 mb-text-color-secondary">Asrama Mahasiswa Balikpapan KPMB Makassar</p>
+        </div>
+
+        <!-- Kanan: Tombol -->
+        <div class="text-center text-md-end">
+            <button class="btn mb-btn-tambah-data btn-sm " data-kt-drawer-show="true" data-kt-drawer-target="#side_form"
                 id="button-side-form"><i class="fa fa-plus-circle" style="color:#ffffff" aria-hidden="true"></i> Tambah
                 Data</button>
-            <!--end::Title-->
         </div>
-        <!--end::Page title-->
+
     </div>
-@endsection
-@section('content')
+    <!--end::Pengganti Toolbar-->
+
+
     <div class="post d-flex flex-column-fluid" id="kt_post">
         <!--begin::Container-->
         <div id="kt_content_container" class="container">
@@ -148,19 +170,19 @@
                     </div>
 
                     <div class="mb-10">
-                        <label class="form-label">Alamat</label>
+                        <label class="form-label">Alamat Tempat Tinggal</label>
                         <textarea name="alamat" id="" cols="" rows="2" class="form-control"></textarea>
                         <small class="text-danger alamat_error"></small>
                     </div>
 
                     <div class="mb-10">
-                        <label class="form-label">Universitas</label>
+                        <label class="form-label">Kampus / Perguruan Tinggi</label>
                         <input type="text" name="universitas" class="form-control">
                         <small class="text-danger universitas_error"></small>
                     </div>
 
                     <div class="mb-10">
-                        <label class="form-label">Program Studi</label>
+                        <label class="form-label">Jurusan / Program Studi</label>
                         <input type="text" name="program_studi" class="form-control">
                         <small class="text-danger program_studi_error"></small>
                     </div>
@@ -187,21 +209,50 @@
                     </div>
 
                     <div class="mb-10">
-                        <label class="form-label">No Hp</label>
+                        <label class="form-label">No. Handphone</label>
                         <input type="text" name="no_hp" class="form-control">
                         <small class="text-danger no_hp_error"></small>
                     </div>
 
                     <div class="mb-10">
-                        <label class="form-label">Alasan</label>
+                        <label class="form-label">Alasan Tinggal Di Asrama</label>
                         <textarea name="alasan" id="" cols="" rows="2" class="form-control"></textarea>
                         <small class="text-danger alasan_error"></small>
                     </div>
 
                     <div class="mb-10">
                         <label class="form-label">Kamar</label>
-                        <input type="text" name="kamar" class="form-control">
-                        <small class="text-danger kamar_error"></small>
+                        {{-- <input type="text" name="kamar" class="form-control">
+                        <small class="text-danger kamar_error"></small> --}}
+                        <select name="kamar" class="form-control" data-control="select2">
+                            <option value="">-- Pilih Kamar --</option>
+                            <option value="M01">M01</option>
+                            <option value="M02">M02</option>
+                            <option value="M03">M03</option>
+                            <option value="M04">M04</option>
+                            <option value="M05">M05</option>
+                            <option value="M06">M06</option>
+                            <option value="M07">M07</option>
+                            <option value="M08">M08</option>
+                            <option value="M09">M09</option>
+                            <option value="M10">M10</option>
+                            <option value="M11">M11</option>
+                            <option value="M12">M12</option>
+                            <option value="F01">F01</option>
+                            <option value="F02">F02</option>
+                            <option value="F03">F03</option>
+                            <option value="F04">F04</option>
+                            <option value="F06">F05</option>
+                            <option value="F06">F06</option>
+                            <option value="F07">F07</option>
+                            <option value="F08">F08</option>
+                            <option value="F09">F09</option>
+                            <option value="F10">F10</option>
+                            <option value="F11">F11</option>
+                            <option value="F12">F12</option>
+                            <option value="F13">F13</option>
+                            <option value="F14">F14</option>
+                        </select>
                     </div>
 
                     <div class="mb-10">
@@ -213,12 +264,12 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label d-block">Persetujuan</label>
+                        <label class="form-label d-block">Pernyataan</label>
                         <div class="form-check">
                             <input type="checkbox" name="persetujuan" value="1" class="form-check-input"
                                 id="persetujuan">
                             <label class="form-check-label" for="persetujuan">
-                                Saya menyetujui data yang saya isi
+                                Menyutujui semua pernyataan
                             </label>
                         </div>
                         <small class="text-danger persetujuan_error"></small>
@@ -229,10 +280,10 @@
                     <div class="d-flex gap-5">
                         <button type="submit"
                             class="btn btn-mabiro-primary btn-sm btn-submit d-flex align-items-center"><i
-                                class="fa-solid fa-floppy-disk"></i> Simpan</button>
+                                class="fas fa-save text-white"></i> Simpan</button>
                         <button type="reset" id="side_form_close"
                             class="btn mr-2 btn-mabiro-grey btn-cancel btn-sm d-flex align-items-center"><i
-                                class="fa-solid fa-ban"></i>Batal</button>
+                                class="fas fa-times text-white"></i>Batal</button>
                     </div>
                 </form>
             </div>
@@ -401,7 +452,7 @@
                                 <!--begin::Overlay-->
                                 <a class="d-block overlay fancybox" data-fancybox="lightbox-group" href="{{ asset('/public/penghuni/${data}') }}">
                                     <!--begin::Image-->
-                                    <div class="mb-profil-pengguna overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-50px w-50px"
+                                    <div class="mb-profil-warga overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded"
                                         style="background-image:url('/public/penghuni/${data}')">
                                     </div>
                                     <!--end::Image-->
@@ -417,7 +468,7 @@
                         } else {
                             result =
                                 `
-                                    <div class="h-40px w-40px bg-primary rounded-circle d-flex align-items-center justify-content-center">
+                                    <div class="mb-profil-warga brand-accent-color d-flex align-items-center justify-content-center">
                                         <i class="fas fa-user text-white" font-size: 18px"></i>
                                     </div>
                                 `;

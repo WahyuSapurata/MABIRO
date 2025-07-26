@@ -75,10 +75,10 @@
                             <div class="app-sidebar-logo-default">
                                 <div class="d-grid align-items-center justify-content-center py-5 gap-1"
                                     style="justify-items: center">
-                                    <div class="h-75px w-75px rounded-circle d-flex justify-content-center align-items-center border border-2 border-white mb-3"
-                                        style="background-color: #cddcea">
+                                    <div
+                                        class="h-75px w-75px brand-grey-color rounded-circle d-flex justify-content-center align-items-center border border-2 border-white mb-3">
                                         @if (auth()->user()->foto == null || auth()->user()->foto == '')
-                                            <i class="fas fa-user fs-1 text-primary"></i>
+                                            <i class="mb-icon-profile-sidebar fas fa-user"></i>
                                         @else
                                             <img class="mb-photo-profile-sidebar h-70px w-70px rounded-circle"
                                                 src="{{ asset('/public/pengguna/' . auth()->user()->foto) }}"
@@ -175,7 +175,7 @@
                 <!--begin::Content-->
                 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
                     <!--begin::Toolbar-->
-                    @if (!in_array($path[1], ['dashboard-biro', 'dashboard-keuangan', 'dashboard-inventaris']))
+                    {{-- @if (!in_array($path[1], ['dashboard-biro', 'dashboard-keuangan', 'dashboard-inventaris']))
                         <div class="toolbar" id="kt_toolbar">
                             <!--begin::Container-->
                             <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
@@ -197,7 +197,7 @@
                             </div>
                             <!--end::Container-->
                         </div>
-                    @endif
+                    @endif --}}
                     <!--end::Toolbar-->
                     <!--begin::Post-->
 
@@ -257,6 +257,7 @@
     <script src="{{ asset('assets/js/custom/modals/upgrade-plan.js') }}"></script>
     <script src="{{ asset('assets/js/panel.js') }}"></script>
     <script src="{{ asset('assets/plugins/custom/tinymce/tinymce.bundle.js') }}"></script>
+    <script src="{{ asset('assets/js/custom/realtime-dateclock.js') }}"></script>
     <!-- Contoh dengan menggunakan CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/locale/id.min.js"></script>

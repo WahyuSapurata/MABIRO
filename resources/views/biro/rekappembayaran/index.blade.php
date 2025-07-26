@@ -1,20 +1,23 @@
 @extends('layouts.layout')
-@section('button')
-    <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
-        <!--begin::Page title-->
-        <div data-kt-swapper="true" data-kt-swapper-mode="prepend"
-            data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
-            class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
-            <!--begin::Title-->
-            <button class="btn btn-success btn-sm" id="buat-invoice"><i class="fa fa-plus-circle" style="color:#ffffff"
-                    aria-hidden="true"></i> Buat
-                Invoice</button>
-            <!--end::Title-->
-        </div>
-        <!--end::Page title-->
-    </div>
-@endsection
 @section('content')
+    <!--start::Pengganti Toolbar-->
+    <div
+        class="container-fluid mb-topbar-dashboard d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-md-between mb-4">
+
+        <!-- Kiri: Judul dan Subjudul -->
+        <div class="text-center text-md-start mb-5 mb-md-0">
+            <h2 class="mb-1 mb-text-h2 mb-text-color-primary mb-brand-primary-color">Rekap Tagihan Warga</h2>
+            <p class="mb-0 mb-text-p18 mb-text-color-secondary">Asrama Mahasiswa Balikpapan KPMB Makassar</p>
+        </div>
+
+        <!-- Kanan: Tombol -->
+        <div class="text-center text-md-end">
+            <button class="btn mb-btn-tambah-data btn-sm " id="buat-invoice"><i class="fa fa-plus-circle" style="color:#ffffff"
+                    aria-hidden="true"></i> Terbitkan Tagihan</button>
+        </div>
+
+    </div>
+    <!--end::Pengganti Toolbar-->
     <div class="post d-flex flex-column-fluid" id="kt_post">
         <!--begin::Container-->
         <div id="kt_content_container" class="container">
@@ -29,8 +32,7 @@
                                         <tr class="fw-bolder fs-6">
                                             <th>No</th>
                                             <th>Nama</th>
-                                            <th>Bulan</th>
-                                            <th>Tahun</th>
+                                            <th>Periode</th>
                                             <th>Metode Pembayaran</th>
                                             <th>Bukti</th>
                                             <th>Status</th>
@@ -113,12 +115,11 @@
 
                     <div class="separator separator-dashed mt-8 mb-5"></div>
                     <div class="d-flex gap-5">
-                        <button type="submit" class="btn btn-primary btn-sm btn-submit d-flex align-items-center"><i
-                                class="bi bi-file-earmark-diff"></i> Simpan</button>
+                        <button type="submit" class="btn btn-mabiro-primary btn-sm btn-submit d-flex align-items-center"><i
+                                class="fas fa-save text-white"></i> Simpan</button>
                         <button type="reset" id="side_form_close"
-                            class="btn mr-2 btn-light btn-cancel btn-sm d-flex align-items-center"
-                            style="background-color: #ea443e65; color: #EA443E"><i class="bi bi-trash-fill"
-                                style="color: #EA443E"></i>Batal</button>
+                            class="btn mr-2 btn-mabiro-grey btn-cancel btn-sm d-flex align-items-center"><i
+                                class="fas fa-times text-white"></i>Batal</button>
                     </div>
                 </form>
             </div>
@@ -139,7 +140,7 @@
                     if (res.success == true) {
                         swal
                             .fire({
-                                text: "Berhasil membuat invoice",
+                                text: "Berhasil menerbitkan tagihan",
                                 icon: "success",
                                 showConfirmButton: false,
                                 timer: 1500,
@@ -150,7 +151,7 @@
                     } else {
                         swal
                             .fire({
-                                text: "Invoice sudah dibuat untuk bulan ini",
+                                text: "Tagihan sudah dibuat untuk bulan ini",
                                 icon: "warning",
                                 showConfirmButton: false,
                                 timer: 1500,
@@ -161,7 +162,7 @@
                 error: function(xhr) {
                     swal
                         .fire({
-                            text: "Invoice sudah dibuat untuk bulan ini",
+                            text: "Tagihan sudah dibuat untuk bulan ini",
                             icon: "warning",
                             showConfirmButton: false,
                             timer: 1500,
@@ -244,33 +245,28 @@
                 ajax: '/biro/keuangan/rekap-pembayaran-get',
                 columns: [{
                     data: null,
+                    className: 'mb-kolom-nomor align-content-center',
                     render: function(data, type, row, meta) {
                         return meta.row + meta.settings._iDisplayStart + 1;
                     }
                 }, {
                     data: 'nama_penghuni',
-                    className: 'text-center',
+                    className: 'align-content-center text-center',
                 }, {
                     data: 'created_at',
-                    className: 'text-center',
+                    className: 'align-content-center text-center',
                     render: function(data, type, row, meta) {
-                        return moment(data).format('MMMM');
-                    }
-                }, {
-                    data: 'created_at',
-                    className: 'text-center',
-                    render: function(data, type, row, meta) {
-                        return moment(data).format('YYYY');
+                        return moment(data).format('MMMM YYYY');
                     }
                 }, {
                     data: 'metode_pembayaran',
-                    className: 'text-center',
+                    className: 'align-content-center text-center',
                     render: function(data, type, row, meta) {
                         return data ? data : '-';
                     }
                 }, {
                     data: 'bukti',
-                    className: 'text-center',
+                    className: 'align-content-center text-center',
                     render: function(data, type, row, meta) {
                         let result;
                         if (data) {
@@ -299,7 +295,7 @@
                     }
                 }, {
                     data: 'status',
-                    className: 'text-center',
+                    className: 'align-content-center text-center',
                     render: function(data, type, row, meta) {
                         let result;
                         if (data == "proses") {
@@ -340,8 +336,7 @@
                 columnDefs: [{
                     targets: -1,
                     title: 'Aksi',
-                    width: '10rem',
-                    className: 'text-center',
+                    className: 'mb-kolom-aksi',
                     orderable: false,
                     render: function(data, type, full, meta) {
                         return `

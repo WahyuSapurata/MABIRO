@@ -20,6 +20,7 @@
     --brand-bg-primary-color: #FEFEFE;
     --brand-bg-secondary-color: #F1F3F6;
     --brand-white-color: #fefefe;
+    --brand-grey-color: #b9b9b9;
     --brand-botton-color-blue: #4417CE;
     --brand-botton-color-red-light: #F1416C;
     --brand-botton-color-yellow: #F9A23E;
@@ -631,6 +632,11 @@ th[rowspan] {
     /* Atau sesuaikan dengan level transparansi yang diinginkan */
 }
 
+
+.table tbody tr:last-child td {
+    background: transparent !important;
+}
+
 .tanggal-proide {
     font-size: 20px;
     opacity: 0.4;
@@ -667,9 +673,21 @@ th[rowspan] {
 }
 
 .mb-kolom-nominal {
-    width: 200px;
+    width: 150px;
     max-width: 250px;
     white-space: nowrap;
+}
+
+
+.mb-kolom-tanggal {
+    width: 90px;
+    max-width: 250px;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.mb-kolom-text {
+    min-width: 200px;
 }
 
 .mb-kolom-aksi {
@@ -691,6 +709,15 @@ th[rowspan] {
     padding: 0 !important;
 }
 
+.brand-grey-color {
+    background: var(--brand-grey-color);
+}
+
+.mb-icon-profile-sidebar {
+    font-size: 30px;
+    color: var(--brand-white-color);
+}
+
 .row-table-custom {
     padding: 5px;
     background: #ffffff;
@@ -705,14 +732,32 @@ table.dataTable {
     background-color: var(--brand-primary-color);
 }
 
+
+.mb-brand-accent-color {
+    background-color: var(--brand-accent-color);
+}
+
+
+
 .mb-profil-pengguna {
+    border-radius: 50%;
+    background-position: top;
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+    margin: auto;
+}
+
+
+.mb-profil-warga {
     border-radius: 8px;
     background-position: top;
     background-size: cover;
-    height: 60px;
-    width: 60px;
+    height: 50px;
+    width: 50px;
     margin: auto;
 }
+
 
 .mb-photo-profile-sidebar {
     object-fit: cover;
@@ -804,9 +849,21 @@ select.custom-select.custom-select-sm.form-control.form-control-sm {
 }
 
 
+.btn-mabiro-primary:hover {
+    background: var(--brand-secondary-color);
+}
+
+.mb-topbar-dashboard {
+    padding-bottom: 15px;
+}
+
 .btn-mabiro-grey {
     background: var(--brand-text-secondary-color);
     color: var(--brand-white-color) !important;
+}
+
+.btn-mabiro-grey:hover {
+    background: var(--brand-grey-color);
 }
 
 .mb-close-button {
@@ -1057,6 +1114,17 @@ i.mb-icon-more {
     }
 }
 
+/*STYLING CLASS - COLOR*/
+
+.mb-text-color-primary {
+    color: var(--brand-text-primary-color);
+}
+
+
+.mb-text-color-secondary {
+    color: var(--brand-text-secondary-color);
+}
+
 .btn-primary-color {
     background-color: var(--brand-primary-color);
     color: var(--brand-white-color);
@@ -1071,10 +1139,27 @@ i.mb-icon-more {
 }
 
 
+.brand-primary-color {
+    background-color: var(--brand-primary-color);
+}
 
+.brand-accent-color {
+    background-color: var(--brand-accent-color);
+}
 
+.mb-btn-tambah-data {
+    background-color: #17bb5e;
+    color: var(--brand-white-color);
+    border-color: #289559;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15),
+        0 1px 1px rgba(0, 0, 0, 0.075);
+}
 
+.mb-btn-tambah-data:hover {
+    background-color: var(--brand-accent-color);
+}
 
+/*STYLING CLASS - TYPOGRAPHY*/
 .mb-text-p12 {
     font-size: var(--font-size-p12);
 }
@@ -1092,12 +1177,53 @@ i.mb-icon-more {
     line-height: 1.2;
 }
 
+.mb-dash-time {}
+
+/*MODE RESPONSIVE HP*/
+@media (max-width: 420px) {
+
+    .bg-mabiro {
+        border-radius: 16px !important;
+    }
+
+    .mb-text-h2 {
+        font-size: 22px;
+    }
+
+    .mb-text-p18 {
+        font-size: 12px;
+    }
+
+    .mb-dashboard-tittle-02 {
+        font-size: 12px;
+        font-weight: 300;
+    }
+
+    .mb-dashboard-tittle-01 {
+        font-size: 15px;
+    }
+
+    .mb-dashboard-tittle-01 span {
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+}
+
+
+
+
+input.form-control.kt_datepicker_7.input {
+    font-size: 12px !important;
+}
+
 .mb-text-primary {
     color: var(--brand-text-primary-color);
 }
 
 .mb-text-h2 {
     font-size: var(--font-size-h2);
+    font-weight: bold;
 }
 
 .mb-text-disp {

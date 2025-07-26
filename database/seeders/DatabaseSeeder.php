@@ -36,13 +36,13 @@ class DatabaseSeeder extends Seeder
         );
 
         $data_penghuni = User::updateOrCreate(
-            ['username' => 'wahyu'],
+            ['username' => 'ozan'],
             [
                 'uuid' => Uuid::uuid4()->toString(),
-                'nama' => 'Wahyu Hidayat',
+                'nama' => 'Ozan',
                 'role' => 'penghuni',
-                'password_hash' => '<>password',
-                'password' => Hash::make('<>password'),
+                'password_hash' => '123',
+                'password' => Hash::make('123'),
             ]
         );
 
@@ -51,20 +51,20 @@ class DatabaseSeeder extends Seeder
             ['uuid_user' => $uuid_penghuni],
             [
                 'uuid' => Uuid::uuid4()->toString(),
-                'tempat_lahir' => 'Sinjai',
-                'tanggal_lahir' => '26-02-2000',
+                'tempat_lahir' => 'Balikpapan',
+                'tanggal_lahir' => '17-05-2000',
                 'agama' => 'Islam',
                 'jenis_kelamin' => 'laki-laki',
-                'alamat' => 'Sinjai',
-                'universitas' => 'UINAM',
-                'program_studi' => 'SI',
-                'riwayat_pendidikan_sd' => 'SD 45',
-                'riwayat_pendidikan_smp' => 'SMP 6',
-                'riwayat_pendidikan_sma' => 'SMA 1',
-                'no_hp' => '085xxxxxx',
-                'alasan' => 'Coba coba',
+                'alamat' => 'Manggar',
+                'universitas' => 'UIN Alauddin Makassar',
+                'program_studi' => 'Sistem Informasi',
+                'riwayat_pendidikan_sd' => 'SDN 013 Balikpapan Timur',
+                'riwayat_pendidikan_smp' => 'SMPN 8 Balikpapan',
+                'riwayat_pendidikan_sma' => 'SMAN 7 Balikpapan',
+                'no_hp' => '0812xxxxxx',
+                'alasan' => 'Tertarik & Ingin Mendapatkan Wadah Bersosial',
                 'persetujuan' => 1,
-                'kamar' => 'F4',
+                'kamar' => 'M09',
                 'status' => 'Belum Dikonfirmasi',
             ]
         );

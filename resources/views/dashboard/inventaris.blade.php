@@ -4,9 +4,23 @@
         <!--begin::Container-->
         <div id="kt_content_container" class="container">
             <div class="container py-5 bg-mabiro rounded-3">
-                <div class="mb-dashboard-tittle-01 text-white mt-2">Selamat Datang, <span>Di <strong>Dashboard Inventaris
-                            Mabiro</span></strong></div>
-                <div class="mb-dashboard-tittle-02 text-white mb-6">Sistem Informasi Manajemen Asrama</div>
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-top">
+                    <!-- Kiri: Judul -->
+                    <div>
+                        <div class="mb-dashboard-tittle-01 text-white mt-2 text-center text-md-start">Selamat Datang di,
+                            <span><strong>Dashboard Unit Inventaris</strong></span>
+                        </div>
+                        <div class="mb-dashboard-tittle-02 text-white mt-0 text-center text-md-start text-white mb-3">
+                            Sistem
+                            Informasi Manajemen Asrama</div>
+                    </div>
+                    <!-- Kanan: Hari, Tanggal, Jam -->
+                    <div
+                        class="mb-dash-time text-white text-md-end text-center mt-0 mb-5 mb-md-0 mt-md-1 mb-dashboard-tittle-02">
+                        <div id="hariTanggal" class="fw-semibold"></div>
+                        <div id="jamSekarang" class="fs-5 fw-bold"></div>
+                    </div>
+                </div>
 
                 <!-- ROW 1 -->
                 <div class="row g-3 mb-3">

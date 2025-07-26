@@ -1,40 +1,43 @@
 @extends('layouts.layout')
-@section('button')
-    <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
-        <!--begin::Page title-->
-        <div data-kt-swapper="true" data-kt-swapper-mode="prepend"
-            data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
-            class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
-            <!--begin::Title-->
-            <button class="btn btn-success btn-sm " data-kt-drawer-show="true" data-kt-drawer-target="#side_form"
+@section('content')
+    <!--start::Pengganti Toolbar-->
+    <div
+        class="container-fluid mb-topbar-dashboard d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-md-between mb-4">
+
+        <!-- Kiri: Judul dan Subjudul -->
+        <div class="text-center text-md-start mb-5 mb-md-0">
+            <h2 class="mb-1 mb-text-h2 mb-text-color-primary mb-brand-primary-color">Arsip & Dokumen</h2>
+            <p class="mb-0 mb-text-p18 mb-text-color-secondary">Asrama Mahasiswa Balikpapan KPMB Makassar</p>
+        </div>
+
+        <!-- Kanan: Tombol -->
+        <div class="text-center text-md-end">
+            <button class="btn mb-btn-tambah-data btn-sm " data-kt-drawer-show="true" data-kt-drawer-target="#side_form"
                 id="button-side-form"><i class="fa fa-plus-circle" style="color:#ffffff" aria-hidden="true"></i> Tambah
                 Data</button>
-            <!--end::Title-->
         </div>
-        <!--end::Page title-->
+
     </div>
-@endsection
-@section('content')
+    <!--end::Pengganti Toolbar-->
+
     <div class="post d-flex flex-column-fluid" id="kt_post">
         <!--begin::Container-->
         <div id="kt_content_container" class="container">
             <div class="row">
 
-                <div class="card bg-primary">
+                <div class="card bg-brand">
                     <div class="card-body p-0">
                         <div class="container">
                             <div class="py-5 text-white">
-                                <table id="kt_table_data"
-                                    class="table table-rounded border border-gray-300 table-row-bordered table-row-gray-300">
+                                <table id="kt_table_data" class="table table-rounded table-row-bordered table-row-gray-300">
                                     <thead class="text-center bg-white">
-                                        <tr class="fw-bolder fs-6 text-black">
-                                            <th>No</th>
-                                            <th>Keterangan</th>
+                                        <tr class="fw-bolder fs-6">
+                                            <th class="text-center">Nama Arsip / Dokumen</th>
                                             <th>File</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="bg-white">
+                                    <tbody>
                                     </tbody>
                                 </table>
                             </div>
@@ -69,20 +72,7 @@
                 <div class="card-toolbar">
                     <!--begin::Close-->
                     <div class="btn btn-sm btn-icon btn-active-light-primary" id="side_form_close">
-                        <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
-                        <span class="svg-icon svg-icon-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)"
-                                    fill="#000000">
-                                    <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1" />
-                                    <rect fill="#000000" opacity="0.5"
-                                        transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
-                                        x="0" y="7" width="16" height="2" rx="1" />
-                                </g>
-                            </svg>
-                        </span>
-                        <!--end::Svg Icon-->
+                        <i class="mb-close-button fas fa-times-circle"></i>
                     </div>
                     <!--end::Close-->
                 </div>
@@ -97,25 +87,24 @@
                     <input type="hidden" name="uuid">
 
                     <div class="mb-10">
-                        <label class="form-label">Keterangan</label>
+                        <label class="form-label">Nama Arsip / Dokumen</label>
                         <textarea name="keterangan" id="" cols="" rows="2" class="form-control"></textarea>
                         <small class="text-danger keterangan_error"></small>
                     </div>
 
                     <div class="mb-10">
-                        <label class="form-label">File</label>
+                        <label class="form-label">Upload File</label>
                         <input type="file" accept=".pdf,.doc,.docx" class="form-control" name="nama_file">
                         <small class="text-danger nama_file_error"></small>
                     </div>
 
                     <div class="separator separator-dashed mt-8 mb-5"></div>
                     <div class="d-flex gap-5">
-                        <button type="submit" class="btn btn-primary btn-sm btn-submit d-flex align-items-center"><i
-                                class="bi bi-file-earmark-diff"></i> Simpan</button>
+                        <button type="submit" class="btn btn-mabiro-primary btn-sm btn-submit d-flex align-items-center"><i
+                                class="fas fa-save text-white"></i> Simpan</button>
                         <button type="reset" id="side_form_close"
-                            class="btn mr-2 btn-light btn-cancel btn-sm d-flex align-items-center"
-                            style="background-color: #ea443e65; color: #EA443E"><i class="bi bi-trash-fill"
-                                style="color: #EA443E"></i>Batal</button>
+                            class="btn mr-2 btn-mabiro-grey btn-cancel btn-sm d-flex align-items-center"><i
+                                class="fas fa-times text-white"></i>Batal</button>
                     </div>
                 </form>
             </div>
@@ -136,12 +125,12 @@
             e.preventDefault();
             let type = $(this).attr('data-type');
             if (type == 'add') {
-                control.submitFormMultipartData('/biro/inventaris/arsip-dokumen-store', 'Tambah',
+                control.submitFormMultipartData('/biro/arsip-dokumen-store', 'Tambah',
                     'Arsip Dokumen',
                     'POST');
             } else {
                 let uuid = $("input[name='uuid']").val();
-                control.submitFormMultipartData('/biro/inventaris/arsip-dokumen-update/' + uuid,
+                control.submitFormMultipartData('/biro/arsip-dokumen-update/' + uuid,
                     'Update',
                     'Arsip Dokumen', 'POST');
             }
@@ -149,13 +138,13 @@
 
         $(document).on('click', '.button-update', function(e) {
             e.preventDefault();
-            let url = '/biro/inventaris/arsip-dokumen-show/' + $(this).attr('data-uuid');
+            let url = '/biro/arsip-dokumen-show/' + $(this).attr('data-uuid');
             control.overlay_form('Update', 'Arsip Dokumen', url);
         })
 
         $(document).on('click', '.button-delete', function(e) {
             e.preventDefault();
-            let url = '/biro/inventaris/arsip-dokumen-delete/' + $(this).attr('data-uuid');
+            let url = '/biro/arsip-dokumen-delete/' + $(this).attr('data-uuid');
             let label = $(this).attr('data-label');
             control.ajaxDelete(url, label)
         })
@@ -179,17 +168,13 @@
                     [0, 'asc']
                 ],
                 processing: true,
-                ajax: '/biro/inventaris/arsip-dokumen-get',
+                ajax: '/biro/arsip-dokumen-get',
                 columns: [{
-                    data: null,
-                    render: function(data, type, row, meta) {
-                        return meta.row + meta.settings._iDisplayStart + 1;
-                    }
-                }, {
                     data: 'keterangan',
-                    className: 'text-center',
+                    className: 'mb-kolom-text align-content-center text-center',
                 }, {
                     data: 'nama_file',
+                    className: 'mb-kolom-nominal align-content-center text-center',
                     render: function(data, type, row, meta) {
                         let result;
                         result =
@@ -206,8 +191,7 @@
                 columnDefs: [{
                     targets: -1,
                     title: 'Aksi',
-                    width: '10rem',
-                    className: 'text-center',
+                    className: 'mb-kolom-aksi',
                     orderable: false,
                     render: function(data, type, full, meta) {
                         return `
@@ -238,12 +222,12 @@
                     },
                 }],
 
-                rowCallback: function(row, data, index) {
-                    var api = this.api();
-                    var startIndex = api.context[0]._iDisplayStart;
-                    var rowIndex = startIndex + index + 1;
-                    $('td', row).eq(0).html(rowIndex);
-                },
+                // rowCallback: function(row, data, index) {
+                //     var api = this.api();
+                //     var startIndex = api.context[0]._iDisplayStart;
+                //     var rowIndex = startIndex + index + 1;
+                //     $('td', row).eq(0).html(rowIndex);
+                // },
             });
         };
 
@@ -253,7 +237,7 @@
 
         // $('#export-excel').click(function(e) {
         //     e.preventDefault();
-        //     window.open(`/biro/inventaris/arsip-dokumen-export`, "_blank");
+        //     window.open(`/biro/arsip-dokumen-export`, "_blank");
         // });
     </script>
 @endsection

@@ -1,21 +1,25 @@
 @extends('layouts.layout')
-@section('button')
-    <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
+@section('content')
+    <!--start::Pengganti Toolbar-->
+    <div
+        class="container-fluid mb-topbar-dashboard d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-md-between mb-4">
 
-        <!--begin::Page title-->
-        <div data-kt-swapper="true" data-kt-swapper-mode="prepend"
-            data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
-            class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
-            <!--begin::Title-->
-            <button class="btn btn-success btn-sm " data-kt-drawer-show="true" data-kt-drawer-target="#side_form"
+        <!-- Kiri: Judul dan Subjudul -->
+        <div class="text-center text-md-start mb-5 mb-md-0">
+            <h2 class="mb-1 mb-text-h2 mb-text-color-primary mb-brand-primary-color">Arsip & Dokumen</h2>
+            <p class="mb-0 mb-text-p18 mb-text-color-secondary">Asrama Mahasiswa Balikpapan KPMB Makassar</p>
+        </div>
+
+        <!-- Kanan: Tombol -->
+        <div class="text-center text-md-end">
+            <button class="btn mb-btn-tambah-data btn-sm " data-kt-drawer-show="true" data-kt-drawer-target="#side_form"
                 id="button-side-form"><i class="fa fa-plus-circle" style="color:#ffffff" aria-hidden="true"></i> Tambah
                 Data</button>
-            <!--end::Title-->
         </div>
-        <!--end::Page title-->
+
     </div>
-@endsection
-@section('content')
+    <!--end::Pengganti Toolbar-->
+
     <div class="post d-flex flex-column-fluid" id="kt_post">
         <!--begin::Container-->
         <div id="kt_content_container" class="container">
@@ -28,8 +32,7 @@
                                 <table id="kt_table_data" class="table table-rounded table-row-bordered table-row-gray-300">
                                     <thead class="text-center bg-white">
                                         <tr class="fw-bolder fs-6">
-                                            <th>No</th>
-                                            <th>Keterangan</th>
+                                            <th class="text-center">Nama Arsip / Dokumen</th>
                                             <th>File</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -84,24 +87,24 @@
                     <input type="hidden" name="uuid">
 
                     <div class="mb-10">
-                        <label class="form-label">Keterangan</label>
+                        <label class="form-label">Nama Arsip / Dokumen</label>
                         <textarea name="keterangan" id="" cols="" rows="2" class="form-control"></textarea>
                         <small class="text-danger keterangan_error"></small>
                     </div>
 
                     <div class="mb-10">
-                        <label class="form-label">File</label>
+                        <label class="form-label">Upload File</label>
                         <input type="file" accept=".pdf,.doc,.docx" class="form-control" name="nama_file">
                         <small class="text-danger nama_file_error"></small>
                     </div>
 
                     <div class="separator separator-dashed mt-8 mb-5"></div>
                     <div class="d-flex gap-5">
-                        <button type="submit" class="btn btn-mabiro-blue btn-sm btn-submit d-flex align-items-center"><i
-                                class="bi bi-file-earmark-diff"></i> Simpan</button>
+                        <button type="submit" class="btn btn-mabiro-primary btn-sm btn-submit d-flex align-items-center"><i
+                                class="fas fa-save text-white"></i> Simpan</button>
                         <button type="reset" id="side_form_close"
-                            class="btn mr-2 btn-danger btn-sm d-flex align-items-center"><i
-                                class="bi bi-trash-fill"></i>Batal</button>
+                            class="btn mr-2 btn-mabiro-grey btn-cancel btn-sm d-flex align-items-center"><i
+                                class="fas fa-times text-white"></i>Batal</button>
                     </div>
                 </form>
             </div>
@@ -167,15 +170,11 @@
                 processing: true,
                 ajax: '/biro/arsip-dokumen-get',
                 columns: [{
-                    data: null,
-                    render: function(data, type, row, meta) {
-                        return meta.row + meta.settings._iDisplayStart + 1;
-                    }
-                }, {
                     data: 'keterangan',
-                    className: 'text-center',
+                    className: 'mb-kolom-text align-content-center text-center',
                 }, {
                     data: 'nama_file',
+                    className: 'mb-kolom-nominal align-content-center text-center',
                     render: function(data, type, row, meta) {
                         let result;
                         result =
@@ -192,8 +191,7 @@
                 columnDefs: [{
                     targets: -1,
                     title: 'Aksi',
-                    width: '10rem',
-                    className: 'text-center',
+                    className: 'mb-kolom-aksi',
                     orderable: false,
                     render: function(data, type, full, meta) {
                         return `
@@ -224,12 +222,12 @@
                     },
                 }],
 
-                rowCallback: function(row, data, index) {
-                    var api = this.api();
-                    var startIndex = api.context[0]._iDisplayStart;
-                    var rowIndex = startIndex + index + 1;
-                    $('td', row).eq(0).html(rowIndex);
-                },
+                // rowCallback: function(row, data, index) {
+                //     var api = this.api();
+                //     var startIndex = api.context[0]._iDisplayStart;
+                //     var rowIndex = startIndex + index + 1;
+                //     $('td', row).eq(0).html(rowIndex);
+                // },
             });
         };
 
