@@ -14,7 +14,6 @@
             ? '/manifest.webmanifest'
             : '/build/manifest.webmanifest';
     @endphp
-    @dd($manifestPath)
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="manifest" href="{{ asset($manifestPath) }}" crossorigin="use-credentials">
 
