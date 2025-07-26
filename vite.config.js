@@ -3,7 +3,6 @@ import laravel from 'laravel-vite-plugin';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
-    base: '/mabiro/MABIRO/',
     plugins: [
         laravel({
             input: ['resources/css/app.css', 'resources/js/app.js'],
