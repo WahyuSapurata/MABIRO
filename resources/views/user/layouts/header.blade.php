@@ -73,12 +73,11 @@
                         </ul>
                     </li>
                     <li><a href="{{ route('kontak') }}">Kontak</a></li>
-                    <li class="d-lg-none d-block">
-                        @if (!auth()->check())
-                            <button type="button" class="btn btn-login"><a
-                                    href="{{ route('login.login-akun') }}">Masuk</a></button>
-                        @endif
-                    </li>
+                    @if (!auth()->check())
+                        <li class="d-lg-none d-block">
+                            <a class="btn btn-primary" href="{{ route('login.login-akun') }}">Masuk</a>
+                        </li>
+                    @endif
                 </ul>
             </div><!-- /.navbar-collapse -->
 
