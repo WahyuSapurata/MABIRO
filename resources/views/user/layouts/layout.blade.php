@@ -9,7 +9,14 @@
     <meta name="description" content="Solion - IT Solutions Template">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    @vite(['resources/js/app.js', 'resources/css/app.css'])
+    @php
+        $manifestPath = file_exists(public_path('manifest.webmanifest'))
+            ? '/manifest.webmanifest'
+            : '/build/manifest.webmanifest';
+    @endphp
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="manifest" href="{{ asset($manifestPath) }}" crossorigin="use-credentials">
 
     <!-- ========== Page Title ========== -->
     <title>{{ config('app.name') . ' | ' . $module }}</title>
@@ -74,6 +81,12 @@
     ============================================= -->
     {{-- @include('user.layouts.footer') --}}
     <!-- End Footer -->
+
+    <button id="installPwaBtn"
+        style="display: none; position: fixed; bottom: 90px; right: 20px; z-index: 99999999999999; padding: 10px 20px; background-color: #710B28; color: white; border: none; border-radius: 10px;">
+        Install Aplikasi
+    </button>
+
 
     @include('user.layouts.sidebar')
 

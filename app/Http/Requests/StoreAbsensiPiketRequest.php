@@ -23,8 +23,7 @@ class StoreAbsensiPiketRequest extends FormRequest
     {
         return [
             'uuid_penghuni' => 'required',
-            'lokasi' => 'required',
-            'waktu' => 'required',
+            'tanggal' => 'required',
         ];
     }
 
@@ -32,8 +31,7 @@ class StoreAbsensiPiketRequest extends FormRequest
     {
         return [
             'uuid_penghuni.required' => 'Kolom nama harus di isi.',
-            'lokasi.required' => 'Kolom loksi harus di isi.',
-            'waktu.required' => 'Kolom waktu harus di isi.',
+            'tanggal.required' => 'Kolom tanggal piket harus di isi.',
         ];
     }
 }

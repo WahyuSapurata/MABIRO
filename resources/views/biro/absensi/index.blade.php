@@ -35,7 +35,8 @@
                                             <th>No</th>
                                             <th>Nama</th>
                                             <th>Lokasi Piket</th>
-                                            <th>Waktu Piket</th>
+                                            <th>Tanggal Piket</th>
+                                            <th>Jam Piket</th>
                                             <th>Status</th>
                                             <th>Dokumentasi</th>
                                             <th>Aksi</th>
@@ -99,15 +100,9 @@
                     </div>
 
                     <div class="mb-10">
-                        <label class="form-label">Lokasi Piket</label>
-                        <input type="text" class="form-control" name="lokasi">
-                        <small class="text-danger lokasi_error"></small>
-                    </div>
-
-                    <div class="mb-10">
-                        <label class="form-label">Waktu Piket</label>
-                        <input type="text" class="form-control kt_datepicker_3" name="waktu">
-                        <small class="text-danger waktu_error"></small>
+                        <label class="form-label">Tanggal Piket</label>
+                        <input type="text" class="form-control kt_datepicker_3" name="tanggal">
+                        <small class="text-danger tanggal_error"></small>
                     </div>
 
                     <div class="separator separator-dashed mt-8 mb-5"></div>
@@ -196,9 +191,21 @@
                 }, {
                     data: 'lokasi',
                     className: 'text-center',
+                    render: function(data, type, row, meta) {
+                        return data ? data : '-';
+                    }
+                }, {
+                    data: 'tanggal',
+                    className: 'text-center',
+                    render: function(data, type, row, meta) {
+                        return data ? data : '-';
+                    }
                 }, {
                     data: 'waktu',
                     className: 'text-center',
+                    render: function(data, type, row, meta) {
+                        return data ? data : '-';
+                    }
                 }, {
                     data: 'status',
                     className: 'text-center',

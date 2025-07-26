@@ -9,6 +9,15 @@
     <meta charset="utf-8" />
     <title> {{ config('app.name') . ' | ' . $module }} </title>
 
+    @php
+        $manifestPath = file_exists(public_path('manifest.webmanifest'))
+            ? '/manifest.webmanifest'
+            : '/build/manifest.webmanifest';
+    @endphp
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="manifest" href="{{ asset($manifestPath) }}" crossorigin="use-credentials">
+
     <meta property="og:description"
         content="Arvala Mockup is a professional product mockup template designed for digital goods. Perfect for creators and entrepreneurs." />
     <meta name="keywords"
