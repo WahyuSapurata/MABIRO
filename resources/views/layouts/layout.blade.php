@@ -64,7 +64,8 @@
     <!--begin::Root-->
     <div class="d-flex flex-column flex-root">
         <!--begin::Page-->
-        <div class="page d-flex flex-row flex-column-fluid">
+        {{-- <div class="page d-flex flex-row flex-column-fluid"> --}}
+        <div class="page d-flex flex-row">
             <!--begin::Aside-->
             <div id="kt_aside" class="aside aside-dark aside-hoverable" data-kt-drawer="true"
                 data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}"
