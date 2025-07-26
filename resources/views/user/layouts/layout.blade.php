@@ -9,9 +9,7 @@
     <meta name="description" content="Solion - IT Solutions Template">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#710B28">
-    <link rel="apple-touch-icon" href="/icon-192x192.png">
+    @vite(['resources/js/app.js', 'resources/css/app.css'])
 
     <!-- ========== Page Title ========== -->
     <title>{{ config('app.name') . ' | ' . $module }}</title>
@@ -133,13 +131,13 @@
         </script>
     @endif
 
-    <script>
+    {{-- <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/service-worker.js')
                 .then(() => console.log('✅ Service Worker Registered'))
                 .catch(err => console.error('❌ SW Gagal:', err));
         }
-    </script>
+    </script> --}}
 
 
 </body>

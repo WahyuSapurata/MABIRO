@@ -4,7 +4,7 @@
 @endphp
 @section('content')
     <!-- Start Breadcrumb
-                                                                                                                                                                                                                                                                                                ============================================= -->
+                                                                                                                                                                                                                                                                                                    ============================================= -->
     <div class="breadcrumb-area text-center shadow theme-hard bg-fixed text-light"
         style="background-image: url({{ asset('assets-landing/img/banner/asrama.png') }});">
         <div class="container">
@@ -18,7 +18,7 @@
     <!-- End Breadcrumb -->
 
     <!-- Star About Area
-                                                                                                                                            ============================================= -->
+                                                                                                                                                ============================================= -->
     <div class="blog-area grid-colum default-padding">
         <div class="container">
             <div class="blog-items">

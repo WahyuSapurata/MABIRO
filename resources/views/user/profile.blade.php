@@ -1,7 +1,7 @@
 @extends('user.layouts.layout')
 @section('content')
     <!-- Start Breadcrumb
-                                                                                                                                                                                                                                                                            ============================================= -->
+                                                                                                                                                                                                                                                                                                    ============================================= -->
     <div class="breadcrumb-area text-center shadow theme-hard bg-fixed text-light"
         style="background-image: url({{ asset('assets-landing/img/banner/asrama.png') }});">
         <div class="container">
@@ -68,8 +68,16 @@
                                         <td>{{ $data->data_penghuni->program_studi }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Riwayat Pendidikan</td>
-                                        <td>{{ $data->data_penghuni->riwayat_pendidikan }}</td>
+                                        <td>Riwayat Pendidikan SD</td>
+                                        <td>{{ $data->data_penghuni->riwayat_pendidikan_sd }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Riwayat Pendidikan SMP</td>
+                                        <td>{{ $data->data_penghuni->riwayat_pendidikan_smp }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Riwayat Pendidikan SMA</td>
+                                        <td>{{ $data->data_penghuni->riwayat_pendidikan_sma }}</td>
                                     </tr>
                                     <tr>
                                         <td>No HP</td>
@@ -89,6 +97,15 @@
                                     </tr>
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="d-flex justify-content-center mb-3">
+                            @if (auth()->check())
+                                <button type="button" class="btn btn-danger"><a href="{{ route('logout') }}"
+                                        class="text-white">Keluar</a></button>
+                            @else
+                                <button type="button" class="btn btn-login"><a
+                                        href="{{ route('login.login-akun') }}">Masuk</a></button>
+                            @endif
                         </div>
                     </div>
                 </div>

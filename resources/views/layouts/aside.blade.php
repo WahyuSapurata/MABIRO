@@ -769,9 +769,10 @@
                 </form>
 
             </div> --}}
+        </div> --}}
 
 
-            {{-- <div class="menu-item">
+        {{-- <div class="menu-item">
                 <a class="menu-link  {{ $path[0] === 'ubahpassword' ? 'active' : '' }}"
                     href="{{ route('ubahpassword') }}">
                     <span class="menu-icon">
@@ -788,9 +789,9 @@
                 </a>
             </div> --}}
 
-        </div>
-        <!--end::Menu-->
     </div>
+    <!--end::Menu-->
+</div>
 </div>
 
 @section('scripts')
