@@ -70,6 +70,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Lokasi</th>
+                                        <th>Tanggal</th>
                                         <th>Waktu</th>
                                         <th>Dokumentasi Foto</th>
                                     </tr>
@@ -79,6 +80,7 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $rwt->lokasi }}</td>
+                                            <td>{{ $rwt->tanggal }}</td>
                                             <td>{{ $rwt->waktu }}</td>
                                             <td><img width="150px"
                                                     src="{{ asset('/public/absen/' . $rwt->dokumentasi_foto) }}"
@@ -86,7 +88,7 @@
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="4" class="text-center">Data tidak tersedia</td>
+                                            <td colspan="5" class="text-center">Data tidak tersedia</td>
                                         </tr>
                                     @endforelse
                                 </tbody>
@@ -108,6 +110,14 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body" id="modal-body-content">
+                        <div class="mb-10">
+                            <label class="form-label">Lokasi</label>
+                            <input type="text" name="lokasi" class="form-control" required>
+                        </div>
+                        <div class="mb-10">
+                            <label class="form-label">Jam</label>
+                            <input type="time" name="waktu" class="form-control" required>
+                        </div>
                         <div class="mb-10">
                             <label class="form-label">Upload Absensi</label>
                             <input type="file" name="dokumentasi_foto" accept=".png, .jpg, .jpeg" class="form-control"

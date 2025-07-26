@@ -33,8 +33,7 @@ class AbsensiPiketController extends BaseController
         try {
             $data = new AbsensiPiket();
             $data->uuid_penghuni = $store->uuid_penghuni;
-            $data->lokasi = $store->lokasi;
-            $data->waktu = $store->waktu;
+            $data->tanggal = $store->tanggal;
             $data->status = 'Belum Piket';
             $data->save();
         } catch (\Exception $e) {
@@ -67,8 +66,7 @@ class AbsensiPiketController extends BaseController
 
         try {
             $data->uuid_penghuni = $update->uuid_penghuni;
-            $data->lokasi = $update->lokasi;
-            $data->waktu = $update->waktu;
+            $data->tanggal = $update->tanggal;
             $data->dokumentasi_foto = $update->file('dokumentasi_foto') ? $newFoto : $data->dokumentasi_foto;
             $data->save();
         } catch (\Exception $e) {
@@ -107,7 +105,7 @@ class AbsensiPiketController extends BaseController
 
         if ($absensi) {
             // Ambil tanggal absensi
-            $absenDate = Carbon::createFromFormat('d-m-Y', $absensi->waktu);
+            $absenDate = Carbon::createFromFormat('d-m-Y', $absensi->tanggal);
 
             // Bandingkan dengan tanggal hari ini
             if ($absenDate->isSameDay(Carbon::today())) {
@@ -135,6 +133,8 @@ class AbsensiPiketController extends BaseController
         }
 
         try {
+            $data->lokasi = $update->lokasi;
+            $data->waktu = $update->waktu;
             $data->status = 'Sudah Piket';
             $data->dokumentasi_foto = $update->file('dokumentasi_foto') ? $newFoto : $data->dokumentasi_foto;
             $data->save();
