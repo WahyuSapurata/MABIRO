@@ -16,6 +16,7 @@
     @endphp
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @dd($manifestPath)
     <link rel="manifest" href="{{ asset($manifestPath) }}" crossorigin="use-credentials">
 
     <!-- ========== Page Title ========== -->
