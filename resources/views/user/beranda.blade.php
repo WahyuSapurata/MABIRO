@@ -11,13 +11,8 @@
                         <div>
                             <div class="content">
                                 <!-- <div class="videos-button" class="wow fadeInUp" data-wow-delay="300ms">
-<<<<<<< Updated upstream
-                                                                                                                        <a href="https://www.youtube.com/watch?v=35mvh-2oII8" class="popup-youtube video-button"><i class="fas fa-play"></i></a>
-                                                                                                                    </div> -->
-=======
-                                                                                                                                <a href="https://www.youtube.com/watch?v=35mvh-2oII8" class="popup-youtube video-button"><i class="fas fa-play"></i></a>
-                                                                                                                            </div> -->
->>>>>>> Stashed changes
+                                                                                                                                    <a href="https://www.youtube.com/watch?v=35mvh-2oII8" class="popup-youtube video-button"><i class="fas fa-play"></i></a>
+                                                                                                                                </div> -->
                                 <h2 class="wow fadeInLeft text-hero" data-wow-delay="500ms">Sistem Informasi
                                     Manajemen<strong>Asrama Mahasiswa Balikpapan</strong></h2>
                                 <h3 class="wow fadeInLeft text-hero" data-wow-delay="500ms">Keluarga Pelajar Mahasiswa
@@ -40,11 +35,7 @@
     <!-- End Banner -->
 
     <!-- Star Services Area
-<<<<<<< Updated upstream
-                                                                                        ============================================= -->
-=======
-                                                                                                ============================================= -->
->>>>>>> Stashed changes
+                                                                                                    ============================================= -->
     <div class="services-style-nine text-center default-padding-bottom bottom-less">
         <div class="container">
             <div class="services-style-nine-items">
@@ -100,11 +91,7 @@
     <!-- End Services Area -->
 
     <!-- Start About Area
-<<<<<<< Updated upstream
-                                                                                        ============================================= -->
-=======
-                                                                                                ============================================= -->
->>>>>>> Stashed changes
+                                                                                                    ============================================= -->
     <div class="about-style-nine-area default-padding-bottom">
         <div class="container">
             <div class="row align-center">
@@ -140,11 +127,7 @@
     <!-- End About Area -->
 
     <!-- Star Work Process Area
-<<<<<<< Updated upstream
-                                                                                        ============================================= -->
-=======
-                                                                                                ============================================= -->
->>>>>>> Stashed changes
+                                                                                                    ============================================= -->
     <div class="process-style-twoa-rea text-center text-light default-padding bg-cover bottom-less"
         style="background-image: url({{ asset('assets-landing/img/shape/4.jpg') }});">
         <div class="container">
@@ -216,11 +199,7 @@
     <!-- End Work Process Area -->
 
     <!-- Start Testimonials Area
-<<<<<<< Updated upstream
-                                                                                        ============================================= -->
-=======
-                                                                                                ============================================= -->
->>>>>>> Stashed changes
+                                                                                                    ============================================= -->
     <div class="testimonials-area carousel-shadow default-padding">
         <div class="container">
             <div class="heading-left">
@@ -327,11 +306,7 @@
     <!-- End Testimonials Area -->
 
     <!-- Start Case Studies Area
-<<<<<<< Updated upstream
-                                                                                        ============================================= -->
-=======
-                                                                                                ============================================= -->
->>>>>>> Stashed changes
+                                                                                                    ============================================= -->
     <div class="case-studies-area bg-gray default-padding-bottom">
         <!-- Fixed BG -->
         <div class="fixed-shape-top">
@@ -417,11 +392,7 @@
     <!-- End Case Studies Area -->
 
     <!-- Star Faq
-<<<<<<< Updated upstream
-                                                                                        ============================================= -->
-=======
-                                                                                                ============================================= -->
->>>>>>> Stashed changes
+                                                                                                    ============================================= -->
     <div class="faq-area overflow-hidden bg-gray rectangular-shape default-padding-bottom">
         <div class="container">
             <div class="faq-items">
@@ -510,11 +481,7 @@
 
 
     <!-- Start Pricing Area
-<<<<<<< Updated upstream
-                                                                                        ============================================= -->
-=======
-                                                                                                ============================================= -->
->>>>>>> Stashed changes
+                                                                                                    ============================================= -->
     <div id="pricing" class="pricing-area half-bg default-padding bg-gray">
         <div class="container">
             <div class="row">
@@ -591,11 +558,7 @@
     <!-- End Pricing Area -->
 
     <!-- Start Contact Area
-<<<<<<< Updated upstream
-                                                                                        ============================================= -->
-=======
-                                                                                                ============================================= -->
->>>>>>> Stashed changes
+                                                                                                    ============================================= -->
     <div class="contact-area bg-gray half-bg default-padding-bottom">
         <div class="container">
             <div class="contact-box">
@@ -695,11 +658,7 @@
     <!-- End Contact Area -->
 
     <!-- Start Blog Area
-<<<<<<< Updated upstream
-                                                                                        ============================================= -->
-=======
-                                                                                                ============================================= -->
->>>>>>> Stashed changes
+                                                                                                    ============================================= -->
     <div class="blog-area default-padding-bottom bottom-less">
         <div class="container">
             <div class="row">

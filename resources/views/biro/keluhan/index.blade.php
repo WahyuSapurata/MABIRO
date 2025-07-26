@@ -11,12 +11,12 @@
             <p class="mb-0 mb-text-p18 mb-text-color-secondary">Asrama Mahasiswa Balikpapan KPMB Makassar</p>
         </div>
 
-        <!-- Kanan: Tombol -->
+        {{-- <!-- Kanan: Tombol -->
         <div class="text-center text-md-end">
             <button class="btn mb-btn-tambah-data btn-sm " data-kt-drawer-show="true" data-kt-drawer-target="#side_form"
                 id="button-side-form"><i class="fa fa-plus-circle" style="color:#ffffff" aria-hidden="true"></i> Tambah
                 Data</button>
-        </div>
+        </div> --}}
 
     </div>
     <!--end::Pengganti Toolbar-->

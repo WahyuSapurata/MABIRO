@@ -118,8 +118,7 @@ class AbsensiPiketController extends BaseController
         $riwayat = AbsensiPiket::where('uuid_penghuni', auth()->user()->uuid)->whereNotNull('dokumentasi_foto')->get();
         return view('user.absensi', compact(
             'module',
-            'absensi',
-            'isValid',
+            'data',
             'riwayat'
         ));
     }

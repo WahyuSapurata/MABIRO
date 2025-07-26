@@ -16,6 +16,18 @@ class KeluhanController extends BaseController
         return view('biro.keluhan.index', compact('module'));
     }
 
+    public function index_keuangan()
+    {
+        $module = 'Laoran & Keluhan';
+        return view('biro.keluhan.index', compact('module'));
+    }
+
+    public function index_inventaris()
+    {
+        $module = 'Laoran & Keluhan';
+        return view('biro.keluhan.index', compact('module'));
+    }
+
     public function get()
     {
         $data = Keluhan::all();

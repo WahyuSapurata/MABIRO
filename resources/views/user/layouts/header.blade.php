@@ -94,11 +94,8 @@
                         </button>
                     </li>
                     <!-- Tombol Masuk -->
-                    <li>
-                        @if (auth()->check())
-                            <button type="button" class="btn btn-mabiro-white"><a
-                                    href="{{ route('logout') }}">Keluar</a></button>
-                        @else
+                    <li class="d-none d-lg-block">
+                        @if (!auth()->check())
                             <button type="button" class="btn btn-login"><a
                                     href="{{ route('login.login-akun') }}">Masuk</a></button>
                         @endif

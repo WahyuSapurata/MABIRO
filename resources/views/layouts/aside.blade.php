@@ -758,7 +758,7 @@
                 <!--end::Menu item-->
             @endif
 
-
+            {{--
             <div class="d-md-none d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
                 <form id="logout-form" action="{{ route('logout') }}" method="GET" class="d-grid">
                     @csrf
@@ -768,7 +768,7 @@
                         id="sign-out"><span>Keluar</span> <i class="mabiro-btn fas fa-sign-out-alt"></i></button>
                 </form>
 
-            </div>
+            </div> --}}
 
 
             {{-- <div class="menu-item">

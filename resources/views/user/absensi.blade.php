@@ -26,8 +26,8 @@
                         <div class="devider"></div>
                     </div>
                     <div class="row">
-                        @if ($isValid)
-                            @if ($absensi->dokumentasi_foto)
+                        @if ($data)
+                            @if ($data->dokumentasi_foto)
                                 <div class="col-12">
                                     <div class="alert alert-info" role="alert">
                                         Anda sudah melakukan absensi
@@ -38,12 +38,12 @@
                                     <div class="card">
                                         <div class="card-header">
                                             <h5 class="mb-0">Jadwal Piket Anda
-                                                {{ \Carbon\Carbon::parse($absensi->waktu)->translatedFormat('d-m-Y H:i') }}
+                                                {{ \Carbon\Carbon::parse($data->waktu)->translatedFormat('d-m-Y H:i') }}
                                             </h5>
                                         </div>
                                         <div class="card-body">
                                             <button class="btn btn-danger btn-buka-modal"
-                                                data-uuid="{{ $absensi->uuid }}">Lakukan
+                                                data-uuid="{{ $data->uuid }}">Lakukan
                                                 Absensi</button>
                                         </div>
                                     </div>

@@ -1,21 +1,25 @@
 @extends('layouts.layout')
-@section('button')
-    <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
+@section('content')
+    <!--start::Pengganti Toolbar-->
+    <div
+        class="container-fluid mb-topbar-dashboard d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-md-between mb-4">
 
-        <!--begin::Page title-->
-        <div data-kt-swapper="true" data-kt-swapper-mode="prepend"
-            data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
-            class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
-            <!--begin::Title-->
-            <button class="btn btn-success btn-sm " data-kt-drawer-show="true" data-kt-drawer-target="#side_form"
+        <!-- Kiri: Judul dan Subjudul -->
+        <div class="text-center text-md-start mb-5 mb-md-0">
+            <h2 class="mb-1 mb-text-h2 mb-text-color-primary mb-brand-primary-color">{{ $module }}</h2>
+            <p class="mb-0 mb-text-p18 mb-text-color-secondary">Asrama Mahasiswa Balikpapan KPMB Makassar</p>
+        </div>
+
+        <!-- Kanan: Tombol -->
+        <div class="text-center text-md-end">
+            <button class="btn mb-btn-tambah-data btn-sm " data-kt-drawer-show="true" data-kt-drawer-target="#side_form"
                 id="button-side-form"><i class="fa fa-plus-circle" style="color:#ffffff" aria-hidden="true"></i> Tambah
                 Data</button>
-            <!--end::Title-->
         </div>
-        <!--end::Page title-->
+
     </div>
-@endsection
-@section('content')
+    <!--end::Pengganti Toolbar-->
+
     <div class="post d-flex flex-column-fluid" id="kt_post">
         <!--begin::Container-->
         <div id="kt_content_container" class="container">
@@ -32,6 +36,7 @@
                                             <th>Nama</th>
                                             <th>Lokasi Piket</th>
                                             <th>Waktu Piket</th>
+                                            <th>Status</th>
                                             <th>Dokumentasi</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -129,8 +134,7 @@
         })
 
         $(".kt_datepicker_3").flatpickr({
-            enableTime: true,
-            dateFormat: "d-m-Y H:i",
+            dateFormat: "d-m-Y",
         });
 
         $(document).on('submit', ".form-data", function(e) {
@@ -194,6 +198,9 @@
                     className: 'text-center',
                 }, {
                     data: 'waktu',
+                    className: 'text-center',
+                }, {
+                    data: 'status',
                     className: 'text-center',
                 }, {
                     data: 'dokumentasi_foto',
