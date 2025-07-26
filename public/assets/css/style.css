@@ -883,7 +883,6 @@ select.custom-select.custom-select-sm.form-control.form-control-sm {
 
 /*DASHBOARD*/
 .mb-dashboard {
-    margin-top: -55px;
     border-radius: 24px;
 }
 
@@ -1177,13 +1176,29 @@ i.mb-icon-more {
     line-height: 1.2;
 }
 
-.mb-dash-time {}
 
 /*MODE RESPONSIVE HP*/
 @media (max-width: 420px) {
 
     .bg-mabiro {
         border-radius: 16px !important;
+    }
+
+    .mb-dash-time {
+        background: #dedede38;
+        width: max-content;
+        padding: 8px 16px;
+        border-radius: 8px;
+    }
+
+    div#hariTanggal {
+        border-right: 1px solid #ccc;
+        padding-right: 5px;
+    }
+
+
+    .mb-dashboard {
+        margin-top: -40px;
     }
 
     .mb-text-h2 {

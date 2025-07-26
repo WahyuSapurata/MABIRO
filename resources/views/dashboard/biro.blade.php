@@ -2,9 +2,10 @@
 @section('content')
     <div class="mb-dashboard post d-flex flex-column-fluid" id="kt_post">
         <!--begin::Container-->
-        <div id="kt_content_container" class="container">
+        <div class="container">
             <div class="container py-5 bg-mabiro rounded-3">
-                <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-top">
+                <div
+                    class="d-flex flex-column flex-md-row justify-content-between align-items-center align-items-md-start text-center text-md-start">
                     <!-- Kiri: Judul -->
                     <div>
                         <div class="mb-dashboard-tittle-01 text-white mt-2 text-center text-md-start">Selamat Datang di,
@@ -16,7 +17,7 @@
                     </div>
                     <!-- Kanan: Hari, Tanggal, Jam -->
                     <div
-                        class="mb-dash-time text-white text-md-end text-center mt-0 mb-5 mb-md-0 mt-md-1 mb-dashboard-tittle-02">
+                        class="d-flex flex-row flex-md-column justify-content-center align-items-center align-items-md-end text-white text-center text-md-end mt-0 mb-5 mb-md-0 mb-dash-time mb-dashboard-tittle-02 gap-2 gap-md-0">
                         <div id="hariTanggal" class="fw-semibold"></div>
                         <div id="jamSekarang" class="fs-5 fw-bold"></div>
                     </div>
