@@ -678,6 +678,16 @@ th[rowspan] {
     white-space: nowrap;
 }
 
+.mb-kolom-qty {
+    width: 50px;
+    max-width: 100px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+body table th {
+    background: var(--brand-primary-color) !important;
+}
 
 .mb-kolom-tanggal {
     width: 90px;

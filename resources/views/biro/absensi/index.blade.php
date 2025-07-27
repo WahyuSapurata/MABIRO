@@ -6,7 +6,7 @@
 
         <!-- Kiri: Judul dan Subjudul -->
         <div class="text-center text-md-start mb-5 mb-md-0">
-            <h2 class="mb-1 mb-text-h2 mb-text-color-primary mb-brand-primary-color">{{ $module }}</h2>
+            <h2 class="mb-1 mb-text-h2 mb-text-color-primary mb-brand-primary-color">Absensi Piket</h2>
             <p class="mb-0 mb-text-p18 mb-text-color-secondary">Asrama Mahasiswa Balikpapan KPMB Makassar</p>
         </div>
 
@@ -32,14 +32,17 @@
                                 <table id="kt_table_data" class="table table-rounded table-row-bordered table-row-gray-300">
                                     <thead class="text-center bg-white">
                                         <tr class="fw-bolder fs-6">
-                                            <th>No</th>
-                                            <th>Nama</th>
-                                            <th>Lokasi Piket</th>
-                                            <th>Tanggal Piket</th>
-                                            <th>Jam Piket</th>
-                                            <th>Status</th>
+                                            <th rowspan="2">No</th>
+                                            <th rowspan="2">Nama Warga</th>
+                                            <th rowspan="2">Jadwal Piket</th>
+                                            <th colspan="3">Absensi Piket</th>
+                                            <th rowspan="2">Status</th>
+                                            <th rowspan="2">Aksi</th>
+                                        </tr>
+                                        <tr class="fw-bolder fs-6">
+                                            <th>Area Piket</th>
+                                            <th>Jam</th>
                                             <th>Dokumentasi</th>
-                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -92,7 +95,7 @@
                     <input type="hidden" name="uuid">
 
                     <div class="mb-10">
-                        <label class="form-label">Nama</label>
+                        <label class="form-label">Nama Warga</label>
                         <select name="uuid_penghuni" class="form-select" data-control="select2" id="uuid_penghuni"
                             data-placeholder="Silahkan pilih nama penghuni">
                         </select>
@@ -100,18 +103,18 @@
                     </div>
 
                     <div class="mb-10">
-                        <label class="form-label">Tanggal Piket</label>
+                        <label class="form-label">Jadwal Piket</label>
                         <input type="text" class="form-control kt_datepicker_3" name="tanggal">
                         <small class="text-danger tanggal_error"></small>
                     </div>
 
                     <div class="separator separator-dashed mt-8 mb-5"></div>
                     <div class="d-flex gap-5">
-                        <button type="submit" class="btn btn-mabiro-blue btn-sm btn-submit d-flex align-items-center"><i
-                                class="bi bi-file-earmark-diff"></i> Simpan</button>
+                        <button type="submit" class="btn btn-mabiro-primary btn-sm btn-submit d-flex align-items-center"><i
+                                class="fas fa-save text-white"></i> Simpan</button>
                         <button type="reset" id="side_form_close"
-                            class="btn mr-2 btn-danger btn-sm d-flex align-items-center"><i
-                                class="bi bi-trash-fill"></i>Batal</button>
+                            class="btn mr-2 btn-mabiro-grey btn-cancel btn-sm d-flex align-items-center"><i
+                                class="fas fa-times text-white"></i>Batal</button>
                     </div>
                 </form>
             </div>
@@ -182,35 +185,34 @@
                 ajax: '/biro/absensi-get',
                 columns: [{
                     data: null,
+                    class: 'mb-kolom-nomor align-content-center',
                     render: function(data, type, row, meta) {
                         return meta.row + meta.settings._iDisplayStart + 1;
                     }
                 }, {
                     data: 'nama_penghuni',
-                    className: 'text-center',
+                    class: 'mb-kolom-text text-center align-content-center',
                 }, {
-                    data: 'lokasi',
-                    className: 'text-center',
+                    data: 'tanggal',
+                    class: 'mb-kolom-tanggal text-center align-content-center',
                     render: function(data, type, row, meta) {
                         return data ? data : '-';
                     }
                 }, {
-                    data: 'tanggal',
-                    className: 'text-center',
+                    data: 'lokasi',
+                    class: 'mb-kolom-tanggal text-center align-content-center',
                     render: function(data, type, row, meta) {
                         return data ? data : '-';
                     }
                 }, {
                     data: 'waktu',
-                    className: 'text-center',
+                    class: 'mb-kolom-qty text-center align-content-center',
                     render: function(data, type, row, meta) {
                         return data ? data : '-';
                     }
                 }, {
-                    data: 'status',
-                    className: 'text-center',
-                }, {
                     data: 'dokumentasi_foto',
+                    class: 'mb-kolom-tanggal text-center align-content-center',
                     render: function(data, type, row, meta) {
                         let result;
                         if (data) {
@@ -238,13 +240,15 @@
                         return result;
                     }
                 }, {
+                    data: 'status',
+                    class: 'text-center align-content-center',
+                }, {
                     data: 'uuid',
                 }],
                 columnDefs: [{
                     targets: -1,
                     title: 'Aksi',
-                    width: '10rem',
-                    className: 'text-center',
+                    class: 'mb-kolom-aksi',
                     orderable: false,
                     render: function(data, type, full, meta) {
                         return `
@@ -290,7 +294,7 @@
                 method: "GET",
                 success: function(res) {
                     $(element).html("");
-                    let html = "<option selected disabled>Pilih data penghuni</option>";
+                    let html = "<option selected disabled>Pilih nama warga</option>";
                     $.each(res.data, function(x, y) {
                         html += `<option value="${y.uuid_user}">${y.nama}</option>`;
                     });

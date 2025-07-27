@@ -17,6 +17,7 @@ use App\Models\RekapPembayaran;
 use App\Models\SuratPengajuan;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Matrix\Operators\Operator;
 
 class Dashboard extends BaseController
 {
@@ -56,6 +57,7 @@ class Dashboard extends BaseController
     {
         $module = 'Dashboard';
         $penghuni = DataPenghuni::where('status', 'Terkonfirmasi')->count();
+        $tamu = DataTamu::where('status', 'Sedang Bertamu')->count();
 
         $pemasukan = Pemasukan::sum('jumlah');
         $pengeluaran = Pengeluaran::sum('jumlah');
@@ -81,7 +83,7 @@ class Dashboard extends BaseController
             $item->nama_program = Program::where('uuid', $item->uuid_program)->value('nama_program');
             return $item;
         });
-        return view('dashboard.keuangan', compact('module', 'penghuni', 'saldo', 'tagihan', 'keluhan', 'agenda', 'pemasukan_bulan', 'pengeluaran_bulan'));
+        return view('dashboard.keuangan', compact('module', 'penghuni', 'saldo', 'tagihan', 'keluhan', 'agenda', 'pemasukan_bulan', 'pengeluaran_bulan', 'tamu'));
     }
 
     public function dashboard_inventaris()

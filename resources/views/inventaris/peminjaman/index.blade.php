@@ -1,46 +1,49 @@
 @extends('layouts.layout')
-{{-- @section('button')
-    <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
-        <!--begin::Page title-->
-        <div data-kt-swapper="true" data-kt-swapper-mode="prepend"
-            data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
-            class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
-            <!--begin::Title-->
-            <button class="btn btn-success btn-sm " data-kt-drawer-show="true" data-kt-drawer-target="#side_form"
+@section('content')
+    <!--start::Pengganti Toolbar-->
+    <div
+        class="container-fluid mb-topbar-dashboard d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-md-between mb-4">
+
+        <!-- Kiri: Judul dan Subjudul -->
+        <div class="text-center text-md-start mb-5 mb-md-0">
+            <h2 class="mb-1 mb-text-h2 mb-text-color-primary mb-brand-primary-color">Data Peminjaman</h2>
+            <p class="mb-0 mb-text-p18 mb-text-color-secondary">Asrama Mahasiswa Balikpapan KPMB Makassar</p>
+        </div>
+
+        <!-- Kanan: Tombol -->
+        {{-- <div class="text-center text-md-end">
+            <button class="btn mb-btn-tambah-data btn-sm " data-kt-drawer-show="true" data-kt-drawer-target="#side_form"
                 id="button-side-form"><i class="fa fa-plus-circle" style="color:#ffffff" aria-hidden="true"></i> Tambah
                 Data</button>
-            <!--end::Title-->
-        </div>
-        <!--end::Page title-->
+        </div> --}}
+
     </div>
-@endsection --}}
-@section('content')
+    <!--end::Pengganti Toolbar-->
+
     <div class="post d-flex flex-column-fluid" id="kt_post">
         <!--begin::Container-->
         <div id="kt_content_container" class="container">
             <div class="row">
 
-                <div class="card bg-primary">
+                <div class="card bg-brand">
                     <div class="card-body p-0">
                         <div class="container">
                             <div class="py-5 text-white">
-                                <table id="kt_table_data"
-                                    class="table table-rounded border border-gray-300 table-row-bordered table-row-gray-300">
+                                <table id="kt_table_data" class="table table-rounded table-row-bordered table-row-gray-300">
                                     <thead class="text-center bg-white">
-                                        <tr class="fw-bolder fs-6 text-black">
+                                        <tr class="fw-bolder fs-6">
                                             <th>No</th>
                                             <th>Organisasi</th>
                                             <th>Penanggung Jawab</th>
                                             <th>Nama Barang</th>
-                                            <th>Nomor Whatsapp</th>
+                                            <th>No. Handphone</th>
                                             <th>Tanggal Peminjaman</th>
-                                            <th>Durasi</th>
-                                            <th>Surat</th>
+                                            <th>Durasi (Hari)</th>
                                             <th>Status</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="bg-white">
+                                    <tbody>
                                     </tbody>
                                 </table>
                             </div>
@@ -106,20 +109,25 @@
                         <label class="form-label">Status</label>
                         <select name="status" class="form-control" data-control="select2">
                             <option value="">-- Pilih Status --</option>
-                            <option value="terpinjam">Terpinjam</option>
-                            <option value="selesai">Selesai</option>
+                            <option value="Menunggu Persetujuan">Menunggu Persetujuan</option>
+                            <option value="Dipinjamkan">Dipinjamkan</option>
+                            <option value="Sudah Dikembalikan">Sudah Dikembalikan</option>
                         </select>
                         <small class="text-danger status_error"></small>
                     </div>
 
+                    <div class="mb-10">
+                        <label class="form-label">File Surat</label>
+                        <div class="mt-3" id="logoInfoContainer"></div>
+                    </div>
+
                     <div class="separator separator-dashed mt-8 mb-5"></div>
                     <div class="d-flex gap-5">
-                        <button type="submit" class="btn btn-primary btn-sm btn-submit d-flex align-items-center"><i
-                                class="bi bi-file-earmark-diff"></i> Simpan</button>
+                        <button type="submit" class="btn btn-mabiro-primary btn-sm btn-submit d-flex align-items-center"><i
+                                class="fas fa-save text-white"></i> Simpan</button>
                         <button type="reset" id="side_form_close"
-                            class="btn mr-2 btn-light btn-cancel btn-sm d-flex align-items-center"
-                            style="background-color: #ea443e65; color: #EA443E"><i class="bi bi-trash-fill"
-                                style="color: #EA443E"></i>Batal</button>
+                            class="btn mr-2 btn-mabiro-grey btn-cancel btn-sm d-flex align-items-center"><i
+                                class="fas fa-times text-white"></i>Batal</button>
                     </div>
                 </form>
             </div>
@@ -147,17 +155,53 @@
             }
         });
 
-        $(document).on('click', '.button-update', function(e) {
-            e.preventDefault();
-            let url = '/biro/inventaris/data-peminjaman-show/' + $(this).attr('data-uuid');
-            control.overlay_form('Update', 'Campaign Donasi', url);
-        })
-
         $(document).on('click', '.button-delete', function(e) {
             e.preventDefault();
             let url = '/biro/inventaris/data-peminjaman-delete/' + $(this).attr('data-uuid');
             let label = $(this).attr('data-label');
             control.ajaxDelete(url, label)
+        })
+
+        $(document).on('click', '.button-update', function(e) {
+            e.preventDefault();
+            $(".form-data").attr("data-type", "update");
+            $(".title_side_form").html(`Update Fasilitas`);
+            $(".text-danger").html("");
+            let url = '/biro/inventaris/data-peminjaman-show/' + $(this).attr('data-uuid');
+            $.ajax({
+                url: url,
+                method: "GET",
+                success: function(res) {
+                    if (res.success == true) {
+                        // Inisialisasi Select2 hanya sekali
+                        $('#nama_agenda').select2();
+
+                        $.each(res.data, function(x, y) {
+                            const $selectField = $("select[name='" + x + "[]']");
+
+                            if ($("input[name='" + x + "']").is(":radio")) {
+                                $("input[name='" + x + "'][value='" + y + "']").prop("checked",
+                                    true);
+                            } else if ($("input[name='" + x + "']").attr("type") === "file") {
+                                $('#logoInfoContainer').html(
+                                    `<a href="{{ asset('/public/pengajuan/${y}') }}" target="_blank" class="btn btn-outline btn-outline-dashed btn-outline-danger btn-active-light-danger p-2 py-1">
+                                        <div class="d-flex justify-content-center align-items-center" style="gap: 5px; color: red;">
+                                            Lihat File
+                                        </div>
+                                    </a>`
+                                );
+                            } else {
+                                $("input[name='" + x + "']").val(y);
+                                $("select[name='" + x + "']").val(y).trigger("change");
+                                $("textarea[name='" + x + "']").val(y);
+                            }
+                        });
+                    }
+                },
+                error: function(xhr) {
+                    alert("gagal");
+                },
+            });
         })
 
         $(document).on('keyup', '#search_', function(e) {
@@ -182,47 +226,37 @@
                 ajax: '/biro/inventaris/data-peminjaman-get',
                 columns: [{
                     data: null,
+                    className: 'mb-kolom-nomor align-content-center',
                     render: function(data, type, row, meta) {
                         return meta.row + meta.settings._iDisplayStart + 1;
                     }
                 }, {
                     data: 'organisasi',
-                    className: 'text-center',
+                    className: 'mb-kolom-text align-content-center text-center',
                 }, {
                     data: 'penanggung_jawab',
-                    className: 'text-center',
+                    className: 'mb-kolom-text align-content-center text-center',
                 }, {
                     data: 'barang',
-                    className: 'text-center',
+                    className: 'mb-kolom-text align-content-center text-center',
                 }, {
                     data: 'nomor_telepon',
-                    className: 'text-center',
+                    className: 'mb-kolom-qty align-content-center text-center',
                 }, {
                     data: 'tanggal_pinjam',
-                    className: 'text-center',
+                    className: 'mb-kolom-tanggal align-content-center text-center',
                 }, {
                     data: 'durasi_peminjaman',
-                    className: 'text-center',
-                }, {
-                    data: 'surat',
-                    render: function(data, type, row, meta) {
-                        let result;
-                        result =
-                            `<a href="{{ asset('/public/pengajuan/${data}') }}" target="_blank" class="btn btn-outline btn-outline-dashed btn-outline-danger btn-active-light-danger p-2 py-1">
-                                    <div class="d-flex justify-content-center align-items-center" style="gap: 5px; color: red;">
-                                        Lihat File
-                                    </div>
-                                </a>`;
-                        return result;
-                    }
+                    className: 'mb-kolom-qty align-content-center text-center',
                 }, {
                     data: 'status',
+                    className: 'mb-kolom-text align-content-center text-center',
                     render: function(data, type, row, meta) {
                         let result;
                         result =
-                            `<div class="btn btn-outline btn-outline-dashed ${data ? 'btn-outline-success btn-active-light-success' : 'btn-outline-danger btn-active-light-danger'} p-2 py-1">
+                            `<div class="btn btn-outline btn-outline-dashed btn-outline-success btn-active-light-success p-2 py-1">
                                     <div class="d-flex justify-content-center align-items-center" style="gap: 5px;">
-                                        ${data ? data : 'Perlu Persetujuan'}
+                                        ${data}
                                     </div>
                                 </div>`;
                         return result;
@@ -233,7 +267,7 @@
                 columnDefs: [{
                     targets: -1,
                     title: 'Aksi',
-                    width: '8rem',
+                    className: 'mb-kolom-aksi',
                     orderable: false,
                     render: function(data, type, full, meta) {
                         return `

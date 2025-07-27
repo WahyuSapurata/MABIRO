@@ -1,20 +1,25 @@
 @extends('layouts.layout')
-{{-- @section('button')
-    <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
-        <!--begin::Page title-->
-        <div data-kt-swapper="true" data-kt-swapper-mode="prepend"
-            data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
-            class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
-            <!--begin::Title-->
-            <button class="btn btn-success btn-sm " data-kt-drawer-show="true" data-kt-drawer-target="#side_form"
+@section('content')
+    <!--start::Pengganti Toolbar-->
+    <div
+        class="container-fluid mb-topbar-dashboard d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-md-between mb-4">
+
+        <!-- Kiri: Judul dan Subjudul -->
+        <div class="text-center text-md-start mb-5 mb-md-0">
+            <h2 class="mb-1 mb-text-h2 mb-text-color-primary mb-brand-primary-color">Data Peminjaman</h2>
+            <p class="mb-0 mb-text-p18 mb-text-color-secondary">Asrama Mahasiswa Balikpapan KPMB Makassar</p>
+        </div>
+
+        <!-- Kanan: Tombol -->
+        {{-- <div class="text-center text-md-end">
+            <button class="btn mb-btn-tambah-data btn-sm " data-kt-drawer-show="true" data-kt-drawer-target="#side_form"
                 id="button-side-form"><i class="fa fa-plus-circle" style="color:#ffffff" aria-hidden="true"></i> Tambah
                 Data</button>
-            <!--end::Title-->
-        </div>
-        <!--end::Page title-->
+        </div> --}}
+
     </div>
-@endsection --}}
-@section('content')
+    <!--end::Pengganti Toolbar-->
+
     <div class="post d-flex flex-column-fluid" id="kt_post">
         <!--begin::Container-->
         <div id="kt_content_container" class="container">
@@ -31,9 +36,9 @@
                                             <th>Organisasi</th>
                                             <th>Penanggung Jawab</th>
                                             <th>Nama Barang</th>
-                                            <th>Nomor Whatsapp</th>
+                                            <th>No. Handphone</th>
                                             <th>Tanggal Peminjaman</th>
-                                            <th>Durasi</th>
+                                            <th>Durasi (Hari)</th>
                                             <th>Status</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -118,12 +123,11 @@
 
                     <div class="separator separator-dashed mt-8 mb-5"></div>
                     <div class="d-flex gap-5">
-                        <button type="submit" class="btn btn-primary btn-sm btn-submit d-flex align-items-center"><i
-                                class="bi bi-file-earmark-diff"></i> Simpan</button>
+                        <button type="submit" class="btn btn-mabiro-primary btn-sm btn-submit d-flex align-items-center"><i
+                                class="fas fa-save text-white"></i> Simpan</button>
                         <button type="reset" id="side_form_close"
-                            class="btn mr-2 btn-light btn-cancel btn-sm d-flex align-items-center"
-                            style="background-color: #ea443e65; color: #EA443E"><i class="bi bi-trash-fill"
-                                style="color: #EA443E"></i>Batal</button>
+                            class="btn mr-2 btn-mabiro-grey btn-cancel btn-sm d-flex align-items-center"><i
+                                class="fas fa-times text-white"></i>Batal</button>
                     </div>
                 </form>
             </div>
@@ -222,29 +226,31 @@
                 ajax: '/biro/inventaris/data-peminjaman-get',
                 columns: [{
                     data: null,
+                    className: 'mb-kolom-nomor align-content-center',
                     render: function(data, type, row, meta) {
                         return meta.row + meta.settings._iDisplayStart + 1;
                     }
                 }, {
                     data: 'organisasi',
-                    className: 'text-center',
+                    className: 'mb-kolom-text align-content-center text-center',
                 }, {
                     data: 'penanggung_jawab',
-                    className: 'text-center',
+                    className: 'mb-kolom-text align-content-center text-center',
                 }, {
                     data: 'barang',
-                    className: 'text-center',
+                    className: 'mb-kolom-text align-content-center text-center',
                 }, {
                     data: 'nomor_telepon',
-                    className: 'text-center',
+                    className: 'mb-kolom-qty align-content-center text-center',
                 }, {
                     data: 'tanggal_pinjam',
-                    className: 'text-center',
+                    className: 'mb-kolom-tanggal align-content-center text-center',
                 }, {
                     data: 'durasi_peminjaman',
-                    className: 'text-center',
+                    className: 'mb-kolom-qty align-content-center text-center',
                 }, {
                     data: 'status',
+                    className: 'mb-kolom-text align-content-center text-center',
                     render: function(data, type, row, meta) {
                         let result;
                         result =
@@ -261,7 +267,7 @@
                 columnDefs: [{
                     targets: -1,
                     title: 'Aksi',
-                    width: '8rem',
+                    className: 'mb-kolom-aksi',
                     orderable: false,
                     render: function(data, type, full, meta) {
                         return `

@@ -33,8 +33,8 @@
                                 <table id="kt_table_data" class="table table-rounded table-row-bordered table-row-gray-300">
                                     <thead class="text-center bg-white">
                                         <tr class="fw-bolder fs-6">
-                                            <th>Gambar</th>
-                                            <th>Deskripsi</th>
+                                            <th>Gambar Konten</th>
+                                            <th>Deskripsi Konten</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -116,12 +116,11 @@
 
                     <div class="separator separator-dashed mt-8 mb-5"></div>
                     <div class="d-flex gap-5">
-                        <button type="submit" class="btn btn-primary btn-sm btn-submit d-flex align-items-center"><i
-                                class="bi bi-file-earmark-diff"></i> Simpan</button>
+                        <button type="submit" class="btn btn-mabiro-primary btn-sm btn-submit d-flex align-items-center"><i
+                                class="fas fa-save text-white"></i> Simpan</button>
                         <button type="reset" id="side_form_close"
-                            class="btn mr-2 btn-light btn-cancel btn-sm d-flex align-items-center"
-                            style="background-color: #ea443e65; color: #EA443E"><i class="bi bi-trash-fill"
-                                style="color: #EA443E"></i>Batal</button>
+                            class="btn mr-2 btn-mabiro-grey btn-cancel btn-sm d-flex align-items-center"><i
+                                class="fas fa-times text-white"></i>Batal</button>
                     </div>
                 </form>
             </div>
@@ -282,7 +281,7 @@
                 ajax: '/biro/tentang/selayang-pandang-get',
                 columns: [{
                         data: 'gambar',
-                        className: 'text-center',
+                        className: 'mb-kolom-nominal text-center align-content-center',
                         render: function(data, type, row, meta) {
                             let result;
                             result =
@@ -308,7 +307,7 @@
                     },
                     {
                         data: 'deskripsi',
-                        className: 'text-left',
+                        className: 'mb-kolom-text text-left',
                     },
 
                     {
@@ -318,7 +317,7 @@
                 columnDefs: [{
                     targets: -1,
                     title: 'Aksi',
-                    width: '8rem',
+                    class: 'mb-kolom-aksi',
                     orderable: false,
                     render: function(data, type, full, meta) {
                         return `

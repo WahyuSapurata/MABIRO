@@ -63,7 +63,7 @@
                                             <th>No</th>
                                             <th>Tanggal</th>
                                             <th class="text-center">Keterangan</th>
-                                            <th class="text-center">Debet</th>
+                                            <th class="text-center">Debit</th>
                                             <th class="text-center">Kredit</th>
                                         </tr>
                                     </thead>

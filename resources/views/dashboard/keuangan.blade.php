@@ -9,7 +9,7 @@
                     <!-- Kiri: Judul -->
                     <div>
                         <div class="mb-dashboard-tittle-01 text-white mt-2 text-center text-md-start">Selamat Datang di,
-                            <span><strong>Dashboard Mabiro</strong></span>
+                            <span><strong>Dashboard Unit Keuangan</strong></span>
                         </div>
                         <div class="mb-dashboard-tittle-02 text-white mt-0 text-center text-md-start text-white mb-3">
                             Sistem
@@ -46,10 +46,12 @@
                         <div class="mb-card-dashboard">
                             <div class="d-flex justify-content-between align-items-start">
                                 <div>
-                                    <p class="card-title-big">{{ $tagihan }}</p>
+                                    <p class="card-title-big">{{ $tagihan }} <span class="fs-1 align-middle">
+                                            Warga</span>
+                                    </p>
                                     <p class="card-subtitle">Belum Membayar Tagihan</p>
                                 </div>
-                                <div class="icon-rounded"><i class="fas fa-file-invoice me-2"></i></div>
+                                <div class="icon-rounded"><i class="fas fa-file-invoice"></i></div>
                             </div>
                             <a href="{{ route('biro.rekap-pembayaran') }}" class="card-footer-link">Lihat
                                 Detail Pelunasan Tagihan <i class="mb-icon-more fas fa-chevron-right"></i></a>
@@ -70,10 +72,10 @@
                                         <div>
                                             <p class="card-title-big">Rp. {{ number_format($pemasukan_bulan, 0, ',', '.') }}
                                             </p>
-                                            <p class="card-subtitle">Pemasukan Bulan Ini</p>
+                                            <p class="card-subtitle">Total Pemasukan Bulan Ini</p>
                                         </div>
                                         <div class="icon-rounded">
-                                            <i class="fas fa-arrow-down me-2"></i>
+                                            <i class="fas fa-hand-holding-usd"></i>
                                         </div>
                                     </div>
                                     <a href="{{ route('keuangan.pemasukan') }}" class="card-footer-link">Lihat Pencatatan
@@ -87,10 +89,10 @@
                                         <div>
                                             <p class="card-title-big">Rp.
                                                 {{ number_format($pengeluaran_bulan, 0, ',', '.') }}</p>
-                                            <p class="card-subtitle">Pengeluaran Bulan Ini</p>
+                                            <p class="card-subtitle">Total Pengeluaran Bulan Ini</p>
                                         </div>
                                         <div class="icon-rounded">
-                                            <i class="fas fa-arrow-up me-2"></i>
+                                            <i class="fas fa-chart-line"></i>
                                         </div>
                                     </div>
                                     <a href="{{ route('keuangan.pengeluaran') }}" class="card-footer-link">Lihat Pencatatan
@@ -103,32 +105,59 @@
                                 <div class="mb-card-dashboard">
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div>
-                                            <p class="card-title-big">{{ $keluhan }}</p>
-                                            <p class="card-subtitle">Laporan Warga</p>
+                                            <p class="card-title-big">{{ $keluhan }}<span class="fs-1 align-middle">
+                                                    Laporan Warga</span></p>
+                                            <p class="card-subtitle">Belum Ditindaklanjuti</p>
                                         </div>
                                         <div class="icon-rounded"><i class="fas fa-exclamation-circle"></i></div>
                                     </div>
-                                    <a href="{{ route('biro.keluhan') }}" class="card-footer-link">Lihat Laporan Warga
+                                    <a href="{{ route('keuangan.keluhan') }}" class="card-footer-link">Lihat Laporan Warga
                                         <i class="mb-icon-more fas fa-chevron-right"></i></a>
                                 </div>
                             </div>
 
                             <div class="col-sm-6">
-                                <div class="mb-card-dashboard">
-                                    <div class="d-flex justify-content-between align-items-start">
-                                        <div>
-                                            <p class="card-title-big">{{ $penghuni }}</p>
-                                            <p class="card-subtitle">Penghuni</p>
-                                        </div>
-                                        <div class="icon-rounded">
-                                            <i class="fas fa-users"></i>
+                                <div class="row g-6">
+                                    <div class="col">
+                                        <div class="mb-card-dashboard">
+                                            <div class="w-100 h-100 d-flex flex-row align-items-stretch gap-3">
+                                                <div
+                                                    class="icon-rounded d-flex align-items-center justify-content-center px-18 h-100">
+                                                    <i class="fas fa-users" style="font-size: 4rem;"></i>
+                                                </div>
+                                                <div class="d-flex flex-column justify-content-center">
+                                                    <p class="card-title-big m-0">
+                                                        {{ $penghuni }}
+                                                        <span>Orang</span>
+                                                    </p>
+                                                    <p class="card-subtitle m-0">Jumlah Warga Asrama Saat Ini</p>
+                                                </div>
+                                            </div>
+                                            {{-- <a href="{{ route('biro.data-penghuni') }}" class="card-footer-link">Lihat Data Warga
+                                        <i class="mb-icon-more fas fa-chevron-right"></i></a> --}}
                                         </div>
                                     </div>
-                                    {{-- <a href="{{ route('biro.data-penghuni') }}" class="card-footer-link">Lihat Data Warga
+                                    <div class="col">
+                                        <div class="mb-card-dashboard">
+                                            <div class="w-100 h-100 d-flex flex-row align-items-stretch gap-3">
+                                                <div
+                                                    class="icon-rounded d-flex align-items-center justify-content-center px-18 h-100">
+                                                    <i class="fas fa-user-friends" style="font-size: 4rem;"></i>
+                                                </div>
+                                                <div class="d-flex flex-column justify-content-center">
+                                                    <p class="card-title-big m-0">
+                                                        {{ $tamu }}
+                                                        <span>Tamu</span>
+                                                    </p>
+                                                    <p class="card-subtitle m-0">Sedang Berada di Asrama</p>
+                                                </div>
+                                            </div>
+                                            {{-- <a href="{{ route('biro.data-penghuni') }}" class="card-footer-link">Lihat Data Warga
                                         <i class="mb-icon-more fas fa-chevron-right"></i></a> --}}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
 
 
