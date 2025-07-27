@@ -1,7 +1,10 @@
 @extends('user.layouts.layout')
+@php
+    use Carbon\Carbon;
+@endphp
 @section('content')
     <!-- Start Breadcrumb
-                                                                                                                                                                                                                                                    ============================================= -->
+                                                                                                                                                                                                                                                                ============================================= -->
     <div class="breadcrumb-area text-center shadow theme-hard bg-fixed text-light"
         style="background-image: url({{ asset('assets-landing/img/banner/asrama.png') }});">
         <div class="container">
@@ -24,6 +27,7 @@
                         </div>
                     </div>
                 @endif
+
                 <form class="form-data" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-12">
@@ -65,6 +69,43 @@
                                 style="color: #EA443E"></i>Reset</button>
                     </div>
                 </form>
+
+                <div class="main-content">
+                    <div class="site-heading text-center">
+                        <h5>Riwayat</h5>
+                        <h2 class="area-title">Semua Riwayat Laporan & Keluahan Anda</h2>
+                        <div class="devider"></div>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-sm text-left">
+                                <thead class="thead-light text-uppercase text-xs">
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Keterangan</th>
+                                        <th>Kategori</th>
+                                        <th>Status</th>
+                                        <th>Tanggal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse ($riwayat as $rwt)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $rwt->keterangan }}</td>
+                                            <td>{{ $rwt->ketegori }}</td>
+                                            <td>{{ $rwt->status }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($rwt->created_at)->translatedFormat('d-m-Y') }}
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td colspan="5" class="text-center">Data tidak tersedia</td>
+                                        </tr>
+                                    @endforelse
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
