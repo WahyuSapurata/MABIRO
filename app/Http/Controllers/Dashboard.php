@@ -65,8 +65,16 @@ class Dashboard extends BaseController
 
         $keluhan = Keluhan::where('status', 'Belum Ditindaklanjuti')->count();
 
-        $pemasukan_bulan = Pemasukan::where('tanggal', now()->format('m'))->sum('jumlah');
-        $pengeluaran_bulan = Pengeluaran::where('tanggal', now()->format('m'))->sum('jumlah');
+        $bulanIni = now()->format('m');
+        $tahunIni = now()->format('Y');
+
+        $pemasukan_bulan = Pemasukan::whereRaw("MONTH(STR_TO_DATE(tanggal, '%d-%m-%Y')) = ?", [$bulanIni])
+            ->whereRaw("YEAR(STR_TO_DATE(tanggal, '%d-%m-%Y')) = ?", [$tahunIni])
+            ->sum('jumlah');
+
+        $pengeluaran_bulan = Pengeluaran::whereRaw("MONTH(STR_TO_DATE(tanggal, '%d-%m-%Y')) = ?", [$bulanIni])
+            ->whereRaw("YEAR(STR_TO_DATE(tanggal, '%d-%m-%Y')) = ?", [$tahunIni])
+            ->sum('jumlah');
 
         $agenda = JadwalAgenda::latest()->get();
         $agenda->map(function ($item) {
