@@ -68,7 +68,8 @@
                                 <div class="mb-card-dashboard">
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div>
-                                            <p class="card-title-big">{{ $pemasukan_bulan }}</p>
+                                            <p class="card-title-big">Rp. {{ number_format($pemasukan_bulan, 0, ',', '.') }}
+                                            </p>
                                             <p class="card-subtitle">Pemasukan Bulan Ini</p>
                                         </div>
                                         <div class="icon-rounded">
@@ -84,7 +85,8 @@
                                 <div class="mb-card-dashboard">
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div>
-                                            <p class="card-title-big">{{ $pengeluaran_bulan }}</p>
+                                            <p class="card-title-big">Rp.
+                                                {{ number_format($pengeluaran_bulan, 0, ',', '.') }}</p>
                                             <p class="card-subtitle">Pengeluaran Bulan Ini</p>
                                         </div>
                                         <div class="icon-rounded">
