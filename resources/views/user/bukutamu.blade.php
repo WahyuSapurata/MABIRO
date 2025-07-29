@@ -1,7 +1,7 @@
 @extends('user.layouts.layout')
 @section('content')
     <!-- Start Breadcrumb
-                                                                                                                                                                                        ============================================= -->
+                                                                                                                                                                                                                                                                                            ============================================= -->
     <div class="breadcrumb-area text-center shadow theme-hard bg-fixed text-light"
         style="background-image: url({{ asset('assets-landing/img/banner/asrama.png') }});">
         <div class="container">
@@ -17,53 +17,71 @@
     <div class="about-area center-responsive default-padding">
         <div class="container">
             <div class="row align-center">
-                <form class="form-data" enctype="multipart/form-data">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="mb-10">
-                                <label class="form-label">Nama Tamu</label>
-                                <input type="text" name="nama_tamu" class="form-control">
-                                <small class="text-danger d-block nama_tamu_error"></small>
+
+                <div class="col-12 col-md-6 d-flex justify-content-center align-items-center mb-20 mb-md-0">
+                    <div class="w-100 text-center">
+                        <img src="{{ asset('assets-landing/img/ilustrasi-tamu.png') }}" alt="Ilustrasi Tamu"
+                            class="img-fluid mx-auto d-block" style="max-width: 80%;">
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <form class="form-data" enctype="multipart/form-data">
+                        <div class="row text-start">
+                            <div class="col-12">
+                                <div class="mb-10">
+                                    <label class="form-label">Nama Tamu</label>
+                                    <input type="text" name="nama_tamu" class="form-control">
+                                    <small class="text-danger d-block nama_tamu_error"></small>
+                                </div>
+
+                                <div class="mb-10">
+                                    <label class="form-label">Alamat Asal</label>
+                                    <textarea name="alamat" class="form-control" id="" cols="" rows="5"></textarea>
+                                    <small class="text-danger d-block alamat_error"></small>
+                                </div>
+
+                                <div class="mb-10">
+                                    <label class="form-label">Tujuan</label>
+                                    <input type="text" name="tujuan" class="form-control">
+                                    <small class="text-danger d-block tujuan_error"></small>
+                                </div>
+
+                                <div class="mb-10">
+                                    <label class="form-label">Tanggal Masuk</label>
+                                    <input type="text" id="tanggal_masuk" class="form-control kt_datepicker_7"
+                                        name="tanggal_masuk">
+                                    <small class="text-danger d-block tanggal_masuk_error"></small>
+                                </div>
+
+                                <div class="mb-10">
+                                    <label class="form-label">Tanggal Keluar</label>
+                                    <input type="text" id="tanggal_keluar" class="form-control kt_datepicker_7"
+                                        name="tanggal_keluar">
+                                    <small class="text-danger d-block tanggal_keluar_error"></small>
+                                </div>
+
+
+
+
                             </div>
 
-                            <div class="mb-10">
-                                <label class="form-label">Alamat</label>
-                                <textarea name="alamat" class="form-control" id="" cols="" rows="5"></textarea>
-                                <small class="text-danger d-block alamat_error"></small>
-                            </div>
 
-                            <div class="mb-10">
-                                <label class="form-label">Tujuan</label>
-                                <input type="text" name="tujuan" class="form-control">
-                                <small class="text-danger d-block tujuan_error"></small>
-                            </div>
 
-                            <div class="mb-10">
-                                <label class="form-label">Tanggal Masuk</label>
-                                <input type="text" id="tanggal_masuk" class="form-control kt_datepicker_7"
-                                    name="tanggal_masuk">
-                                <small class="text-danger d-block tanggal_masuk_error"></small>
-                            </div>
-
-                            <div class="mb-10">
-                                <label class="form-label">Tanggal Keluar</label>
-                                <input type="text" id="tanggal_keluar" class="form-control kt_datepicker_7"
-                                    name="tanggal_keluar">
-                                <small class="text-danger d-block tanggal_keluar_error"></small>
-                            </div>
                         </div>
-                    </div>
+                        <div class="separator separator-dashed mt-8 mb-5"></div>
+                        <div class="d-flex gap-2 justify-content-center justify-md-start">
+                            <button type="submit"
+                                class="btn btn-primary-color btn-sm btn-submit d-flex align-items-center"><i
+                                    class="fas fa-paper-plane me-2"></i> Kirim</button>
+                            <button type="reset" id="side_form_close" data-bs-dismiss="modal"
+                                class="btn btn-light btn-cancel btn-sm d-flex align-items-center"
+                                style="background-color: #ea443e65; color: #EA443E"><i class="fas fa-undo me-2"
+                                    style="color: #EA443E"></i>Reset</button>
+                        </div>
 
-                    <div class="separator separator-dashed mt-8 mb-5"></div>
-                    <div class="d-flex gap-2">
-                        <button type="submit" class="btn btn-primary btn-sm btn-submit d-flex align-items-center"><i
-                                class="fas fa-save me-2"></i> Simpan</button>
-                        <button type="reset" id="side_form_close" data-bs-dismiss="modal"
-                            class="btn btn-light btn-cancel btn-sm d-flex align-items-center"
-                            style="background-color: #ea443e65; color: #EA443E"><i class="fas fa-trash-alt me-2"
-                                style="color: #EA443E"></i>Reset</button>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
