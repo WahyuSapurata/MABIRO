@@ -61,7 +61,7 @@
                         </span>
                         <span
                             class="menu-title {{ $path[1] == 'data-pengguna' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">Data
-                            Pengguna</span>
+                            Pengelola</span>
                     </a>
                     <!--end::Menu link-->
                 </div>
