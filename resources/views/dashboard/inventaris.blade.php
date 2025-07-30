@@ -38,7 +38,7 @@
                                     <i class="fas fa-users"></i>
                                 </div>
                             </div>
-                            <a href="/" class="card-footer-link">Lihat Data
+                            <a href="inventaris.data-inventaris" class="card-footer-link">Lihat Data
                                 Inventaris
                                 <i class="mb-icon-more fas fa-chevron-right"></i></a>
                         </div>
@@ -57,7 +57,7 @@
                                     <i class="fas fa-users"></i>
                                 </div>
                             </div>
-                            <a href="/" class="card-footer-link">Lihat Data Selengkapnya
+                            <a href="inventaris.data-inventaris" class="card-footer-link">Lihat Data Selengkapnya
                                 <i class="mb-icon-more fas fa-chevron-right"></i></a>
                         </div>
                     </div>
@@ -72,7 +72,8 @@
                                     <i class="fas fa-users"></i>
                                 </div>
                             </div>
-                            <a href="/" class="card-footer-link">Lihat Data Selengkapnya
+                            <a href="{{ route('inventaris.data-inventaris') }}" class="card-footer-link">Lihat Data
+                                Selengkapnya
                                 <i class="mb-icon-more fas fa-chevron-right"></i></a>
                         </div>
                     </div>
@@ -96,7 +97,8 @@
                                             <i class="fas fa-users"></i>
                                         </div>
                                     </div>
-                                    <a href="/" class="card-footer-link">Lihat Permohonan
+                                    <a href="{{ route('inventaris.data-peminjaman') }}" class="card-footer-link">Lihat
+                                        Permohonan
                                         <i class="mb-icon-more fas fa-chevron-right"></i></a>
                                 </div>
                             </div>
@@ -112,7 +114,8 @@
                                             <i class="fas fa-users"></i>
                                         </div>
                                     </div>
-                                    <a href="/" class="card-footer-link">Lihat Data Peminjaman
+                                    <a href="{{ route('inventaris.data-peminjaman') }}" class="card-footer-link">Lihat Data
+                                        Peminjaman
                                         <i class="mb-icon-more fas fa-chevron-right"></i></a>
                                 </div>
                             </div>
@@ -121,12 +124,13 @@
                                 <div class="mb-card-dashboard">
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div>
-                                            <p class="card-title-big">{{ $keluhan }}</p>
-                                            <p class="card-subtitle">Laporan Warga</p>
+                                            <p class="card-title-big">{{ $keluhan }} Laporan</p>
+                                            <p class="card-subtitle">Belum Ditindaklanjuti</p>
                                         </div>
                                         <div class="icon-rounded"><i class="fas fa-users"></i></div>
                                     </div>
-                                    <a href="{{ route('biro.keluhan') }}" class="card-footer-link">Lihat Daftar Warga
+                                    <a href="{{ route('inventaris.keluhan') }}" class="card-footer-link">Lihat Daftar
+                                        Laporan
                                         <i class="mb-icon-more fas fa-chevron-right"></i></a>
                                 </div>
                             </div>
