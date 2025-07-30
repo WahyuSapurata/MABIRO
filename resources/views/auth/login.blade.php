@@ -163,16 +163,15 @@
                                     <!--end::Indicator label-->
                                 </button>
                                 <div class="text-center text-md-start mb-text-p18 mt-5">Belum punya akun? <a
-                                        class="fw-bolder" href="" data-kt-drawer-show="true"
-                                        data-kt-drawer-target="#side_form" id="button-side-form"
-                                        data-bs-toggle="modal" data-bs-target="#kt_modal_1">Daftar Disini</a></div>
+                                        class="fw-bolder" href="{{ route('regisrasi-penghuni') }}">Daftar Disini</a>
+                                </div>
                             </div>
                             <!--end::Submit button-->
                         </form>
                         <!--end::Form-->
 
 
-                        <div class="modal fade" tabindex="-1" id="kt_modal_1">
+                        {{-- <div class="modal fade" tabindex="-1" id="kt_modal_1">
                             <div class="modal-dialog modal-fullscreen">
                                 <div class="modal-content shadow-none">
                                     <div class="modal-header">
@@ -440,7 +439,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
 
                     <div class="d-flex justify-content-center mt-15 d-md-none">

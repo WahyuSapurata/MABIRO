@@ -1,7 +1,7 @@
 @extends('user.layouts.layout')
 @section('content')
     <!-- Start Breadcrumb
-                                                                                                                                                                                                                                                                                                                        ============================================= -->
+                                                                                                                                                                                                                                                                                                                                        ============================================= -->
     <div class="breadcrumb-area text-center shadow theme-hard bg-fixed text-light"
         style="background-image: url({{ asset('assets-landing/img/banner/asrama.png') }});">
         <div class="container">
@@ -55,11 +55,11 @@
                                 <label class="form-label">Agama</label>
                                 <select name="agama" class="form-control">
                                     <option value="">-- Pilih Agama --</option>
-                                    <option value="islam">Islam</option>
-                                    <option value="keristen">Keristen</option>
-                                    <option value="hindu">Hindu</option>
-                                    <option value="budha">Budha</option>
-                                    <option value="katolik">Katolik</option>
+                                    <option value="Islam">Islam</option>
+                                    <option value="Kristen">Kristen</option>
+                                    <option value="Hindu">Hindu</option>
+                                    <option value="Budha">Budha</option>
+                                    <option value="Katolik">Katolik</option>
                                 </select>
                                 <small class="text-danger d-block agama_error"></small>
                             </div>
