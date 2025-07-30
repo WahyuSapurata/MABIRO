@@ -191,7 +191,7 @@
                     }
                 }, {
                     data: 'nama_penghuni',
-                    class: 'mb-kolom-text text-center align-content-center',
+                    class: 'mb-kolom-text text-left align-content-center',
                 }, {
                     data: 'tanggal',
                     class: 'mb-kolom-tanggal text-center align-content-center',
