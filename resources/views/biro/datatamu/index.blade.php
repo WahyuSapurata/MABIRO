@@ -234,7 +234,7 @@
                     className: 'align-content-center',
                 }, {
                     data: 'tujuan',
-                    className: 'align-content-center text-center',
+                    className: 'align-content-center',
                 }, {
                     data: 'tanggal_masuk',
                     className: 'align-content-center text-center',
@@ -243,7 +243,27 @@
                     className: 'align-content-center text-center',
                 }, {
                     data: 'status',
-                    className: 'align-content-center text-center',
+                    className: 'mb-kolom-nominal align-content-center text-center',
+                    render: function(data, type, row, meta) {
+                        let result;
+                        if (data == "Sedang Bertamu") {
+                            result =
+                                `
+                                <div class="btn btn-outline btn-outline-dashed btn-outline-info btn-active-light-info p-2 py-1">
+                                    ${data}
+                                </div>
+                            `;
+                        } else {
+                            result =
+                                `
+                                <div class="btn btn-outline btn-outline-dashed btn-outline-success btn-active-light-success p-2 py-1">
+                                    ${data}
+                                </div>
+                            `;
+                        }
+
+                        return result;
+                    }
                 }, {
                     data: 'uuid',
                 }],

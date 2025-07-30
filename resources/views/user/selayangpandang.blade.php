@@ -14,7 +14,7 @@
     <!-- End Breadcrumb -->
 
     <!-- Star About Area
-                                                                                            ============================================= -->
+                                                                                                        ============================================= -->
     <div class="about-area center-responsive default-padding">
         <div class="container">
             <div class="row align-center">
@@ -29,7 +29,7 @@
                 <!-- Teks utama -->
                 <div class="col-lg-6 info">
                     <h5>Selayang Pandang</h5>
-                    <h2 class="area-title">Asram KPMB Makassar</h2>
+                    <h2 class="area-title">Asrama KPMB Makassar</h2>
                     <p id="teks-penuh">
                         {!! $data->deskripsi ? strip_tags($data->deskripsi) : 'Tidak ada deskripsi' !!}
                     </p>

@@ -477,7 +477,7 @@
                     }
                 }, {
                     data: 'nama',
-                    className: 'text-center align-content-center',
+                    className: 'text-left align-content-center',
                 }, {
                     data: 'tanggal_lahir',
                     className: 'text-center align-content-center',
@@ -486,7 +486,7 @@
                     className: 'text-center align-content-center',
                 }, {
                     data: 'universitas',
-                    className: 'text-center align-content-center',
+                    className: 'text-left align-content-center',
                 }, {
                     data: 'kamar',
                     className: 'text-center align-content-center',

@@ -281,7 +281,7 @@
                 ajax: '/biro/tentang/selayang-pandang-get',
                 columns: [{
                         data: 'gambar',
-                        className: 'mb-kolom-nominal text-center align-content-center',
+                        className: 'mb-kolom-text text-center align-content-start',
                         render: function(data, type, row, meta) {
                             let result;
                             result =
