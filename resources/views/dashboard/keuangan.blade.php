@@ -127,7 +127,7 @@
                                                     <p class="card-title-big m-0">
                                                         {{ $penghuni }} Orang
                                                     </p>
-                                                    <p class="card-subtitle m-0">Penghuni Saat Ini</p>
+                                                    <p class="card-subtitle m-0">Total Penghuni Saat Ini</p>
                                                 </div>
                                             </div>
                                             {{-- <a href="{{ route('biro.data-penghuni') }}" class="card-footer-link">Lihat Data Warga

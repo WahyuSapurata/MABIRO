@@ -31,7 +31,7 @@
                             <div class="d-flex justify-content-between align-items-start">
                                 <div>
                                     <p class="card-title-big">{{ $penghuni }} Orang</p>
-                                    <p class="card-subtitle">Penghuni Saat Ini</p>
+                                    <p class="card-subtitle">Total Penghuni Saat Ini</p>
                                 </div>
                                 <div class="icon-rounded">
                                     <i class="fas fa-users"></i>

@@ -89,6 +89,22 @@
                                 <div class="mb-card-dashboard">
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div>
+                                            <p class="card-title-big">{{ $peminjaman }} Permohonan</p>
+                                            <p class="card-subtitle">Peminjaman Inventaris</p>
+                                        </div>
+                                        <div class="icon-rounded">
+                                            <i class="fas fa-users"></i>
+                                        </div>
+                                    </div>
+                                    <a href="/" class="card-footer-link">Lihat Permohonan
+                                        <i class="mb-icon-more fas fa-chevron-right"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="mb-card-dashboard">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div>
                                             <p class="card-title-big">{{ $peminjaman_belum_kembali }} Inventaris</p>
                                             <p class="card-subtitle">Sedang Dipinjamkan</p>
                                         </div>
@@ -96,20 +112,7 @@
                                             <i class="fas fa-users"></i>
                                         </div>
                                     </div>
-                                    <a href="/" class="card-footer-link">Lihat Data Warga
-                                        <i class="mb-icon-more fas fa-chevron-right"></i></a>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="mb-card-dashboard">
-                                    <div class="d-flex justify-content-between align-items-start">
-                                        <div>
-                                            <p class="card-title-big">{{ $tamu }} Tamu</p>
-                                            <p class="card-subtitle">Sedang Berada Di Asrama</p>
-                                        </div>
-                                        <div class="icon-rounded"><i class="fas fa-user-check"></i></div>
-                                    </div>
-                                    <a href="{{ route('biro.data-tamu') }}" class="card-footer-link">Lihat Daftar Tamu
+                                    <a href="/" class="card-footer-link">Lihat Data Peminjaman
                                         <i class="mb-icon-more fas fa-chevron-right"></i></a>
                                 </div>
                             </div>
@@ -132,7 +135,7 @@
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div>
                                             <p class="card-title-big">{{ $penghuni }} Orang</p>
-                                            <p class="card-subtitle">Penghuni Saat Ini</p>
+                                            <p class="card-subtitle">Total Penghuni Saat Ini</p>
                                         </div>
                                         <div class="icon-rounded">
                                             <i class="fas fa-users"></i>
