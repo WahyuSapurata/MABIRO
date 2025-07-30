@@ -242,6 +242,26 @@
                 }, {
                     data: 'status',
                     class: 'text-center align-content-center',
+                    render: function(data, type, row, meta) {
+                        let result;
+                        if (data == "Sudah Piket") {
+                            result =
+                                `
+                                <div class="btn btn-outline btn-outline-dashed btn-outline-success btn-active-light-success p-2 py-1">
+                                    ${data}
+                                </div>
+                            `;
+                        } else {
+                            result =
+                                `
+                                <div class="btn btn-outline btn-outline-dashed btn-outline-danger btn-active-light-danger p-2 py-1">
+                                    ${data}
+                                </div>
+                            `;
+                        }
+
+                        return result;
+                    }
                 }, {
                     data: 'uuid',
                 }],
