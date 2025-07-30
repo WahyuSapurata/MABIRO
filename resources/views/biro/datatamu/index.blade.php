@@ -249,14 +249,14 @@
                         if (data == "Sedang Bertamu") {
                             result =
                                 `
-                                <div class="btn btn-outline btn-outline-dashed btn-outline-info btn-active-light-info p-2 py-1">
+                                <div class="btn btn-outline btn-outline-dashed btn-outline-success btn-active-light-success p-2 py-1">
                                     ${data}
                                 </div>
                             `;
                         } else {
                             result =
                                 `
-                                <div class="btn btn-outline btn-outline-dashed btn-outline-success btn-active-light-success p-2 py-1">
+                                <div class="btn btn-outline btn-outline-dashed btn-outline-danger btn-active-light-danger p-2 py-1">
                                     ${data}
                                 </div>
                             `;

@@ -105,10 +105,8 @@
                         <label class="form-label">Status</label>
                         <select name="status" class="form-control" data-control="select2">
                             <option value="">-- Pilih Status --</option>
-                            <option value="sudah lunas">Sudah Lunas</option>
-                            <option value="tolak">Tolak</option>
-                            <option value="belum lunas">Belum Lunas</option>
-                            <option value="proses">Proses</option>
+                            <option value="Sudah Lunas">Sudah Lunas</option>
+                            <option value="Belum Lunas">Belum Lunas</option>
                         </select>
                         <small class="text-danger status_error"></small>
                     </div>
@@ -251,7 +249,7 @@
                     }
                 }, {
                     data: 'nama_penghuni',
-                    className: 'align-content-center text-center',
+                    className: 'align-content-center text-left',
                 }, {
                     data: 'created_at',
                     className: 'align-content-center text-center',
@@ -298,28 +296,21 @@
                     className: 'align-content-center text-center',
                     render: function(data, type, row, meta) {
                         let result;
-                        if (data == "proses") {
+                        if (data == "Menunggu Konfirmasi") {
                             result =
                                 `
                                 <div class="btn btn-outline btn-outline-dashed btn-outline-info btn-active-light-info p-2 py-1">
                                     ${data}
                                 </div>
                             `;
-                        } else if (data == "sudah lunas") {
+                        } else if (data == "Sudah Lunas") {
                             result =
                                 `
                                 <div class="btn btn-outline btn-outline-dashed btn-outline-success btn-active-light-success p-2 py-1">
                                     ${data}
                                 </div>
                             `;
-                        } else if (data == "belum lunas") {
-                            result =
-                                `
-                                <div class="btn btn-outline btn-outline-dashed btn-outline-warning btn-active-light-warning p-2 py-1">
-                                    ${data}
-                                </div>
-                            `;
-                        } else if (data == "tolak") {
+                        } else if (data == "Belum Lunas") {
                             result =
                                 `
                                 <div class="btn btn-outline btn-outline-dashed btn-outline-danger btn-active-light-danger p-2 py-1">

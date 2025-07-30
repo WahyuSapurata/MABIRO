@@ -52,7 +52,7 @@ class RekapPembayaranController extends BaseController
             if (!$cek) {
                 RekapPembayaran::create([
                     'uuid_penghuni' => $user->uuid_user,
-                    'status' => 'belum lunas',
+                    'status' => 'Belum Lunas',
                 ]);
             } else {
                 return $this->sendError('Invoice sudah dibuat untuk bulan ini', 'Invoice sudah dibuat untuk bulan ini', 400);
@@ -75,7 +75,7 @@ class RekapPembayaranController extends BaseController
         try {
             $data->uuid_penghuni = auth()->user()->uuid;
             $data->metode_pembayaran = $store->metode_pembayaran;
-            $data->status = 'proses';
+            $data->status = 'Menunggu Konfirmasi';
             $data->bukti = $newBukti;
             $data->save();
         } catch (\Exception $e) {
@@ -133,7 +133,7 @@ class RekapPembayaranController extends BaseController
         if (!auth()->check() || auth()->user()->role !== 'penghuni') {
             return redirect()->route('login.login-akun');
         }
-        $data = RekapPembayaran::where('uuid_penghuni', auth()->user()->uuid)->whereIn('status', ['belum lunas', 'proses', 'tolak'])->get();
+        $data = RekapPembayaran::where('uuid_penghuni', auth()->user()->uuid)->whereIn('status', ['Belum Lunas', 'Menunggu Konfirmasi'])->get();
         $data->map(function ($item) {
             $penghuni = DataPenghuni::where('uuid_user', auth()->user()->uuid)->first();
             $tagihan = Tagihan::where('uuid_penghuni', $penghuni->uuid)->first();
@@ -154,7 +154,7 @@ class RekapPembayaranController extends BaseController
             $item->total_tagihan = $total;
             return $item;
         });
-        $riwayat = RekapPembayaran::where('uuid_penghuni', auth()->user()->uuid)->where('status', 'sudah lunas')->get();
+        $riwayat = RekapPembayaran::where('uuid_penghuni', auth()->user()->uuid)->where('status', 'Sudah Lunas')->get();
         $riwayat->map(function ($item) {
             $penghuni = DataPenghuni::where('uuid_user', auth()->user()->uuid)->first();
             $tagihan = Tagihan::where('uuid_penghuni', $penghuni->uuid)->first();
