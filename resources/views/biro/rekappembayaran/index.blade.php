@@ -107,7 +107,6 @@
                             <option value="">-- Pilih Status --</option>
                             <option value="Sudah Lunas">Sudah Lunas</option>
                             <option value="Belum Lunas">Belum Lunas</option>
-                            <option value="Menunggu Konfirmasi">Menunggu</option>
                         </select>
                         <small class="text-danger status_error"></small>
                     </div>

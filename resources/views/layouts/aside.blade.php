@@ -602,7 +602,7 @@
                         </span>
                         <span
                             class="menu-title {{ isset($path[1]) && $path[1] == 'tagihan' ? 'mb-aside-menu-text fw-bolder' : 'text-white' }}">
-                            Tagihan</span>
+                            Tagihan Warga</span>
                     </a>
                 </div>
                 <!--end::Menu item-->

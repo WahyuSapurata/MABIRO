@@ -289,7 +289,7 @@
                         }
                     }, {
                         data: 'nama_penghuni',
-                        className: 'mb-kolom-text align-content-center text-center',
+                        className: 'mb-kolom-text align-content-center text-left',
                     },
                     @foreach ($materTagihan as $item)
                         {
