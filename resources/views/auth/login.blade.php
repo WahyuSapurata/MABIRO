@@ -163,7 +163,7 @@
                                     <!--end::Indicator label-->
                                 </button>
                                 <div class="text-center text-md-start mb-text-p18 mt-5">Belum punya akun? <a
-                                        class="fw-bolder" href="{{ route('regisrasi-penghuni') }}">Daftar Disini</a>
+                                        class="fw-bolder" href="{{ route('registrasi-penghuni') }}">Daftar Disini</a>
                                 </div>
                             </div>
                             <!--end::Submit button-->
