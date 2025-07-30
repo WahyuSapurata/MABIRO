@@ -30,14 +30,14 @@
                         <div class="mb-card-dashboard">
                             <div class="d-flex justify-content-between align-items-start">
                                 <div>
-                                    <p class="card-title-big">{{ $penghuni }}</p>
-                                    <p class="card-subtitle">Penghuni</p>
+                                    <p class="card-title-big">{{ $penghuni }} Orang</p>
+                                    <p class="card-subtitle">Penghuni Saat Ini</p>
                                 </div>
                                 <div class="icon-rounded">
                                     <i class="fas fa-users"></i>
                                 </div>
                             </div>
-                            <a href="{{ route('biro.data-penghuni') }}" class="card-footer-link">Lihat Data Warga
+                            <a href="{{ route('biro.data-penghuni') }}" class="card-footer-link">Lihat Daftar Warga
                                 <i class="mb-icon-more fas fa-chevron-right"></i></a>
                         </div>
                     </div>
@@ -45,14 +45,14 @@
                         <div class="mb-card-dashboard">
                             <div class="d-flex justify-content-between align-items-start">
                                 <div>
-                                    <p class="card-title-big">{{ $calon_penghuni }}</p>
-                                    <p class="card-subtitle">Calon Penghuni</p>
+                                    <p class="card-title-big">{{ $calon_penghuni }} Orang</p>
+                                    <p class="card-subtitle">Calon Penghuni Baru</p>
                                 </div>
                                 <div class="icon-rounded">
                                     <i class="fas fa-user-plus"></i>
                                 </div>
                             </div>
-                            <a href="{{ route('biro.data-penghuni') }}" class="card-footer-link">Lihat Calon Penghuni
+                            <a href="{{ route('biro.data-penghuni') }}" class="card-footer-link">Lihat Daftar Calon Penghuni
                                 <i class="mb-icon-more fas fa-chevron-right"></i></a>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                                     <i class="fas fa-wallet"></i>
                                 </div>
                             </div>
-                            <a href="{{ route('biro.laporan') }}" class="card-footer-link">Lihat Rekapitulasi
+                            <a href="{{ route('biro.laporan') }}" class="card-footer-link">Lihat Rekapitulasi Keuangan
                                 <i class="mb-icon-more fas fa-chevron-right"></i></a>
                         </div>
                     </div>
@@ -82,8 +82,8 @@
                                 <div class="mb-card-dashboard">
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div>
-                                            <p class="card-title-big">{{ $peminjaman }}</p>
-                                            <p class="card-subtitle">Peminjaman</p>
+                                            <p class="card-title-big">{{ $peminjaman }} Barang</p>
+                                            <p class="card-subtitle">Sedang Dipinjamkan</p>
                                         </div>
                                         <div class="icon-rounded"><i class="fas fa-box-open"></i></div>
                                     </div>
@@ -95,13 +95,13 @@
                                 <div class="mb-card-dashboard">
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div>
-                                            <p class="card-title-big">{{ $tagihan }}</p>
-                                            <p class="card-subtitle">Tagihan</p>
+                                            <p class="card-title-big">{{ $tagihan }} Warga</p>
+                                            <p class="card-subtitle">Belum Membayarkan Tagihan</p>
                                         </div>
                                         <div class="icon-rounded"><i class="fas fa-file-invoice-dollar"></i></div>
                                     </div>
                                     <a href="{{ route('biro.rekap-pembayaran') }}" class="card-footer-link">Lihat
-                                        Selengkapnya <i class="mb-icon-more fas fa-chevron-right"></i></a>
+                                        Rekap Tagihan <i class="mb-icon-more fas fa-chevron-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -110,12 +110,12 @@
                                 <div class="mb-card-dashboard">
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div>
-                                            <p class="card-title-big">{{ $tamu }}</p>
-                                            <p class="card-subtitle">Tamu</p>
+                                            <p class="card-title-big">{{ $tamu }} Tamu</p>
+                                            <p class="card-subtitle">Sedang berada di Asrama</p>
                                         </div>
                                         <div class="icon-rounded"><i class="fas fa-user-check"></i></div>
                                     </div>
-                                    <a href="{{ route('biro.data-tamu') }}" class="card-footer-link">Lihat Daftar Warga
+                                    <a href="{{ route('biro.data-tamu') }}" class="card-footer-link">Lihat Daftar Tamu
                                         <i class="mb-icon-more fas fa-chevron-right"></i></a>
                                 </div>
                             </div>
@@ -123,12 +123,12 @@
                                 <div class="mb-card-dashboard">
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div>
-                                            <p class="card-title-big">{{ $keluhan }}</p>
-                                            <p class="card-subtitle">Laporan Warga</p>
+                                            <p class="card-title-big">{{ $keluhan }} Laporan</p>
+                                            <p class="card-subtitle">Belum ditindaklanjuti</p>
                                         </div>
                                         <div class="icon-rounded"><i class="fas fa-exclamation-circle"></i></div>
                                     </div>
-                                    <a href="{{ route('biro.keluhan') }}" class="card-footer-link">Lihat Daftar Warga
+                                    <a href="{{ route('biro.keluhan') }}" class="card-footer-link">Lihat Daftar Laporan
                                         <i class="mb-icon-more fas fa-chevron-right"></i></a>
                                 </div>
                             </div>
