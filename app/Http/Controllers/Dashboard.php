@@ -92,6 +92,7 @@ class Dashboard extends BaseController
         $penghuni = DataPenghuni::where('status', 'Terkonfirmasi')->count();
         $peminjaman = DataPeminjaman::where('status', 'Menunggu Persetujuan')->count();
         $peminjaman_belum_kembali = DataPeminjaman::where('status', 'Dipinjamkan')->count();
+        $tamu = DataTamu::where('status', 'Sedang Bertamu')->count();
 
         $pemasukan = Pemasukan::sum('jumlah');
         $pengeluaran = Pengeluaran::sum('jumlah');
@@ -108,6 +109,6 @@ class Dashboard extends BaseController
             $item->nama_program = Program::where('uuid', $item->uuid_program)->value('nama_program');
             return $item;
         });
-        return view('dashboard.inventaris', compact('module', 'penghuni', 'peminjaman', 'peminjaman_belum_kembali', 'saldo', 'keluhan', 'agenda', 'barang_rusak', 'barang_kurang_baik', 'total_inventaris'));
+        return view('dashboard.inventaris', compact('module', 'penghuni', 'peminjaman', 'peminjaman_belum_kembali', 'tamu', 'keluhan', 'agenda', 'barang_rusak', 'barang_kurang_baik', 'total_inventaris'));
     }
 }

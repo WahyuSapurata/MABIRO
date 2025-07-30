@@ -58,7 +58,6 @@
                         </div>
                     </div>
 
-
                 </div>
 
                 <!-- ROW 2 -->
@@ -105,8 +104,7 @@
                                 <div class="mb-card-dashboard">
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div>
-                                            <p class="card-title-big">{{ $keluhan }}<span class="fs-1 align-middle">
-                                                    Laporan Warga</span></p>
+                                            <p class="card-title-big">{{ $keluhan }} Laporan</p>
                                             <p class="card-subtitle">Belum Ditindaklanjuti</p>
                                         </div>
                                         <div class="icon-rounded"><i class="fas fa-exclamation-circle"></i></div>
@@ -127,10 +125,9 @@
                                                 </div>
                                                 <div class="d-flex flex-column justify-content-center">
                                                     <p class="card-title-big m-0">
-                                                        {{ $penghuni }}
-                                                        <span>Orang</span>
+                                                        {{ $penghuni }} Orang
                                                     </p>
-                                                    <p class="card-subtitle m-0">Jumlah Warga Asrama Saat Ini</p>
+                                                    <p class="card-subtitle m-0">Penghuni Saat Ini</p>
                                                 </div>
                                             </div>
                                             {{-- <a href="{{ route('biro.data-penghuni') }}" class="card-footer-link">Lihat Data Warga
@@ -146,10 +143,9 @@
                                                 </div>
                                                 <div class="d-flex flex-column justify-content-center">
                                                     <p class="card-title-big m-0">
-                                                        {{ $tamu }}
-                                                        <span>Tamu</span>
+                                                        {{ $tamu }} Tamu
                                                     </p>
-                                                    <p class="card-subtitle m-0">Sedang Berada di Asrama</p>
+                                                    <p class="card-subtitle m-0">Sedang Berada Di Asrama</p>
                                                 </div>
                                             </div>
                                             {{-- <a href="{{ route('biro.data-penghuni') }}" class="card-footer-link">Lihat Data Warga

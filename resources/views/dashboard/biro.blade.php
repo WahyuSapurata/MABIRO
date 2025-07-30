@@ -111,7 +111,7 @@
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div>
                                             <p class="card-title-big">{{ $tamu }} Tamu</p>
-                                            <p class="card-subtitle">Sedang berada di Asrama</p>
+                                            <p class="card-subtitle">Sedang Berada Di Asrama</p>
                                         </div>
                                         <div class="icon-rounded"><i class="fas fa-user-check"></i></div>
                                     </div>
@@ -124,7 +124,7 @@
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div>
                                             <p class="card-title-big">{{ $keluhan }} Laporan</p>
-                                            <p class="card-subtitle">Belum ditindaklanjuti</p>
+                                            <p class="card-subtitle">Belum Ditindaklanjuti</p>
                                         </div>
                                         <div class="icon-rounded"><i class="fas fa-exclamation-circle"></i></div>
                                     </div>
