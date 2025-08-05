@@ -1406,6 +1406,10 @@ header.ofcanvas-nav .logo-responsive {
         font-size: 14px;
     }
 
+    .faq-area .faq-content {
+        padding-left: 0px !important;
+    }
+
     .form-control {
         font-size: 14px;
     }
@@ -5941,7 +5945,7 @@ i#themeIcon {
 }
 
 .main-content {
-    margin-top: 30px;
+    margin-top: 50px;
     margin-bottom: 30px;
 }
 

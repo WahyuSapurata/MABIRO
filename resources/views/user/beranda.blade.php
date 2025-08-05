@@ -11,8 +11,8 @@
                         <div>
                             <div class="content">
                                 <!-- <div class="videos-button" class="wow fadeInUp" data-wow-delay="300ms">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                <a href="https://www.youtube.com/watch?v=35mvh-2oII8" class="popup-youtube video-button"><i class="fas fa-play"></i></a>
-                                                                                                                                                                                                                                                                                                                                                                                                                                            </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <a href="https://www.youtube.com/watch?v=35mvh-2oII8" class="popup-youtube video-button"><i class="fas fa-play"></i></a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div> -->
                                 <h2 class="wow fadeInLeft text-hero" data-wow-delay="500ms">Sistem Informasi
                                     Manajemen<strong>Asrama Mahasiswa Balikpapan</strong></h2>
                                 <h3 class="wow fadeInLeft text-hero" data-wow-delay="500ms">Keluarga Pelajar Mahasiswa
@@ -202,12 +202,12 @@
                 <div class="col-lg-12">
                     <div class="testimonials-carousel owl-carousel owl-theme">
 
-                        <div class="item h-100">
+                        <div class="item">
                             <div class="thumb">
                                 <img src="{{ asset('assets-landing/img/teams/foto-testimoni-01.jpg') }}" alt="Thumb">
                                 <i class="fas fa-quote-right"></i>
                             </div>
-                            <div class="info mb-auto">
+                            <div class="info">
                                 <p class="mb-testimoni">
                                     Tampilan, warna, serta logo yang sederhana namun elegan memberikan kesan profesional.
                                     Peletakan fitur-fiturnya pun dirancang dengan baik, sehingga memudahkan pengguna saat
@@ -230,12 +230,12 @@
                         </div>
 
 
-                        <div class="item h-100">
+                        <div class="item">
                             <div class="thumb">
                                 <img src="{{ asset('assets-landing/img/teams/foto-testimoni-02.jpg') }}" alt="Thumb">
                                 <i class="fas fa-quote-right"></i>
                             </div>
-                            <div cla.ss="info mb-auto">
+                            <div cla.ss="info ">
                                 <p class="mb-testimoni">
                                     Sistem ini menjadikan pengelolaan administrasi diasrama lebih teratur dan mudah diakses.
                                     karena sebelumnya kami menggunakan sistem manual sehingga ketika ingin mengakses
@@ -257,12 +257,12 @@
                             </div>
                         </div>
                         <!-- Single Item -->
-                        <div class="item h-100">
-                            <div class="thumb">
+                        <div class="item">
+                            <div class="thumb thumb text-center text-lg-start">
                                 <img src="{{ asset('assets-landing/img/teams/foto-testimoni-03.jpg') }}" alt="Thumb">
                                 <i class="fas fa-quote-right"></i>
                             </div>
-                            <div class="info mb-auto">
+                            <div class="info">
                                 <p class="mb-testimoni">
                                     Saya bisa menyampaikan keluhan langsung dari aplikasi dan memantau statusnya. Komunikasi
                                     dengan pengelola jadi lebih lancar.
@@ -298,7 +298,7 @@
 
                     <div class="col-lg-6">
                         <div class="thumb wow fadeInLeft" data-wow-delay="0.5s">
-                            <img class="mb-gambar-darkmode" style="height: 550px;"
+                            <img class="mb-gambar-darkmode"
                                 src="{{ asset('assets-landing/img/illustration/ilustrasi-4.png') }}" alt="Thumb">
                         </div>
                     </div>
@@ -377,7 +377,7 @@
 
 
     <!-- Start Pricing Area
-                                                                                                                                                                                                                    ============================================= -->
+                                                                                                                                                                                                                                                        ============================================= -->
     {{-- <div id="pricing" class="pricing-area half-bg default-padding bg-gray">
         <div class="container">
             <div class="row">
@@ -400,7 +400,7 @@
 
 
     <!-- Start Contact Area
-                                                                                                                                                                                                                                                                                                                                                                                                                ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                    ============================================= -->
     {{-- <div class="contact-area bg-gray half-bg default-padding-bottom">
         <div class="container">
             <div class="contact-box">
@@ -500,7 +500,7 @@
     <!-- End Contact Area -->
 
     <!-- Start Blog Area
-                                                                                                                                                                                                                                                                                                                                                                                                                ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                    ============================================= -->
     {{-- <div class="blog-area default-padding-bottom bottom-less">
         <div class="container">
             <div class="row">
