@@ -152,14 +152,14 @@ Table of contents
     background-image: url(../img/shape/19.png);
 }
 
-.filter-svg {
-    filter: brightness(0) invert(1);
-}
 
 .darkmode .bottom-shape {
     background-image: url(../img/shape/19-dark.png);
 }
 
+.info h4 a {
+    color: var(--brand-text-primary);
+}
 
 /* ==============================================================
      # Reset Browsers

@@ -1,7 +1,7 @@
 @extends('user.layouts.layout')
 @section('content')
     <!-- Start Breadcrumb
-                                                                                                                                                                                                                                                                ============================================= -->
+                                                                                                                                                                                                                                                                                    ============================================= -->
     <div class="breadcrumb-area text-center shadow theme-hard bg-fixed text-light"
         style="background-image: url({{ asset('assets-landing/img/banner/asrama.png') }});">
         <div class="container">
@@ -24,9 +24,9 @@
                                 <i class="fas fa-map-marked-alt"></i>
                             </div>
                             <div class="info">
-                                <h5>Office Location</h5>
+                                <h5>Lokasi Asrama</h5>
                                 <p>
-                                    22 Baker Street, London, <br>United Kingdom, W1U 3BW
+                                    Jl. Bung, No.03, Tamalanrea Jaya, Kec. Tamalanrea, Kota Makassar
                                 </p>
                             </div>
                         </div>
@@ -39,7 +39,7 @@
                             <div class="info">
                                 <h5>Phone</h5>
                                 <p>
-                                    +44-20-7328-4499 <br>+99-34-8878-9989
+                                    +62-819-3533-8967 <br>+62-821-5354-8837
                                 </p>
                             </div>
                         </div>
@@ -52,7 +52,7 @@
                             <div class="info">
                                 <h5>Email</h5>
                                 <p>
-                                    info@yourdomain.com <br>admin@yourdomain.com
+                                    kpmbmks@gmail.com <br>info@mabiroapps.com
                                 </p>
                             </div>
                         </div>
