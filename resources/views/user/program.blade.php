@@ -1,7 +1,7 @@
 @extends('user.layouts.layout')
 @section('content')
     <!-- Start Breadcrumb
-                                                                                                                                                                                                                            ============================================= -->
+                                                                                                                                                                                                                                ============================================= -->
     <div class="breadcrumb-area text-center shadow theme-hard bg-fixed text-light"
         style="background-image: url({{ asset('assets-landing/img/banner/asrama.png') }});">
         <div class="container">
@@ -15,7 +15,7 @@
     <!-- End Breadcrumb -->
 
     <!-- Star About Area
-                                                                        ============================================= -->
+                                                                            ============================================= -->
     <div class="services-area default-padding">
         <div class="container">
             <div class="services-content text-center">
@@ -25,8 +25,8 @@
                         <div class="single-item col-lg-4 col-md-6">
                             <div class="item">
                                 <img src="{{ asset('/public/program/' . $item->icon) }}" alt="Thumb">
-                                <h5><a href="#">{{ $item->nama_program }}</a></h5>
-                                <p>
+                                <h5><a href="#" class="mb-text-white-only">{{ $item->nama_program }}</a></h5>
+                                <p class="mb-text-white-only">
                                     {{ $item->deskripsi }}
                                 </p>
                             </div>

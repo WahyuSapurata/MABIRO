@@ -1,7 +1,7 @@
 @extends('user.layouts.layout')
 @section('content')
     <!-- Start Breadcrumb
-                                                                                                                                                                                                                ============================================= -->
+                                                                                                                                                                                                                    ============================================= -->
     <div class="breadcrumb-area text-center shadow theme-hard bg-fixed text-light"
         style="background-image: url({{ asset('assets-landing/img/banner/asrama.png') }});">
         <div class="container">
@@ -24,7 +24,7 @@
                             class="img-fluid mx-auto d-block" style="max-width: 80%;">
                     </div>
                 </div>
-                <div class="col-12 col-md-6">
+                <div class="text-start col-12 col-md-6">
                     <form class="form-data" enctype="multipart/form-data">
                         <div class="mb-10">
                             <label class="form-label">Organisasi</label>
