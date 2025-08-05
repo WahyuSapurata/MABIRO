@@ -4,7 +4,7 @@
 @endphp
 @section('content')
     <!-- Start Breadcrumb
-                                                                                                                                                                                                                                                                                                        ============================================= -->
+                                                                                                                                                                                                                                                                                                            ============================================= -->
     <div class="breadcrumb-area text-center shadow theme-hard bg-fixed text-light"
         style="background-image: url({{ asset('assets-landing/img/banner/asrama.png') }});">
         <div class="container">
@@ -23,7 +23,7 @@
                 @if ($keluhan)
                     <div class="col-12 mb-3">
                         <div class="alert alert-info" role="alert">
-                            Keluhan Anda {{ $keluhan->status }}!
+                            Keluhan Anda Pada Kategori {{ $keluhan->ketegori }} {{ $keluhan->status }}!
                         </div>
                     </div>
                 @endif
