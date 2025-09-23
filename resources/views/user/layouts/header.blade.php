@@ -72,13 +72,13 @@
                             <li><a href="{{ route('arsip') }}">Download Arsip & Dokumen</a></li>
                         </ul>
                     </li>
+                    <li><a href="{{ route('kontak') }}">Kontak</a></li>
                     <li class="d-lg-none d-lg-block">
                         <!-- Di dalam <body>, misalnya di footer atau sidebar -->
-                        <button id="clear-cache-btn">
+                        <div id="clear-cache-btn">
                             Update Tampilan
-                        </button>
+                        </div>
                     </li>
-                    <li><a href="{{ route('kontak') }}">Kontak</a></li>
                     @if (!auth()->check())
                         <li class="d-lg-none d-block">
                             <a class="btn btn-primary" href="{{ route('login.login-akun') }}">Masuk</a>
