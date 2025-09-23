@@ -39,9 +39,22 @@
                                         <div class="card-header">
                                             <h5 class="mb-0">
                                                 Jadwal Piket Anda:
-                                                {{ \Carbon\Carbon::createFromFormat('d-m-Y', $data->tanggal)->translatedFormat('d F Y') }}
+                                                {{-- aman untuk tanggal format d-m-Y --}}
+                                                {{ !empty($data->tanggal) ? \Carbon\Carbon::createFromFormat('d-m-Y', $data->tanggal)->translatedFormat('d F Y') : '-' }}
                                                 pukul
-                                                {{ \Carbon\Carbon::createFromFormat('H:i', $data->waktu)->format('H:i') }}
+                                                {{-- aman untuk waktu (H:i atau H:i:s) --}}
+                                                @if (!empty($data->waktu))
+                                                    @php
+                                                        $timeFormat =
+                                                            str_contains($data->waktu, ':') &&
+                                                            substr_count($data->waktu, ':') === 2
+                                                                ? 'H:i:s'
+                                                                : 'H:i';
+                                                    @endphp
+                                                    {{ \Carbon\Carbon::createFromFormat($timeFormat, $data->waktu)->format('H:i') }}
+                                                @else
+                                                    -
+                                                @endif
                                             </h5>
                                         </div>
                                         <div class="card-body">
@@ -83,13 +96,30 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $rwt->lokasi }}</td>
-                                            <td>{{ \Carbon\Carbon::createFromFormat('d-m-Y', $rwt->tanggal)->translatedFormat('d F Y') }}
-                                            </td>
-                                            <td>{{ \Carbon\Carbon::createFromFormat('H:i', $rwt->waktu)->format('H:i') }}
+                                            <td>
+                                                {{ !empty($rwt->tanggal) ? \Carbon\Carbon::createFromFormat('d-m-Y', $rwt->tanggal)->translatedFormat('d F Y') : '-' }}
                                             </td>
                                             <td>
-                                                <img width="150" src="{{ asset('absen/' . $rwt->dokumentasi_foto) }}"
-                                                    alt="Foto Absensi">
+                                                @if (!empty($rwt->waktu))
+                                                    @php
+                                                        $timeFormat =
+                                                            str_contains($rwt->waktu, ':') &&
+                                                            substr_count($rwt->waktu, ':') === 2
+                                                                ? 'H:i:s'
+                                                                : 'H:i';
+                                                    @endphp
+                                                    {{ \Carbon\Carbon::createFromFormat($timeFormat, $rwt->waktu)->format('H:i') }}
+                                                @else
+                                                    -
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if (!empty($rwt->dokumentasi_foto))
+                                                    <img width="150" src="{{ asset('absen/' . $rwt->dokumentasi_foto) }}"
+                                                        alt="Foto Absensi">
+                                                @else
+                                                    -
+                                                @endif
                                             </td>
                                         </tr>
                                     @empty
@@ -102,6 +132,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
