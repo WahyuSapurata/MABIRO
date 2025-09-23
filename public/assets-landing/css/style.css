@@ -9382,3 +9382,13 @@ input:checked+.slider-switch .moon-icon {
 .theme-toggle-wrapper {
     zoom: 0.9;
 }
+
+
+button#clear-cache-btn {
+    width: auto;
+    height: auto;
+    position: relative;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}

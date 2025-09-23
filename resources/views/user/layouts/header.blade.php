@@ -72,19 +72,19 @@
                             <li><a href="{{ route('arsip') }}">Download Arsip & Dokumen</a></li>
                         </ul>
                     </li>
+                    <li class="d-lg-none d-lg-block">
+                        <!-- Di dalam <body>, misalnya di footer atau sidebar -->
+                        <button id="clear-cache-btn">
+                            Update Tampilan
+                        </button>
+                    </li>
                     <li><a href="{{ route('kontak') }}">Kontak</a></li>
                     @if (!auth()->check())
                         <li class="d-lg-none d-block">
                             <a class="btn btn-primary" href="{{ route('login.login-akun') }}">Masuk</a>
                         </li>
                     @endif
-                    <li class="d-lg-none d-lg-block">
-                        <!-- Di dalam <body>, misalnya di footer atau sidebar -->
-                        <button id="clear-cache-btn"
-                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                            Update Tampilan
-                        </button>
-                    </li>
+
 
                 </ul>
             </div><!-- /.navbar-collapse -->
