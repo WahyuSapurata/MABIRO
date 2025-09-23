@@ -115,12 +115,6 @@
                         @endif
                     </li>
 
-                    {{-- Tombol Install PWA --}}
-                    <li class="nav-item install-pwa" id="installButton" style="display: none;">
-                        <button id="installBtn" class="install-btn">
-                            <i class="fas fa-download"></i> Install App
-                        </button>
-                    </li>
 
 
 
@@ -144,68 +138,5 @@
             // Hard reload: true berarti bypass cache
             window.location.reload(true);
         }
-    });
-</script>
-
-
-{{-- Script untuk menangani tombol install (tambahkan di akhir file atau di layout utama) --}}
-<script>
-    let deferredPrompt; // Variabel untuk menyimpan event prompt
-
-    // Dengarkan event beforeinstallprompt
-    window.addEventListener('beforeinstallprompt', (e) => {
-        // Cegah prompt default dari browser
-        e.preventDefault();
-
-        // Simpan event untuk digunakan nanti
-        deferredPrompt = e;
-
-        // Tampilkan tombol install
-        const installBtn = document.getElementById('installBtn');
-        const installLi = document.getElementById('installButton');
-        if (installBtn && installLi) {
-            installLi.style.display = 'block';
-        }
-    });
-
-    // Tangani klik tombol install
-    document.getElementById('installBtn').addEventListener('click', async () => {
-        if (deferredPrompt) {
-            // Tampilkan prompt instalasi
-            deferredPrompt.prompt();
-
-            // Tunggu hasil user
-            const {
-                outcome
-            } = await deferredPrompt.userChoice;
-
-            if (outcome === 'accepted') {
-                // User setuju install, sembunyikan tombol
-                document.getElementById('installButton').style.display = 'none';
-                deferredPrompt = null;
-
-                // Optional: Tampilkan notifikasi sukses
-                alert('App berhasil diinstall!');
-            }
-        }
-    });
-
-    // Daftarkan service worker (jalankan sekali saat load)
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/sw.js')
-                .then((registration) => {
-                    console.log('SW registered: ', registration);
-                })
-                .catch((registrationError) => {
-                    console.log('SW registration failed: ', registrationError);
-                });
-        });
-    }
-
-    // Opsional: Sembunyikan tombol jika app sudah diinstall
-    window.addEventListener('appinstalled', () => {
-        document.getElementById('installButton').style.display = 'none';
-        deferredPrompt = null;
     });
 </script>
