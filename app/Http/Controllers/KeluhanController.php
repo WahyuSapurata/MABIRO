@@ -99,7 +99,9 @@ class KeluhanController extends BaseController
         }
         $keluhan = Keluhan::whereIn('status', ['Belum Ditindaklanjuti', 'Tolak'])->where('uuid_penghuni', $data->uuid)->first();
 
-        $riwayat = Keluhan::where('uuid_penghuni', $data->uuid)->where('status', 'Sudah Ditindaklanjuti')->get();
+
+        // $riwayat = Keluhan::where('uuid_penghuni', $data->uuid)->where('status', 'Sudah Ditindaklanjuti')->get();
+        $riwayat = Keluhan::where('uuid_penghuni', $data->uuid)->get();
         return view('user.keluhan', compact('module', 'data', 'keluhan', 'riwayat'));
     }
 }

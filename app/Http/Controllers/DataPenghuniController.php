@@ -19,7 +19,7 @@ class DataPenghuniController extends BaseController
 
     public function get()
     {
-        $data = DataPenghuni::all();
+        $data = DataPenghuni::all(); //Ubah urutan disini
         $data->map(function ($item) {
             $user = User::where('uuid', $item->uuid_user)->first();
             $item->nama = $user->nama;

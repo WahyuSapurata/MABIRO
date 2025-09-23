@@ -20,7 +20,8 @@ class AbsensiPiketController extends BaseController
 
     public function get()
     {
-        $data = AbsensiPiket::all();
+        // $data = AbsensiPiket::all(); //Urutan Default
+        $data = AbsensiPiket::latest()->get();  //Ubah Urutan ke terbaru setiap tambah data
         $data->map(function ($item) {
             $item->nama_penghuni = User::where('uuid', $item->uuid_penghuni)->first()->nama ?? 'Tidak Diketahui';
             return $item;
@@ -112,7 +113,7 @@ class AbsensiPiketController extends BaseController
             ->first();
 
         $riwayat = AbsensiPiket::where('uuid_penghuni', auth()->user()->uuid)
-            ->whereNotNull('dokumentasi_foto')
+            // ->whereNotNull('dokumentasi_foto')
             ->get();
 
         return view('user.absensi', compact('module', 'data', 'riwayat'));
