@@ -5984,6 +5984,22 @@ tr.mb-table-custom {
     margin-bottom: 25px;
 }
 
+
+.dokumentasi-foto-absensi {
+    width: 150px;
+    height: 80px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+    transition: transform 0.2s;
+    /* Opsional: Hover effect */
+}
+
+.dokumentasi-foto-absensi:hover {
+    transform: scale(1.05);
+    /* Zoom sedikit saat hover */
+}
+
 /* ==============================================================
      # Pricing
 =================================================================== */

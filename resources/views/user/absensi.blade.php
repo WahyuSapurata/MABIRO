@@ -105,7 +105,7 @@
 
                                             <td>
                                                 @if (!empty($rwt->dokumentasi_foto))
-                                                    <img width="150"
+                                                    <img class="dokumentasi-foto-absensi"
                                                         src="{{ asset('/public/absen/' . $rwt->dokumentasi_foto) }}"
                                                         alt="Foto Absensi">
                                                 @else
