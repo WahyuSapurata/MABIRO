@@ -99,31 +99,26 @@ class AbsensiPiketController extends BaseController
     public function absen()
     {
         $module = 'Absensi Piket';
+
+        // Cek login dan role
         if (!auth()->check() || auth()->user()->role !== 'penghuni') {
             return redirect()->route('login.login-akun');
         }
 
-        $absensi = AbsensiPiket::where('uuid_penghuni', auth()->user()->uuid)->get();
-        $data = null;
+        // Ambil absensi hari ini langsung
+        $today = Carbon::today()->toDateString();
 
-        if ($absensi) {
-            // Ambil tanggal absensi
-            $absenDate = Carbon::createFromFormat('d-m-Y', $absensi->tanggal);
+        $data = AbsensiPiket::where('uuid_penghuni', auth()->user()->uuid)
+            ->whereDate('tanggal', $today)
+            ->first();
 
-            // Bandingkan dengan tanggal hari ini
-            if ($absenDate->isSameDay(Carbon::today())) {
-                $data = $absensi; // Tampilkan data jika tanggalnya sama dengan hari ini
-            }
-        }
+        // Ambil riwayat absensi yang ada dokumentasi
+        $riwayat = AbsensiPiket::where('uuid_penghuni', auth()->user()->uuid)
+            ->whereNotNull('dokumentasi_foto')
+            ->get();
 
-        $riwayat = AbsensiPiket::where('uuid_penghuni', auth()->user()->uuid)->whereNotNull('dokumentasi_foto')->get();
-        return view('user.absensi', compact(
-            'module',
-            'data',
-            'riwayat'
-        ));
+        return view('user.absensi', compact('module', 'data', 'riwayat'));
     }
-
 
     // public function absen() //Update 23-0-25
     // {
