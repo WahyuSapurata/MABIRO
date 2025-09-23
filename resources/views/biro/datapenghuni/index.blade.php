@@ -250,8 +250,8 @@
                             <option value="F10">F10</option>
                             <option value="F11">F11</option>
                             <option value="F12">F12</option>
-                            <option value="F13">F13</option>
                             <option value="F14">F14</option>
+                            <option value="F15">F15</option>
                         </select>
                     </div>
 
