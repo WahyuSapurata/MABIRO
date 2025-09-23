@@ -12,25 +12,27 @@ class KeluhanController extends BaseController
 {
     public function index()
     {
-        $module = 'Laoran & Keluhan';
+        $module = 'Laporan & Keluhan';
         return view('biro.keluhan.index', compact('module'));
     }
 
     public function index_keuangan()
     {
-        $module = 'Laoran & Keluhan';
+        $module = 'Laporan & Keluhan';
         return view('biro.keluhan.index', compact('module'));
     }
 
     public function index_inventaris()
     {
-        $module = 'Laoran & Keluhan';
+        $module = 'Laporan & Keluhan';
         return view('biro.keluhan.index', compact('module'));
     }
 
     public function get()
     {
-        $data = Keluhan::all();
+        $data = Keluhan::orderByRaw("CASE WHEN status = 'Belum Ditindaklanjuti' THEN 1 ELSE 2 END")
+            ->orderBy('created_at', 'desc')
+            ->get();
         $data->map(function ($item) {
             $item->nama_penghuni = User::where('uuid', $item->uuid_penghuni)->first()->nama ?? 'Tidak Diketahui';
             return $item;

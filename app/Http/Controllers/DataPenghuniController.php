@@ -20,8 +20,9 @@ class DataPenghuniController extends BaseController
     public function get()
     {
         // $data = DataPenghuni::all(); //Default Urutan
-        $data = DataPenghuni::orderBy('kamar', 'asc')->get(); // Urutkan berdasarkan kolom 'kamar' dari terkecil ke terbesar
-
+        $data = DataPenghuni::orderBy('status', 'asc')
+            ->orderBy('kamar', 'asc')
+            ->get();
         $data->map(function ($item) {
             $user = User::where('uuid', $item->uuid_user)->first();
             $item->nama = $user->nama;

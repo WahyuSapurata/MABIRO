@@ -22,7 +22,7 @@ class PengeluaranController extends BaseController
 
     public function get()
     {
-        $data = Pengeluaran::all();
+        $data = Pengeluaran::orderBy('tanggal', 'desc')->get();
         return $this->sendResponse($data, 'Get data success');
     }
 

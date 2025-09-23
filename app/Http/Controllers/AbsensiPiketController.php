@@ -23,8 +23,9 @@ class AbsensiPiketController extends BaseController
         // $data = AbsensiPiket::all(); //Urutan Default
         $data = AbsensiPiket::latest()->get();  //Ubah Urutan ke terbaru setiap tambah data
 
-        $data = AbsensiPiket::where('status', 'Belum Piket')
-            ->orderBy('tanggal', 'asc')  // Urutkan berdasarkan kolom 'tanggal' dari terlama ke terbaru
+        $data = AbsensiPiket::  // Perbaiki: Hilangkan :: ekstra
+            orderBy('status', 'asc')  // 'Belum Piket' muncul dulu (alphabetically < 'Sudah Piket')
+            ->orderBy('tanggal', 'asc')  // Kemudian urutkan berdasarkan tanggal dari terlama ke terbaru
             ->get();
 
         $data->map(function ($item) {

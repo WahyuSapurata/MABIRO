@@ -78,6 +78,15 @@
                             <a class="btn btn-primary" href="{{ route('login.login-akun') }}">Masuk</a>
                         </li>
                     @endif
+
+                    <li class="d-lg-none d-lg-block">
+                        <!-- Di dalam <body>, misalnya di footer atau sidebar -->
+                        <button id="clear-cache-btn"
+                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                            Update Tampilan
+                        </button>
+                    </li>
+
                 </ul>
             </div><!-- /.navbar-collapse -->
 
@@ -106,13 +115,14 @@
                         @endif
                     </li>
 
-                    {{--   <li class="d-none d-lg-block">
-                        <!-- Di dalam <body>, misalnya di footer atau sidebar -->
-                        <button id="clear-cache-btn"
-                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                            Update Tampilan (Clear Cache)
+                    {{-- Tombol Install PWA --}}
+                    <li class="nav-item install-pwa" id="installButton" style="display: none;">
+                        <button id="installBtn" class="install-btn">
+                            <i class="fas fa-download"></i> Install App
                         </button>
-                    </li> --}}
+                    </li>
+
+
 
 
                 </ul>
@@ -134,5 +144,68 @@
             // Hard reload: true berarti bypass cache
             window.location.reload(true);
         }
+    });
+</script>
+
+
+{{-- Script untuk menangani tombol install (tambahkan di akhir file atau di layout utama) --}}
+<script>
+    let deferredPrompt; // Variabel untuk menyimpan event prompt
+
+    // Dengarkan event beforeinstallprompt
+    window.addEventListener('beforeinstallprompt', (e) => {
+        // Cegah prompt default dari browser
+        e.preventDefault();
+
+        // Simpan event untuk digunakan nanti
+        deferredPrompt = e;
+
+        // Tampilkan tombol install
+        const installBtn = document.getElementById('installBtn');
+        const installLi = document.getElementById('installButton');
+        if (installBtn && installLi) {
+            installLi.style.display = 'block';
+        }
+    });
+
+    // Tangani klik tombol install
+    document.getElementById('installBtn').addEventListener('click', async () => {
+        if (deferredPrompt) {
+            // Tampilkan prompt instalasi
+            deferredPrompt.prompt();
+
+            // Tunggu hasil user
+            const {
+                outcome
+            } = await deferredPrompt.userChoice;
+
+            if (outcome === 'accepted') {
+                // User setuju install, sembunyikan tombol
+                document.getElementById('installButton').style.display = 'none';
+                deferredPrompt = null;
+
+                // Optional: Tampilkan notifikasi sukses
+                alert('App berhasil diinstall!');
+            }
+        }
+    });
+
+    // Daftarkan service worker (jalankan sekali saat load)
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+                .then((registration) => {
+                    console.log('SW registered: ', registration);
+                })
+                .catch((registrationError) => {
+                    console.log('SW registration failed: ', registrationError);
+                });
+        });
+    }
+
+    // Opsional: Sembunyikan tombol jika app sudah diinstall
+    window.addEventListener('appinstalled', () => {
+        document.getElementById('installButton').style.display = 'none';
+        deferredPrompt = null;
     });
 </script>

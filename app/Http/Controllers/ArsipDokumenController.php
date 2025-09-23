@@ -29,7 +29,7 @@ class ArsipDokumenController extends BaseController
 
     public function get()
     {
-        $data = ArsipDokumen::all();
+        $data = ArsipDokumen::orderBy('keterangan')->get();
         return $this->sendResponse($data, 'Get data success');
     }
 

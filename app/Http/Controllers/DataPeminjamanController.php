@@ -24,7 +24,10 @@ class DataPeminjamanController extends BaseController
 
     public function get()
     {
-        $data = DataPeminjaman::all();
+        $data = DataPeminjaman::orderByRaw("CASE WHEN status = 'Menunggu Persetujuan' THEN 1 ELSE 2 END")
+            ->orderBy('created_at', 'desc')
+            ->get();
+
         return $this->sendResponse($data, 'Get data success');
     }
 

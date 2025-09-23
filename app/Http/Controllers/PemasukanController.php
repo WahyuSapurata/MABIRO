@@ -22,7 +22,7 @@ class PemasukanController extends BaseController
 
     public function get()
     {
-        $data = Pemasukan::all();
+        $data = Pemasukan::orderBy('tanggal', 'desc')->get();
         return $this->sendResponse($data, 'Get data success');
     }
 
