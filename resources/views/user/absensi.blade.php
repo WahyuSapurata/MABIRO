@@ -22,7 +22,7 @@
                 <div class="top-info">
                     <div class="site-heading text-center">
                         <h5>Absensi</h5>
-                        <h2 class="area-title">Lakukan Absesnsi Piket Anda</h2>
+                        <h2 class="area-title">Lakukan Absensi Piket Anda</h2>
                         <div class="devider"></div>
                     </div>
                     <div class="row">
@@ -37,16 +37,17 @@
                                 <div class="col-md-12 col-lg-6">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5 class="mb-0">Jadwal Piket Anda
-                                                {{ \Carbon\Carbon::parse($data->waktu)->translatedFormat('d-m-Y H:i') }}
+                                            <h5 class="mb-0">
+                                                Jadwal Piket Anda:
+                                                {{ \Carbon\Carbon::createFromFormat('d-m-Y', $data->tanggal)->translatedFormat('d F Y') }}
+                                                pukul
+                                                {{ \Carbon\Carbon::createFromFormat('H:i', $data->waktu)->format('H:i') }}
                                             </h5>
-
-
                                         </div>
                                         <div class="card-body">
-                                            <button class="btn btn-danger btn-buka-modal"
-                                                data-uuid="{{ $data->uuid }}">Lakukan
-                                                Absensi</button>
+                                            <button class="btn btn-danger btn-buka-modal" data-uuid="{{ $data->uuid }}">
+                                                Lakukan Absensi
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -58,10 +59,6 @@
                                 </div>
                             </div>
                         @endif
-
-
-
-
                     </div>
                 </div>
 
@@ -86,12 +83,14 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $rwt->lokasi }}</td>
-                                            <td>{{ $rwt->tanggal }}</td>
-                                            <td>{{ $rwt->waktu }}</td>
-
-                                            <td><img width="150px"
-                                                    src="{{ asset('/public/absen/' . $rwt->dokumentasi_foto) }}"
-                                                    alt=""></td>
+                                            <td>{{ \Carbon\Carbon::createFromFormat('d-m-Y', $rwt->tanggal)->translatedFormat('d F Y') }}
+                                            </td>
+                                            <td>{{ \Carbon\Carbon::createFromFormat('H:i', $rwt->waktu)->format('H:i') }}
+                                            </td>
+                                            <td>
+                                                <img width="150" src="{{ asset('absen/' . $rwt->dokumentasi_foto) }}"
+                                                    alt="Foto Absensi">
+                                            </td>
                                         </tr>
                                     @empty
                                         <tr>
