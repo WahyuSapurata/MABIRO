@@ -161,11 +161,6 @@ Table of contents
     color: var(--brand-text-primary);
 }
 
-
-tr {
-    color: #ffffff;
-}
-
 /* ==============================================================
      # Reset Browsers
 =================================================================== */
@@ -5955,7 +5950,12 @@ i#themeIcon {
 }
 
 .mb-table-custom thead tr {
-    color: var(--brand-white-color);
+    color: var(--brand-white-color) !important;
+}
+
+
+tr.mb-table-custom {
+    color: var(--brand-white-color) !important;
 }
 
 .mb-table-custom .table>:not(:first-child) {

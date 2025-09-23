@@ -4,7 +4,7 @@
 @endphp
 @section('content')
     <!-- Start Breadcrumb
-                                                                                                                                                                                                                                                                                                                    ============================================= -->
+                                                                                                                                                                                                                                                                                                                                            ============================================= -->
     <div class="breadcrumb-area text-center shadow theme-hard bg-fixed text-light"
         style="background-image: url({{ asset('assets-landing/img/banner/asrama.png') }});">
         <div class="container">
@@ -78,7 +78,7 @@
                         <div class="table-responsive">
                             <table class="table table-striped table-sm text-left mb-table-custom table-spaced">
                                 <thead class="thead-light text-uppercase text-xs">
-                                    <tr>
+                                    <tr class="mb-table-custom">
                                         <th>No</th>
                                         <th>Keterangan</th>
                                         <th>Kategori</th>

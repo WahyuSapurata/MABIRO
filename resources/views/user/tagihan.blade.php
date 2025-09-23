@@ -71,7 +71,7 @@
                         <div class="table-responsive">
                             <table class="table table-striped table-sm text-left">
                                 <thead class="thead-light text-uppercase text-xs">
-                                    <tr>
+                                    <tr class="mb-table-custom">
                                         <th>No</th>
                                         <th>Tanggal</th>
                                         <th>Total Tagihan</th>
