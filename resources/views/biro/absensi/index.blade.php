@@ -235,7 +235,7 @@
                                 <!--end::Overlay-->
                             `;
                         } else {
-                            result = 'Belum ada dokumentasi absensi';
+                            result = 'Belum ada dokumentasi';
                         }
                         return result;
                     }

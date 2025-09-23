@@ -16,7 +16,9 @@ class DataTamuController extends BaseController
 
     public function get()
     {
-        $data = DataTamu::all();
+        // $data = DataTamu::all();
+
+        $data = DataTamu::orderBy('tanggal_masuk', 'desc')->get();
         return $this->sendResponse($data, 'Get data success');
     }
 
