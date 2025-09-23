@@ -16,9 +16,9 @@ class DataTamuController extends BaseController
 
     public function get()
     {
-        // $data = DataTamu::all();
-
-        $data = DataTamu::orderBy('tanggal_masuk', 'desc')->get();
+        // $data = DataTamu::all(); //Urutkan Dafault
+        // $data = DataTamu::orderByRaw("STR_TO_DATE(tanggal_masuk, '%d-%m-%Y') DESC")->get(); //Urutkan Berdasarkan Tahun-Bulan-Tanggal
+        $data = DataTamu::orderBy('created_at', 'desc')->get(); //Urutkan Berdasarkan Data Dibuat
         return $this->sendResponse($data, 'Get data success');
     }
 
@@ -50,6 +50,8 @@ class DataTamuController extends BaseController
         return $this->sendResponse($data, 'Show data success');
     }
 
+
+
     public function update(StoreDataTamuRequest $update, $params)
     {
         $data = DataTamu::where('uuid', $params)->first();
@@ -60,6 +62,8 @@ class DataTamuController extends BaseController
             $data->tujuan = $update->tujuan;
             $data->tanggal_masuk = $update->tanggal_masuk;
             $data->tanggal_keluar = $update->tanggal_keluar;
+
+
             $data->status = $update->status;
             $data->save();
         } catch (\Exception $e) {

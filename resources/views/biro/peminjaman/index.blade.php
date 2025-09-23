@@ -245,6 +245,11 @@
                 }, {
                     data: 'tanggal_pinjam',
                     className: 'mb-kolom-tanggal align-content-center text-center',
+                    render: function(data) {
+                        if (!data) return '';
+                        let parts = data.split('-'); // ['24','09','2025']
+                        return `${parts[2]}-${parts[1]}-${parts[0]}`;
+                    }
                 }, {
                     data: 'durasi_peminjaman',
                     className: 'mb-kolom-qty align-content-center text-center',

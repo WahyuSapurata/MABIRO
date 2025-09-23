@@ -65,5 +65,30 @@
         </i>
     </div>
     <a href="{{ route('kontak') }}" class="nav-item"><i class="fas fa-phone"></i><span>Kontak</span></a>
-    <a href="{{ route('profile') }}" class="nav-item"><i class="fas fa-user"></i><span>Profile</span></a>
+    {{-- <a href="{{ route('profile') }}" class="nav-item"><i class="fas fa-user"></i><span>Profile</span></a> --}}
+
+
+    @if (auth()->check())
+        {{-- Sudah login --}}
+        <a href="{{ route('profile') }}" class="nav-item">
+            <img src="http://127.0.0.1:8000/public/penghuni/foto-1758651995.png" alt="Foto" class="rounded-circle"
+                style="
+    width: 42px;
+    height: 42px;
+    object-fit: cover;
+    object-position: top;
+    margin-bottom: 8px;
+
+">
+        </a>
+    @else
+        {{-- Belum login --}}
+        <a href="{{ route('profile') }}" class="nav-item">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </a>
+    @endif
+
+
+
 </nav>

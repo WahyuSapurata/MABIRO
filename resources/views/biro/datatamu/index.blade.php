@@ -238,9 +238,19 @@
                 }, {
                     data: 'tanggal_masuk',
                     className: 'align-content-center text-center',
+                    render: function(data) {
+                        if (!data) return '';
+                        let parts = data.split('-'); // ['24','09','2025']
+                        return `${parts[2]}-${parts[1]}-${parts[0]}`;
+                    }
                 }, {
                     data: 'tanggal_keluar',
                     className: 'align-content-center text-center',
+                    render: function(data) {
+                        if (!data) return '';
+                        let parts = data.split('-'); // ['24','09','2025']
+                        return `${parts[2]}-${parts[1]}-${parts[0]}`;
+                    }
                 }, {
                     data: 'status',
                     className: 'mb-kolom-nominal align-content-center text-center',

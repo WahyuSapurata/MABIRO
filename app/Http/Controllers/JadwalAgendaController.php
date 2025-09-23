@@ -19,8 +19,11 @@ class JadwalAgendaController extends BaseController
 
     public function get()
     {
-        $data = JadwalAgenda::orderBy('jadwal_pelaksanaan', 'desc')
-            ->get();
+        // $data = JadwalAgenda::orderBy('jadwal_pelaksanaan', 'desc')
+        //     ->get();
+
+
+        $data = JadwalAgenda::orderByRaw("STR_TO_DATE(jadwal_pelaksanaan, '%d-%m-%Y') asc")->get(); //Urutkan Berdasarkan Tahun-Bulan-Tanggal
 
         $data->map(function ($item) {
             $item->nama_program = Program::where('uuid', $item->uuid_program)->value('nama_program');

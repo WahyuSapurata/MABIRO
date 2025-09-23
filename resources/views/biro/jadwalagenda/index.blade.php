@@ -271,6 +271,11 @@
                 }, {
                     data: 'jadwal_pelaksanaan',
                     className: 'mb-kolom-tanggal text-center align-content-center',
+                    render: function(data) {
+                        if (!data) return '';
+                        let parts = data.split('-'); // ['24','09','2025']
+                        return `${parts[2]}-${parts[1]}-${parts[0]}`;
+                    }
                 }, {
                     data: 'nama_program',
                     className: 'mb-kolom-text text-center align-content-center',

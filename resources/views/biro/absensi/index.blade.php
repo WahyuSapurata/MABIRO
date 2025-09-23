@@ -195,8 +195,10 @@
                 }, {
                     data: 'tanggal',
                     class: 'mb-kolom-tanggal text-center align-content-center',
-                    render: function(data, type, row, meta) {
-                        return data ? data : '-';
+                    render: function(data) {
+                        if (!data) return '';
+                        let parts = data.split('-'); // ['24','09','2025']
+                        return `${parts[2]}-${parts[1]}-${parts[0]}`;
                     }
                 }, {
                     data: 'lokasi',
