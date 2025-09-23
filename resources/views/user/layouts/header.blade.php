@@ -106,13 +106,13 @@
                         @endif
                     </li>
 
-                    <li class="d-none d-lg-block">
+                    {{--   <li class="d-none d-lg-block">
                         <!-- Di dalam <body>, misalnya di footer atau sidebar -->
                         <button id="clear-cache-btn"
                             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                             Update Tampilan (Clear Cache)
                         </button>
-                    </li>
+                    </li> --}}
 
 
                 </ul>
