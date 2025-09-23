@@ -22,6 +22,11 @@ class AbsensiPiketController extends BaseController
     {
         // $data = AbsensiPiket::all(); //Urutan Default
         $data = AbsensiPiket::latest()->get();  //Ubah Urutan ke terbaru setiap tambah data
+
+        $data = AbsensiPiket::where('status', 'Belum Piket')
+            ->orderBy('tanggal', 'asc')  // Urutkan berdasarkan kolom 'tanggal' dari terlama ke terbaru
+            ->get();
+
         $data->map(function ($item) {
             $item->nama_penghuni = User::where('uuid', $item->uuid_penghuni)->first()->nama ?? 'Tidak Diketahui';
             return $item;
@@ -35,8 +40,6 @@ class AbsensiPiketController extends BaseController
             $data = new AbsensiPiket();
             $data->uuid_penghuni = $store->uuid_penghuni;
             $data->tanggal = $store->tanggal;
-
-            // $data->tanggal = Carbon::createFromFormat('d-m-Y', $store->tanggal)->format('Y-m-d');  // Konversi ke format DB standar 23-0-25
 
             $data->status = 'Belum Piket';
             $data->save();
@@ -119,50 +122,6 @@ class AbsensiPiketController extends BaseController
         return view('user.absensi', compact('module', 'data', 'riwayat'));
     }
 
-    // public function absen() //Update 23-0-25
-    // {
-    //     $module = 'Absensi Piket';
-    //     if (!auth()->check() || auth()->user()->role !== 'penghuni') {
-    //         return redirect()->route('login.login-akun');
-    //     }
-
-    //     // Ambil SEMUA jadwal user, order by tanggal asc
-    //     $allAbsensi = AbsensiPiket::where('uuid_penghuni', auth()->user()->uuid)
-    //         ->orderBy('tanggal', 'asc')
-    //         ->get();
-
-    //     $data = null;       // Jadwal hari ini (untuk form absen)
-    //     $upcoming = collect();  // Jadwal masa depan (baru ditambah admin, seperti 23 Sep)
-    //     $riwayat = collect();   // Riwayat selesai (sudah piket + foto)
-
-    //     foreach ($allAbsensi as $absensi) {
-    //         $absenDate = Carbon::parse($absensi->tanggal);  // FIX: Gunakan parse() untuk auto-detect format DB (Y-m-d atau d-m-Y)
-
-    //         if ($absenDate->isPast()) {  // Sudah lewat
-    //             if ($absensi->status === 'Sudah Piket' && $absensi->dokumentasi_foto) {
-    //                 $riwayat->push($absensi);
-    //             }
-    //         } elseif ($absenDate->isToday()) {
-    //             $data = $absensi;  // Jadwal hari ini
-    //         } else {  // Masa depan (belum waktunya)
-    //             if ($absensi->status === 'Belum Piket') {
-    //                 $upcoming->push($absensi);
-    //             }
-    //         }
-    //     }
-
-    //     // Sort riwayat terbaru dulu
-    //     $riwayat = $riwayat->sortByDesc('tanggal');
-
-    //     return view('user.absensi', compact(
-    //         'module',
-    //         'data',
-    //         'riwayat',
-    //         'upcoming'  // TAMBAHAN: Pass jadwal masa depan ke view
-    //     ));
-    // }
-
-    //Batas Update
 
 
     public function upload_absen(Request $update, $params)

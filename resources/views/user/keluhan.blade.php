@@ -4,7 +4,7 @@
 @endphp
 @section('content')
     <!-- Start Breadcrumb
-                                                                                                                                                                                                                                                                                                            ============================================= -->
+                                                                                                                                                                                                                                                                                                                    ============================================= -->
     <div class="breadcrumb-area text-center shadow theme-hard bg-fixed text-light"
         style="background-image: url({{ asset('assets-landing/img/banner/asrama.png') }});">
         <div class="container">
@@ -23,7 +23,7 @@
                 @if ($keluhan)
                     <div class="col-12 mb-3">
                         <div class="alert alert-info" role="alert">
-                            Keluhan Anda Pada Kategori {{ $keluhan->ketegori }} {{ $keluhan->status }}!
+                            Keluhanmu Pada Kategori {{ $keluhan->ketegori }} {{ $keluhan->status }}!
                         </div>
                     </div>
                 @endif
@@ -51,7 +51,7 @@
                             </div>
 
                             <div class="mb-10">
-                                <label class="form-label">Keterangan</label>
+                                <label class="form-label">Isi Laporan / Keluhan</label>
                                 <textarea name="keterangan" class="form-control" id="" cols="" rows="8"></textarea>
                                 <small class="text-danger d-block keterangan_error"></small>
                             </div>
@@ -73,7 +73,7 @@
                 <div class="main-content">
                     <div class="site-heading text-center">
                         <h5>Riwayat</h5>
-                        <h2 class="area-title">Semua Riwayat Laporan & Keluahan Anda</h2>
+                        <h2 class="area-title">Semua Riwayat Laporan & Keluhanmu</h2>
                         <div class="devider"></div>
                         <div class="table-responsive">
                             <table class="table table-striped table-sm text-left mb-table-custom table-spaced">
@@ -140,7 +140,7 @@
                         if (response.success == true) {
                             Swal
                                 .fire({
-                                    text: `Laporan keluhan anda telah di buat harapa tunggu info selanjutnya`,
+                                    text: `Laporan telah di buat harapa tunggu info selanjutnya`,
                                     icon: "success",
                                     showConfirmButton: false,
                                     timer: 1500,

@@ -646,7 +646,7 @@ class Control {
                         swal
                             .fire({
                                 title: "Menghapus!",
-                                text: "Data Anda telah dihapus.",
+                                text: "Datamu telah dihapus.",
                                 icon: "success",
                                 showConfirmButton: false,
                                 timer: 1500

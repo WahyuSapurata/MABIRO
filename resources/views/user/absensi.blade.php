@@ -22,7 +22,7 @@
                 <div class="top-info">
                     <div class="site-heading text-center">
                         <h5>Absensi</h5>
-                        <h2 class="area-title">Lakukan Absensi Piket Anda</h2>
+                        <h2 class="area-title">Lakukan Absensi Piketmu</h2>
                         <div class="devider"></div>
                     </div>
                     <div class="row">
@@ -30,7 +30,7 @@
                             @if ($data->dokumentasi_foto)
                                 <div class="col-12">
                                     <div class="alert alert-info" role="alert">
-                                        Anda sudah melakukan absensi
+                                        Kamu sudah melakukan absensi
                                     </div>
                                 </div>
                             @else
@@ -38,23 +38,12 @@
                                     <div class="card">
                                         <div class="card-header">
                                             <h5 class="mb-0">
-                                                Jadwal Piket Anda:
+
+                                                Kamu Piket Hari Ini !
+                                                {{-- Jadwal Piketmu : --}}
                                                 {{-- aman untuk tanggal format d-m-Y --}}
-                                                {{ !empty($data->tanggal) ? \Carbon\Carbon::createFromFormat('d-m-Y', $data->tanggal)->translatedFormat('d F Y') : '-' }}
-                                                pukul
-                                                {{-- aman untuk waktu (H:i atau H:i:s) --}}
-                                                @if (!empty($data->waktu))
-                                                    @php
-                                                        $timeFormat =
-                                                            str_contains($data->waktu, ':') &&
-                                                            substr_count($data->waktu, ':') === 2
-                                                                ? 'H:i:s'
-                                                                : 'H:i';
-                                                    @endphp
-                                                    {{ \Carbon\Carbon::createFromFormat($timeFormat, $data->waktu)->format('H:i') }}
-                                                @else
-                                                    -
-                                                @endif
+                                                {{-- {{ !empty($data->tanggal) ? \Carbon\Carbon::createFromFormat('d-m-Y', $data->tanggal)->translatedFormat('d F Y') : '-' }} --}}
+
                                             </h5>
                                         </div>
                                         <div class="card-body">
@@ -68,7 +57,7 @@
                         @else
                             <div class="col-12">
                                 <div class="alert alert-info" role="alert">
-                                    Tidak ada jadwal piket hari ini
+                                    Tidak ada jadwal piketmu hari ini
                                 </div>
                             </div>
                         @endif
@@ -78,7 +67,7 @@
                 <div class="main-content">
                     <div class="site-heading text-center">
                         <h5>Riwayat</h5>
-                        <h2 class="area-title">Semua Riwayat Absensi Piket Anda</h2>
+                        <h2 class="area-title">Semua Riwayat Absensi Piketmu</h2>
                         <div class="devider"></div>
                         <div class="table-responsive">
                             <table class="table table-striped table-sm text-left">
@@ -113,6 +102,7 @@
                                                     -
                                                 @endif
                                             </td>
+
                                             <td>
                                                 @if (!empty($rwt->dokumentasi_foto))
                                                     <img width="150"

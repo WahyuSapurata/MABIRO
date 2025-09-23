@@ -1,7 +1,7 @@
 @extends('user.layouts.layout')
 @section('content')
     <!-- Start Breadcrumb
-                                                                                                                                                                                                                                                                                                                                                                                                        ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                            ============================================= -->
     <div class="breadcrumb-area text-center shadow theme-hard bg-fixed text-light"
         style="background-image: url({{ asset('assets-landing/img/banner/asrama.png') }});">
         <div class="container">
@@ -65,7 +65,7 @@
                 success: function(response) {
                     if (response.data.length === 0) {
                         $('#hasilPencarian').html(
-                            '<div class="alert alert-warning">Data rekapitulasi keuangan belum tersedia pada priode yang anda pilih.</div>'
+                            '<div class="alert alert-warning">Data rekapitulasi keuangan belum tersedia pada periode yang kamu pilih.</div>'
                         );
                         return;
                     }

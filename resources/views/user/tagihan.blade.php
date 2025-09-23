@@ -22,7 +22,7 @@
                 <div class="top-info">
                     <div class="site-heading text-center">
                         <h5>Semua Tagihan</h5>
-                        <h2 class="area-title">Tagihan Anda Yang Belum di Bayarkan Tiap Bulannya</h2>
+                        <h2 class="area-title">Tagihanmu Yang Belum di Bayarkan Tiap Bulannya</h2>
                         <div class="devider"></div>
                     </div>
                     <div class="row">
@@ -30,7 +30,7 @@
                             <div class="col-md-6 col-lg-4">
                                 <div class="card">
                                     <div class="card-header bg-mabiro">
-                                        <h5 class="mb-0 text-white">Tagihan Anda Di Bulan
+                                        <h5 class="mb-0 text-white">Tagihanmu Di Bulan
                                             {{ \Carbon\Carbon::parse($item->created_at)->translatedFormat('F') }}
                                         </h5>
                                     </div>
@@ -46,9 +46,8 @@
 
                                         @if ($item->status == 'tolak')
                                             <div class="d-grid mt-2">
-                                                <h6 class="text-warning mb-0">Ada kesalahan dalam transaksi anda, harap
-                                                    lakukan
-                                                    pembayaran ulang.</h6>
+                                                <h6 class="text-warning mb-0">Ada kesalahan dalam transaksimu, harap
+                                                    lakukan pembayaran ulang.</h6>
                                             </div>
                                         @endif
                                     </div>
@@ -57,7 +56,7 @@
                         @empty
                             <div class="col-12">
                                 <div class="alert alert-info" role="alert">
-                                    Tagihan anda telah lunas semua
+                                    Tagihanmu telah lunas semua
                                 </div>
                             </div>
                         @endforelse
@@ -67,7 +66,7 @@
                 <div class="main-content">
                     <div class="site-heading text-center">
                         <h5>Riwayat</h5>
-                        <h2 class="area-title">Semua Riwayat Tagihan Anda Selama Ini</h2>
+                        <h2 class="area-title">Semua Riwayat Tagihanmu Selama Ini</h2>
                         <div class="devider"></div>
                         <div class="table-responsive">
                             <table class="table table-striped table-sm text-left">
