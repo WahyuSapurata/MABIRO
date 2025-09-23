@@ -33,9 +33,9 @@ class AbsensiPiketController extends BaseController
         try {
             $data = new AbsensiPiket();
             $data->uuid_penghuni = $store->uuid_penghuni;
-            // $data->tanggal = $store->tanggal;
+            $data->tanggal = $store->tanggal;
 
-            $data->tanggal = Carbon::createFromFormat('d-m-Y', $store->tanggal)->format('Y-m-d');  // Konversi ke format DB standar 23-0-25
+            // $data->tanggal = Carbon::createFromFormat('d-m-Y', $store->tanggal)->format('Y-m-d');  // Konversi ke format DB standar 23-0-25
 
             $data->status = 'Belum Piket';
             $data->save();
@@ -96,77 +96,77 @@ class AbsensiPiketController extends BaseController
     }
 
     // user
-    // public function absen()
-    // {
-    //     $module = 'Absensi Piket';
-    //     if (!auth()->check() || auth()->user()->role !== 'penghuni') {
-    //         return redirect()->route('login.login-akun');
-    //     }
-
-    //     $absensi = AbsensiPiket::where('uuid_penghuni', auth()->user()->uuid)->first();
-    //     $data = null;
-
-    //     if ($absensi) {
-    //         // Ambil tanggal absensi
-    //         $absenDate = Carbon::createFromFormat('d-m-Y', $absensi->tanggal);
-
-    //         // Bandingkan dengan tanggal hari ini
-    //         if ($absenDate->isSameDay(Carbon::today())) {
-    //             $data = $absensi; // Tampilkan data jika tanggalnya sama dengan hari ini
-    //         }
-    //     }
-
-    //     $riwayat = AbsensiPiket::where('uuid_penghuni', auth()->user()->uuid)->whereNotNull('dokumentasi_foto')->get();
-    //     return view('user.absensi', compact(
-    //         'module',
-    //         'data',
-    //         'riwayat'
-    //     ));
-    // }
-
-
-    public function absen() //Update 23-0-25
+    public function absen()
     {
         $module = 'Absensi Piket';
         if (!auth()->check() || auth()->user()->role !== 'penghuni') {
             return redirect()->route('login.login-akun');
         }
 
-        // Ambil SEMUA jadwal user, order by tanggal asc
-        $allAbsensi = AbsensiPiket::where('uuid_penghuni', auth()->user()->uuid)
-            ->orderBy('tanggal', 'asc')
-            ->get();
+        $absensi = AbsensiPiket::where('uuid_penghuni', auth()->user()->uuid)->get();
+        $data = null;
 
-        $data = null;       // Jadwal hari ini (untuk form absen)
-        $upcoming = collect();  // Jadwal masa depan (baru ditambah admin, seperti 23 Sep)
-        $riwayat = collect();   // Riwayat selesai (sudah piket + foto)
+        if ($absensi) {
+            // Ambil tanggal absensi
+            $absenDate = Carbon::createFromFormat('d-m-Y', $absensi->tanggal);
 
-        foreach ($allAbsensi as $absensi) {
-            $absenDate = Carbon::parse($absensi->tanggal);  // FIX: Gunakan parse() untuk auto-detect format DB (Y-m-d atau d-m-Y)
-
-            if ($absenDate->isPast()) {  // Sudah lewat
-                if ($absensi->status === 'Sudah Piket' && $absensi->dokumentasi_foto) {
-                    $riwayat->push($absensi);
-                }
-            } elseif ($absenDate->isToday()) {
-                $data = $absensi;  // Jadwal hari ini
-            } else {  // Masa depan (belum waktunya)
-                if ($absensi->status === 'Belum Piket') {
-                    $upcoming->push($absensi);
-                }
+            // Bandingkan dengan tanggal hari ini
+            if ($absenDate->isSameDay(Carbon::today())) {
+                $data = $absensi; // Tampilkan data jika tanggalnya sama dengan hari ini
             }
         }
 
-        // Sort riwayat terbaru dulu
-        $riwayat = $riwayat->sortByDesc('tanggal');
-
+        $riwayat = AbsensiPiket::where('uuid_penghuni', auth()->user()->uuid)->whereNotNull('dokumentasi_foto')->get();
         return view('user.absensi', compact(
             'module',
             'data',
-            'riwayat',
-            'upcoming'  // TAMBAHAN: Pass jadwal masa depan ke view
+            'riwayat'
         ));
     }
+
+
+    // public function absen() //Update 23-0-25
+    // {
+    //     $module = 'Absensi Piket';
+    //     if (!auth()->check() || auth()->user()->role !== 'penghuni') {
+    //         return redirect()->route('login.login-akun');
+    //     }
+
+    //     // Ambil SEMUA jadwal user, order by tanggal asc
+    //     $allAbsensi = AbsensiPiket::where('uuid_penghuni', auth()->user()->uuid)
+    //         ->orderBy('tanggal', 'asc')
+    //         ->get();
+
+    //     $data = null;       // Jadwal hari ini (untuk form absen)
+    //     $upcoming = collect();  // Jadwal masa depan (baru ditambah admin, seperti 23 Sep)
+    //     $riwayat = collect();   // Riwayat selesai (sudah piket + foto)
+
+    //     foreach ($allAbsensi as $absensi) {
+    //         $absenDate = Carbon::parse($absensi->tanggal);  // FIX: Gunakan parse() untuk auto-detect format DB (Y-m-d atau d-m-Y)
+
+    //         if ($absenDate->isPast()) {  // Sudah lewat
+    //             if ($absensi->status === 'Sudah Piket' && $absensi->dokumentasi_foto) {
+    //                 $riwayat->push($absensi);
+    //             }
+    //         } elseif ($absenDate->isToday()) {
+    //             $data = $absensi;  // Jadwal hari ini
+    //         } else {  // Masa depan (belum waktunya)
+    //             if ($absensi->status === 'Belum Piket') {
+    //                 $upcoming->push($absensi);
+    //             }
+    //         }
+    //     }
+
+    //     // Sort riwayat terbaru dulu
+    //     $riwayat = $riwayat->sortByDesc('tanggal');
+
+    //     return view('user.absensi', compact(
+    //         'module',
+    //         'data',
+    //         'riwayat',
+    //         'upcoming'  // TAMBAHAN: Pass jadwal masa depan ke view
+    //     ));
+    // }
 
     //Batas Update
 

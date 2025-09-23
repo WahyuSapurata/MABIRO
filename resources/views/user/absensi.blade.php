@@ -37,15 +37,10 @@
                                 <div class="col-md-12 col-lg-6">
                                     <div class="card">
                                         <div class="card-header">
-                                            {{-- <h5 class="mb-0">Jadwal Piket Anda
+                                            <h5 class="mb-0">Jadwal Piket Anda
                                                 {{ \Carbon\Carbon::parse($data->waktu)->translatedFormat('d-m-Y H:i') }}
-                                            </h5> --}}
-
-                                            {{-- Update 23-09-25 --}}
-                                            <h5 class="mb-0">Jadwal Piket Anda pada
-                                                {{ \Carbon\Carbon::parse($data->tanggal)->translatedFormat('d F Y') }}
-                                                {{ $data->waktu ? 'pukul ' . \Carbon\Carbon::parse($data->waktu)->format('H:i') : '' }}
                                             </h5>
+
 
                                         </div>
                                         <div class="card-body">
@@ -64,27 +59,7 @@
                             </div>
                         @endif
 
-                        {{-- TAMBAHAN BARU: Section Jadwal Mendatang --}}
-                        @if (isset($upcoming) && $upcoming->count() > 0)
-                            {{-- Update 23-09-25 --}}
-                            <div class="col-12">
-                                <div class="alert alert-warning" role="alert">
-                                    <h6>Jadwal Piket Mendatang</h6>
-                                    <ul class="list-unstyled">
-                                        @foreach ($upcoming as $jadwal)
-                                            <li>
-                                                <strong>{{ \Carbon\Carbon::parse($jadwal->tanggal)->translatedFormat('d F Y') }}</strong>
-                                                - Status: {{ $jadwal->status ?? 'Belum Piket' }}
-                                                {{-- Opsional: Tambah tombol preview jika perlu --}}
-                                                {{-- <button class="btn btn-sm btn-outline-info ms-2" onclick="alert('Jadwal ini akan aktif pada tanggal tersebut');">Detail</button> --}}
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                    <small class="text-muted">Anda bisa melakukan absensi saat tanggal tersebut
-                                        tiba.</small>
-                                </div>
-                            </div>
-                        @endif {{-- Update 23-09-25 --}}
+
 
 
                     </div>
@@ -111,12 +86,9 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $rwt->lokasi }}</td>
-                                            {{-- <td>{{ $rwt->tanggal }}</td>
-                                            <td>{{ $rwt->waktu }}</td> --}}
-                                            <td>{{ \Carbon\Carbon::parse($rwt->tanggal)->translatedFormat('d F Y') }}</td>
-                                            {{-- Update 23-09-25 --}}
-                                            <td>{{ $rwt->waktu ? \Carbon\Carbon::parse($rwt->waktu)->format('H:i') : '-' }}
-                                            </td> {{-- Update 23-09-25 --}}
+                                            <td>{{ $rwt->tanggal }}</td>
+                                            <td>{{ $rwt->waktu }}</td>
+
                                             <td><img width="150px"
                                                     src="{{ asset('/public/absen/' . $rwt->dokumentasi_foto) }}"
                                                     alt=""></td>
