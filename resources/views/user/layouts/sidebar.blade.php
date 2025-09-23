@@ -71,7 +71,8 @@
     @if (auth()->check())
         {{-- Sudah login --}}
         <a href="{{ route('profile') }}" class="nav-item">
-            <img src="http://127.0.0.1:8000/public/penghuni/foto-1758651995.png" alt="Foto" class="rounded-circle"
+            <img src="{{ asset('public/penghuni/' . (auth()->user()->foto ?? 'default.jpg')) }}" class="rounded-circle"
+                alt="Foto"
                 style="
     width: 42px;
     height: 42px;
