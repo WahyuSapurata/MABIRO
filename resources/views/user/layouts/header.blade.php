@@ -79,14 +79,6 @@
                         </li>
                     @endif
 
-                    <li class="d-lg-none d-lg-block">
-                        <!-- Di dalam <body>, misalnya di footer atau sidebar -->
-                        <button id="clear-cache-btn"
-                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                            Update Tampilan
-                        </button>
-                    </li>
-
                 </ul>
             </div><!-- /.navbar-collapse -->
 
@@ -115,10 +107,6 @@
                         @endif
                     </li>
 
-
-
-
-
                 </ul>
             </div>
         </div>
@@ -129,14 +117,3 @@
     <!-- End Navigation -->
 </header>
 <!-- End Header -->
-
-<script>
-    document.getElementById('clear-cache-btn').addEventListener('click', function() {
-        if (confirm(
-                'Apakah Anda yakin ingin mereset cache dan reload halaman? Ini akan update tampilan ke versi terbaru.'
-            )) {
-            // Hard reload: true berarti bypass cache
-            window.location.reload(true);
-        }
-    });
-</script>
