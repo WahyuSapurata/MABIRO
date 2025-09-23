@@ -9382,24 +9382,3 @@ input:checked+.slider-switch .moon-icon {
 .theme-toggle-wrapper {
     zoom: 0.9;
 }
-
-
-/*PWA */
-.install-btn {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.install-btn:hover {
-    background-color: #0056b3;
-}
-
-.nav-item.install-pwa {
-    margin-left: auto;
-    /* Dorong ke kanan jika diperlukan */
-}
