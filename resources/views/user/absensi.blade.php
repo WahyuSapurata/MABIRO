@@ -27,10 +27,10 @@
                     </div>
                     <div class="row">
                         @if ($data)
-                            @if ($data->dokumentasi_foto)
+                            @if ($data->status === 'Sudah Piket')
                                 <div class="col-12">
                                     <div class="alert alert-info" role="alert">
-                                        Kamu sudah melakukan absensi
+                                        Kamu sudah melakukan absensi piket hari ini
                                     </div>
                                 </div>
                             @else
@@ -48,7 +48,7 @@
                                         </div>
                                         <div class="card-body">
                                             <button class="btn btn-danger btn-buka-modal" data-uuid="{{ $data->uuid }}">
-                                                Lakukan Absensi
+                                                Isi Absensi
                                             </button>
                                         </div>
                                     </div>
@@ -64,7 +64,7 @@
                     </div>
                 </div>
 
-                <div class="main-content">
+                {{-- <div class="main-content">
                     <div class="site-heading text-center">
                         <h5>Riwayat</h5>
                         <h2 class="area-title">Semua Riwayat Absensi Piketmu</h2>
@@ -139,7 +139,110 @@
                             </table>
                         </div>
                     </div>
+                </div> --}}
+
+                {{-- AREA GRID PIKET BARU --}}
+                <div class="container py-5">
+                    {{-- <!-- Header -->
+                    <div class="text-center mb-5">
+                        <h5 class="text-primary fw-semibold">Riwayat</h5>
+                        <h2 class="fw-bold">Semua Riwayat Absensi Piketmu</h2>
+                        <div
+                            style="width:70px; height:4px; background:linear-gradient(90deg,#007bff,#00c6ff); border-radius:10px; margin:15px auto;">
+                        </div>
+                    </div> --}}
+
+                    <!-- Header -->
+                    <div class="text-center mb-5">
+                        <h5 class="fw-semibold mb-2"
+                            style="color:rgb(199, 7, 0); letter-spacing:1px; text-transform:uppercase;">
+                            Riwayat
+                        </h5>
+                        <h2 class="fw-bold mb-3" style="font-size:2rem; color:#1e1e1e;">
+                            Semua Riwayat Absensi Piketmu
+                        </h2>
+                        <div
+                            style="width:80px; height:5px;
+                background:linear-gradient(90deg,#710b28,rgb(199, 7, 0));
+                border-radius:50px;
+                margin:0 auto;
+                box-shadow:0 2px 8px #710b28;">
+                        </div>
+                    </div>
+
+                    <!-- Grid -->
+                    <div class="row g-4">
+                        @forelse ($riwayat as $rwt)
+                            <div class="col-12 col-sm-6 col-lg-3">
+                                <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden"
+                                    style="transition: all .3s ease; padding: 8px;border-radius: 20px;box-shadow: -1px -1rem 6rem 1px rgb(0 0 0 / 24%) !important;">
+
+                                    <!-- Foto -->
+                                    @if (!empty($rwt->dokumentasi_foto))
+                                        <img src="{{ asset('/public/absen/' . $rwt->dokumentasi_foto) }}" alt="Foto Absensi"
+                                            class="card-img-top"
+                                            style="height:180px; object-fit:cover; border-radius: 12px;">
+                                    @else
+                                        <div class="d-flex align-items-center justify-content-center bg-light"
+                                            style="height:180px; border-radius: 12px; background: #dddddd !important;">
+                                            <span class="text-muted">Tidak ada foto</span>
+                                        </div>
+                                    @endif
+
+                                    <!-- Konten -->
+                                    <div class="card-body d-flex flex-column justify-content-between">
+                                        <div>
+                                            <p class="text-muted small mb-1">
+                                                {{ !empty($rwt->tanggal) ? \Carbon\Carbon::createFromFormat('d-m-Y', $rwt->tanggal)->translatedFormat('d F Y') : '-' }}
+                                            </p>
+                                            <h5 class="fw-bold mb-2">{{ $rwt->lokasi }}</h5>
+                                        </div>
+
+                                        <div class="d-flex align-items-center justify-content-between mt-3">
+                                            <!-- Waktu -->
+                                            <span class="fw-semibold small">
+                                                <i class="bi bi-clock me-1 text-primary"></i>
+                                                @if (!empty($rwt->waktu))
+                                                    @php
+                                                        $timeFormat =
+                                                            str_contains($rwt->waktu, ':') &&
+                                                            substr_count($rwt->waktu, ':') === 2
+                                                                ? 'H:i:s'
+                                                                : 'H:i';
+                                                    @endphp
+                                                    {{ \Carbon\Carbon::createFromFormat($timeFormat, $rwt->waktu)->format('H:i') }}
+                                                    WITA
+                                                @else
+                                                    -
+                                                @endif
+                                            </span>
+
+                                            <!-- Status -->
+                                            @if ($rwt->status === 'Sudah Piket')
+                                                <span
+                                                    class="badge bg-success px-3 py-2 rounded-pill shadow-sm">{{ $rwt->status }}</span>
+                                            @elseif ($rwt->status === 'Absensi Kurang')
+                                                <span class="badge bg-warning px-3 py-2 rounded-pill shadow-sm">
+                                                    {{ $rwt->status }}
+                                                </span>
+                                            @else
+                                                <span
+                                                    class="badge bg-danger px-3 py-2 rounded-pill shadow-sm">{{ $rwt->status }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @empty
+                            <div class="col-12 text-center text-muted py-5">
+                                <i class="bi bi-inbox fs-1 d-block mb-3"></i>
+                                <p class="mb-0">Data tidak tersedia</p>
+                            </div>
+                        @endforelse
+                    </div>
                 </div>
+
+                {{-- END AREA --}}
 
             </div>
         </div>

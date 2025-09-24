@@ -1,13 +1,13 @@
 @extends('user.layouts.layout')
 @section('content')
     <!-- Start Breadcrumb
-                                                                                                                                                                                                                                                                                                                                    ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ============================================= -->
     <div class="breadcrumb-area text-center shadow theme-hard bg-fixed text-light"
         style="background-image: url({{ asset('assets-landing/img/banner/asrama.png') }});">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>{{ $module }}</h2>
+                    <h2>{{ $module }} Warga</h2>
                 </div>
             </div>
         </div>
@@ -17,101 +17,105 @@
     <div class="project-details-area default-padding">
         <div class="container">
             <div class="project-details-items">
-                <div class="card bg-white">
-                    <div class="card-body p-0">
-                        <div class="table-responsive text-black">
-                            <table class="table table-striped table-bordered text-black">
-                                <tbody>
-                                    <tr>
-                                        <td>Foto</td>
-                                        <td><img src="/public/penghuni/{{ $data->foto ?? 'default.jpg' }}" alt="Foto"
-                                                style="width: 100px;"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Username</td>
-                                        <td>{{ $data->username }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Nama Warga</td>
-                                        <td>{{ $data->nama }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Password</td>
-                                        <td>{{ $data->password_hash }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tempat Lahir</td>
-                                        <td>{{ $data->data_penghuni->tempat_lahir }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tanggal Lahir</td>
-                                        <td>{{ $data->data_penghuni->tanggal_lahir }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Agama</td>
-                                        <td>{{ $data->data_penghuni->agama }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jenis Kelamin</td>
-                                        <td>{{ $data->data_penghuni->jenis_kelamin }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Alamat</td>
-                                        <td>{{ $data->data_penghuni->alamat }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Kampus</td>
-                                        <td>{{ $data->data_penghuni->universitas }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Program Studi</td>
-                                        <td>{{ $data->data_penghuni->program_studi }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Riwayat Pendidikan SD</td>
-                                        <td>{{ $data->data_penghuni->riwayat_pendidikan_sd }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Riwayat Pendidikan SMP</td>
-                                        <td>{{ $data->data_penghuni->riwayat_pendidikan_smp }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Riwayat Pendidikan SMA</td>
-                                        <td>{{ $data->data_penghuni->riwayat_pendidikan_sma }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>No HP</td>
-                                        <td>{{ $data->data_penghuni->no_hp }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Alasan</td>
-                                        <td>{{ $data->data_penghuni->alasan }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Kamar</td>
-                                        <td>{{ $data->data_penghuni->kamar }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Status</td>
-                                        <td>{{ $data->data_penghuni->status }}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                <div>
+
+                    <div>
+                        <div class="card shadow-lg border-0 rounded-4 overflow-hidden" style="border-radius: 16px;">
+                            <div class="row g-0 px-4 py-4">
+                                <!-- Bagian Foto -->
+                                <div
+                                    class="col-md-3 bg-light d-flex flex-column align-items-center justify-content-center p-4">
+                                    <img src="public/penghuni/{{ $data->foto ?? 'default.jpg' }}" alt="Foto Profil"
+                                        class="border border-3 shadow-sm mb-3"
+                                        style="width: 180px; height: 200px; object-fit: cover; border-radius: 20px; object-position: top;">
+                                    <h4 class="mb-2">{{ $data->nama }}</h4>
+                                    <span class="badge mb-btn-tambah-data px-3 py-2">
+                                        <i class="bi bi-door-closed"></i> Kamar
+                                        {{ $data->data_penghuni?->kamar ?? '-' }}
+                                    </span>
+                                </div>
+
+                                <!-- Bagian Detail -->
+                                <div class="col-md-9 p-4">
+                                    <h5 class="fw-bold mb-3 mt-3">Detail Profil</h5>
+                                    <div class="row">
+                                        <div class="col-sm-4 mb-3">
+
+                                            <div class="col-sm-12 mb-3">
+                                                <small class="text-muted">Tempat, Tanggal Lahir</small>
+                                                <div>{{ $data->data_penghuni?->tempat_lahir ?? '-' }},
+                                                    {{ $data->data_penghuni?->tanggal_lahir ?? '-' }}</div>
+                                            </div>
+                                            <div class="col-sm-12 mb-3">
+                                                <small class="text-muted">Alamat</small>
+                                                <div>{{ $data->data_penghuni?->alamat ?? '-' }}</div>
+                                            </div>
+                                            <div class="col-sm-12 mb-3">
+                                                <small class="text-muted">Agama</small>
+                                                <div>{{ $data->data_penghuni?->agama ?? '-' }}</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4 mb-3">
+                                            <div class="col-sm-12 mb-3">
+                                                <small class="text-muted">Kampus</small>
+                                                <div>{{ $data->data_penghuni?->universitas ?? '-' }}</div>
+                                            </div>
+                                            <div class="col-sm-12 mb-3">
+                                                <small class="text-muted">Program Studi</small>
+                                                <div>{{ $data->data_penghuni?->program_studi ?? '-' }}</div>
+                                            </div>
+                                            <div class="col-sm-12 mb-3">
+                                                <small class="text-muted">Pendidikan SMA / Sederajat</small>
+                                                <div>{{ $data->data_penghuni?->riwayat_pendidikan_sma ?? '-' }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4 mb-3">
+                                            <div class="col-sm-12 mb-3">
+                                                <small class="text-muted">Username</small>
+                                                <div> {{ $data->username }}</div>
+                                            </div>
+
+                                            <div class="col-sm-12 mb-3">
+                                                <small class="text-muted">Password Akun</small>
+                                                <div class="text-truncate">{{ $data->password_hash }}</div>
+                                            </div>
+                                            <div class="col-sm-12 mb-3">
+
+                                                @if (auth()->check())
+                                                    <button type="button" class="btn btn-danger"><a
+                                                            href="{{ route('logout') }}"
+                                                            class="text-white text-decoration-none">
+                                                            Keluar <i class="fas fa-sign-out-alt"></i></a></button>
+                                                @else
+                                                    <button type="button" class="btn btn-login"><a
+                                                            href="{{ route('login.login-akun') }}"
+                                                            class="text-white text-decoration-none"> <i
+                                                                class="fas fa-sign-in-alt"></i>
+                                                            Masuk</a></button>
+                                                @endif
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+
+
+                            </div>
+
+
                         </div>
-                        <div class="d-flex justify-content-center mb-3">
-                            @if (auth()->check())
-                                <button type="button" class="btn btn-danger"><a href="{{ route('logout') }}"
-                                        class="text-white">Keluar</a></button>
-                            @else
-                                <button type="button" class="btn btn-login"><a
-                                        href="{{ route('login.login-akun') }}">Masuk</a></button>
-                            @endif
-                        </div>
-
-
-
-
                     </div>
+
+
+
+
+
+
                 </div>
             </div>
         </div>
