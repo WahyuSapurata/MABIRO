@@ -1,7 +1,7 @@
 @extends('user.layouts.layout')
 @section('content')
     <!-- Start Breadcrumb
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ============================================= -->
     <div class="breadcrumb-area text-center shadow theme-hard bg-fixed text-light"
         style="background-image: url({{ asset('assets-landing/img/banner/asrama.png') }});">
         <div class="container">
@@ -28,7 +28,7 @@
                                     <img src="public/penghuni/{{ $data->foto ?? 'default.jpg' }}" alt="Foto Profil"
                                         class="border border-3 shadow-sm mb-3"
                                         style="width: 180px; height: 200px; object-fit: cover; border-radius: 20px; object-position: top;">
-                                    <h4 class="mb-2">{{ $data->nama }}</h4>
+                                    <h4 class="mb-2 text-center">{{ $data->nama }}</h4>
                                     <span class="badge mb-btn-tambah-data px-3 py-2">
                                         <i class="bi bi-door-closed"></i> Kamar
                                         {{ $data->data_penghuni?->kamar ?? '-' }}

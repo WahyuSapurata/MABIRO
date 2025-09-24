@@ -19,13 +19,13 @@
     <div class="project-details-area default-padding">
         <div class="container">
             <div class="project-details-items">
-                <div class="top-info">
-                    <div class="site-heading text-center">
+                <div>
+                    {{-- <div class="site-heading text-center">
                         <h5>Absensi</h5>
                         <h2 class="area-title">Lakukan Absensi Piketmu</h2>
                         <div class="devider"></div>
-                    </div>
-                    <div class="row">
+                    </div> --}}
+                    <div>
                         @if ($data)
                             @if ($data->status === 'Sudah Piket')
                                 <div class="col-12">
@@ -34,24 +34,42 @@
                                     </div>
                                 </div>
                             @else
-                                <div class="col-md-12 col-lg-6">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h5 class="mb-0">
+                                <div>
 
-                                                Kamu Piket Hari Ini !
-                                                {{-- Jadwal Piketmu : --}}
-                                                {{-- aman untuk tanggal format d-m-Y --}}
-                                                {{-- {{ !empty($data->tanggal) ? \Carbon\Carbon::createFromFormat('d-m-Y', $data->tanggal)->translatedFormat('d F Y') : '-' }} --}}
 
+                                    {{-- BARU --}}
+
+                                    <div class="card"
+                                        style="border: none; border-radius: 20px; box-shadow: 0px 1px 20px 0px rgb(0 0 0 / 12%); overflow: hidden; max-width: 500px; margin: 0 auto;">
+
+                                        <!-- Header -->
+                                        <div class="card-header text-center"
+                                            style="background:linear-gradient(90deg,#710b28,rgb(199, 7, 0)); color: #fff!important; border: none; padding: 25px;">
+                                            <h5 class="mb-0"
+                                                style="font-weight: 700; font-size: 1.3rem; display:flex; align-items:center; justify-content:center; gap:10px; color: white;">
+                                                <i class="bi bi-calendar-check-fill" style="font-size:1.8rem;"></i>
+                                                Kamu Piket Hari Ini!
                                             </h5>
                                         </div>
-                                        <div class="card-body">
-                                            <button class="btn btn-danger btn-buka-modal" data-uuid="{{ $data->uuid }}">
-                                                Isi Absensi
+
+                                        <!-- Body -->
+                                        <div class="card-body text-center" style="padding: 35px;">
+                                            <i class="bi bi-person-check-fill"
+                                                style="font-size:3rem; color:#dc3545; margin-bottom:15px;"></i>
+                                            <p style="font-size:1rem; color:#555; margin-bottom:25px; text-align: center;">
+                                                Jangan lupa isi absensi piketmu hari ini untuk memastikan kehadiran
+                                                tercatat.
+                                            </p>
+                                            <button class="btn btn-danger btn-buka-modal px-4 py-2"
+                                                style="border-radius: 30px; font-weight: 600; box-shadow: 0 4px 10px rgba(220,53,69,0.4);"
+                                                data-uuid="{{ $data->uuid }}">
+                                                <i class="bi bi-pencil-square me-2"></i> Isi Absensi
                                             </button>
                                         </div>
                                     </div>
+
+                                    {{-- END --}}
+
                                 </div>
                             @endif
                         @else
