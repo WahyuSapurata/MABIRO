@@ -201,4 +201,18 @@ class DataPenghuniController extends BaseController
         }
         return view('biro.datapenghuni.detail', compact('module', 'data'));
     }
+
+
+
+
+    public function profile()
+    {
+        $module = 'Profil Saya';
+        $user = auth()->user(); // Ambil user yang login
+        $data = DataPenghuni::where('uuid_user', $user->uuid)->first();
+
+        return view('user.profile', compact('module', 'user', 'data'));
+    }
+
+
 }

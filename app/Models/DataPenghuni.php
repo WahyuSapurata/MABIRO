@@ -41,4 +41,5 @@ class DataPenghuni extends Model
             $model->uuid = Uuid::uuid4()->toString();
         });
     }
+
 }

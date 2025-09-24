@@ -33,12 +33,12 @@
                                 <table id="kt_table_data" class="table table-rounded table-row-bordered table-row-gray-300">
                                     <thead class="text-center bg-white">
                                         <tr class="fw-bolder fs-6">
-                                            <th>No</th>
+                                            <th>Tanggal</th>
                                             <th>Nama</th>
-                                            <th>Keterangan</th>
+                                            <th class="text-center">Isi Laporan</th>
                                             <th>Kategori</th>
                                             <th>Status</th>
-                                            <th>Tanggal</th>
+                                            <th class="text-center">Catatan Biro</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -114,6 +114,11 @@
                         </select>
                         <small class="text-danger status_error"></small>
                     </div>
+                    <div class="mb-10">
+                        <label class="form-label">Catatan Biro</label>
+                        <textarea name="catatan" id="" cols="" rows="3" class="form-control"></textarea>
+                        <small class="text-danger catatan_error"></small>
+                    </div>
 
                     <div class="separator separator-dashed mt-8 mb-5"></div>
                     <div class="d-flex gap-5">
@@ -187,43 +192,46 @@
                 processing: true,
                 ajax: '/biro/keluhan-get',
                 columns: [{
-                    data: null,
-                    className: 'mb-kolom-nomor align-content-center',
-                    render: function(data, type, row, meta) {
-                        return meta.row + meta.settings._iDisplayStart + 1;
-                    }
-                }, {
-                    data: 'nama_penghuni',
-                    className: 'mb-kolom-text align-content-center text-center',
-                }, {
-                    data: 'keterangan',
-                    className: 'mb-kolom-text align-content-center text-start',
-                }, {
-                    data: 'ketegori',
-                    className: 'mb-kolom-tanggal align-content-center text-center',
-                }, {
-                    data: 'status',
-                    className: 'mb-kolom-tanggal align-content-center text-center',
-                    render: function(data, type, row, meta) {
-                        let result;
-                        result =
-                            `<div class="btn btn-outline btn-outline-dashed ${data == 'Sudah Ditindaklanjuti' ? 'btn-outline-success btn-active-light-success' : 'btn-outline-danger btn-active-light-danger'} p-2 py-1">
+                        data: 'created_at',
+                        className: 'mb-kolom-tanggal align-content-center text-center',
+                        render: function(data, type, row, meta) {
+                            return moment(data).format('DD-MM-YYYY');
+                        }
+                    },
+
+
+                    {
+                        data: 'nama_penghuni',
+                        className: 'mb-kolom-tanggal align-content-center text-center',
+                    }, {
+                        data: 'keterangan',
+                        className: 'mb-kolom-text align-content-center text-start',
+                    }, {
+                        data: 'ketegori',
+                        className: 'mb-kolom-tanggal align-content-center text-center',
+                    }, {
+                        data: 'status',
+                        className: 'mb-kolom-tanggal align-content-center text-center',
+                        render: function(data, type, row, meta) {
+                            let result;
+                            result =
+                                `<div class="btn btn-outline btn-outline-dashed ${data == 'Sudah Ditindaklanjuti' ? 'btn-outline-success btn-active-light-success' : 'btn-outline-danger btn-active-light-danger'} p-2 py-1">
                                     <div class="d-flex justify-content-center align-items-center" style="gap: 5px;">
                                         ${data}
                                     </div>
                                 </div>`;
-                        return result;
+                            return result;
+                        }
+                    }, {
+                        data: 'catatan',
+                        className: 'mb-kolom-text align-content-center text-start',
+                    },
+
+
+                    {
+                        data: 'uuid',
                     }
-                }, {
-                    data: 'created_at',
-                    className: 'mb-kolom-tanggal align-content-center text-center',
-                    className: 'text-center',
-                    render: function(data, type, row, meta) {
-                        return moment(data).format('DD-MM-YYYY');
-                    }
-                }, {
-                    data: 'uuid',
-                }],
+                ],
                 columnDefs: [{
                     targets: -1,
                     title: 'Aksi',
@@ -258,12 +266,15 @@
                     },
                 }],
 
-                rowCallback: function(row, data, index) {
-                    var api = this.api();
-                    var startIndex = api.context[0]._iDisplayStart;
-                    var rowIndex = startIndex + index + 1;
-                    $('td', row).eq(0).html(rowIndex);
-                },
+
+
+                //Nomor
+                // rowCallback: function(row, data, index) {
+                //     var api = this.api();
+                //     var startIndex = api.context[0]._iDisplayStart;
+                //     var rowIndex = startIndex + index + 1;
+                //     $('td', row).eq(0).html(rowIndex);
+                // },
             });
         };
 

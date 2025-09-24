@@ -49,7 +49,6 @@
                                 <table id="kt_table_data" class="table table-rounded table-row-bordered table-row-gray-300">
                                     <thead class="text-center">
                                         <tr class="fw-bolder fs-6">
-                                            <th>No</th>
                                             <th>Foto</th>
                                             <th>Nama Warga</th>
                                             <th>Tanggal Lahir</th>
@@ -435,20 +434,22 @@
                 ],
                 processing: true,
                 ajax: '/biro/warga_tamu/data-penghuni-get',
-                columns: [{
-                    data: null,
-                    className: 'mb-kolom-nomor align-content-center',
-                    render: function(data, type, row, meta) {
-                        return meta.row + meta.settings._iDisplayStart + 1;
-                    }
-                }, {
-                    data: 'foto',
-                    className: 'text-center',
-                    render: function(data, type, row, meta) {
-                        let result;
-                        if (data) {
-                            result =
-                                `
+                columns: [
+                    //     {
+                    //     data: null,
+                    //     className: 'mb-kolom-nomor align-content-center',
+                    //     render: function(data, type, row, meta) {
+                    //         return meta.row + meta.settings._iDisplayStart + 1;
+                    //     }
+                    // },
+                    {
+                        data: 'foto',
+                        className: 'text-center',
+                        render: function(data, type, row, meta) {
+                            let result;
+                            if (data) {
+                                result =
+                                    `
                                 <!--begin::Overlay-->
                                 <a class="d-block overlay fancybox" data-fancybox="lightbox-group" href="{{ asset('/public/penghuni/${data}') }}">
                                     <!--begin::Image-->
@@ -465,66 +466,67 @@
                                 </a>
                                 <!--end::Overlay-->
                             `;
-                        } else {
-                            result =
-                                `
+                            } else {
+                                result =
+                                    `
                                     <div class="mb-profil-warga brand-accent-color d-flex align-items-center justify-content-center">
                                         <i class="fas fa-user text-white" font-size: 18px"></i>
                                     </div>
                                 `;
+                            }
+                            return result;
                         }
-                        return result;
-                    }
-                }, {
-                    data: 'nama',
-                    className: 'text-left align-content-center',
-                }, {
-                    data: 'tanggal_lahir',
-                    className: 'text-center align-content-center',
-                }, {
-                    data: 'agama',
-                    className: 'text-center align-content-center',
-                }, {
-                    data: 'universitas',
-                    className: 'text-left align-content-center',
-                }, {
-                    data: 'kamar',
-                    className: 'text-center align-content-center',
-                    render: function(data, type, row, meta) {
-                        let result;
-                        if (data) {
-                            result = data;
-                        } else {
-                            result = 'Belum ditentukan';
+                    }, {
+                        data: 'nama',
+                        className: 'text-left align-content-center',
+                    }, {
+                        data: 'tanggal_lahir',
+                        className: 'text-center align-content-center',
+                    }, {
+                        data: 'agama',
+                        className: 'text-center align-content-center',
+                    }, {
+                        data: 'universitas',
+                        className: 'text-left align-content-center',
+                    }, {
+                        data: 'kamar',
+                        className: 'text-center align-content-center',
+                        render: function(data, type, row, meta) {
+                            let result;
+                            if (data) {
+                                result = data;
+                            } else {
+                                result = 'Belum ditentukan';
+                            }
+                            return result;
                         }
-                        return result;
-                    }
-                }, {
-                    data: 'status',
-                    className: 'text-center align-content-center',
-                    render: function(data, type, row, meta) {
-                        let result;
-                        if (data == "Belum Dikonfirmasi") {
-                            result =
-                                `
+                    }, {
+                        data: 'status',
+                        className: 'text-center align-content-center',
+                        render: function(data, type, row, meta) {
+                            let result;
+                            if (data == "Belum Dikonfirmasi") {
+                                result =
+                                    `
                                 <div class="btn btn-outline btn-outline-dashed btn-outline-danger btn-active-light-danger p-2 py-1">
                                     ${data}
                                 </div>
                             `;
-                        } else {
-                            result =
-                                `
+                            } else {
+                                result =
+                                    `
                                 <div class="btn btn-outline btn-outline-dashed btn-outline-success btn-active-light-success p-2 py-1">
                                     ${data}
                                 </div>
                             `;
-                        }
+                            }
 
-                        return result;
+                            return result;
+                        }
+                    }, {
+                        data: 'uuid',
                     }
-                }, {
-                    data: 'uuid',
-                }],
+                ],
                 columnDefs: [{
                     targets: -1,
                     title: 'Aksi',
@@ -603,12 +605,12 @@
                     },
                 }],
 
-                rowCallback: function(row, data, index) {
-                    var api = this.api();
-                    var startIndex = api.context[0]._iDisplayStart;
-                    var rowIndex = startIndex + index + 1;
-                    $('td', row).eq(0).html(rowIndex);
-                },
+                // rowCallback: function(row, data, index) {
+                //     var api = this.api();
+                //     var startIndex = api.context[0]._iDisplayStart;
+                //     var rowIndex = startIndex + index + 1;
+                //     $('td', row).eq(0).html(rowIndex);
+                // },
             });
         };
 

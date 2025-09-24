@@ -73,10 +73,11 @@
                             <table class="table table-striped table-sm text-left">
                                 <thead class="thead-light text-uppercase text-xs">
                                     <tr class="mb-table-custom">
-                                        <th>No</th>
-                                        <th>Lokasi</th>
+                                        <th>No.</th>
                                         <th>Tanggal</th>
+                                        <th>Lokasi</th>
                                         <th>Waktu</th>
+                                        <th>Status</th>
                                         <th>Dokumentasi Foto</th>
                                     </tr>
                                 </thead>
@@ -84,10 +85,12 @@
                                     @forelse ($riwayat as $rwt)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $rwt->lokasi }}</td>
                                             <td>
                                                 {{ !empty($rwt->tanggal) ? \Carbon\Carbon::createFromFormat('d-m-Y', $rwt->tanggal)->translatedFormat('d F Y') : '-' }}
                                             </td>
+                                            <td>{{ $rwt->lokasi }}</td>
+
+
                                             <td>
                                                 @if (!empty($rwt->waktu))
                                                     @php
@@ -100,6 +103,20 @@
                                                     {{ \Carbon\Carbon::createFromFormat($timeFormat, $rwt->waktu)->format('H:i') }}
                                                 @else
                                                     -
+                                                @endif
+                                            </td>
+
+                                            <td>
+                                                @if ($rwt->status === 'Sudah Piket')
+                                                    <span
+                                                        class="btn btn-outline btn-outline-dashed btn-outline-success btn-active-light-success p-2 py-1">
+                                                        {{ $rwt->status }}
+                                                    </span>
+                                                @else
+                                                    <span
+                                                        class="btn btn-outline btn-outline-dashed btn-outline-danger btn-active-light-danger p-2 py-1">
+                                                        {{ $rwt->status }}
+                                                    </span>
                                                 @endif
                                             </td>
 

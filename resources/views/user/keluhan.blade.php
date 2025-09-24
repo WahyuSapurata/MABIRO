@@ -4,7 +4,7 @@
 @endphp
 @section('content')
     <!-- Start Breadcrumb
-                                                                                                                                                                                                                                                                                                                                            ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                            ============================================= -->
     <div class="breadcrumb-area text-center shadow theme-hard bg-fixed text-light"
         style="background-image: url({{ asset('assets-landing/img/banner/asrama.png') }});">
         <div class="container">
@@ -80,21 +80,36 @@
                                 <thead class="thead-light text-uppercase text-xs">
                                     <tr class="mb-table-custom">
                                         <th>No</th>
-                                        <th>Keterangan</th>
+                                        <th>Tanggal</th>
+                                        <th>Isi Laporanmu</th>
                                         <th>Kategori</th>
                                         <th>Status</th>
-                                        <th>Tanggal</th>
+                                        <th>Catatan Dari Biro</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @forelse ($riwayat as $rwt)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $rwt->keterangan }}</td>
-                                            <td>{{ $rwt->ketegori }}</td>
-                                            <td>{{ $rwt->status }}</td>
                                             <td>{{ \Carbon\Carbon::parse($rwt->created_at)->translatedFormat('d-m-Y') }}
                                             </td>
+                                            <td>{{ $rwt->keterangan }}</td>
+                                            <td>{{ $rwt->ketegori }}</td>
+                                            <td>
+                                                @if ($rwt->status === 'Sudah Ditindaklanjuti')
+                                                    <span
+                                                        class="btn btn-outline btn-outline-dashed btn-outline-success btn-active-light-success p-2 py-1">
+                                                        {{ $rwt->status }}
+                                                    </span>
+                                                @else
+                                                    <span
+                                                        class="btn btn-outline btn-outline-dashed btn-outline-danger btn-active-light-danger p-2 py-1">
+                                                        {{ $rwt->status }}
+                                                    </span>
+                                                @endif
+                                            </td>
+
+                                            <td>{{ $rwt->catatan ?? '-' }}</td>
                                         </tr>
                                     @empty
                                         <tr>

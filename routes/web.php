@@ -68,7 +68,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
     Route::get('/kontak', 'Kontak@index')->name('kontak');
 
+    // Profil Penghuni
     Route::get('/profile', 'Profile@index')->name('profile');
+
 
     Route::get('/tagihan', 'RekapPembayaranController@tagihan_user')->name('tagihan');
     Route::post('/tagihan-add/{params}', 'RekapPembayaranController@store')->name('tagihan-add');

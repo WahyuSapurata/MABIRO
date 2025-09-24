@@ -32,7 +32,6 @@
                                 <table id="kt_table_data" class="table table-rounded table-row-bordered table-row-gray-300">
                                     <thead class="text-center bg-white">
                                         <tr class="fw-bolder fs-6">
-                                            <th rowspan="2">No</th>
                                             <th rowspan="2">Nama Warga</th>
                                             <th rowspan="2">Jadwal Piket</th>
                                             <th colspan="3">Absensi Piket</th>
@@ -107,6 +106,39 @@
                         <input type="text" class="form-control kt_datepicker_3" name="tanggal">
                         <small class="text-danger tanggal_error"></small>
                     </div>
+
+                    <div class="mb-10">
+                        <label class="form-label">Lokasi</label>
+                        <input type="text" name="lokasi" class="form-control">
+                    </div>
+                    <div class="mb-10">
+                        <label class="form-label">Jam</label>
+                        <input type="time" name="waktu" class="form-control">
+                    </div>
+
+
+
+                    <div class="mb-10">
+                        <label class="form-label">Upload Dokumentasi Piket</label>
+
+                        {{-- Preview gambar lama --}}
+                        @if (!empty($data->dokumentasi_foto))
+                            <div id="logoInfoContainer" class="mb-3">
+                                <img src="{{ asset('storage/absen/' . $data->dokumentasi_foto) }}" alt="Preview Lama"
+                                    style="width: 100%; max-height: 250px; object-fit: cover; border-radius: 8px; border: 1px solid #ddd;">
+                            </div>
+                        @else
+                            <div id="logoInfoContainer"></div>
+                        @endif
+
+                        {{-- Input file baru --}}
+                        <input type="file" accept="image/*" id="foto" class="form-control mt-2"
+                            name="dokumentasi_foto">
+                        <small class="text-danger foto_error"></small>
+                    </div>
+
+
+
 
                     <div class="separator separator-dashed mt-8 mb-5"></div>
                     <div class="d-flex gap-5">
@@ -184,14 +216,8 @@
                 processing: true,
                 ajax: '/biro/absensi-get',
                 columns: [{
-                    data: null,
-                    class: 'mb-kolom-nomor align-content-center',
-                    render: function(data, type, row, meta) {
-                        return meta.row + meta.settings._iDisplayStart + 1;
-                    }
-                }, {
                     data: 'nama_penghuni',
-                    class: 'mb-kolom-text text-left align-content-center',
+                    class: 'text-center align-content-center',
                 }, {
                     data: 'tanggal',
                     class: 'mb-kolom-tanggal text-center align-content-center',
@@ -202,7 +228,7 @@
                     }
                 }, {
                     data: 'lokasi',
-                    class: 'mb-kolom-tanggal text-center align-content-center',
+                    class: 'mb-kolom-text text-center align-content-center',
                     render: function(data, type, row, meta) {
                         return data ? data : '-';
                     }
@@ -210,7 +236,8 @@
                     data: 'waktu',
                     class: 'mb-kolom-qty text-center align-content-center',
                     render: function(data, type, row, meta) {
-                        return data ? data : '-';
+                        if (!data) return '-';
+                        return data + ' WITA';
                     }
                 }, {
                     data: 'dokumentasi_foto',
@@ -243,7 +270,7 @@
                     }
                 }, {
                     data: 'status',
-                    class: 'text-center align-content-center',
+                    class: 'mb-kolom-tanggal text-center align-content-center',
                     render: function(data, type, row, meta) {
                         let result;
                         if (data == "Sudah Piket") {
@@ -301,12 +328,12 @@
                     },
                 }],
 
-                rowCallback: function(row, data, index) {
-                    var api = this.api();
-                    var startIndex = api.context[0]._iDisplayStart;
-                    var rowIndex = startIndex + index + 1;
-                    $('td', row).eq(0).html(rowIndex);
-                },
+                // rowCallback: function(row, data, index) {
+                //     var api = this.api();
+                //     var startIndex = api.context[0]._iDisplayStart;
+                //     var rowIndex = startIndex + index + 1;
+                //     $('td', row).eq(0).html(rowIndex);
+                // },
             });
         };
 
@@ -337,5 +364,28 @@
         //     e.preventDefault();
         //     window.open(`/biro/absensi-export`, "_blank");
         // });
+    </script>
+
+
+
+    <script>
+        document.getElementById('foto').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            const container = document.getElementById('logoInfoContainer');
+            container.innerHTML = ""; // hapus preview lama
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    container.innerHTML = `
+                    <div style="width: 100%; height: 250px; overflow: hidden; border-radius: 8px; border: 1px solid #ddd;">
+                        <img src="${e.target.result}" alt="Preview Baru"
+                             style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                    </div>
+                `;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
     </script>
 @endsection

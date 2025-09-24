@@ -16,8 +16,11 @@ class DataTamuController extends BaseController
 
     public function get()
     {
+
+
         // $data = DataTamu::all(); //Urutkan Dafault
         // $data = DataTamu::orderByRaw("STR_TO_DATE(tanggal_masuk, '%d-%m-%Y') DESC")->get(); //Urutkan Berdasarkan Tahun-Bulan-Tanggal
+
         $data = DataTamu::orderBy('created_at', 'desc')->get(); //Urutkan Berdasarkan Data Dibuat
         return $this->sendResponse($data, 'Get data success');
     }
@@ -41,6 +44,7 @@ class DataTamuController extends BaseController
 
     public function show($params)
     {
+
         $data = array();
         try {
             $data = DataTamu::where('uuid', $params)->first();
@@ -90,4 +94,7 @@ class DataTamuController extends BaseController
         $module = 'Buku Tamu';
         return view('user.bukutamu', compact('module'));
     }
+
 }
+
+

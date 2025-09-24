@@ -41,7 +41,6 @@ class AbsensiPiketController extends BaseController
             $data = new AbsensiPiket();
             $data->uuid_penghuni = $store->uuid_penghuni;
             $data->tanggal = $store->tanggal;
-
             $data->status = 'Belum Piket';
             $data->save();
         } catch (\Exception $e) {
@@ -61,6 +60,29 @@ class AbsensiPiketController extends BaseController
         return $this->sendResponse($data, 'Show data success');
     }
 
+    // public function update(StoreAbsensiPiketRequest $update, $params)
+    // {
+    //     $data = AbsensiPiket::where('uuid', $params)->first();
+
+    //     $newFoto = '';
+    //     if ($update->file('dokumentasi_foto')) {
+    //         $extension = $update->file('dokumentasi_foto')->extension();
+    //         $newFoto = 'dokumentasi_foto' . '-' . now()->timestamp . '.' . $extension;
+    //         $update->file('dokumentasi_foto')->storeAs('public/absen', $newFoto);
+    //     }
+
+    //     try {
+    //         $data->uuid_penghuni = $update->uuid_penghuni;
+    //         $data->tanggal = $update->tanggal;
+    //         $data->dokumentasi_foto = $update->file('dokumentasi_foto') ? $newFoto : $data->dokumentasi_foto;
+    //         $data->status = 'Sudah Piket';
+    //         $data->save();
+    //     } catch (\Exception $e) {
+    //         return $this->sendError($e->getMessage(), $e->getMessage(), 400);
+    //     }
+    //     return $this->sendResponse($data, 'Update data success');
+    // }
+
     public function update(StoreAbsensiPiketRequest $update, $params)
     {
         $data = AbsensiPiket::where('uuid', $params)->first();
@@ -75,13 +97,25 @@ class AbsensiPiketController extends BaseController
         try {
             $data->uuid_penghuni = $update->uuid_penghuni;
             $data->tanggal = $update->tanggal;
+            $data->lokasi = $update->lokasi ?? $data->lokasi;
+            $data->waktu = $update->waktu ?? $data->waktu;
             $data->dokumentasi_foto = $update->file('dokumentasi_foto') ? $newFoto : $data->dokumentasi_foto;
+
+            // Cek kelengkapan data
+            if (!empty($data->lokasi) && !empty($data->waktu) && !empty($data->dokumentasi_foto)) {
+                $data->status = 'Sudah Piket';
+            } else {
+                $data->status = 'Absensi Kurang';
+            }
+
             $data->save();
         } catch (\Exception $e) {
             return $this->sendError($e->getMessage(), $e->getMessage(), 400);
         }
+
         return $this->sendResponse($data, 'Update data success');
     }
+
 
     public function delete($params)
     {

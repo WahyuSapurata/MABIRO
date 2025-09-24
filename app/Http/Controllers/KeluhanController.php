@@ -72,6 +72,7 @@ class KeluhanController extends BaseController
 
         try {
             $data->status = $update->status;
+            $data->catatan = $update->catatan;
             $data->save();
         } catch (\Exception $e) {
             return $this->sendError($e->getMessage(), $e->getMessage(), 400);
