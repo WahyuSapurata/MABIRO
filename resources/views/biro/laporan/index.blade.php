@@ -109,8 +109,8 @@
 
         $(".kt_datepicker_7").flatpickr({
             altInput: true,
-            altFormat: "d-m-Y",
-            dateFormat: "d-m-Y",
+            altFormat: "Y-m-d",
+            dateFormat: "Y-m-d",
             mode: "range",
             onClose: function(selectedDates, dateStr, instance) {
                 // Tangkap perubahan tanggal dan kirimkan data ke server
@@ -150,6 +150,34 @@
                 }, {
                     data: 'tanggal',
                     className: 'mb-kolom-tanggal align-content-center',
+                    render: function(data, type, row) {
+                        if (!data) return '-';
+
+                        // Coba deteksi apakah formatnya dd-mm-yyyy atau yyyy-mm-dd
+                        let parts = data.split(/[-\/]/); // dukung '-' atau '/'
+                        let year, month, day;
+
+                        if (parts.length === 3) {
+                            // Jika format dd-mm-yyyy
+                            if (parts[0].length === 2) {
+                                [day, month, year] = parts;
+                            }
+                            // Jika format yyyy-mm-dd
+                            else if (parts[0].length === 4) {
+                                [year, month, day] = parts;
+                            } else {
+                                return data; // fallback jika format aneh
+                            }
+
+                            // Pastikan dua digit untuk bulan & tanggal
+                            month = ('0' + month).slice(-2);
+                            day = ('0' + day).slice(-2);
+
+                            return `${year}-${month}-${day}`;
+                        }
+
+                        return data; // fallback
+                    }
                 }, {
                     data: 'keterangan',
                     className: 'mb-kolom-text align-content-center text-start',

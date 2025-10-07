@@ -142,40 +142,70 @@
                 processing: true,
                 ajax: '/biro/keuangan/laporan-get/' + selectedDateStr,
                 columns: [{
-                    data: null,
-                    className: 'mb-kolom-nomor align-content-center',
-                    render: function(data, type, row, meta) {
-                        return meta.row + meta.settings._iDisplayStart + 1;
-                    }
-                }, {
-                    data: 'tanggal',
-                    className: 'mb-kolom-tanggal align-content-center',
-                }, {
-                    data: 'keterangan',
-                    className: 'mb-kolom-text align-content-center text-start',
-                }, {
-                    data: null,
-                    className: 'mb-kolom-nominal align-content-center text-end',
-                    render: function(data, type, row, meta) {
-                        if (row.tipe === 'pemasukan') {
-                            value = 'Rp ' + numeral(row.jumlah).format('0,0')
-                        } else {
-                            value = '-';
+                        data: null,
+                        className: 'mb-kolom-nomor align-content-center',
+                        render: function(data, type, row, meta) {
+                            return meta.row + meta.settings._iDisplayStart + 1;
                         }
-                        return value;
-                    }
-                }, {
-                    data: null,
-                    className: 'mb-kolom-nominal align-content-center text-end',
-                    render: function(data, type, row, meta) {
-                        if (row.tipe === 'pengeluaran') {
-                            value = 'Rp ' + numeral(row.jumlah).format('0,0')
-                        } else {
-                            value = '-';
+                    }, {
+                        data: 'tanggal',
+                        className: 'mb-kolom-tanggal align-content-center',
+                        render: function(data, type, row) {
+                            if (!data) return '-';
+
+                            // Coba deteksi apakah formatnya dd-mm-yyyy atau yyyy-mm-dd
+                            let parts = data.split(/[-\/]/); // dukung '-' atau '/'
+                            let year, month, day;
+
+                            if (parts.length === 3) {
+                                // Jika format dd-mm-yyyy
+                                if (parts[0].length === 2) {
+                                    [day, month, year] = parts;
+                                }
+                                // Jika format yyyy-mm-dd
+                                else if (parts[0].length === 4) {
+                                    [year, month, day] = parts;
+                                } else {
+                                    return data; // fallback jika format aneh
+                                }
+
+                                // Pastikan dua digit untuk bulan & tanggal
+                                month = ('0' + month).slice(-2);
+                                day = ('0' + day).slice(-2);
+
+                                return `${year}-${month}-${day}`;
+                            }
+
+                            return data; // fallback
                         }
-                        return value;
+                    },
+                    {
+                        data: 'keterangan',
+                        className: 'mb-kolom-text align-content-center text-start',
+                    }, {
+                        data: null,
+                        className: 'mb-kolom-nominal align-content-center text-end',
+                        render: function(data, type, row, meta) {
+                            if (row.tipe === 'pemasukan') {
+                                value = 'Rp ' + numeral(row.jumlah).format('0,0')
+                            } else {
+                                value = '-';
+                            }
+                            return value;
+                        }
+                    }, {
+                        data: null,
+                        className: 'mb-kolom-nominal align-content-center text-end',
+                        render: function(data, type, row, meta) {
+                            if (row.tipe === 'pengeluaran') {
+                                value = 'Rp ' + numeral(row.jumlah).format('0,0')
+                            } else {
+                                value = '-';
+                            }
+                            return value;
+                        }
                     }
-                }],
+                ],
 
                 rowCallback: function(row, data, index) {
                     var api = this.api();

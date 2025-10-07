@@ -214,6 +214,11 @@
                 }, {
                     data: 'tanggal',
                     className: 'mb-kolom-tanggal align-content-center',
+                    render: function(data) {
+                        if (!data) return '-';
+                        const [a, b, c] = data.split(/[-\/]/);
+                        return a.length === 4 ? `${a}-${b}-${c}` : `${c}-${b}-${a}`;
+                    }
                 }, {
                     data: 'keterangan',
                     className: 'mb-kolom-text align-content-center text-start',

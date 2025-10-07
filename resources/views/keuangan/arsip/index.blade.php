@@ -171,7 +171,7 @@
                 ajax: '/biro/arsip-dokumen-get',
                 columns: [{
                     data: 'keterangan',
-                    className: 'mb-kolom-text align-content-center text-center',
+                    className: 'text-start mb-kolom-text align-content-center',
                 }, {
                     data: 'nama_file',
                     className: 'mb-kolom-nominal align-content-center text-center',
