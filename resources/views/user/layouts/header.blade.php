@@ -70,6 +70,7 @@
                             <li><a href="{{ route('rekap') }}">Rekapitulasi Keuangan</a></li>
                             <li><a href="{{ route('inventaris') }}">Daftar Inventaris</a></li>
                             <li><a href="{{ route('arsip') }}">Download Arsip & Dokumen</a></li>
+                            <li><a href="{{ route('daftar-tamu') }}">Daftar Tamu</a></li>
                         </ul>
                     </li>
                     <li><a href="{{ route('kontak') }}">Kontak</a></li>

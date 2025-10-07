@@ -25,6 +25,8 @@
 
     <!-- ========== Start Stylesheet ========== -->
     <link href="{{ asset('assets-landing/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets-landing/css/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets-landing/css/fancybox.css') }}" rel="stylesheet">
     <link href="{{ asset('assets-landing/css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets-landing/css/themify-icons.css') }}" rel="stylesheet">
     <link href="{{ asset('assets-landing/css/elegant-icons.css') }}" rel="stylesheet">
@@ -38,6 +40,7 @@
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('assets-landing/css/responsive.css') }}" rel="stylesheet">
     <link href="{{ asset('assets-landing/css/style.css') }}" rel="stylesheet">
+
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <!-- ========== End Stylesheet ========== -->

@@ -1,7 +1,7 @@
 @extends('user.layouts.layout')
 @section('content')
     <!-- Start Breadcrumb
-                                                                                                                                                                                                                                                                                                    ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                            ============================================= -->
     <div class="breadcrumb-area text-center shadow theme-hard bg-fixed text-light"
         style="background-image: url({{ asset('assets-landing/img/banner/asrama.png') }});">
         <div class="container">
@@ -31,39 +31,50 @@
                             <div class="col-12">
                                 <div class="mb-10">
                                     <label class="form-label">Nama Tamu</label>
-                                    <input type="text" name="nama_tamu" class="form-control">
+                                    <input type="text" name="nama_tamu" class="form-control" required>
                                     <small class="text-danger d-block nama_tamu_error"></small>
                                 </div>
 
                                 <div class="mb-10">
                                     <label class="form-label">Alamat Asal</label>
-                                    <textarea name="alamat" class="form-control" id="" cols="" rows="5"></textarea>
+                                    <textarea name="alamat" class="form-control" id="" cols="" rows="5" required></textarea>
                                     <small class="text-danger d-block alamat_error"></small>
+                                </div>
+                                <div class="mb-10">
+                                    <label class="form-label">No. Handphone</label>
+                                    <input type="text" name="no_handphone" class="form-control" required>
+                                    <small class="text-danger d-block no_handphone_error"></small>
+                                </div>
+                                <div class="mb-10">
+                                    <label class="form-label">Warga Asrama yang Dikunjungi</label>
+                                    <input type="text" name="kerabat" class="form-control">
+                                    <small class="text-danger d-block kerabat_error"></small>
                                 </div>
 
                                 <div class="mb-10">
                                     <label class="form-label">Tujuan</label>
-                                    <input type="text" name="tujuan" class="form-control">
+                                    <input type="text" name="tujuan" class="form-control" required>
                                     <small class="text-danger d-block tujuan_error"></small>
                                 </div>
-
                                 <div class="mb-10">
                                     <label class="form-label">Tanggal Masuk</label>
                                     <input type="text" id="tanggal_masuk" class="form-control kt_datepicker_7"
-                                        name="tanggal_masuk">
+                                        name="tanggal_masuk" required>
                                     <small class="text-danger d-block tanggal_masuk_error"></small>
                                 </div>
 
                                 <div class="mb-10">
                                     <label class="form-label">Tanggal Keluar</label>
                                     <input type="text" id="tanggal_keluar" class="form-control kt_datepicker_7"
-                                        name="tanggal_keluar">
+                                        name="tanggal_keluar" required>
                                     <small class="text-danger d-block tanggal_keluar_error"></small>
                                 </div>
 
-
-
-
+                                <div class="mb-10">
+                                    <label class="form-label">Foto</label>
+                                    <input type="file" accept=".png, .jpg, .jpeg" name="identitas" class="form-control">
+                                    <small class="text-danger d-block identitas_error"></small>
+                                </div>
                             </div>
 
 

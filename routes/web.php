@@ -53,6 +53,10 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('/buku-tamu', 'DataTamuController@buku_tamu')->name('buku-tamu');
     Route::post('/data-tamu-add', 'DataTamuController@store')->name('data-tamu-add');
 
+
+    Route::get('/daftar-tamu', 'DataTamuController@daftar_tamu')->name('daftar-tamu');
+
+
     Route::get('/peminjaman', 'DataPeminjamanController@peminjaman')->name('peminjaman');
     Route::post('/peminjaman-add', 'DataPeminjamanController@store')->name('peminjaman-add');
 

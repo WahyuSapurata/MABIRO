@@ -16,9 +16,12 @@ class DataTamu extends Model
         'uuid',
         'nama_tamu',
         'alamat',
+        'no_handphone',
         'tujuan',
+        'kerabat',
         'tanggal_masuk',
         'tanggal_keluar',
+        'identitas',
         'status',
     ];
 

@@ -33,11 +33,15 @@
                                     <thead class="text-center bg-white">
                                         <tr class="fw-bolder fs-6">
                                             <th>No</th>
+                                            <th>Foto</th>
                                             <th>Nama Tamu</th>
                                             <th>Alamat</th>
+                                            <th>No. HP</th>
                                             <th>Tujuan</th>
+                                            <th>Kerabat</th>
                                             <th>Tanggal Masuk</th>
                                             <th>Tanggal Keluar</th>
+
                                             <th>Status</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -105,6 +109,13 @@
                     <input type="hidden" name="uuid">
 
                     <div class="mb-10">
+                        <label class="form-label">Foto</label>
+                        <input type="file" accept="image/*" id="foto" class="form-control" name="identitas">
+                        <small class="text-danger identitas_error"></small>
+                        <div class="mt-3" id="logoInfoContainer"></div>
+                    </div>
+
+                    <div class="mb-10">
                         <label class="form-label">Nama Tamu</label>
                         <input type="text" name="nama_tamu" class="form-control">
                         <small class="text-danger nama_tamu_error"></small>
@@ -117,9 +128,20 @@
                     </div>
 
                     <div class="mb-10">
+                        <label class="form-label">No. Handphone</label>
+                        <input type="text" name="no_handphone" class="form-control">
+                        <small class="text-danger no_handphone_error"></small>
+                    </div>
+
+                    <div class="mb-10">
                         <label class="form-label">Tujuan</label>
                         <input type="text" name="tujuan" class="form-control">
                         <small class="text-danger tujuan_error"></small>
+                    </div>
+                    <div class="mb-10">
+                        <label class="form-label">Kerabat</label>
+                        <input type="text" name="kerabat" class="form-control">
+                        <small class="text-danger kerabat_error"></small>
                     </div>
 
                     <div class="mb-10">
@@ -133,6 +155,8 @@
                         <input type="text" name="tanggal_keluar" class="form-control kt_datepicker_7">
                         <small class="text-danger tanggal_keluar_error"></small>
                     </div>
+
+
 
                     <div class="mb-10">
                         <label class="form-label">Status</label>
@@ -170,7 +194,8 @@
 
         $(document).on('click', '#button-side-form', function() {
             control.overlay_form('Tambah', 'Data Tamu');
-        })
+        });
+
 
         $(document).on('submit', ".form-data", function(e) {
             e.preventDefault();
@@ -187,11 +212,40 @@
             }
         });
 
+        // $(document).on('click', '.button-update', function(e) {
+        //     e.preventDefault();
+        //     let url = '/biro/warga_tamu/data-tamu-show/' + $(this).attr('data-uuid');
+        //     control.overlay_form('Update', 'Data Tamu', url);
+        // })
+
         $(document).on('click', '.button-update', function(e) {
             e.preventDefault();
             let url = '/biro/warga_tamu/data-tamu-show/' + $(this).attr('data-uuid');
+
+            // Panggil fungsi untuk menampilkan form update
             control.overlay_form('Update', 'Data Tamu', url);
-        })
+
+            // Setelah form tampil, ambil data dan tampilkan preview file
+            $.ajax({
+                url: url,
+                method: "GET",
+                success: function(res) {
+                    if (res.success === true && res.data.identitas) {
+                        // tampilkan preview foto identitas di div yang sudah ada
+                        $('#logoInfoContainer').html(
+                            `<img id="img-foto" src="/public/tamu/${res.data.identitas}"
+                        style="max-width:100%; border-radius:8px;">`
+                        );
+                    } else {
+                        $('#logoInfoContainer').html('');
+                    }
+                },
+                error: function() {
+                    console.error('Gagal memuat data identitas');
+                }
+            });
+        });
+
 
         $(document).on('click', '.button-delete', function(e) {
             e.preventDefault();
@@ -221,62 +275,106 @@
                 processing: true,
                 ajax: '/biro/warga_tamu/data-tamu-get',
                 columns: [{
-                    data: null,
-                    className: 'mb-kolom-nomor align-content-center',
-                    render: function(data, type, row, meta) {
-                        return meta.row + meta.settings._iDisplayStart + 1;
-                    }
-                }, {
-                    data: 'nama_tamu',
-                    className: 'align-content-center',
-                }, {
-                    data: 'alamat',
-                    className: 'align-content-center',
-                }, {
-                    data: 'tujuan',
-                    className: 'align-content-center',
-                }, {
-                    data: 'tanggal_masuk',
-                    className: 'align-content-center text-center',
-                    render: function(data) {
-                        if (!data) return '';
-                        let parts = data.split('-'); // ['24','09','2025']
-                        return `${parts[2]}-${parts[1]}-${parts[0]}`;
-                    }
-                }, {
-                    data: 'tanggal_keluar',
-                    className: 'align-content-center text-center',
-                    render: function(data) {
-                        if (!data) return '';
-                        let parts = data.split('-'); // ['24','09','2025']
-                        return `${parts[2]}-${parts[1]}-${parts[0]}`;
-                    }
-                }, {
-                    data: 'status',
-                    className: 'mb-kolom-nominal align-content-center text-center',
-                    render: function(data, type, row, meta) {
-                        let result;
-                        if (data == "Sedang Bertamu") {
-                            result =
-                                `
+                        data: null,
+                        className: 'mb-kolom-nomor align-content-center',
+                        render: function(data, type, row, meta) {
+                            return meta.row + meta.settings._iDisplayStart + 1;
+                        }
+                    }, {
+                        data: 'identitas',
+                        className: 'align-content-center',
+                        render: function(data, type, row, meta) {
+                            let result;
+                            if (data) {
+                                result =
+                                    `
+                                <!--begin::Overlay-->
+                                <a class="d-block overlay fancybox" data-fancybox="lightbox-group" href="{{ asset('/public/tamu/${data}') }}">
+                                    <!--begin::Image-->
+                                    <div class="mb-profil-warga overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded"
+                                        style="background-image:url('/public/tamu/${data}')">
+                                    </div>
+                                    <!--end::Image-->
+
+                                    <!--begin::Action-->
+                                    <div class="overlay-layer card-rounded bg-dark bg-opacity-25 shadow">
+                                        <i class="bi bi-eye-fill text-whidte fs-3x"></i>
+                                    </div>
+                                    <!--end::Action-->
+                                </a>
+                                <!--end::Overlay-->
+                            `;
+                            } else {
+                                result =
+                                    `
+                                    <div class="mb-profil-warga brand-accent-color d-flex align-items-center justify-content-center">
+                                        <i class="fas fa-user text-white" font-size: 18px"></i>
+                                    </div>
+                                `;
+                            }
+                            return result;
+                        }
+                    },
+                    {
+                        data: 'nama_tamu',
+                        className: 'align-content-center',
+                    }, {
+                        data: 'alamat',
+                        className: 'align-content-center',
+                    }, {
+                        data: 'no_handphone',
+                        className: 'mb-kolom-nomor align-content-center',
+                    }, {
+                        data: 'tujuan',
+                        className: 'align-content-center',
+                    }, {
+                        data: 'kerabat',
+                        className: 'align-content-center',
+                    }, {
+                        data: 'tanggal_masuk',
+                        className: 'align-content-center text-center',
+                        render: function(data) {
+                            if (!data) return '';
+                            let parts = data.split('-'); // ['24','09','2025']
+                            return `${parts[2]}-${parts[1]}-${parts[0]}`;
+                        }
+                    }, {
+                        data: 'tanggal_keluar',
+                        className: 'align-content-center text-center',
+                        render: function(data) {
+                            if (!data) return '';
+                            let parts = data.split('-'); // ['24','09','2025']
+                            return `${parts[2]}-${parts[1]}-${parts[0]}`;
+                        }
+                    },
+                    {
+                        data: 'status',
+                        className: 'mb-kolom-nominal align-content-center text-center',
+                        render: function(data, type, row, meta) {
+                            let result;
+                            if (data == "Sedang Bertamu") {
+                                result =
+                                    `
                                 <div class="btn btn-outline btn-outline-dashed btn-outline-success btn-active-light-success p-2 py-1">
                                     ${data}
                                 </div>
                             `;
-                        } else {
-                            result =
-                                `
+                            } else {
+                                result =
+                                    `
                                 <div class="btn btn-outline btn-outline-dashed btn-outline-danger btn-active-light-danger p-2 py-1">
                                     ${data}
                                 </div>
                             `;
-                        }
+                            }
 
-                        return result;
+                            return result;
+                        }
+                    },
+                    {
+                        data: 'uuid',
                     }
-                }, {
-                    data: 'uuid',
-                }],
+                ],
                 columnDefs: [{
                     targets: -1,
                     title: 'Aksi',
