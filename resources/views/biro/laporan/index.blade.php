@@ -109,8 +109,8 @@
 
         $(".kt_datepicker_7").flatpickr({
             altInput: true,
-            altFormat: "Y-m-d",
-            dateFormat: "Y-m-d",
+            altFormat: "d-m-Y",
+            dateFormat: "d-m-Y",
             mode: "range",
             onClose: function(selectedDates, dateStr, instance) {
                 // Tangkap perubahan tanggal dan kirimkan data ke server
