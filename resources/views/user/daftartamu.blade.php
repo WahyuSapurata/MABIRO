@@ -1,7 +1,7 @@
 @extends('user.layouts.layout')
 @section('content')
     <!-- Start Breadcrumb
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ============================================= -->
     <div class="breadcrumb-area text-center shadow theme-hard bg-fixed text-light"
         style="background-image: url({{ asset('assets-landing/img/banner/asrama.png') }});">
         <div class="container">
@@ -27,7 +27,6 @@
                         style="background: linear-gradient(90deg, #0d6efd, #1a73e8); color: #fff; font-weight: 700; text-transform: uppercase; font-size: 0.85rem;">
                         <tr>
                             <th style="padding: 0.8rem; vertical-align: middle;">No.</th>
-                            <th style="padding: 0.8rem; vertical-align: middle;">Foto</th>
                             <th style="padding: 0.8rem; vertical-align: middle;">Nama</th>
                             <th style="padding: 0.8rem; vertical-align: middle;">Kerabat</th>
                             <th style="padding: 0.8rem; vertical-align: middle;">Tujuan</th>
@@ -44,7 +43,7 @@
                                 <td style="padding: 0.9rem;">{{ $loop->iteration }}</td>
 
                                 <!-- Identitas (foto atau ikon) -->
-                                <td style="padding: 0.9rem;">
+                                {{-- <td style="padding: 0.9rem;">
                                     @if (!empty($item->identitas))
                                         <img src="{{ asset('/public/tamu/' . $item->identitas) }}" alt="Foto"
                                             style="width: 45px; height: 45px; border-radius: 50%;
@@ -57,7 +56,7 @@
                                             <i class="fa fa-user text-primary" style="font-size: 1.3rem;"></i>
                                         </div>
                                     @endif
-                                </td>
+                                </td> --}}
 
                                 <!-- Nama -->
                                 <td style="padding: 0.9rem; font-weight: 500;">{{ $item->nama_tamu }}</td>

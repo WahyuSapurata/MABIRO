@@ -1,7 +1,7 @@
 @extends('user.layouts.layout')
 @section('content')
     <!-- Start Breadcrumb
-                                                                                                                                                                                                                                                                                                                                                            ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                    ============================================= -->
     <div class="breadcrumb-area text-center shadow theme-hard bg-fixed text-light"
         style="background-image: url({{ asset('assets-landing/img/banner/asrama.png') }});">
         <div class="container">
@@ -71,7 +71,7 @@
                                 </div>
 
                                 <div class="mb-10">
-                                    <label class="form-label">Foto</label>
+                                    <label class="form-label">Foto Identitas</label>
                                     <input type="file" accept=".png, .jpg, .jpeg" name="identitas" class="form-control">
                                     <small class="text-danger d-block identitas_error"></small>
                                 </div>
