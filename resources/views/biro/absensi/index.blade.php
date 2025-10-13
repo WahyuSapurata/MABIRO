@@ -116,10 +116,23 @@
                     <div class="mb-10">
                         <label class="form-label">Area Piket</label>
                         <select name="lokasi" class="form-control" data-control="select2">
-                            <option value="">-- Pilih Area Piket --</option>
-                            <option value="Lokasi 1">Lokasi 1</option>
-                            <option value="Lokasi 2">Lokasi 2</option>
-                            <option value="Lokasi 3">Lokasi 3</option>
+                            <select name="lokasi" class="form-control" data-control="select2">
+                                <option value="">-- Pilih Area Piket --</option>
+                                <option value="Lobby">Lobby</option>
+                                <option value="Lantai 1 Putra">Lantai 1 Putra</option>
+                                <option value="Lantai 2 Putra">Lantai 2 Putra</option>
+                                <option value="Lantai 1 Putri">Lantai 1 Putri</option>
+                                <option value="Lantai 2 Putri">Lantai 2 Putri</option>
+                                <option value="WC Umum">WC Umum</option>
+                                <option value="Mushola & Perpustakaan">Mushola & Perpustakaan</option>
+                                <option value="Aula">Aula</option>
+                                <option value="Halaman & Taman Depan">Halaman & Taman Depan Lobby</option>
+                                <option value="Dapur Umum">Dapur Umum</option>
+                                <option value="Kamar Tamu 1">Kamar Tamu 1</option>
+                                <option value="Kamar Tamu 2">Kamar Tamu 2</option>
+                                <option value="Parit Taman Tengah">Parit Taman Tengah</option>
+                                <option value="Tempat Wudhu">Tempat Wudhu</option>
+                            </select>
                         </select>
                         <small class="text-danger status_error"></small>
                     </div>
