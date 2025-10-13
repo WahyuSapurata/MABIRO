@@ -40,7 +40,9 @@ class AbsensiPiketController extends BaseController
         try {
             $data = new AbsensiPiket();
             $data->uuid_penghuni = $store->uuid_penghuni;
+
             $data->tanggal = $store->tanggal;
+            $data->lokasi = $store->lokasi;
             $data->status = 'Belum Piket';
             $data->save();
         } catch (\Exception $e) {
