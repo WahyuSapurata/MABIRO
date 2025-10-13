@@ -174,7 +174,7 @@ class AbsensiPiketController extends BaseController
         }
 
         try {
-            $data->lokasi = $update->lokasi;
+            // $data->lokasi = $update->lokasi;
             $data->waktu = $update->waktu;
             $data->status = 'Sudah Piket';
             $data->dokumentasi_foto = $update->file('dokumentasi_foto') ? $newFoto : $data->dokumentasi_foto;
