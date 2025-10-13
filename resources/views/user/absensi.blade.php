@@ -46,9 +46,8 @@
                                         <div class="card-header text-center"
                                             style="background:linear-gradient(90deg,#710b28,rgb(199, 7, 0)); color: #fff!important; border: none; padding: 25px;">
                                             <h5 class="mb-0"
-                                                style="font-weight: 700; font-size: 1.3rem; display:flex; align-items:center; justify-content:center; gap:10px; color: white;">
-                                                <i class="bi bi-calendar-check-fill" style="font-size:1.8rem;"></i>
-                                                Kamu Piket Hari Ini!
+                                                style="font-weight:700; font-size:1.3rem; display:flex; align-items:center; justify-content:center; gap:10px; color:white;">
+                                                <i class="fas fa-calendar-check"></i> Kamu Piket Hari Ini!
                                             </h5>
                                         </div>
 
@@ -218,8 +217,8 @@
 
                                         <div class="d-flex align-items-center justify-content-between mt-3">
                                             <!-- Waktu -->
-                                            <span class="fw-semibold small">
-                                                <i class="bi bi-clock me-1 text-primary"></i>
+                                            <span class="text-muted fw-semibold small">
+                                                <i class="far fa-clock"></i>
                                                 @if (!empty($rwt->waktu))
                                                     @php
                                                         $timeFormat =
@@ -276,23 +275,23 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body" id="modal-body-content">
-                        <div class="mb-10">
+                        {{-- <div class="mb-10">
                             <label class="form-label">Lokasi</label>
                             <input type="text" name="lokasi" class="form-control" required>
-                        </div>
+                        </div> --}}
                         <div class="mb-10">
-                            <label class="form-label">Jam</label>
+                            <label class="form-label">Waktu Piket</label>
                             <input type="time" name="waktu" class="form-control" required>
                         </div>
                         <div class="mb-10">
-                            <label class="form-label">Upload Absensi</label>
+                            <label class="form-label">Upload Dokumentasi</label>
                             <input type="file" name="dokumentasi_foto" accept=".png, .jpg, .jpeg" class="form-control"
                                 required>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Send</button>
+                        <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary-color btn-submit">Kirim</button>
                     </div>
                 </form>
             </div>

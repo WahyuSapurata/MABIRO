@@ -101,11 +101,12 @@ class AbsensiPiketController extends BaseController
             $data->waktu = $update->waktu ?? $data->waktu;
             $data->dokumentasi_foto = $update->file('dokumentasi_foto') ? $newFoto : $data->dokumentasi_foto;
 
-            // Cek kelengkapan data
             if (!empty($data->lokasi) && !empty($data->waktu) && !empty($data->dokumentasi_foto)) {
                 $data->status = 'Sudah Piket';
-            } else {
+            } elseif (!empty($data->lokasi) && !empty($data->waktu) && empty($data->dokumentasi_foto)) {
                 $data->status = 'Absensi Kurang';
+            } else {
+                $data->status = 'Belum Piket';
             }
 
             $data->save();

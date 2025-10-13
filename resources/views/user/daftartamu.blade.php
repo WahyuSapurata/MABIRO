@@ -1,7 +1,7 @@
 @extends('user.layouts.layout')
 @section('content')
     <!-- Start Breadcrumb
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ============================================= -->
     <div class="breadcrumb-area text-center shadow theme-hard bg-fixed text-light"
         style="background-image: url({{ asset('assets-landing/img/banner/asrama.png') }});">
         <div class="container">
@@ -20,55 +20,53 @@
                 style="border-radius: 0.5rem; overflow-x: auto; box-shadow: 0 3px 12px rgba(0,0,0,0.08); background: #fff;">
 
                 <table class="table table-bordered table-hover text-center align-middle mb-0"
-                    style="min-width: 800px; background: #fff; border-collapse: separate; border-spacing: 0;">
+                    style="background: #fff; border-collapse: separate; border-spacing: 0; border: 1px solid #dee2e6;">
 
                     <!-- HEADER -->
-                    <thead
-                        style="background: linear-gradient(90deg, #0d6efd, #1a73e8); color: #fff; font-weight: 700; text-transform: uppercase; font-size: 0.85rem;">
+                    <thead style="color: #fff; font-weight: 700;">
                         <tr>
-                            <th style="padding: 0.8rem; vertical-align: middle;">No.</th>
-                            <th style="padding: 0.8rem; vertical-align: middle;">Nama</th>
-                            <th style="padding: 0.8rem; vertical-align: middle;">Kerabat</th>
-                            <th style="padding: 0.8rem; vertical-align: middle;">Tujuan</th>
-                            <th style="padding: 0.8rem; vertical-align: middle;">Tanggal Keluar</th>
-                            <th style="padding: 0.8rem; vertical-align: middle;"> Tanngal Keluar</th>
+                            <th
+                                style="max-width: 100px; vertical-align: middle; border-right: 1px solid rgba(255,255,255,0.3);">
+                                Status</th>
+                            <th
+                                style="max-width: 300px; vertical-align: middle; border-right: 1px solid rgba(255,255,255,0.3);">
+                                Nama Tamu</th>
+                            <th
+                                style="padding: 0.8rem; vertical-align: middle; border-right: 1px solid rgba(255,255,255,0.3);">
+                                Tujuan Bertamu</th>
+                            <th
+                                style="max-width: 180px; vertical-align: middle; border-right: 1px solid rgba(255,255,255,0.3);">
+                                Tanggal Masuk</th>
+                            <th style="max-width: 180px; vertical-align: middle;">Tanggal Keluar</th>
                         </tr>
                     </thead>
 
                     <!-- BODY -->
-                    <tbody style="font-size: 0.95rem; color: #333;">
+                    <tbody>
                         @forelse ($data as $item)
                             <tr style="border-bottom: 1px solid #f1f1f1; transition: background 0.2s;">
-                                <!-- No -->
-                                <td style="padding: 0.9rem;">{{ $loop->iteration }}</td>
-
-                                <!-- Identitas (foto atau ikon) -->
-                                {{-- <td style="padding: 0.9rem;">
-                                    @if (!empty($item->identitas))
-                                        <img src="{{ asset('/public/tamu/' . $item->identitas) }}" alt="Foto"
-                                            style="width: 45px; height: 45px; border-radius: 50%;
-                                                object-fit: cover; box-shadow: 0 0 0 2px #f1f1f1;">
+                                <!-- Status -->
+                                <td style="border-right: 1px solid #e9ecef;">
+                                    @if ($item->status === 'Sedang Bertamu')
+                                        <i class="fas fa-circle" style="color: #28a745; font-size: 0.8rem;"></i>
                                     @else
-                                        <div
-                                            style="width: 45px; height: 45px; border-radius: 50%;
-                                                background: #eef3ff; display: flex; align-items: center;
-                                                justify-content: center; margin: auto;">
-                                            <i class="fa fa-user text-primary" style="font-size: 1.3rem;"></i>
-                                        </div>
+                                        <i class="fas fa-circle" style="color: #dc3545; font-size: 0.8rem;"></i>
                                     @endif
-                                </td> --}}
+                                </td>
 
                                 <!-- Nama -->
-                                <td style="padding: 0.9rem; font-weight: 500;">{{ $item->nama_tamu }}</td>
-
-                                <!-- Kerabat -->
-                                <td style="padding: 0.9rem;">{{ $item->kerabat ?? '-' }}</td>
+                                <td class="text-start"
+                                    style="padding: 0.9rem; font-weight: 500; border-right: 1px solid #e9ecef;">
+                                    {{ $item->nama_tamu }}
+                                </td>
 
                                 <!-- Tujuan -->
-                                <td style="padding: 0.9rem;">{{ $item->tujuan }}</td>
+                                <td class="text-start" style="padding: 0.9rem; border-right: 1px solid #e9ecef;">
+                                    {{ $item->tujuan }}
+                                </td>
 
                                 <!-- Masuk -->
-                                <td style="padding: 0.9rem; color: #198754;">
+                                <td style="padding: 0.9rem; color: #198754; border-right: 1px solid #e9ecef;">
                                     {{ \Carbon\Carbon::parse($item->tanggal_masuk)->format('d M Y') }}
                                 </td>
 

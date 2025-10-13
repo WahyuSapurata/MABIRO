@@ -103,14 +103,27 @@
 
                     <div class="mb-10">
                         <label class="form-label">Jadwal Piket</label>
-                        <input type="text" class="form-control kt_datepicker_3" name="tanggal">
+                        <input type="text" class="form-control kt_datepicker_3" placeholder="Pilih jadwal piket"
+                            name="tanggal">
                         <small class="text-danger tanggal_error"></small>
                     </div>
 
-                    <div class="mb-10">
+                    {{-- <div class="mb-10">
                         <label class="form-label">Lokasi</label>
                         <input type="text" name="lokasi" class="form-control">
+                    </div> --}}
+
+                    <div class="mb-10">
+                        <label class="form-label">Area Piket</label>
+                        <select name="lokasi" class="form-control" data-control="select2">
+                            <option value="">-- Pilih Area Piket --</option>
+                            <option value="Lokasi 1">Lokasi 1</option>
+                            <option value="Lokasi 2">Lokasi 2</option>
+                            <option value="Lokasi 3">Lokasi 3</option>
+                        </select>
+                        <small class="text-danger status_error"></small>
                     </div>
+
                     <div class="mb-10">
                         <label class="form-label">Jam</label>
                         <input type="time" name="waktu" class="form-control">
@@ -142,7 +155,8 @@
 
                     <div class="separator separator-dashed mt-8 mb-5"></div>
                     <div class="d-flex gap-5">
-                        <button type="submit" class="btn btn-mabiro-primary btn-sm btn-submit d-flex align-items-center"><i
+                        <button type="submit"
+                            class="btn btn-mabiro-primary btn-sm btn-submit d-flex align-items-center"><i
                                 class="fas fa-save text-white"></i> Simpan</button>
                         <button type="reset" id="side_form_close"
                             class="btn mr-2 btn-mabiro-grey btn-cancel btn-sm d-flex align-items-center"><i
@@ -217,7 +231,7 @@
                 ajax: '/biro/absensi-get',
                 columns: [{
                     data: 'nama_penghuni',
-                    class: 'text-center align-content-center',
+                    class: 'text-start align-content-center',
                 }, {
                     data: 'tanggal',
                     class: 'mb-kolom-tanggal text-center align-content-center',
@@ -228,7 +242,7 @@
                     }
                 }, {
                     data: 'lokasi',
-                    class: 'mb-kolom-text text-center align-content-center',
+                    class: 'text-capitalize mb-kolom-text text-start align-content-center',
                     render: function(data, type, row, meta) {
                         return data ? data : '-';
                     }

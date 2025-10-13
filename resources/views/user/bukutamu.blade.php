@@ -1,7 +1,7 @@
 @extends('user.layouts.layout')
 @section('content')
     <!-- Start Breadcrumb
-                                                                                                                                                                                                                                                                                                                                                                    ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                ============================================= -->
     <div class="breadcrumb-area text-center shadow theme-hard bg-fixed text-light"
         style="background-image: url({{ asset('assets-landing/img/banner/asrama.png') }});">
         <div class="container">
@@ -31,71 +31,77 @@
                             <div class="col-12">
                                 <div class="mb-10">
                                     <label class="form-label">Nama Tamu</label>
-                                    <input type="text" name="nama_tamu" class="form-control" required>
+                                    <input type="text" name="nama_tamu" class="form-control" placeholder="Nama anda"
+                                        required>
                                     <small class="text-danger d-block nama_tamu_error"></small>
                                 </div>
 
                                 <div class="mb-10">
                                     <label class="form-label">Alamat Asal</label>
-                                    <textarea name="alamat" class="form-control" id="" cols="" rows="5" required></textarea>
+                                    <textarea name="alamat" class="form-control" placeholder="Tuliskan alamat asal" id="" cols=""
+                                        rows="5" required></textarea>
                                     <small class="text-danger d-block alamat_error"></small>
                                 </div>
                                 <div class="mb-10">
                                     <label class="form-label">No. Handphone</label>
-                                    <input type="text" name="no_handphone" class="form-control" required>
+                                    <input type="text" name="no_handphone" class="form-control" maxlength="13"
+                                        placeholder="08XX-XXXX-XXXX"
+                                        oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 13);" required>
                                     <small class="text-danger d-block no_handphone_error"></small>
                                 </div>
                                 <div class="mb-10">
                                     <label class="form-label">Warga Asrama yang Dikunjungi</label>
-                                    <input type="text" name="kerabat" class="form-control">
+                                    <input type="text" name="kerabat" class="form-control"
+                                        placeholder="Tuliskan nama kerabat yang dikunjungi">
                                     <small class="text-danger d-block kerabat_error"></small>
                                 </div>
 
                                 <div class="mb-10">
-                                    <label class="form-label">Tujuan</label>
-                                    <input type="text" name="tujuan" class="form-control" required>
+                                    <label class="form-label">Tujuan Bertamu</label>
+                                    <input type="text" name="tujuan" class="form-control"
+                                        placeholder="Tuliskan tujuan anda" required>
                                     <small class="text-danger d-block tujuan_error"></small>
                                 </div>
                                 <div class="mb-10">
                                     <label class="form-label">Tanggal Masuk</label>
                                     <input type="text" id="tanggal_masuk" class="form-control kt_datepicker_7"
-                                        name="tanggal_masuk" required>
+                                        placeholder="Pilih tanggal masuk" name="tanggal_masuk" required>
                                     <small class="text-danger d-block tanggal_masuk_error"></small>
                                 </div>
 
                                 <div class="mb-10">
                                     <label class="form-label">Tanggal Keluar</label>
                                     <input type="text" id="tanggal_keluar" class="form-control kt_datepicker_7"
-                                        name="tanggal_keluar" required>
+                                        placeholder="Pilih tanggal keluar" name="tanggal_keluar" required>
                                     <small class="text-danger d-block tanggal_keluar_error"></small>
                                 </div>
 
                                 <div class="mb-10">
                                     <label class="form-label">Foto Identitas</label>
-                                    <input type="file" accept=".png, .jpg, .jpeg" name="identitas" class="form-control">
-                                    <small class="text-danger d-block identitas_error"></small>
-                                </div>
-                            </div>
+                                    <input type="file" accept=".png, .jpg, .jpeg" name="identitas" " class="form-control">
+                                                                                    <small class="text-danger d-block identitas_error"></small>
+                                                                                </div>
+                                                                            </div>
 
 
 
-                        </div>
-                        <div class="separator separator-dashed mt-8 mb-5"></div>
-                        <div class="d-flex gap-2 justify-content-center justify-md-start">
-                            <button type="submit"
-                                class="btn btn-primary-color btn-sm btn-submit d-flex align-items-center"><i
-                                    class="fas fa-paper-plane me-2"></i> Kirim</button>
-                            <button type="reset" id="side_form_close" data-bs-dismiss="modal"
-                                class="btn btn-light btn-cancel btn-sm d-flex align-items-center"
-                                style="background-color: #ea443e65; color: #EA443E"><i class="fas fa-undo me-2"
-                                    style="color: #EA443E"></i>Reset</button>
-                        </div>
+                                                                        </div>
+                                                                        <div class="separator separator-dashed mt-8 mb-5"></div>
+                                                                        <div class="d-flex gap-2 justify-content-center justify-md-start">
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary-color btn-sm btn-submit d-flex align-items-center"><i
+                                                                                    class="fas fa-paper-plane me-2"></i> Kirim</button>
+                                                                            <button type="reset" id="side_form_close" data-bs-dismiss="modal"
+                                                                                class="btn btn-light btn-cancel btn-sm d-flex align-items-center"
+                                                                                style="background-color: #ea443e65; color: #EA443E"><i class="fas fa-undo me-2"
+                                                                                    style="color: #EA443E"></i>Reset</button>
+                                                                        </div>
 
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
 @endsection
 @section('scripts')
     <script>

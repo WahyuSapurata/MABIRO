@@ -170,24 +170,27 @@
                 processing: true,
                 ajax: '/biro/arsip-dokumen-get',
                 columns: [{
-                    data: 'keterangan',
-                    className: 'mb-kolom-text align-content-center text-start',
-                }, {
-                    data: 'nama_file',
-                    className: 'mb-kolom-nominal align-content-center text-center',
-                    render: function(data, type, row, meta) {
-                        let result;
-                        result =
-                            `<a href="{{ asset('/public/arsip/${data}') }}" target="_blank" class="btn btn-outline btn-outline-dashed btn-outline-danger btn-active-light-danger p-2 py-1">
+                        data: 'keterangan',
+                        className: 'mb-kolom-text align-content-center text-start',
+                    },
+                    {
+                        data: 'nama_file',
+                        className: 'mb-kolom-nominal align-content-center text-center',
+                        render: function(data, type, row, meta) {
+                            let result;
+                            result =
+                                `<a href="{{ asset('/public/arsip/${data}') }}" target="_blank" class="btn btn-outline btn-outline-dashed btn-outline-danger btn-active-light-danger p-2 py-1">
                                     <div class="d-flex justify-content-center align-items-center" style="gap: 5px; color: red;">
                                         Lihat File
                                     </div>
                                 </a>`;
-                        return result;
+                            return result;
+                        }
+                    },
+                    {
+                        data: 'uuid',
                     }
-                }, {
-                    data: 'uuid',
-                }],
+                ],
                 columnDefs: [{
                     targets: -1,
                     title: 'Aksi',

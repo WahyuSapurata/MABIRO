@@ -25,7 +25,7 @@
 
     <!-- ========== Start Stylesheet ========== -->
     <link href="{{ asset('assets-landing/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets-landing/css/bootstrap-icons.css') }}" rel="stylesheet">
+
     <link href="{{ asset('assets-landing/css/fancybox.css') }}" rel="stylesheet">
     <link href="{{ asset('assets-landing/css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets-landing/css/themify-icons.css') }}" rel="stylesheet">

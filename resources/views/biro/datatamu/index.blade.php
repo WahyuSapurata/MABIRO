@@ -317,7 +317,7 @@
                     },
                     {
                         data: 'nama_tamu',
-                        className: 'align-content-center',
+                        className: 'text-capitalize align-content-center',
                     }, {
                         data: 'alamat',
                         className: 'align-content-center',
@@ -329,7 +329,7 @@
                         className: 'align-content-center',
                     }, {
                         data: 'kerabat',
-                        className: 'align-content-center',
+                        className: 'text-capitalize align-content-center',
                     }, {
                         data: 'tanggal_masuk',
                         className: 'align-content-center text-center',
