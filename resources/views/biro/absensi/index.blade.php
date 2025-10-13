@@ -115,22 +115,38 @@
 
                     <div class="mb-10">
                         <label class="form-label">Area Piket</label>
-                        <select name="lokasi" class="form-control" data-control="select2">
-                            <option value="">-- Pilih Area Piket --</option>
-                            <option value="Lobby">Lobby</option>
-                            <option value="Lantai 1 Putra">Lantai 1 Putra</option>
-                            <option value="Lantai 2 Putra">Lantai 2 Putra</option>
-                            <option value="Lantai 1 Putri">Lantai 1 Putri</option>
-                            <option value="Lantai 2 Putri">Lantai 2 Putri</option>
-                            <option value="WC Umum">WC Umum</option>
-                            <option value="Mushola & Perpustakaan">Mushola & Perpustakaan</option>
-                            <option value="Aula">Aula</option>
-                            <option value="Halaman & Taman Depan">Halaman & Taman Depan Lobby</option>
-                            <option value="Dapur Umum">Dapur Umum</option>
-                            <option value="Kamar Tamu 1">Kamar Tamu 1</option>
-                            <option value="Kamar Tamu 2">Kamar Tamu 2</option>
-                            <option value="Parit Taman Tengah">Parit Taman Tengah</option>
-                            <option value="Tempat Wudhu">Tempat Wudhu</option>
+                        <select name="lokasi" class="form-control" data-placeholder="Silahkan pilih area piket"
+                            data-control="select2">
+
+                            <optgroup label="Area Umum">
+                                <option value="Lobby">Lobby</option>
+                                <option value="Aula">Aula</option>
+                                <option value="WC Umum">WC Umum</option>
+                                <option value="Dapur Umum">Dapur Umum</option>
+                                <option value="Tempat Wudhu">Tempat Wudhu</option>
+                                <option value="Mushola & Perpustakaan">Mushola & Perpustakaan</option>
+                            </optgroup>
+
+                            <optgroup label="Area Gedung Putra">
+                                <option value="Lantai 1 Putra">Lantai 1 Putra</option>
+                                <option value="Lantai 2 Putra">Lantai 2 Putra</option>
+                            </optgroup>
+
+                            <optgroup label="Area Gedung Putri">
+                                <option value="Lantai 1 Putri">Lantai 1 Putri</option>
+                                <option value="Lantai 2 Putri">Lantai 2 Putri</option>
+                            </optgroup>
+
+                            <optgroup label="Area Tamu">
+                                <option value="Kamar Tamu 1">Kamar Tamu 1</option>
+                                <option value="Kamar Tamu 2">Kamar Tamu 2</option>
+                            </optgroup>
+
+                            <optgroup label="Area Halaman & Taman">
+                                <option value="Parit Taman Tengah">Parit Taman Tengah</option>
+                                <option value="Halaman & Taman Depan">Halaman & Taman Depan Lobby</option>
+                            </optgroup>
+
                         </select>
                         <small class="text-danger status_error"></small>
                     </div>
@@ -322,7 +338,7 @@
                 columnDefs: [{
                     targets: -1,
                     title: 'Aksi',
-                    class: 'mb-kolom-aksi',
+                    class: 'mb-kolom-aksi align-middle',
                     orderable: false,
                     render: function(data, type, full, meta) {
                         return `
