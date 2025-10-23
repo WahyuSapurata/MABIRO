@@ -82,13 +82,13 @@
                             @if (!auth()->check())
                                 <a class="btn btn-login-sidebar d-flex align-items-center justify-content-center"
                                     href="{{ route('login.login-akun') }}" style="min-height: 42px;">
-                                    <i class="fas fa-sign-in-alt me-2"></i>
+                                    <i class="fas fa-sign-in-alt me-2" style="padding-right: 8px;"></i>
                                     <span> Masuk</span>
                                 </a>
                             @else
                                 <a class="btn btn-login-sidebar d-flex align-items-center justify-content-center"
                                     href="{{ route('logout') }}" style="min-height: 42px;">
-                                    <span>Keluar </span><i class="fas fa-sign-out-alt"></i>
+                                    <span>Keluar </span><i class="fas fa-sign-out-alt" style="padding-left: 8px;"></i>
                                 </a>
                             @endif
 

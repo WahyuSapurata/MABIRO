@@ -5,7 +5,9 @@
     <!-- ========== Meta Tags ========== -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+
     <meta name="description" content="Sistem Informasi Manajemen Asrama">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -157,5 +159,21 @@
 
 
 </body>
+
+<script>
+    function setNoZoomViewport() {
+        let meta = document.querySelector('meta[name="viewport"]');
+        const content = 'width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no';
+        if (meta) meta.setAttribute('content', content);
+        else {
+            meta = document.createElement('meta');
+            meta.name = 'viewport';
+            meta.content = content;
+            document.head.appendChild(meta);
+        }
+    }
+    setNoZoomViewport();
+</script>
+
 
 </html>

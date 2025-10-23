@@ -1,7 +1,7 @@
 @extends('user.layouts.layout')
 @section('content')
     <!-- Start Breadcrumb
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ============================================= -->
     <div class="breadcrumb-area text-center shadow theme-hard bg-fixed text-light"
         style="background-image: url({{ asset('assets-landing/img/banner/asrama.png') }});">
         <div class="container">
@@ -20,11 +20,12 @@
                 <div>
 
                     <div>
-                        <div class="card shadow-lg border-0 rounded-4 overflow-hidden" style="border-radius: 16px;">
+                        <div class="card shadow-lg border-0 rounded-4 overflow-hidden"
+                            style="border-radius: 16px;    background: none;">
                             <div class="row g-0 px-4 py-4">
                                 <!-- Bagian Foto -->
-                                <div
-                                    class="col-md-3 bg-light d-flex flex-column align-items-center justify-content-center p-4">
+                                <div class="col-md-3 bg-light d-flex flex-column align-items-center justify-content-center p-4"
+                                    style="background: none !important;">
                                     <img src="public/penghuni/{{ $data->foto ?? 'default.jpg' }}" alt="Foto Profil"
                                         class="border border-3 shadow-sm mb-3"
                                         style="width: 180px; height: 200px; object-fit: cover; border-radius: 20px; object-position: top;">
