@@ -83,12 +83,13 @@
                                 <a class="btn btn-login-sidebar d-flex align-items-center justify-content-center"
                                     href="{{ route('login.login-akun') }}" style="min-height: 42px;">
                                     <i class="fas fa-sign-in-alt me-2"></i>
-                                    <span>Masuk</span>
+                                    <span> Masuk</span>
                                 </a>
                             @else
-                                <button type="button" class="btn btn-danger"><a href="{{ route('logout') }}"
-                                        class="text-white text-decoration-none">
-                                        Keluar <i class="fas fa-sign-out-alt"></i></a></button>
+                                <a class="btn btn-login-sidebar d-flex align-items-center justify-content-center"
+                                    href="{{ route('logout') }}" style="min-height: 42px;">
+                                    <span>Keluar </span><i class="fas fa-sign-out-alt"></i>
+                                </a>
                             @endif
 
                             <!-- Tombol Update Tampilan -->
