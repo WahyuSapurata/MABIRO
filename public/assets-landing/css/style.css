@@ -9204,9 +9204,7 @@ div#menuBtn i {
     }
 }
 
-nav.navbar.validnavs.no-background.white ul.nav>li>a {
-    color: var(--brand-white-color) !important;
-}
+
 
 ul.nav.navbar-nav.navbar-center li a {
     color: var(--text-secondary-color);
