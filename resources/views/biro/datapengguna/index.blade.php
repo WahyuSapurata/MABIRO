@@ -127,6 +127,7 @@
                             <option value="biro">Kepala Biro Asrama</option>
                             <option value="keuangan">Unit Keuangan</option>
                             <option value="inventaris">Unit Inventaris</option>
+                            <option value="superadmin">Super Admin</option>
                         </select>
                         <small class="text-danger role_error"></small>
                     </div>

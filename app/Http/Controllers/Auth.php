@@ -32,6 +32,8 @@ class Auth extends BaseController
     {
         if (auth()->user()->role === 'biro') {
             return redirect()->route('biro.dashboard-biro');
+        } else if (auth()->user()->role === 'superadmin') {
+            return redirect()->route('biro.dashboard-biro');
         } else if (auth()->user()->role === 'keuangan') {
             return redirect()->route('keuangan.dashboard-keuangan');
         } else if (auth()->user()->role === 'inventaris') {

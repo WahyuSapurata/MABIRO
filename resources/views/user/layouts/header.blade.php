@@ -93,17 +93,19 @@
                             @endif
 
                             <div class="d-flex gap-2">
-                                <button id="clear-cache-btn"
+                                <div id="clear-cache-btn"
                                     class="btn btn-light rounded-circle d-flex align-items-center justify-content-center"
-                                    style="width: 42px; height: 42px; border: none;">
+                                    style="width: 42px; height: 42px; border: none; cursor: pointer;">
                                     <i class="fas fa-sync-alt"></i>
-                                </button>
+                                </div>
 
-                                <button id="install-pwa-btn"
+                                <div id="install-pwa-btn"
                                     class="btn btn-light rounded-circle d-flex align-items-center justify-content-center"
-                                    style="width: 42px; height: 42px; border: none;" title="Install App">
+                                    style="width: 42px; height: 42px; border: none; cursor: pointer;"
+                                    title="Install App">
                                     <i class="fas fa-download"></i>
-                                </button>
+
+                                </div>
                             </div>
                         </div>
                     </li>

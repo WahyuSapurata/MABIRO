@@ -15,7 +15,7 @@ class Beranda extends BaseController
         }
 
         // Jika user login dengan role biro, keuangan, atau inventaris, redirect
-        if (in_array(auth()->user()->role, ['biro', 'keuangan', 'inventaris'])) {
+        if (in_array(auth()->user()->role, ['biro', 'superadmin', 'keuangan', 'inventaris'])) {
             return redirect()->route('login.login-akun');
         }
 
