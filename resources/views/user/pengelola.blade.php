@@ -1,7 +1,7 @@
 @extends('user.layouts.layout')
 @section('content')
     <!-- Start Breadcrumb
-                                                                                                                                                                                                                                    ============================================= -->
+                                                                                                                                                                                                                                            ============================================= -->
     <div class="breadcrumb-area text-center shadow theme-hard bg-fixed text-light"
         style="background-image: url({{ asset('assets-landing/img/banner/asrama.png') }});">
         <div class="container">
@@ -15,13 +15,13 @@
     <!-- End Breadcrumb -->
 
     <!-- Star About Area
-                                                                                ============================================= -->
+                                                                                        ============================================= -->
     <div class="team-area default-padding relative">
         <div class="container"> <!-- Atau container-fluid -->
             <div class="team-items text-center">
                 <div class="owl-carousel team-carousel owl-theme">
                     <!-- Item 1 -->
-                    @forelse ($pengelola as $pl)
+                    @forelse ($pengelola->whereIn('role', ['biro', 'inventaris', 'keuangan']) as $pl)
                         <div class="item">
                             <div class="thumb">
                                 <img src="{{ asset('/public/pengguna/' . $pl->foto) }}" alt="Thumb">
