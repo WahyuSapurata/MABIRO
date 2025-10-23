@@ -46,7 +46,7 @@
                 </a>
             </div>
 
-            @if ($role === 'biro')
+            @if ($role === 'biro' || $role === 'superadmin')
                 <div class="menu-item">
                     <!--begin::Menu link-->
                     <a href="{{ route('biro.data-pengguna') }}"
