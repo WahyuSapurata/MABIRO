@@ -106,7 +106,7 @@
                                                 Tidak ada jadwal piketmu hari ini <span class="emoji-wiggle">👍</span>
                                             </h4>
                                             <p class="mb-0 text-success text-center" style="font-size:0.95rem; ">
-                                                Silahkan jalani hari ini dengan santai 💚
+                                                Silahkan jalani harimu dengan santai hari ini 💚
                                             </p>
                                         </div>
                                     </div>

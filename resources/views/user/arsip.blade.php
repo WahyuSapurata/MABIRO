@@ -22,7 +22,7 @@
                             <div class="row g-3">
 
                                 @forelse ($data as $item)
-                                    <div class="col-lg-6 col-md-12">
+                                    <div class="col-lg-4 col-md-12">
                                         <div class="arsip-card-horizontal">
                                             <div class="arsip-icon">
                                                 <iconify-icon icon="mdi:file-document-outline" width="50" height="50"

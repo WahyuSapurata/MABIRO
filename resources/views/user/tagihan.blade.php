@@ -103,7 +103,7 @@
 
                                             <!-- ✅ Text section -->
                                             <h4 class="fw-bold mb-2 text-success text-center">
-                                                Semua tagihanmu telah dibayarkan <span class="emoji-wiggle">👍</span>
+                                                Semua tagihanmu telah kamu bayarkan <span class="emoji-wiggle">👍</span>
                                             </h4>
                                             <p class="text-success mb-0 text-center" style="font-size:0.95rem;">
                                                 Terima kasih sudah melakukan pembayaran tepat waktu 💚
