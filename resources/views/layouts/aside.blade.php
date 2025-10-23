@@ -6,6 +6,7 @@
         'biro' => 'biro.dashboard-biro',
         'keuangan' => 'keuangan.dashboard-keuangan',
         'inventaris' => 'inventaris.dashboard-inventaris',
+        'superadmin' => 'biro.dashboard-biro',
     ];
 
     $isActive = in_array($role, array_keys($dashboardRoutes)) && isset($path[1]) && $path[1] === 'dashboard-' . $role;
