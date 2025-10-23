@@ -9273,6 +9273,11 @@ nav.navbar.validnavs .navbar-collapse.collapse button {
     color: var(--brand-text-secondary-color)
 }
 
+a.btn.btn-login-sidebar {
+    background: var(--brand-primary-color);
+    border-radius: 10px;
+    color: white !important;
+}
 
 .mb-card-fitur {
     border-radius: 20px;

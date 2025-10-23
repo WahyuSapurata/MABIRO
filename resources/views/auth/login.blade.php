@@ -443,10 +443,11 @@
                     </div>
 
                     <div class="d-flex justify-content-center mt-15 d-md-none">
-                        <a href="{{ route('beranda') }}"
-                            class="d-flex align-items-center justify-content-center border border-secondary rounded-circle"
-                            style="width: 40px; height: 40px;">
-                            <i class="fas fa-arrow-left text-secondary"></i>
+                        <a href="{{ route('beranda') }}" class="btn mt-5"
+                            style="border: 1px solid grey; color: grey; background-color: transparent; transition: all 0.2s ease-in-out;"
+                            onmouseover="this.style.backgroundColor='grey'; this.style.color='white'; this.querySelector('i').style.color='white';"
+                            onmouseout="this.style.backgroundColor='transparent'; this.style.color='grey'; this.querySelector('i').style.color='grey';">
+                            <i class="fas fa-arrow-left me-1" style="color: grey;"></i> Kembali
                         </a>
                     </div>
                     <!--end::Body-->

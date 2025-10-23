@@ -74,17 +74,33 @@
                         </ul>
                     </li>
                     <li><a href="{{ route('kontak') }}">Kontak</a></li>
-                    <li class="d-lg-none d-lg-block">
-                        <!-- Di dalam <body>, misalnya di footer atau sidebar -->
-                        <div id="clear-cache-btn">
-                            Update Tampilan
+                    <li class="d-lg-none d-block" style="margin-top: 15px;">
+                        <div class="d-flex align-items-center justify-content-start gap-3">
+
+
+                            <!-- Tombol Login -->
+                            @if (!auth()->check())
+                                <a class="btn btn-login-sidebar d-flex align-items-center justify-content-center"
+                                    href="{{ route('login.login-akun') }}" style="min-height: 42px;">
+                                    <i class="fas fa-sign-in-alt me-2"></i>
+                                    <span>Masuk</span>
+                                </a>
+                            @else
+                                <button type="button" class="btn btn-danger"><a href="{{ route('logout') }}"
+                                        class="text-white text-decoration-none">
+                                        Keluar <i class="fas fa-sign-out-alt"></i></a></button>
+                            @endif
+
+                            <!-- Tombol Update Tampilan -->
+                            <button id="clear-cache-btn"
+                                class="btn btn-light rounded-circle d-flex align-items-center justify-content-center"
+                                style="width: 42px; height: 42px; position: static;border: none;">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
                         </div>
                     </li>
-                    @if (!auth()->check())
-                        <li class="d-lg-none d-block">
-                            <a class="btn btn-primary" href="{{ route('login.login-akun') }}">Masuk</a>
-                        </li>
-                    @endif
+
+
 
 
                 </ul>

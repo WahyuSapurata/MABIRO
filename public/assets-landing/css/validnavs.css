@@ -1383,9 +1383,13 @@ nav.navbar.validnavs.brand-center {
 
     nav.navbar.validnavs.no-background.white .attr-nav>ul>li>a,
     nav.navbar.validnavs.navbar-transparent.white .attr-nav>ul>li>a,
-    nav.navbar.validnavs.navbar-transparent.white ul.nav>li>a,
+    nav.navbar.validnavs.navbar-transparent.white ul.nav>li>a {
+        color: var(--brand-text-primary-color);
+    }
+
+
     nav.navbar.validnavs.no-background.white ul.nav>li>a {
-        color: var(--white);
+        color: white;
     }
 
     .navbar.no-background.white .attr-right .attr-nav li.button a {
@@ -2052,7 +2056,7 @@ nav.navbar.validnavs.brand-center {
     nav.navbar.validnavs .navbar-nav>li>a {
         display: block;
         width: 100%;
-        border-bottom: solid 1px #e0e0e0;
+
         padding: 13px 0 !important;
         border-top: solid 1px #e0e0e0;
         margin-bottom: -1px;
@@ -2508,7 +2512,7 @@ nav.navbar.validnavs .navbar-collapse.collapse.collapse-mobile.show {
     width: 100%;
     animation: fadeIn;
     top: 100%;
-    border-top: 1px solid #e7e7e7;
+
 }
 
 
