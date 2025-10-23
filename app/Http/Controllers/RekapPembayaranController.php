@@ -133,7 +133,7 @@ class RekapPembayaranController extends BaseController
         if (!auth()->check() || auth()->user()->role !== 'penghuni') {
             return redirect()->route('login.login-akun');
         }
-        $data = RekapPembayaran::where('uuid_penghuni', auth()->user()->uuid)->whereIn('status', ['Belum Lunas', 'Menunggu Konfirmasi'])->get();
+        $data = RekapPembayaran::where('uuid_penghuni', auth()->user()->uuid)->whereIn('status', ['Belum Lunas'])->get();
         $data->map(function ($item) {
             $penghuni = DataPenghuni::where('uuid_user', auth()->user()->uuid)->first();
             $tagihan = Tagihan::where('uuid_penghuni', $penghuni->uuid)->first();
@@ -154,7 +154,9 @@ class RekapPembayaranController extends BaseController
             $item->total_tagihan = $total;
             return $item;
         });
-        $riwayat = RekapPembayaran::where('uuid_penghuni', auth()->user()->uuid)->where('status', 'Sudah Lunas')->get();
+        // $riwayat = RekapPembayaran::where('uuid_penghuni', auth()->user()->uuid)->where('status', 'Sudah Lunas')->get();
+        $riwayat = RekapPembayaran::where('uuid_penghuni', auth()->user()->uuid)->get();
+
         $riwayat->map(function ($item) {
             $penghuni = DataPenghuni::where('uuid_user', auth()->user()->uuid)->first();
             $tagihan = Tagihan::where('uuid_penghuni', $penghuni->uuid)->first();

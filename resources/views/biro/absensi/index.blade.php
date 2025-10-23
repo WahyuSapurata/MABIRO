@@ -147,6 +147,10 @@
                                 <option value="Halaman & Taman Depan">Halaman & Taman Depan Lobby</option>
                             </optgroup>
 
+                            <optgroup label="Lainnya">
+                                <option value="Kulkas">Kulkas</option>
+                            </optgroup>
+
                         </select>
                         <small class="text-danger status_error"></small>
                     </div>

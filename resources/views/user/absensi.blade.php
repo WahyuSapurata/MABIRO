@@ -72,9 +72,44 @@
                                 </div>
                             @endif
                         @else
-                            <div class="col-12">
-                                <div class="alert alert-info" role="alert">
-                                    Tidak ada jadwal piketmu hari ini
+                            <div class="col-12 text-center">
+                                <div class="alert border-0 shadow-sm py-5 px-4 position-relative overflow-hidden"
+                                    style="
+            border-radius: 20px;
+            background: linear-gradient(135deg, #e6f9ec 0%, #d1f5df 100%);
+            color: #155724;
+        ">
+
+                                    <!-- Radial Accent -->
+                                    <div class="position-absolute top-0 start-0 w-100 h-100"
+                                        style="background: radial-gradient(circle at top right, rgba(220,53,69,0.08), transparent 70%);">
+                                    </div>
+
+                                    <div class="position-relative">
+                                        <div class="d-flex flex-column align-items-center justify-content-center">
+
+                                            <!-- Emoticon Section -->
+                                            <div class="d-flex align-items-center justify-content-center mb-3"
+                                                style="
+                        width:90px;
+                        height:90px;
+                        background:#fff;
+                        border-radius:50%;
+                        box-shadow:0 10px 25px rgba(0,0,0,0.08);
+                        font-size:46px;
+                        transition: transform 0.3s ease;
+                    ">
+                                                <span class="emoji-pulse">😎</span>
+                                            </div>
+
+                                            <h4 class="fw-bold mb-2 text-success text-center">
+                                                Tidak ada jadwal piketmu hari ini <span class="emoji-wiggle">👍</span>
+                                            </h4>
+                                            <p class="mb-0 text-success text-center" style="font-size:0.95rem; ">
+                                                Silahkan jalani hari ini dengan santai 💚
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         @endif
@@ -377,3 +412,71 @@
         });
     </script>
 @endsection
+
+<style>
+    /* Hover Effect */
+    .alert {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .alert:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 25px rgba(220, 53, 69, 0.15);
+    }
+
+    /* Emoji wiggle animation */
+    .emoji-wiggle {
+        display: inline-block;
+        animation: wiggleThumb 1.5s ease-in-out infinite;
+        transform-origin: 60% 70%;
+    }
+
+    @keyframes wiggleThumb {
+
+        0%,
+        100% {
+            transform: rotate(0deg);
+        }
+
+        25% {
+            transform: rotate(10deg);
+        }
+
+        50% {
+            transform: rotate(-8deg);
+        }
+
+        75% {
+            transform: rotate(6deg);
+        }
+    }
+
+    /* Pulse animation for main emoji */
+    .emoji-pulse {
+        display: inline-block;
+        animation: pulseRed 2s ease-in-out infinite;
+    }
+
+    @keyframes pulseRed {
+
+        0%,
+        100% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.15);
+        }
+    }
+
+    /* Responsive optimization */
+    @media (max-width: 576px) {
+        .alert {
+            padding: 2rem 1rem;
+        }
+
+        .emoji-pulse {
+            font-size: 38px;
+        }
+    }
+</style>

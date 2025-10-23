@@ -241,7 +241,7 @@
                             <option value="F02">F02</option>
                             <option value="F03">F03</option>
                             <option value="F04">F04</option>
-                            <option value="F06">F05</option>
+                            <option value="F05">F05</option>
                             <option value="F06">F06</option>
                             <option value="F07">F07</option>
                             <option value="F08">F08</option>
