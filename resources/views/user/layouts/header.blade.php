@@ -92,12 +92,19 @@
                                 </a>
                             @endif
 
-                            <!-- Tombol Update Tampilan -->
-                            <button id="clear-cache-btn"
-                                class="btn btn-light rounded-circle d-flex align-items-center justify-content-center"
-                                style="width: 42px; height: 42px; position: static;border: none;">
-                                <i class="fas fa-sync-alt"></i>
-                            </button>
+                            <div class="d-flex gap-2">
+                                <button id="clear-cache-btn"
+                                    class="btn btn-light rounded-circle d-flex align-items-center justify-content-center"
+                                    style="width: 42px; height: 42px; border: none;">
+                                    <i class="fas fa-sync-alt"></i>
+                                </button>
+
+                                <button id="install-pwa-btn"
+                                    class="btn btn-light rounded-circle d-flex align-items-center justify-content-center"
+                                    style="width: 42px; height: 42px; border: none;" title="Install App">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                            </div>
                         </div>
                     </li>
 
@@ -152,4 +159,39 @@
             window.location.reload(true);
         }
     });
+</script>
+
+
+<script>
+    let deferredPrompt;
+
+    // Tangkap event 'beforeinstallprompt' (disimpan agar bisa dipicu nanti)
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+
+        // Tampilkan tombol install setelah event diterima
+        const installBtn = document.getElementById('install-pwa-btn');
+        installBtn.style.display = 'flex';
+    });
+
+    // Fungsi ketika tombol diklik
+    document.getElementById('install-pwa-btn').addEventListener('click', async () => {
+        if (deferredPrompt) {
+            deferredPrompt.prompt(); // Menampilkan prompt install bawaan browser
+
+            const {
+                outcome
+            } = await deferredPrompt.userChoice;
+            console.log(`User response: ${outcome}`);
+
+            deferredPrompt = null; // Reset agar tidak muncul dua kali
+            document.getElementById('install-pwa-btn').style.display = 'none';
+        } else {
+            alert("App sudah terpasang atau belum memenuhi syarat PWA.");
+        }
+    });
+
+    // Sembunyikan tombol secara default (nanti muncul otomatis jika PWA siap)
+    document.getElementById('install-pwa-btn').style.display = 'none';
 </script>
