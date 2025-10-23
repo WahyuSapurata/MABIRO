@@ -535,7 +535,7 @@
                 <!--end::Menu item-->
             @endif
 
-            @if ($role === 'keuangan')
+            @if ($role === 'keuangan' || $role === 'superadmin')
                 <!--begin::Menu item-->
                 <div class="menu-item">
                     <a class="menu-link {{ isset($path[1]) && $path[1] == 'pemasukan' ? 'mb-bg-active' : 'mb-bg-default' }}"
