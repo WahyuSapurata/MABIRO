@@ -1,7 +1,7 @@
 @extends('user.layouts.layout')
 @section('content')
     <!-- Start Breadcrumb
-                                                                                                                                                                                                                                                                                                ============================================= -->
+                                                                                                                                                                                                                                                                                                                                ============================================= -->
     <div class="breadcrumb-area text-center shadow theme-hard bg-fixed text-light"
         style="background-image: url({{ asset('assets-landing/img/banner/asrama.png') }});">
         <div class="container">
@@ -20,9 +20,9 @@
             <div class="row g-4 justify-content-center">
 
                 @forelse ($data as $item)
-                    <div class="col-12 col-md-3">
+                    <div class="col-12 col-lg-4 col-md-3">
                         <div class="card border-0 shadow-sm h-100"
-                            style="border-radius: 20px; overflow: hidden; padding: 10px; box-shadow: 0 .125rem 8px 4px rgba(0, 0, 0, .1) !important;">
+                            style="border-radius: 20px; overflow: hidden; padding: 10px; box-shadow: 0 .125rem 8px 4px rgba(0, 0, 0, 0.042) !important;">
                             <div class="position-relative">
                                 <img src="{{ asset('/public/fasilitas/' . $item->gambar) }}" alt="Thumb"
                                     class="img-fluid w-100" style="height: 200px; object-fit: cover; border-radius: 10px;">
