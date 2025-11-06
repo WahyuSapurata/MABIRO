@@ -149,6 +149,8 @@
 
                             <optgroup label="Lainnya">
                                 <option value="Kulkas">Kulkas</option>
+                                <option value="Serbaguna & Gudang">Serbaguna & Gudang</option>
+                                <option value="Kreasi">Ruang Kreasi</option>
                             </optgroup>
 
                         </select>

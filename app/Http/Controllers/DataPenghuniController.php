@@ -78,21 +78,45 @@ class DataPenghuniController extends BaseController
         return $this->sendResponse($data, 'Add data success');
     }
 
-    public function show($params)
-    {
-        $data = array();
-        try {
-            $data = DataPenghuni::where('uuid', $params)->first();
-            $user = User::where('uuid', $data->uuid_user)->first();
-            $data->nama = $user->nama;
-            $data->username = $user->username;
-            $data->password_hash = $user->password_hash;
-            $data->foto = $user->foto;
-        } catch (\Exception $e) {
-            return $this->sendError($e->getMessage(), $e->getMessage(), 400);
+    // public function show($params)
+    // {
+    //     $data = array();
+    //     try {
+    //         $data = DataPenghuni::where('uuid', $params)->first();
+    //         $user = User::where('uuid', $data->uuid_user)->first();
+    //         $data->nama = $user->nama;
+    //         $data->username = $user->username;
+    //         $data->password_hash = $user->password_hash;
+    //         $data->foto = $user->foto;
+    //     } catch (\Exception $e) {
+    //         return $this->sendError($e->getMessage(), $e->getMessage(), 400);
+    //     }
+    //     return $this->sendResponse($data, 'Show data success');
+    // }
+
+    public function show($params) //Function Baru Untuk tampilkan kamar
+{
+    try {
+        $data = DataPenghuni::where('uuid', $params)
+            ->orderBy('status', 'asc')
+            ->orderBy('kamar', 'asc')
+            ->get();
+
+        foreach ($data as $item) {
+            $user = User::where('uuid', $item->uuid_user)->first();
+            if ($user) {
+                $item->nama = $user->nama;
+                $item->username = $user->username;
+                $item->password_hash = $user->password_hash;
+                $item->foto = $user->foto;
+            }
         }
-        return $this->sendResponse($data, 'Show data success');
+
+        return $this->sendResponse($data, 'Show data ordered by status and room');
+    } catch (\Exception $e) {
+        return $this->sendError($e->getMessage(), $e->getMessage(), 400);
     }
+}
 
     public function update(UpdateDataPenghuniRequest $update, $params)
     {

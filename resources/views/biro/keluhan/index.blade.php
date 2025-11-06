@@ -195,7 +195,7 @@
                         data: 'created_at',
                         className: 'mb-kolom-tanggal align-content-center text-center',
                         render: function(data, type, row, meta) {
-                            return moment(data).format('DD-MM-YYYY');
+                            return moment(data).format('YYYY-MM-DD');
                         }
                     },
 
